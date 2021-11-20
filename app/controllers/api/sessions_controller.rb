@@ -1,9 +1,9 @@
 class Api::SessionsController < ApplicationController
 
   def destroy
-    @current_user = current_user
-    if !@current_user
-      render json: ["Invalid user credentials"], status: 401
+    @user = current_user
+    if !@user
+      render json: ["Not currently signed in"], status: 401
     else
       logout!
       render "api/users/show"
