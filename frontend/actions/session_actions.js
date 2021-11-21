@@ -18,13 +18,12 @@ const receiveSessionErrors = errors => ({
   errors
 })
 
-export const signup = user => {
-  return $.ajax({
-    url: '/api/users',
-    method: 'POST',
-    data: { user }
-  })
+export const signup = user => dispatch => {
+  return APIUtil.signup(user)
+    .then(user => dispatch(receiveCurrentUser(user)),
+      (errors) => dispatch(receiveSessionErrors(errors)))
 }
+
 export const login = user => dispatch => {
   return APIUtil.login(user)
     .then(user => dispatch(receiveCurrentUser(user)),
