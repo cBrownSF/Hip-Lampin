@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
-import Root from './root.jsx'
+import Root from './components/root.jsx'
 import { login, logout,signup } from './actions/session_actions'
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
