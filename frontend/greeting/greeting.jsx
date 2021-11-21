@@ -7,9 +7,10 @@ class Greeting extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.currentUser)
+    console.log(this.props.logout)
     const { currentUser, logout } = this.props
-    if (currentUser !== undefined) {
+    if (currentUser) {
       console.log('signed in')
       return (
         <div>
