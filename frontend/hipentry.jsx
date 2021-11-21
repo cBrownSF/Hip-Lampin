@@ -4,7 +4,8 @@ import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
-  ReactDOM.render(<h1>Welcome to HipCamp</h1>, root);
   const store = configureStore()
+  ReactDOM.render(<h1>hipcamp</h1>,root);
   window.store = store
 });
+
