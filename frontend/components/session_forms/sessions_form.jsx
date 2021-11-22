@@ -5,12 +5,13 @@ import { Redirect } from "react-router-dom"
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       username: "",
       password: "",
-      email: ""
+      email: "",
+      fname: ''
     };
+    console.log(this.state.username.length)
     console.log(this.state)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.showErrors = this.showErrors.bind(this)
@@ -49,8 +50,6 @@ class SessionForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h1>THIS IS A FORM</h1>
-          <br />
           <h1>{this.props.formType}</h1>
           {this.showErrors()}
           {this.showLinks()}
@@ -59,6 +58,13 @@ class SessionForm extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.update('username')}
+            />
+          </label>
+          <label>fname
+            <input
+              type="text"
+              value={this.state.fname}
+              onChange={this.update('fname')}
             />
           </label>
           <br />
