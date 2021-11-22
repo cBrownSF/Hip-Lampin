@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
       lname:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.showErrors = this.showErrors.bind(this)
+    // this.showErrors = this.showErrors.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -26,11 +26,12 @@ class SessionForm extends React.Component {
   }
 
   showErrors() {
-    return this.props.errors
+    let errorArray = this.props.errors.responseJSON
+    return errorArray;
   }
 
   render() {
-    console.log(this.props.errors)
+    // console.log(this.props.errors)
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
     }
