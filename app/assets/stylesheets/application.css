@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+body{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+ .sign-up-sign-in-button{
+   font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   text-align: center;
+   border-radius: 3px;
+   outline:none;
+   border: .1px;
+   font-size: 10px;
+   width: 150owpx;
+   height:50px;
+   
+ }
+
+ .login-sign-up-link{
+   font-weight:bold;
+   text-decoration: none;
+   color: black;
+ }

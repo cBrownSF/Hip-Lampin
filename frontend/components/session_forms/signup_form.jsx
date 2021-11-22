@@ -12,12 +12,12 @@ class SessionForm extends React.Component {
       lname:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.showErrors = this.showErrors.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
     // const activeUser = Object.assign({}, this.state);
     this.props.submitForm(this.state);
+   
   }
   handleInput(type) {
     return e => {
@@ -26,12 +26,20 @@ class SessionForm extends React.Component {
   }
 
   showErrors() {
-    let errorArray = this.props.errors
-    return errorArray;
+    // return (
+    //   <ul>
+    //     {this.props.errors.map((error, i) => (
+    //       <li key={`error-${i}`}>
+    //         {error}
+    //       </li>
+    //     ))}
+    //   </ul>
+    // );
   }
 
   render() {
     // console.log(this.props.errors)
+    
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
     }
@@ -39,7 +47,8 @@ class SessionForm extends React.Component {
       <div className = 'signup-form'>
         <form onSubmit={this.handleSubmit}>
           <h1>Sign up and discover new places!</h1>
-          {this.showErrors()}
+          {/* {console.log(Array.from(this.props.errors))} */}
+          {this.props.errors}
           <label>First Name:
             <input
               type="text"
@@ -63,13 +72,14 @@ class SessionForm extends React.Component {
           </label>
           <label>Email:
             <input type="text"
+              default value= 'email'
               value={this.state.email}
               onChange={this.handleInput('email')}
             />
           </label>
-          <input type="submit" value= "Sign up" />
+          <input class = "sign-up-sign-in-button" type="submit" value= "Sign up" />
           <div className = 'link-to-signup'>
-            <p>Already a member? <Link to='/signup'>Log In!</Link ></p>
+            <p>Already a member? <Link className = "login-sign-up-link" to='/signup'>Log In!</Link ></p>
           </div>
         </form>
       </div >

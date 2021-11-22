@@ -47,9 +47,9 @@ class LoginForm extends React.Component {
               onChange={this.handleInput('password')}
             />
           </label>
-          <input type="submit" value= 'Log in' />
-          <div className='link-to-sign-up'>
-            <p>Don't have an account? <Link to='/signup'>Sign Up!</Link ></p>
+          <input className= "sign-up-sign-in-button" type="submit" value= 'Log in' />
+          <div>
+            <p>Don't have an account? <Link className = "login-sign-up-link" to='/signup'>Sign Up!</Link ></p>
           </div>
         </form>
       </div >
