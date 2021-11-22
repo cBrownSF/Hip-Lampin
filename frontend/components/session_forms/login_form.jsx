@@ -20,7 +20,13 @@ class LoginForm extends React.Component {
       this.setState({ [type]: e.currentTarget.value })
     }
   }
+  // testLogin(){
+    // let userInfo = {([this.state.email]:'demo@gmail.com', [this.state.password]:123456}
+    // let user = Object.assign({},userinfo)
+    // console.log(user)
 
+    // }
+  // }
   showErrors() {
     let errorArray = this.props.errors
     return errorArray;
@@ -31,9 +37,10 @@ class LoginForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div className = 'login-form'>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Welcome back!</h1>
+      <div>
+          <h3>Welcome back!</h3>
+          {console.log(this.state.email)}
+        <form className ="session-forms" onSubmit={this.handleSubmit}>
           {this.showErrors()}
           <label>
             <input type="text"

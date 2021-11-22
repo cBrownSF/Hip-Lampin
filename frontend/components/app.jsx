@@ -7,7 +7,7 @@ import { AuthRoute } from "../util/routes";
 const App = () => (
   <div>
     <header>
-    <h1>HipCamp Routessr</h1>
+    <p className='mainLogo'>HipCamp</p>
     <GreetingContainer/>
   </header>
     <AuthRoute path="/login" component={LoginFormContainer} />

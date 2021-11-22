@@ -44,9 +44,9 @@ class SessionForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div className = 'signup-form'>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Sign up and discover new places!</h1>
+      <div>
+          <h3>Sign up and discover new places!</h3>
+        <form className ='session-forms' onSubmit={this.handleSubmit}>
           {/* {console.log(Array.from(this.props.errors))} */}
           {this.props.errors}
           <label>
@@ -80,7 +80,7 @@ class SessionForm extends React.Component {
               onChange={this.handleInput('email')}
             />
           </label>
-          <input class = "sign-up-sign-in-button" type="submit" value= "Sign up" />
+          <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
           <div className = 'link-to-signup'>
             <p>Already a member? <Link className = "login-sign-up-link" to='/signup'>Log In!</Link ></p>
           </div>
