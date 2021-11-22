@@ -32,9 +32,9 @@ class LoginForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div className = 'login form'>
+      <div className = 'login-form'>
         <form onSubmit={this.handleSubmit}>
-          <h1>{this.props.formType}</h1>
+          <h1>Welcome back!</h1>
           {this.showErrors()}
           <label>Email
             <input type="text"
@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
               onChange={this.update('password')}
             />
           </label>
-          <input type="submit" value={this.props.formType} />
+          <input type="submit" value= 'Log in' />
           <div className='link-to-sign-up'>
             <p>Don't have an account? <Link to='/signup'>Sign Up!</Link ></p>
           </div>

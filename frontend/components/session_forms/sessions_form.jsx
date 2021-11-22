@@ -30,14 +30,14 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentUser)
+    console.log(this.props.errors)
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
     }
     return (
       <div className = 'signup-form'>
         <form onSubmit={this.handleSubmit}>
-          <h1>{this.props.formType}</h1>
+          <h1>Sign up and discover new places!</h1>
           {this.showErrors()}
           <label>First Name:
             <input
@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
               onChange={this.update('email')}
             />
           </label>
-          <input type="submit" value={this.props.formType} />
+          <input type="submit" value= "Sign up" />
           <div className = 'link-to-signup'>
             <p>Already a member? <Link to='/signup'>Log In!</Link ></p>
           </div>
