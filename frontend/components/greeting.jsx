@@ -17,7 +17,6 @@ class Greeting extends React.Component {
         </div>
       )
     } else {
-      console.log('signed out')
       return (
         <div className="navBar">
           <Link to='/signup'>Sign Up</Link>
