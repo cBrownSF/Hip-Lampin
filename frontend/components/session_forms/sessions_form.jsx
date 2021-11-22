@@ -5,10 +5,13 @@ import { Redirect } from "react-router-dom"
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      email: ""
     };
+    console.log(this.state)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.showErrors = this.showErrors.bind(this)
     this.showLinks = this.showLinks.bind(this)
@@ -31,18 +34,18 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'signup') {
       return (
       <div>
-      <Link to='/login'>Log In</Link >
+      <Link to='/login'>LogeeeerIn</Link >
       </div>
       )
     } else {
-      return <Link to='/signup'>Sign Up</Link >
+      return <Link to='/signup'>Sigeee Up</Link >
     }
   }
   render() {
     console.log(this.props.currentUser)
-    // if (this.props.currentUser !== undefined) {
-    //   return <Redirect to='/' />
-    // }
+    if (this.props.currentUser !== undefined) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -63,6 +66,12 @@ class SessionForm extends React.Component {
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
+            />
+          </label>
+          <label>Email
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
             />
           </label>
           <input type="submit" value={this.props.formType} />
