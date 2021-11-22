@@ -30,25 +30,4 @@ class Greeting extends React.Component {
 }
 
 export default Greeting;
-// const Greeting = (props) => {
-//   console.log(props.logout)
-//   console.log(props.currentUser)
-//   console.log(props)
-//   const sessionLinks = () => (
-//     <nav className="login-signup">
-//       <Link to="/login">Login</Link>
-//       &nbsp;or&nbsp;
-//       <Link to="/signup">Sign up!</Link>
-//     </nav>
-//   );
-//   const personalGreeting = () => (
-//     <hgroup className="header-group">
-//       <h2 className="header-name">Hi, {props.currentUser.username}!</h2>
-//       <button className="header-button" onClick={props.logout}>Log Out</button>
-//     </hgroup>
-//   );
-
-//   return props.currentUser ? personalGreeting() : sessionLinks();
-// };
-
 

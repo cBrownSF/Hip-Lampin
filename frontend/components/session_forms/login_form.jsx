@@ -6,9 +6,8 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: '',
       password: "",
-      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.showErrors = this.showErrors.bind(this)
@@ -51,13 +50,6 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h1>{this.props.formType}</h1>
           {this.showErrors()}
-         
-          <label>Username:
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-            />
-          </label>
           <label>Email
             <input type="text"
               value={this.state.email}

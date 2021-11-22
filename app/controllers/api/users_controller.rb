@@ -13,6 +13,6 @@ def create
   private
   
   def user_params
-    params.require(:user).permit(:username, :email, :password,:fname)
+    params.require(:user).permit(:email, :password,:fname,:lname)
   end
 end
