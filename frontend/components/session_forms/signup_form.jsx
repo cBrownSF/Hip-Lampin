@@ -49,30 +49,33 @@ class SessionForm extends React.Component {
           <h1>Sign up and discover new places!</h1>
           {/* {console.log(Array.from(this.props.errors))} */}
           {this.props.errors}
-          <label>First Name:
+          <label>
             <input
+              placeholder='First name'
               type="text"
               value={this.state.fname}
               onChange={this.handleInput('fname')}
             />
           </label>
-          <label>Last Name:
+          <label>
             <input
+              placeholder = 'Last name'
               type="text"
               value={this.state.lname}
               onChange={this.handleInput('lname')}
             />
           </label>
           <br />
-          <label>Password:
+          <label>
             <input type="password"
+              placeholder = 'Password'
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
           </label>
-          <label>Email:
+          <label>
             <input type="text"
-              default value= 'email'
+              placeholder='Email address'
               value={this.state.email}
               onChange={this.handleInput('email')}
             />
