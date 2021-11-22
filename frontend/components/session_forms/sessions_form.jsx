@@ -9,7 +9,8 @@ class SessionForm extends React.Component {
       username: "",
       password: "",
       email: "",
-      fname: ''
+      fname: '',
+      lname:''
     };
     console.log(this.state.username.length)
     console.log(this.state)
@@ -65,6 +66,13 @@ class SessionForm extends React.Component {
               type="text"
               value={this.state.fname}
               onChange={this.update('fname')}
+            />
+          </label>
+          <label>lname
+            <input
+              type="text"
+              value={this.state.lname}
+              onChange={this.update('lname')}
             />
           </label>
           <br />
