@@ -64,10 +64,10 @@ body{
  }
 
  .session-forms{
-   display:flex;
- flex-direction: column;
-justify-content: center;
-  align-items: center;
-  height: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
     width: 200px;
  }

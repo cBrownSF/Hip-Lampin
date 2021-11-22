@@ -44,9 +44,9 @@ class SessionForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div>
+      <div className='session-forms'>
           <h3>Sign up and discover new places!</h3>
-        <form className ='session-forms' onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           {/* {console.log(Array.from(this.props.errors))} */}
           {this.props.errors}
           <label>
