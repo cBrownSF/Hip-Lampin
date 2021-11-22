@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
           </label>
           <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
           <div className = 'link-to-signup'>
-            <p>Already a member? <Link className = "login-sign-up-link" to='/signup'>Log In!</Link ></p>
+            <p>Already a member? <Link className = "login-sign-up-link" to='/login'>Log In!</Link ></p>
           </div>
         </form>
       </div >
