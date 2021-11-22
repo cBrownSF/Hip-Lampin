@@ -10,7 +10,6 @@ class LoginForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.showErrors = this.showErrors.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +23,8 @@ class LoginForm extends React.Component {
   }
 
   showErrors() {
-    return this.props.errors
+    let errorArray = this.props.errors.responseJSON
+    return errorArray;
   }
   
   render() {
