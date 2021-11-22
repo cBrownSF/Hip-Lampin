@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { signup } from "../../actions/session_actions";
-import SessionForm from "./sessions_form";
+import SessionForm from "./signup_form";
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.session,
+    errors: state.errors.session.responseJSON,
     currentUser: state.entities.users[state.sessions.currentUser]
   }
 

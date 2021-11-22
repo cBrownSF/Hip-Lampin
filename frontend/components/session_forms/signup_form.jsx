@@ -16,17 +16,17 @@ class SessionForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const activeUser = Object.assign({}, this.state);
-    this.props.submitForm(activeUser);
+    // const activeUser = Object.assign({}, this.state);
+    this.props.submitForm(this.state);
   }
-  update(field) {
+  handleInput(type) {
     return e => {
-      this.setState({ [field]: e.currentTarget.value })
+      this.setState({ [type]: e.currentTarget.value })
     }
   }
 
   showErrors() {
-    let errorArray = this.props.errors.responseJSON
+    let errorArray = this.props.errors
     return errorArray;
   }
 
@@ -44,27 +44,27 @@ class SessionForm extends React.Component {
             <input
               type="text"
               value={this.state.fname}
-              onChange={this.update('fname')}
+              onChange={this.handleInput('fname')}
             />
           </label>
           <label>Last Name:
             <input
               type="text"
               value={this.state.lname}
-              onChange={this.update('lname')}
+              onChange={this.handleInput('lname')}
             />
           </label>
           <br />
           <label>Password:
             <input type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.handleInput('password')}
             />
           </label>
           <label>Email:
             <input type="text"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.handleInput('email')}
             />
           </label>
           <input type="submit" value= "Sign up" />

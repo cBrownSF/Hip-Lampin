@@ -13,17 +13,16 @@ class LoginForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const activeUser = Object.assign({}, this.state);
-    this.props.submitForm(activeUser);
+    this.props.submitForm(this.state);
   }
-  update(field) {
+  handleInput(type) {
     return e => {
-      this.setState({ [field]: e.currentTarget.value })
+      this.setState({ [type]: e.currentTarget.value })
     }
   }
 
   showErrors() {
-    let errorArray = this.props.errors.responseJSON
+    let errorArray = this.props.errors
     return errorArray;
   }
   
@@ -36,16 +35,16 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h1>Welcome back!</h1>
           {this.showErrors()}
-          <label>Email
+          <label>Email:
             <input type="text"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.handleInput('email')}
             />
           </label>
           <label>Password:
             <input type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.handleInput('password')}
             />
           </label>
           <input type="submit" value= 'Log in' />

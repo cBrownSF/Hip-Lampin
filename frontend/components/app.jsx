@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import GreetingContainer from './greeting_container'
+import GreetingContainer from './welcome_pages/welcome_page_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
 import { AuthRoute } from "../util/routes";
