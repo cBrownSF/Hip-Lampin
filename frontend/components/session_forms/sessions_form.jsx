@@ -28,18 +28,7 @@ class SessionForm extends React.Component {
   showErrors() {
     return this.props.errors
   }
-  // showLinks() {
-  //   if (this.props.formType === 'signup') {
-  //     return (
-  //     <div>
-  //     <Link to='/login'>LogeeeerIn</Link >
-  //     </div>
-  //     )
-  //   } else {
-      
-  //     return <Link to='/signup'>Sigeee Up</Link >
-  //   }
-  // }
+
   render() {
     console.log(this.props.currentUser)
     if (this.props.currentUser !== undefined) {

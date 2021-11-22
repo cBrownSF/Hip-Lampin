@@ -26,21 +26,7 @@ class LoginForm extends React.Component {
   showErrors() {
     return this.props.errors
   }
-  // showLinks() {
-  //   if (this.props.formType === 'signup') {
-  //     return (
-  //     <div>
-  //     <Link to='/login'>LogeeeerIn</Link >
-  //     </div>
-  //     )
-  //   } else {
-  //     return(
-  //       <div className ='link-to-sign-up'>
-  //         <p>Don't have an account? <Link to='/signup'>Sign Up!</Link ></p>
-  //       </div>
-  //     )
-  //   }
-  // }
+  
   render() {
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
