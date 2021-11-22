@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       username: "",
       password: "",
+      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.showErrors = this.showErrors.bind(this)
@@ -55,6 +56,12 @@ class LoginForm extends React.Component {
             <input type="text"
               value={this.state.username}
               onChange={this.update('username')}
+            />
+          </label>
+          <label>Email
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
             />
           </label>
           <label>Password:
