@@ -25,17 +25,12 @@ class SessionForm extends React.Component {
     }
   }
 
-  showErrors() {
-    // return (
-    //   <ul>
-    //     {this.props.errors.map((error, i) => (
-    //       <li key={`error-${i}`}>
-    //         {error}
-    //       </li>
-    //     ))}
-    //   </ul>
-    // );
-  }
+  
+    showErrors() {
+      let errorArray = this.props.errors
+      return errorArray;
+      //arrayFrom? change font size
+    }
 
   render() {
  
@@ -47,8 +42,7 @@ class SessionForm extends React.Component {
       <div className='form-container'>
           <h2 className = "form-main-header">Join Hipcamp!</h2>
         <form className = "session-form" onSubmit={this.handleSubmit}>
-          
-          {this.props.errors}
+          {this.showErrors()}
           <label>
             <input className='form-boxes'
               placeholder='First name'
