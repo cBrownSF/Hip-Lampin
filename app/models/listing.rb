@@ -5,7 +5,7 @@ class Listing < ApplicationRecord
   validates :is_trash,:is_kitchen,:is_shower,:is_wifi, :is_picnic_table,:is_toilet,:is_campfire_allowed, presence:true
 
   belongs_to :host,
-    foreign_key: :host_id
+    foreign_key: :host_id,
     class_name: :User
   
     

@@ -2,17 +2,17 @@ class Api::ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-
-    if @listing.save
-      render "api/listings/show"
-    else
-      render json: @listing.error.full_messages, status: 422
-    end
+    render :show
   end
 
+  def index
+    @listings = Listing.all
+    render :index
+  end
   private
 
   def listing_params
+   #params.require(:listing).permit!
     params.require(:listing).permit(
       :name,
       :description,
