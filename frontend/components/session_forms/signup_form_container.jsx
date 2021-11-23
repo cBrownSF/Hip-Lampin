@@ -4,7 +4,7 @@ import SessionForm from "./signup_form";
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.session.responseJSON,
+    errors: state.errors.session,
     currentUser: state.entities.users[state.sessions.currentUser]
   }
 

@@ -22,8 +22,8 @@ class LoginForm extends React.Component {
   }
 
   showErrors() {
-    let errorArray = this.props.errors
-    return errorArray;
+    let singleError = this.props.errors[0]
+    return singleError;
   }
   
   render() {

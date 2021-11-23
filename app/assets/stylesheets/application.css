@@ -21,7 +21,7 @@ body{
   display:flex;
   background-color: transparent;
   color:red;
-  font-size: 15;
+  font-size: 20px;
   font-family: inherit;
 }
 .logged-in{
@@ -44,7 +44,7 @@ body{
    border-radius: 3px;
    outline:none;
    border: .1px;
-   font-size: 10px;
+   font-size: 16px;
    margin: 2px;
    width: 60px;
    height:30px;
@@ -61,7 +61,7 @@ body{
    border-radius: 3px;
    outline:none;
    border: .1px;
-   font-size: 10px;
+   font-size: 16px;
    width: 161px;
    height:30px;
    margin:2px;
@@ -82,14 +82,14 @@ body{
    color: black;
    outline:none;
    background-color: transparent;
-   font-size:10px;
+   font-size:16px;
    font-style: inherit;
 }
  .login-sign-up-link{
    font-weight:bold;
    text-decoration: none;
    color: black;
-   font-size:10px;
+   font-size:16px;
    font-style: inherit;
  }
  .navList{
@@ -109,7 +109,7 @@ body{
     align-items: center;
  }
  .font-before-link{
-  font-size:10px;
+  font-size:16px;
   font-style: inherit;
   color: black;
  }
@@ -121,4 +121,9 @@ body{
    border-width:thin
    /* border-color: black; */
    /* flex-basis: 0 0 200px; */
+ }
+
+ .errors{
+   font-family: inherit;
+   font-size: 10px;
  }
