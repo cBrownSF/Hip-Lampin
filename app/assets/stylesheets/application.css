@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+body{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-color: beige;
+}
+.mainLogo{
+  float:right;
+  color:red;
+  position: fixed; 
+  top: 0; 
+  font-size: 15;
+  font-family: inherit;
+}
+ .sign-up-sign-in-button{
+   font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   text-align: center;
+   border-radius: 3px;
+   outline:none;
+   border: .1px;
+   font-size: 10px;
+   width: 150px;
+   height:50px;
+   
+ }
+
+.navBar {
+  background-color: transparent;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+}
+.navBarButton{
+  text-decoration: none;
+   color: black;
+   outline:none;
+   background-color: transparent;
+   font-size:10px;
+   font-style: inherit;
+}
+ .login-sign-up-link{
+   font-weight:bold;
+   text-decoration: none;
+   color: black;
+ }
+ .navList{
+   float:right;
+   padding: 10px;
+ }
+
+ .session-forms{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+ }
