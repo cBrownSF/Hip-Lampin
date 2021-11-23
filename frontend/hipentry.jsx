@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     delete window.currentUser;
   } else {
     store = configureStore();
-    console.log(store.getState())
+  
   }
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

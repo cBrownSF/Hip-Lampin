@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
   // testLogin(){
     // let userInfo = {([this.state.email]:'demo@gmail.com', [this.state.password]:123456}
     // let user = Object.assign({},userinfo)
-    // console.log(user)
+   
 
     // }
   // }
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
     return (
       <div>
           <h3>Welcome back!</h3>
-          {console.log(this.state.email)}
+      
         <form className ="session-forms" onSubmit={this.handleSubmit}>
           {this.showErrors()}
           <label>

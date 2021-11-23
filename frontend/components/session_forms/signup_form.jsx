@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    // console.log(this.props.errors)
+ 
     
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
       <div className='session-forms'>
           <h3>Sign up and discover new places!</h3>
         <form onSubmit={this.handleSubmit}>
-          {/* {console.log(Array.from(this.props.errors))} */}
+          
           {this.props.errors}
           <label>
             <input
