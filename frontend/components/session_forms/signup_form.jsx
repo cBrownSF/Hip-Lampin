@@ -45,8 +45,7 @@ class SessionForm extends React.Component {
     }
     return (
       <div className='form-container'>
-          <h2 className = "form-main-header">Join Hipcamp</h2>
-          <h3 className = 'form-sub-header'>discover the best camping near me</h3>
+          <h2 className = "form-main-header">Join Hipcamp!</h2>
         <form className = "session-form" onSubmit={this.handleSubmit}>
           
           {this.props.errors}

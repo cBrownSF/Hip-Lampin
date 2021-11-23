@@ -31,20 +31,22 @@ class LoginForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div>
-          <h3>Welcome back!</h3>
+      <div className = 'form-container'>
+        <h2 className="form-main-header">Welcome Back!</h2>
       
-        <form className ="session-forms" onSubmit={this.handleSubmit}>
+        <form className ="session-form" onSubmit={this.handleSubmit}>
           {this.showErrors()}
           <label>
-            <input type="text"
+            <input className='form-boxes'
+              type="text"
               placeholder='Email address'
               value={this.state.email}
               onChange={this.handleInput('email')}
             />
           </label>
           <label>
-            <input type="password"
+            <input className='form-boxes'
+            type="password"
               placeholder='Password'
               value={this.state.password}
               onChange={this.handleInput('password')}

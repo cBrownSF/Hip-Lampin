@@ -9,11 +9,9 @@ class Greeting extends React.Component {
     const { currentUser, logout,login } = this.props
     if (currentUser) {
       return (
-        <div className="navBar">
-          <h1 className ="greeting">Welcome {currentUser.fname}!</h1>
-          <button className="navList" onClick={logout}>Logout</button>
-        <div>
-        </div>
+        <div className="logged-in">
+        <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
+          <button className="log-out-button" onClick={logout}>Logout</button>
         </div>
       )
     } else {
