@@ -20,13 +20,7 @@ class LoginForm extends React.Component {
       this.setState({ [type]: e.currentTarget.value })
     }
   }
-  // testLogin(){
-    // let userInfo = {([this.state.email]:'demo@gmail.com', [this.state.password]:123456}
-    // let user = Object.assign({},userinfo)
-   
 
-    // }
-  // }
   showErrors() {
     let errorArray = this.props.errors
     return errorArray;
@@ -58,7 +52,7 @@ class LoginForm extends React.Component {
           </label>
           <input className= "sign-up-sign-in-button" type="submit" value= 'Log in' />
           <div>
-            <p>Don't have an account? <Link className = "login-sign-up-link" to='/signup'>Sign Up!</Link ></p>
+            <p className = "font-before-link">Don't have an account? <Link className = "login-sign-up-link" to='/signup'>Sign Up!</Link ></p>
           </div>
         </form>
       </div >

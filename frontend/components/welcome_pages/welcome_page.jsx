@@ -10,8 +10,10 @@ class Greeting extends React.Component {
     if (currentUser) {
       return (
         <div className="navBar">
-          <button className="navBarButton" onClick={logout}>Logout</button>
           <h1 className ="greeting">Welcome {currentUser.fname}!</h1>
+          <button className="navList" onClick={logout}>Logout</button>
+        <div>
+        </div>
         </div>
       )
     } else {
@@ -20,7 +22,6 @@ class Greeting extends React.Component {
             <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
             <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
             <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>
-          {/* <Link className = "navBarButton" to='/login'>Demo Log in</Link> */}
         </div>
       )
     }

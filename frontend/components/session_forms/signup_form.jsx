@@ -44,45 +44,48 @@ class SessionForm extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div className='session-forms'>
-          <h3>Sign up and discover new places!</h3>
-        <form onSubmit={this.handleSubmit}>
+      <div className='form-container'>
+          <h2 className = "form-main-header">Join Hipcamp</h2>
+          <h3 className = 'form-sub-header'>discover the best camping near me</h3>
+        <form className = "session-form" onSubmit={this.handleSubmit}>
           
           {this.props.errors}
           <label>
-            <input
+            <input className='form-boxes'
               placeholder='First name'
               type="text"
               value={this.state.fname}
               onChange={this.handleInput('fname')}
             />
           </label>
-          <label>
-            <input
+          <label >
+            <input className='form-boxes'
               placeholder = 'Last name'
               type="text"
               value={this.state.lname}
               onChange={this.handleInput('lname')}
             />
           </label>
-          <br />
-          <label>
-            <input type="password"
+          <label >
+            <input className='form-boxes'
+              type="password"
               placeholder = 'Password'
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
           </label>
           <label>
-            <input type="text"
+            <input className='form-boxes'
+              type="text"
               placeholder='Email address'
               value={this.state.email}
               onChange={this.handleInput('email')}
             />
           </label>
           <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
+
           <div className = 'link-to-signup'>
-            <p>Already a member? <Link className = "login-sign-up-link" to='/login'>Log In!</Link ></p>
+            <p className= "font-before-link">Already a member? <Link className = "login-sign-up-link" to='/login'>Log In!</Link ></p>
           </div>
         </form>
       </div >
