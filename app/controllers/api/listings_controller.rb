@@ -1,7 +1,7 @@
 class Api::ListingsController < ApplicationController
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = Listing.create!(listing_params)
     render :show
   end
 
@@ -9,6 +9,7 @@ class Api::ListingsController < ApplicationController
     @listings = Listing.all
     render :index
   end
+  
   private
 
   def listing_params
