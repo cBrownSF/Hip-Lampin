@@ -9,7 +9,9 @@ class User < ApplicationRecord
   validates :lname,length: {minimum: 1}
   after_initialize :ensure_session_token
 
-  has_many :listings
+  has_many :listings,
+  foreign_key: :host_id,
+  class_name: 'Listing'
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

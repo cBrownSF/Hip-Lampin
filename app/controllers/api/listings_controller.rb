@@ -13,9 +13,10 @@ class Api::ListingsController < ApplicationController
   private
 
   def listing_params
-   #params.require(:listing).permit!
+  
     params.require(:listing).permit(
       :name,
+      :host_id
       :description,
       :cost,
       :guests_allowed, 
@@ -26,6 +27,11 @@ class Api::ListingsController < ApplicationController
       :response_time,
       :cancellation_policy,
       :booking_time,
+      :is_fishing,
+      :is_wildlife,
+      :is_paddling,
+      :is_paddling,
+      :is_hiking,
       :is_trash,
       :is_kitchen,
       :is_shower,
