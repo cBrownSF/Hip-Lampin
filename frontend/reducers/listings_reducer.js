@@ -12,4 +12,4 @@ const listingsReducer = (oldState = {},action) =>{
   }
 }
 
-export const listingsReducer;
+export default listingsReducer;
