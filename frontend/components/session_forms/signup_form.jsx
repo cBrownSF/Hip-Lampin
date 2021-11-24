@@ -13,9 +13,9 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
   handleSubmit(e) {
     e.preventDefault();
-    // const activeUser = Object.assign({}, this.state);
     this.props.submitForm(this.state);
    
   }
@@ -25,15 +25,15 @@ class SessionForm extends React.Component {
     }
   }
 
-  
+  componentDidMount() {
+    this.props.clearErrors()
+  }
     showErrors() {
       let singleError = this.props.errors[0]
       return singleError;
     }
 
   render() {
- 
-    
     if (this.props.currentUser !== undefined) {
       return <Redirect to='/' />
     }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_063924) do
+ActiveRecord::Schema.define(version: 2021_11_24_081933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_063924) do
     t.boolean "is_hiking"
     t.boolean "is_paddling"
     t.boolean "is_wildlife"
-    t.boolean "is_trash", null: false
+    t.boolean "is_trash", default: false, null: false
     t.boolean "is_kitchen", null: false
     t.boolean "is_shower", null: false
     t.boolean "is_wifi", null: false

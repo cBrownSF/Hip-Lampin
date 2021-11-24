@@ -23,3 +23,4 @@ export const createListing = listing =>dispatch =>{
   return ListingAPIUtil.createListing(listing)
   .then((createdlisting) => dispatch(receiveListing(createdlisting)))
 }
+

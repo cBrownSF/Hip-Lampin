@@ -11,6 +11,10 @@ class LoginForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+ clearErrors(e){
+   e.preventDefault()
+   this.props
+ }
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
@@ -20,7 +24,9 @@ class LoginForm extends React.Component {
       this.setState({ [type]: e.currentTarget.value })
     }
   }
-
+  componentDidMount() {
+    this.props.clearErrors()
+  }
   showErrors() {
     let singleError = this.props.errors[0]
     return singleError;
@@ -35,7 +41,8 @@ class LoginForm extends React.Component {
         <h2 className="form-main-header">Welcome Back!</h2>
       
         <form className ="session-form" onSubmit={this.handleSubmit}>
-          {this.showErrors()}
+         
+          <p className="errors">{this.showErrors()}</p>
           <label>
             <input className='form-boxes'
               type="text"
