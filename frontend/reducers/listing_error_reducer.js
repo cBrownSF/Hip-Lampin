@@ -1,11 +1,12 @@
 import {RECEIVE_LISTING_ERRORS, RECEIVE_LISTING} from "../actions/listings_actions";
 
 const _nullErrors = []
-const receiveAllListings = (oldState = _nullErrors, action) => {
+const listingErrorsReducer = (oldState = _nullErrors, action) => {
   Object.freeze(oldState)
+  listingErrorsReducer;
   switch (action.type) {
     case RECEIVE_LISTING_ERRORS:
-      return action.errors
+      return [] //HERE IS THE ISSUE if action.errors it doesn't work
     case RECEIVE_LISTING:
       return [];
     default:
@@ -13,4 +14,4 @@ const receiveAllListings = (oldState = _nullErrors, action) => {
   }
 };
 
-export default receiveAllListings;
+export default listingErrorsReducer;

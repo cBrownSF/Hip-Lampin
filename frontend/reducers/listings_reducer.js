@@ -1,4 +1,4 @@
-import { RECEIVE_LISTING,RECEIVE_ALL_LISTINGS } from "../actions/listings_actions";
+import { RECEIVE_LISTING,RECEIVE_ALL_LISTINGS,REMOVE_LISTING } from "../actions/listings_actions";
 const listingsReducer = (oldState = {},action) =>{
   console.log(action)
   Object.freeze(oldState)
@@ -7,6 +7,10 @@ const listingsReducer = (oldState = {},action) =>{
       return action.listings
     case RECEIVE_LISTING:
       return Object.assign({},oldState,{[action.listing.id]: action.listing})
+    case REMOVE_LISTING:
+      let nextState = Object.assign({},oldState)
+      delete nextState[action.listingId]
+      return nextState;
     default:
       return oldState;
   }
