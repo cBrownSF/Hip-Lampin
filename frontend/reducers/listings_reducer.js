@@ -4,10 +4,8 @@ const listingsReducer = (oldState = {},action) =>{
   Object.freeze(oldState)
   switch (action.type) {
     case RECEIVE_ALL_LISTINGS:
-      debugger;
       return action.listings
     case RECEIVE_LISTING:
-      debugger;
       return Object.assign({},oldState,{[action.listing.id]: action.listing})
     default:
       return oldState;

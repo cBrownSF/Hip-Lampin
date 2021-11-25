@@ -10,6 +10,26 @@ class Api::ListingsController < ApplicationController
     end
   end
 
+  def show
+    @listing= Listing.find(params[:id])
+  end
+
+  def update
+    @listing = Listing.find_by(id: params[:id])
+
+    if @listing.update(listing_params)
+      render :show
+    else
+      render json @listing.errors_full_messages
+    end
+  end
+
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    render :show
+  end
+
   def index
     @listings = Listing.all
     render :index
