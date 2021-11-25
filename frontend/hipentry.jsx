@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from './components/root.jsx'
-import {receiveAllListings} from './actions/listings_actions'
+import {receiveAllListings,createListing} from './actions/listings_actions'
 import { login, logout,signup } from './actions/session_actions'
-import {fetchListings,createListing} from './util/listing_api_util'
+// import { login, logout,signup } from './util/session_api_util'
+import {fetchListings,CreateListing} from './util/listing_api_util'
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store =store;
   window.dispatch = store.dispatch;
   window.fetchListings = fetchListings
+  window.login = login
   window.receiveAllListings = receiveAllListings
   window.createListing=createListing
   window.getState = store.dispatch;
