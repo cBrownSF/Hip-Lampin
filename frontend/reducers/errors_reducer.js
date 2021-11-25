@@ -6,4 +6,4 @@ const errorsReducer = combineReducers({
   listing: listingErrorsReducer
 });
 
-export default errorsReducer;
+export default errorsReducer
