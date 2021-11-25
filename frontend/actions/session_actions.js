@@ -38,7 +38,3 @@ export const logout = () => dispatch => {
   return APIUtil.logout()
     .then(user => dispatch(logoutCurrentUser()));
 }
-
-// export const clearSessionErrors = () => dispatch => {
-//   return () => dispatch(removeSessionErrors())
-// }

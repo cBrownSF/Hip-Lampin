@@ -11,10 +11,7 @@ class LoginForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
- clearErrors(e){
-   e.preventDefault()
-   this.props
- }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);

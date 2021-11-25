@@ -1,8 +1,13 @@
+require 'byebug'
 class Api::ListingsController < ApplicationController
 
   def create
-    @listing = Listing.create(listing_params)
-    render :show
+    @listing = Listing.new(listing_params)
+    if @listing.save
+      render :show
+    else
+      render json: @listing.errors_full_messages
+    end
   end
 
   def index
@@ -16,7 +21,7 @@ class Api::ListingsController < ApplicationController
   
     params.require(:listing).permit(
       :name,
-      :host_id
+      :host_id,
       :description,
       :cost,
       :guests_allowed, 
@@ -38,7 +43,6 @@ class Api::ListingsController < ApplicationController
       :is_wifi, 
       :is_picnic_table,
       :is_toilet,
-      :is_campfire_allowed
-      )
+      :is_campfire_allowed)
   end
 end
