@@ -1,5 +1,3 @@
-
-
 class Listing extends React.Component {
 
   constructor(props){
@@ -11,7 +9,7 @@ class Listing extends React.Component {
   }
 
   render(){
-
+    
   }
 }
 
