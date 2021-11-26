@@ -1,3 +1,5 @@
+import React from 'react'
+import { Link } from "react-router-dom";
 class Description extends React.Component{
   render(){
     return(
@@ -22,3 +24,5 @@ class Description extends React.Component{
     )
   }
 }
+
+export default Description
