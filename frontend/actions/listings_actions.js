@@ -19,35 +19,34 @@ export const removeListing = listing =>({
 })
 const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
-  errors
+  errors: 'Missing a Required Field'
 })
 
 export const receiveAllListings = () =>dispatch =>{
   return ListingAPIUtil.fetchListings()
-  .then(listings => dispatch(receiveListings(listings)),
-    (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
+  .then(listings => dispatch(receiveListings(listings)))
 }
 
 export const receiveListing = listingId => dispatch =>{
   return ListingAPIUtil.fetchListing(listingId)
-    .then(listing => dispatch(receiveOneListing(listing)),
-    (errors) =>dispatch(receiveListingErrors(errors.responseJSON)))
+    .then(listing => dispatch(receiveOneListing(listing)))
 }
 export const createListing = listing => dispatch =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdlisting => dispatch(receiveListing(createdlisting)),
-    (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
+    (errors) => dispatch(receiveListingErrors(errors)))
 }
 
 
 export const updateListing = listing => dispatch =>{
   return ListingAPIUtil.updateListing(listing)
-    .then(listing => dispatch(receiveListing(listing)),
-    (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
+    .then(listing => dispatch(receiveListing(listing)))
+
+    // (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
 }
 
 export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
-    .then(() => dispatch(removeListing(listingId)),
+    .then(() => dispatch(removeListing(listingId))
     )
 }

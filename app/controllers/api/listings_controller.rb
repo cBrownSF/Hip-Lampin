@@ -6,7 +6,7 @@ class Api::ListingsController < ApplicationController
     if @listing.save
       render :show
     else
-      render json: ["MISSING A FIELD"]
+      render json: ['Missing a required field']
     end
   end
 
@@ -20,7 +20,7 @@ class Api::ListingsController < ApplicationController
     if @listing.update(listing_params)
       render :show
     else
-      render json @listing.errors_full_messages
+      render json: @listing.errors_full_messages
     end
   end
 

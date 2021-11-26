@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.receiveListing = receiveListing;
   window.deleteListing = deleteListing;
+  window.createListing = createListing
   window.updateListing = updateListing;
   window.receiveAllListings = receiveAllListings;
   const root = document.getElementById("root");
