@@ -48,12 +48,18 @@ class ListingForm extends React.Component {
   
     toggleBoolean(type) {
       return e =>{
-        this.setState(prevState => ({
-          [type]: !prevState.type
-        }))
-      }
+        if (this.state[type] === false) {
+          this.setState({ [type]: true })
+        } else {
+          this.setState({ [type]: false })
+        }
   }
-
+}
+//WHY DIDNT WORKreturn e =>{
+      //   this.setState(prevState => ({
+      //     [type]: !prevState.type
+      //   }))
+      // }
   notToggle(type){
     return e =>{
       this.setState({[type]: false })
