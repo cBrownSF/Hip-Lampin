@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const CostForm = (props) => {
-  if (props.currentStep !== 3) {
+  if (props.currentPage !== 3) {
     return null
   }
   return(

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NameForm = (props) =>{
 console.log(props)
- if (props.currentStep !== 1){
+ if (props.currentPage !== 1){
    return null
  }
 

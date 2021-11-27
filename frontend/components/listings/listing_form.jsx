@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
 import CostForm from './cost'
-import useState from 'react'
+import Amenities from "./amenenities_checklist";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -13,12 +13,27 @@ class ListingForm extends React.Component {
       name: "",
       description: "",
       cost: '',
+      checkInTime: "",
+      checkOutTime: "",
+      responseTime: '',
+      onArrival: '',
+      guestsAllowed: '',
+      minimumNight: '',
+      cancellationPolicy: '',
+      bookingTime: '',
+      isTrash: false,
+      isKitchen: false,
+      isShower: false,
+      isWifi: false,
+      isPicnicTable:false,
+      isToilet: false,
+      isCampfireAllowed: false,
     }
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
     this.nextStep = this.nextStep.bind(this)
-    this.nextButton = this.nextButton.bind(this)
-    // this.handleSubmit=this.handleSubmit.bind(this)
+    this.notToggle = this.notToggle.bind(this)
+    this.toggleBoolean = this.toggleBoolean.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
@@ -29,6 +44,21 @@ class ListingForm extends React.Component {
         this.setState({ [type]: e.currentTarget.value })
       }
     }
+
+  
+    toggleBoolean(type) {
+      return e =>{
+        this.setState(prevState => ({
+          [type]: !prevState.type
+        }))
+      }
+  }
+
+  notToggle(type){
+    return e =>{
+      this.setState({[type]: false })
+    }
+  }
     nextStep () {
       let step = this.state.step
      return (
@@ -45,45 +75,45 @@ class ListingForm extends React.Component {
     })
   }
 
-    nextButton(){
-      let currentStep = this.state.step
-      if (currentStep ===1){
-        return(
-          <button type = 'button' onClick={this.nextStep}>Next</button>
-        )
-      }
-    }
-    previousButton(){
-      <button onClick = {this.previousStep}>Previous</button>
-    }
+ 
   render() {
     
-      return (
+    return (
       <React.Fragment>
-        <form>
+      <form>
       <NameForm 
-        currentStep = {this.state.step}
+        currentPage = {this.state.step}
         name = {this.state.name}
         handleInput ={this.handleInput}
         nextPage = {this.nextStep}
       />
       <DescriptionForm  
-        currentStep={this.state.step}
+        currentPage={this.state.step}
         nextPage={this.nextStep}
         prevPage={this.previousStep}
         handleInput={this.handleInput}
         description = {this.state.description}
       />
       <CostForm 
-        currentStep={this.state.step}
+        currentPage={this.state.step}
         nextPage={this.nextStep}
         prevPage={this.previousStep}
         handleInput={this.handleInput}
         cost = {this.state.cost}
         />
-    </form>
+      <Amenities
+        currentPage={this.state.step}
+        nextPage={this.nextStep}
+        prevPage={this.previousStep}
+        handleInput={this.handleInput}
+        isTrash = {this.state.isTrash}
+        toggleCheck = {this.toggleBoolean}
+        notToggle = {this.notToggle}
+        diffToggle = {this.diffToggleBool}
+        />
+      </form>
       </React.Fragment>
-      )
+    )
 
 
     // case 3:

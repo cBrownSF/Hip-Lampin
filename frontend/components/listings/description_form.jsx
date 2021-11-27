@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const Description = (props) => {
-if (props.currentStep !== 2){
+if (props.currentPage !== 2){
   return null
 }
     return(
