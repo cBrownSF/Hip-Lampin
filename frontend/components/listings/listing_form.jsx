@@ -1,21 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom"
-import NamingForm from './naming_form'
+import NameForm from './naming_form'
 import DescriptionForm from './description_form'
 import CostForm from './cost'
+import useState from 'react'
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentStep: 1,
+      step: 1,
       name: "",
       description: "",
       cost: '',
-    };
+    }
     this.handleInput=this.handleInput.bind(this)
-    this.nextFormStep = this.nextFormStep.bind(this)
-    this.handleSubmit=this.handleSubmit.bind(this)
+    this.previousStep = this.previousStep.bind(this)
+    this.nextStep = this.nextStep.bind(this)
+    this.nextButton = this.nextButton.bind(this)
+    // this.handleSubmit=this.handleSubmit.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
@@ -26,54 +29,76 @@ class ListingForm extends React.Component {
         this.setState({ [type]: e.currentTarget.value })
       }
     }
-    nextFormStep = ()=>{
-     return e =>{
+    nextStep () {
+      let step = this.state.step
+     return (
        this.setState({
-      [this.state.currentStep]: this.state.currentStep +1
+      step: step +1
       })
-    }
-    }
-    previousFormStep(currentStep) {
-
+     )
+  }
+    
+    previousStep() {
+    let step = this.state.step
     return this.setState({
-      [currentStep]: currentStep -1
+      step: step - 1
     })
   }
+
+    nextButton(){
+      let currentStep = this.state.step
+      if (currentStep ===1){
+        return(
+          <button type = 'button' onClick={this.nextStep}>Next</button>
+        )
+      }
+    }
+    previousButton(){
+      <button onClick = {this.previousStep}>Previous</button>
+    }
   render() {
-  switch (this.state.currentStep) {
-    case 1:
-      <NamingForm 
-        nextPage={this.nextFormStep}
-        prevPage ={this.previousFormStep}
-        handleInput ={this.handleInput}
+    
+      return (
+      <React.Fragment>
+        <form>
+      <NameForm 
+        currentStep = {this.state.step}
         name = {this.state.name}
+        handleInput ={this.handleInput}
+        nextPage = {this.nextStep}
       />
-    case 2:
       <DescriptionForm  
-        nextPage={this.nextFormStep}
-        prevPage={this.previousFormStep}
+        currentStep={this.state.step}
+        nextPage={this.nextStep}
+        prevPage={this.previousStep}
         handleInput={this.handleInput}
         description = {this.state.description}
       />
-
-    case 3:
       <CostForm 
-        nextPage={this.nextFormStep}
-        prevPage={this.previousFormStep}
+        currentStep={this.state.step}
+        nextPage={this.nextStep}
+        prevPage={this.previousStep}
         handleInput={this.handleInput}
         cost = {this.state.cost}
-      />
-    default:
-      return(
-        <NamingForm
-          nextPage={this.nextFormStep}
-          prevPage={this.previousFormStep}
-          handleInput={this.handleInput}
-          name={this.state.name}
         />
+    </form>
+      </React.Fragment>
       )
+
+
+    // case 3:
+    //   <CostForm 
+    //     nextPage={this.nextFormStep}
+    //     prevPage={this.previousFormStep}
+    //     handleInput={this.handleInput}
+    //     cost = {this.state.cost}
+    //   />
+    // default:
+    //   return(
+    //     'hello'
+    //   )
       }
-  }
-}
+    }
+
 
 export default ListingForm

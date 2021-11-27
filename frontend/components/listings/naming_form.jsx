@@ -1,26 +1,24 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-class NameForm extends React.Component{
 
-render() {
-  console.log(this.props)
+const NameForm = (props) =>{
+console.log(props)
+ if (props.currentStep !== 1){
+   return null
+ }
+
+
+  
   return (
-    
-    <div className=''>
-      <h2 className></h2>
-
-      <form className="">
-
-        {/* <p className="errors">{this.showErrors()}</p> */}
-       
+    <div >
           <h3> Name your Listing</h3>
           <p>This should be a short title describing your site and landcscape</p>
-          <input className=''
+          <input
             type="text"
             placeholder='e.g cozy cottage'
-            value={this.props.name}
-            onChange={this.props.handleInput('name')}
+            value={props.name}
+            onChange={props.handleInput('name')}
           />
           <h2>Tips for naming your listing</h2>
           <ul>
@@ -28,11 +26,10 @@ render() {
             <li>Describe your listing</li>
             <li>Double check for typos</li>
           </ul>
-          <button onClick ={() =>this.props.nextFormStep()}>Next</button>
-        </form>
+      <button onClick={props.nextPage}>Next</button>
         </div>
         )
       }
-    }
+    
 
-    export default NameForm;
+   export default NameForm
