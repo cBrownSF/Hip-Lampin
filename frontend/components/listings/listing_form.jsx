@@ -13,7 +13,9 @@ class ListingForm extends React.Component {
       description: "",
       cost: '',
     };
-    this.handleSubmit.bind(this)
+    this.handleInput=this.handleInput.bind(this)
+    this.nextFormStep = this.nextFormStep.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
@@ -24,10 +26,12 @@ class ListingForm extends React.Component {
         this.setState({ [type]: e.currentTarget.value })
       }
     }
-    nextFormStep(currentStep){
-     return this.setState({
-      [currentStep]: currentStep +1
+    nextFormStep = ()=>{
+     return e =>{
+       this.setState({
+      [this.state.currentStep]: this.state.currentStep +1
       })
+    }
     }
     previousFormStep(currentStep) {
 

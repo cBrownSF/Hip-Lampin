@@ -11,7 +11,7 @@ const App = () => (
     <p className='mainLogo'>HipCamp</p>
     <GreetingContainer/>
   </header>
-    <Route path = '/hosting' component ={ListingFormContainer} />
+    <Route path='/hosting' component ={ListingFormContainer} />
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
   </div>

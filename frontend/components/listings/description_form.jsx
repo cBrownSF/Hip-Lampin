@@ -9,7 +9,7 @@ class Description extends React.Component{
         <input className=''
           type="textfield"
           placeholder='e.g. Stay beneath the stars in our open cottage'
-          value={this.state.description}
+          value={this.props.description}
           onChange={this.handleInput('description')}
         />
         <p>Things to consider mentioning</p>

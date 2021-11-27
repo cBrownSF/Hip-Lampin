@@ -5,11 +5,11 @@ class CostForm extends React.Component{
     <div>
       <form>
         <h1>How much do you want to charge per night?</h1>
-        <input className=''
+        <input 
           type="text"
           placeholder='e.g $80'
-          value={this.state.cost}
-          onChange={this.handleInput('cost')}
+          value={this.props.cost}
+          onChange={this.props.handleInput('cost')}
         />
       </form>
 
@@ -17,4 +17,4 @@ class CostForm extends React.Component{
   }
 }
 
-export default Cost;
+export default CostForm;

@@ -2,16 +2,15 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 class NameForm extends React.Component{
-  constructor(props){
-    super(props)
-  }
+
 render() {
- 
+  console.log(this.props)
   return (
+    
     <div className=''>
       <h2 className></h2>
 
-      <form className="" onSubmit={this.handleSubmit}>
+      <form className="">
 
         {/* <p className="errors">{this.showErrors()}</p> */}
        
@@ -20,8 +19,8 @@ render() {
           <input className=''
             type="text"
             placeholder='e.g cozy cottage'
-            value={this.state.name}
-            onChange={this.handleInput('name')}
+            value={this.props.name}
+            onChange={this.props.handleInput('name')}
           />
           <h2>Tips for naming your listing</h2>
           <ul>
@@ -29,6 +28,7 @@ render() {
             <li>Describe your listing</li>
             <li>Double check for typos</li>
           </ul>
+          <button onClick ={() =>this.props.nextFormStep()}>Next</button>
         </form>
         </div>
         )

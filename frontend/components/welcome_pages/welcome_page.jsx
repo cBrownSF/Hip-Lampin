@@ -19,6 +19,7 @@ class Greeting extends React.Component {
         <div className="navBar">
             <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
             <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
+            <span className = 'navList'><Link className ="navBarButton" to= '/hosting'>Start Hosting</Link></span>
             <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>
         </div>
       )
