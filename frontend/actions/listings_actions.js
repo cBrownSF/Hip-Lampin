@@ -19,7 +19,7 @@ export const removeListing = listing =>({
 })
 const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
-  errors: 'Missing a Required Field'
+  errors
 })
 
 export const receiveAllListings = () =>dispatch =>{
@@ -33,16 +33,16 @@ export const receiveListing = listingId => dispatch =>{
 }
 export const createListing = listing => dispatch =>{
   return ListingAPIUtil.createListing(listing)
-  .then(createdlisting => dispatch(receiveListing(createdlisting)),
-    (errors) => dispatch(receiveListingErrors(errors)))
+  .then(createdlisting => dispatch(receiveOneListing(createdlisting)),
+  (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
 }
 
 
 export const updateListing = listing => dispatch =>{
   return ListingAPIUtil.updateListing(listing)
-    .then(listing => dispatch(receiveListing(listing)))
+    .then(listing => dispatch(receiveOneListing(listing)))
 
-    // (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
+    
 }
 
 export const deleteListing = listingId => dispatch =>{

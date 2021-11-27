@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
 import CostForm from './cost'
+import SiteDetails from "./site_details";
 import Amenities from "./amenenities_checklist";
 class ListingForm extends React.Component {
   constructor(props) {
@@ -13,14 +14,14 @@ class ListingForm extends React.Component {
       name: "",
       description: "",
       cost: '',
-      checkInTime: "",
-      checkOutTime: "",
-      responseTime: '',
-      onArrival: '',
-      guestsAllowed: '',
-      minimumNight: '',
-      cancellationPolicy: '',
-      bookingTime: '',
+      checkInTime: "2:00 PM",
+      checkOutTime: "12:00 PM",
+      responseTime: '10 minutes',
+      onArrival: 'Meet and Greet',
+      guestsAllowed: 1,
+      minimumNight: 1,
+      cancellationPolicy: 'Flexible',
+      bookingTime: '12 months in advance',
       isTrash: false,
       isKitchen: false,
       isShower: false,
@@ -29,15 +30,17 @@ class ListingForm extends React.Component {
       isToilet: false,
       isCampfireAllowed: false,
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
     this.nextStep = this.nextStep.bind(this)
-    this.notToggle = this.notToggle.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
-      this.props.submitForm(this.state);
+      debugger;
+      console.log(this.state)
+      this.props.createForm(this.state);
     }
     handleInput(type) {
       return e => {
@@ -60,11 +63,7 @@ class ListingForm extends React.Component {
       //     [type]: !prevState.type
       //   }))
       // }
-  notToggle(type){
-    return e =>{
-      this.setState({[type]: false })
-    }
-  }
+ 
     nextStep () {
       let step = this.state.step
      return (
@@ -86,7 +85,7 @@ class ListingForm extends React.Component {
     
     return (
       <React.Fragment>
-      <form>
+      <form onSubmit = {this.handleSubmit}>
       <NameForm 
         currentPage = {this.state.step}
         name = {this.state.name}
@@ -111,12 +110,15 @@ class ListingForm extends React.Component {
         currentPage={this.state.step}
         nextPage={this.nextStep}
         prevPage={this.previousStep}
-        handleInput={this.handleInput}
-        isTrash = {this.state.isTrash}
         toggleCheck = {this.toggleBoolean}
-        notToggle = {this.notToggle}
-        diffToggle = {this.diffToggleBool}
         />
+        <SiteDetails 
+            currentPage={this.state.step}
+            nextPage={this.nextStep}
+            prevPage={this.previousStep}
+            handleInput={this.handleInput}
+            cancel={this.state.cancellationPolicy}
+            />
       </form>
       </React.Fragment>
     )

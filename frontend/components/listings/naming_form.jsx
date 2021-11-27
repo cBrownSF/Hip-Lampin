@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 const NameForm = (props) =>{
-console.log(props)
  if (props.currentPage !== 1){
    return null
  }

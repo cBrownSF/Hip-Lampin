@@ -4,7 +4,7 @@ import Listing from "./listings"
 
 const mapStatetoProps = state => {
   return{
-  errors: state.errors.listings,
+  errors: state.errors.listing,
   listings: state.entities.listings
   }
 }

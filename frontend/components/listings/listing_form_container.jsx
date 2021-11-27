@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {createListings} from "../../actions/listings_actions";
+import {createListing} from "../../actions/listings_actions";
 import ListingForm from './listing_form';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) =>{
   return{
-    createForm: (listing) => dispatch(createListings(listing))
+    createForm: (listing) => dispatch(createListing(listing))
   }
 }
 export default connect (mapStateToProps,mapDispatchtoProps)(ListingForm)

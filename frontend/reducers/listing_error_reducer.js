@@ -7,7 +7,7 @@ const listingErrorsReducer = (oldState = _nullErrors, action) => {
   switch (action.type) {
     case RECEIVE_LISTING_ERRORS:
       debugger;
-      return [] //HERE IS THE ISSUE if action.errors it doesn't work
+      return action.errors
     case RECEIVE_LISTING:
       return [];
     default:
