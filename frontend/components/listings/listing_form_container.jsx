@@ -5,7 +5,8 @@ import ListingForm from './listing_form';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.listings,
-    currentUser: state.entities.users[state.sessions.currentUser]
+    currentUser: state.entities.users[state.sessions.currentUser],
+    listings: state.entities.listings
   }
 }
 

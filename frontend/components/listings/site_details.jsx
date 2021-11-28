@@ -34,17 +34,47 @@ const SiteDetails = (props) => {
           <option value="12 months in advance">12 months in advance</option>
           <option value="15 months in advance">15 months in advance</option>
           <option value="18 months in advance">18 months in advance</option>
-  
       </select>  
     </label>
-    
-      <h2>Check in Process</h2>
-
-      <h2>Booking Window</h2>
-      <h2>Minimum nights stay</h2>
-      <h2>Check in after</h2>
-      <h2>Check out before</h2>
-      <input type="submit" value="Create listing" />
+    <label>Check in after
+      <select value ={props.checkIn} onChange ={props.handleInput('check_in_time')}>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="01:00 PM">01:00 PM</option>
+          <option value="02:00 PM">02:00 PM</option>
+          <option value="03:00 PM">03:00 PM</option>
+          <option value="04:00 PM">04:00 PM</option>
+          <option value="05:00 PM">05:00 PM</option>
+          <option value="06:00 PM">06:00 PM</option>
+      </select>  
+    </label>
+      <label>Check out before
+        <select value={props.checkOut} onChange={props.handleInput('check_out_time')}>
+          <option value="07:00 AM">07:00 AM</option>
+          <option value="08:00 AM">08:00 AM</option>
+          <option value="09:00 AM">09:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="01:00 PM">01:00 PM</option>
+          <option value="02:00 PM">02:00 PM</option>
+          <option value="03:00 PM">03:00 PM</option>
+        </select>
+      </label>
+      <label>Minimum Nights Stay
+        <select value={props.minNight} onChange={props.handleInput('minimum_night')}>
+          <option value="1">1 Night</option>
+          <option value="2">2 Nights</option>
+          <option value="3">3 Nights</option>
+          <option value="4">4 Nights</option>
+         
+        </select>
+      </label>
+     
+      <button type="submit"
+      >Create Listing</button>
+      <button className='previous-button' onClick={props.prevPage}>Previous</button>
     </div>
   )
 }

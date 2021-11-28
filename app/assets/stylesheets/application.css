@@ -16,6 +16,7 @@
 body{
   font-family: 'Helvetica', 'Arial', sans-serif;
   background-color: beige;
+  margin:0
 }
 .mainLogo{
   display:flex;
@@ -127,4 +128,63 @@ body{
  .errors{
    font-family: inherit;
    font-size: 10px;
+ }
+
+ .create-listing-form{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 30px;
+  border: solid #000;
+  border-width: thin;  
+  margin:0;
+  padding: 0;
+  background-color: white;
+ }
+ .previous-button{
+   font-family: inherit;
+   background-color:transparent;
+   color:#39C39A;
+   text-align: center;
+   border-radius: 4px;
+   outline:none;
+   border: .1px;
+   font-size: 12px;
+   margin-right: 20px;
+   width: 120px;
+   height:40px;
+   cursor:pointer;
+}
+ .previous-button:hover{
+   background-color: lightgrey;
+ }
+ .next-button{
+   font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   width: 120px;
+   height: 40px;
+   cursor:pointer;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin
+ }
+
+ .next-button:hover{
+  background-color: white;
+  color:#39C39A;
+
+ }
+
+ .description-list{
+  color:lightgrey;
+  font-family:inherit;
+  font-size:14px;
+ }
+
+ .above-descript-list{
+  color:lightgrey;
+  font-family:inherit;
+  font-size:18px;
  }

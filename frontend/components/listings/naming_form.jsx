@@ -25,7 +25,7 @@ const NameForm = (props) =>{
             <li>Describe your listing</li>
             <li>Double check for typos</li>
           </ul>
-      <button onClick={props.nextPage}>Next</button>
+      <button className='next-button'onClick={props.nextPage}>Next</button>
         </div>
         )
       }

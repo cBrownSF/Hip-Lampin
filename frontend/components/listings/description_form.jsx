@@ -8,21 +8,21 @@ if (props.currentPage !== 2){
       <div>
      
           <h1>Describe your listing</h1>
-        <input className=''
-          type="textfield"
+        <textarea 
+          type="textarea"
           placeholder='e.g. Stay beneath the stars in our open cottage'
           value={props.description}
           onChange={props.handleInput('description')}
         />
-        <p>Things to consider mentioning</p>
-        <ul>
+        <p className ='above-descript-list'>Things to consider mentioning</p>
+        <ul className='description-list'>
           <li>Information on scenery</li>
           <li>Any relevant historical information</li>
           <li>Nearby attractions</li>
           <li>Link,phone number,and email addresses are not supported</li>
         </ul>
-         <button onClick={props.nextPage}>Next</button>
-        <button onClick={props.prevPage}>Previous</button>
+         <button className = 'next-button' onClick={props.nextPage}>Next</button>
+        <button className = 'previous-button' onClick={props.prevPage}>Previous</button>
         </div>
     )
   }

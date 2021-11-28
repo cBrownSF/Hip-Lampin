@@ -5,18 +5,19 @@ const amenities = (props) =>{
     return null
   }
   return(
-    <div>
+    <div className="ameneties">
       <p>Which amenities are available to Hipcampers?</p>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_trash')} />Trash Cans</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_kitchen')} />Kitchen</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_shower')} />Showers</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_wifi')} />Wifi</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_picnicTable')} />Picnic Table</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_toilet')} />Toilet</label>
-      <label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_campfire_allowed')} />Campfires Allowed</label>
-      
-      <button onClick={props.nextPage}>Next</button>
-      <button onClick={props.prevPage}>Previous</button>
+      <ul>
+        <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_trash')} />Trash Cans</label></li>
+      <li><label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_kitchen')} />Kitchen</label></li>
+      <li><label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_shower')} />Showers</label></li>
+      <li><label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_wifi')} />Wifi</label></li >
+    <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_picnicTable')} />Picnic Table</label></li >
+    <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_toilet')} />Toilet</label></li >
+    <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_campfire_allowed')} />Campfires Allowed</label></li >
+      </ul>
+      <button className='next-button' onClick={props.nextPage}>Next</button>
+      <button className='previous-button' onClick={props.prevPage}>Previous</button>
    
     </div>
   )

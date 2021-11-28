@@ -9,13 +9,14 @@ import Amenities from "./amenenities_checklist";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
+    console.log(this.props)
     this.state = {
       step: 1,
-      host_id: 11,
+      host_id: this.props.currentUser.id,
       name: "",
       description: "",
       cost: '',
-      check_in_time: "2:00 PM",
+      check_in_time: "02:00 PM",
       check_out_time: "12:00 PM",
       response_time: '10 minutes',
       on_arrival: 'Meet and Greet',
@@ -37,13 +38,19 @@ class ListingForm extends React.Component {
     this.nextStep = this.nextStep.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
     this.numberInput = this.numberInput.bind(this)
+    this.navigateToHome = this.navigateToHome.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
-      console.log(this.state)
-      debugger;
+      console.log(this.props.listings)
       this.props.createForm(this.state);
+      this.navigateToHome()
     }
+    navigateToHome() {
+      this.props.history.push('/')
+    } 
+      // <Link to={`/listings/${this.props.listing.id}`}></Link>
+    
     handleInput(type) {
       return e => {
         this.setState({ [type]: e.currentTarget.value })
@@ -52,9 +59,12 @@ class ListingForm extends React.Component {
 
   numberInput(type) {
     const regex = /^[0-9\b]+$/;
+    // const numArray =[0,1,2,3,4,5,6,7,8,9,',','$']
+    
     return e => {
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
-        this.setState({ [type]: '$' + e.currentTarget.value})
+    //  let formatNumber = (Number(e.currentTarget.value.replace(/\D/g, '')) || '').toLocaleString()
+        this.setState({ [type]: e.currentTarget.value})
       }
     }
   }
@@ -73,7 +83,7 @@ class ListingForm extends React.Component {
       //     [type]: !prevState.type
       //   }))
       // }
- 
+   
     nextStep () {
       let step = this.state.step
      return (
@@ -95,7 +105,7 @@ class ListingForm extends React.Component {
     
     return (
       <React.Fragment>
-      <form onSubmit = {this.handleSubmit}>
+      <form onSubmit = {this.handleSubmit} className = 'create-listing-form'>
       <NameForm 
         currentPage = {this.state.step}
         name = {this.state.name}
@@ -130,8 +140,10 @@ class ListingForm extends React.Component {
             cancel={this.state.cancellation_policy}
             bookingWindow={this.state.booking_time}
             arrival={this.state.on_arrival}
-            // checkOut={this.state.check_out_time}
-            // checkIn={this.state.check_in_time}
+            checkOut={this.state.check_out_time}
+            checkIn={this.state.check_in_time}
+            minNight={this.state.minimum_night}
+            history ={this.navigateToHome}
             />
       </form>
       </React.Fragment>

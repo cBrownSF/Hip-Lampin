@@ -1,6 +1,6 @@
 import { receiveAllListings } from "../../actions/listings_actions"
 import { connect } from "react-redux";
-import Listing from "./listings"
+import Listing from "./listing_show"
 
 const mapStatetoProps = state => {
   return{
