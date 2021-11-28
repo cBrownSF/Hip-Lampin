@@ -6,13 +6,13 @@ const CostForm = (props) => {
   }
   return(
     <div>
-      
+      {console.log(props)}
         <h1>How much do you want to charge per night?</h1>
         <input 
           type="text"
           placeholder='e.g. $80'
           value={props.cost}
-          onChange={props.handleInput('cost')}
+          onChange={props.handleNumInput('cost')}
         />
       <button onClick={props.nextPage}>Next</button>
       <button onClick={props.prevPage}>Previous</button>

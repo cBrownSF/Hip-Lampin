@@ -36,11 +36,12 @@ class ListingForm extends React.Component {
     this.previousStep = this.previousStep.bind(this)
     this.nextStep = this.nextStep.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
+    this.numberInput = this.numberInput.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
-      debugger;
       console.log(this.state)
+      debugger;
       this.props.createForm(this.state);
     }
     handleInput(type) {
@@ -49,7 +50,15 @@ class ListingForm extends React.Component {
       }
     }
 
-  
+  numberInput(type) {
+    const regex = /^[0-9\b]+$/;
+    return e => {
+      if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
+        this.setState({ [type]: '$' + e.currentTarget.value})
+      }
+    }
+  }
+
     toggleBoolean(type) {
       return e =>{
         if (this.state[type] === false) {
@@ -104,7 +113,7 @@ class ListingForm extends React.Component {
         currentPage={this.state.step}
         nextPage={this.nextStep}
         prevPage={this.previousStep}
-        handleInput={this.handleInput}
+        handleNumInput={this.numberInput}
         cost = {this.state.cost}
         />
       <Amenities

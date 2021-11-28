@@ -11,7 +11,7 @@ const SiteDetails = (props) => {
       
      
       <label>Cancellation Policy
-      <select value ={props.cancel} onChange ={props.handleInput}>
+      <select value ={props.cancel} onChange ={props.handleInput('cancellation_policy')}>
         <option value="Super Flexible">Super Flexible</option>
         <option value="Flexible">Flexible</option>
         <option value="Moderate">Moderate</option>
@@ -21,13 +21,13 @@ const SiteDetails = (props) => {
     </label>
     
       <label>Check in Process
-      <select value ={props.arrival} onChange ={props.handleInput}>
+      <select value ={props.arrival} onChange ={props.handleInput('on_arrival')}>
         <option value="Meet and Greet">Meet and Greet</option>
         <option value="Go Straight to Camp">Go Straight to Camp</option>
       </select>  
     </label>
       <label>Booking window
-      <select value ={props.bookingWindow} onChange ={props.handleInput}>
+      <select value ={props.bookingWindow} onChange ={props.handleInput('booking_time')}>
           <option value="3 months in advance">3 months in advance</option>
           <option value="6 months in advance">6 months in advance</option>
           <option value="9 months in advance">9 months in advance</option>
