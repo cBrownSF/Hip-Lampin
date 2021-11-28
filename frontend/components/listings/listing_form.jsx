@@ -11,24 +11,25 @@ class ListingForm extends React.Component {
     super(props)
     this.state = {
       step: 1,
+      host_id: 11,
       name: "",
       description: "",
       cost: '',
-      checkInTime: "2:00 PM",
-      checkOutTime: "12:00 PM",
-      responseTime: '10 minutes',
-      onArrival: 'Meet and Greet',
-      guestsAllowed: 1,
-      minimumNight: 1,
-      cancellationPolicy: 'Flexible',
-      bookingTime: '12 months in advance',
-      isTrash: false,
-      isKitchen: false,
-      isShower: false,
-      isWifi: false,
-      isPicnicTable:false,
-      isToilet: false,
-      isCampfireAllowed: false,
+      check_in_time: "2:00 PM",
+      check_out_time: "12:00 PM",
+      response_time: '10 minutes',
+      on_arrival: 'Meet and Greet',
+      guests_allowed: 1,
+      minimum_night: 1,
+      cancellation_policy: 'Flexible',
+      booking_time: '12 months in advance',
+      is_trash: false,
+      is_kitchen: false,
+      is_shower: false,
+      is_wifi: false,
+      is_picnic_table:false,
+      is_toilet: false,
+      is_campfire_allowed: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
@@ -117,7 +118,11 @@ class ListingForm extends React.Component {
             nextPage={this.nextStep}
             prevPage={this.previousStep}
             handleInput={this.handleInput}
-            cancel={this.state.cancellationPolicy}
+            cancel={this.state.cancellation_policy}
+            bookingWindow={this.state.booking_time}
+            arrival={this.state.on_arrival}
+            // checkOut={this.state.check_out_time}
+            // checkIn={this.state.check_in_time}
             />
       </form>
       </React.Fragment>
