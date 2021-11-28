@@ -104,6 +104,7 @@ class ListingForm extends React.Component {
   render() {
     
     return (
+      <div>
       <React.Fragment>
       <form onSubmit = {this.handleSubmit} className = 'create-listing-form'>
       <NameForm 
@@ -147,20 +148,9 @@ class ListingForm extends React.Component {
             />
       </form>
       </React.Fragment>
+      </div>
     )
 
-
-    // case 3:
-    //   <CostForm 
-    //     nextPage={this.nextFormStep}
-    //     prevPage={this.previousFormStep}
-    //     handleInput={this.handleInput}
-    //     cost = {this.state.cost}
-    //   />
-    // default:
-    //   return(
-    //     'hello'
-    //   )
       }
     }
 

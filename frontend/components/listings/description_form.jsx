@@ -5,7 +5,7 @@ if (props.currentPage !== 2){
   return null
 }
     return(
-      <div>
+      <div className = 'create-form-boxes'>
      
           <h1>Describe your listing</h1>
         <textarea 
