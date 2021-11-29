@@ -5,10 +5,10 @@ export const fetchListings = () => {
   })
 }
 
-export const fetchListing = listingId => {
+export const fetchListing = id => {
   return $.ajax({
-    url: `/api/listings/${listingId}`,
-    method: 'GET'
+    method: 'GET',
+    url: `/api/listings/${id}`
   })
 }
 
@@ -16,7 +16,9 @@ export const createListing = (listing) => {
   return $.ajax({
     url: `/api/listings`,
     method: "POST",
-    data: { listing }
+    data: listing ,
+    contentType: false,
+    processData: false
   })
 }
 

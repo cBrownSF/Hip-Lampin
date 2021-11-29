@@ -1,6 +1,6 @@
-require 'byebug'
 class Api::ListingsController < ApplicationController
 before_action :require_logged_in, only: [:create]
+
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
@@ -64,6 +64,8 @@ before_action :require_logged_in, only: [:create]
       :is_picnic_table,
       :is_toilet,
       :is_campfire_allowed,
-      :photo)
+      :photo,
+      :is_swimming
+      )
   end
 end

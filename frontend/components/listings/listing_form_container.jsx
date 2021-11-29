@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) =>{
   return{
-    createForm: (listing) => dispatch(createListing(listing)),
+    createListing: (listing) => dispatch(createListing(listing)),
     clearErrors: () => dispatch(removeListingErrors())
   }
 }

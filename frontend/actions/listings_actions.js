@@ -1,5 +1,5 @@
 import * as ListingAPIUtil from '../util/listing_api_util'
-
+import { browserHistory } from 'react-router';
 export const RECEIVE_ALL_LISTINGS = 'RECEIVE_ALL_LISTINGS'
 export const RECEIVE_LISTING = 'RECEIVE_LISTING'
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
@@ -31,14 +31,18 @@ export const receiveAllListings = () =>dispatch =>{
   .then(listings => dispatch(receiveListings(listings)))
 }
 
-export const receiveListing = listingId => dispatch =>{
-  return ListingAPIUtil.fetchListing(listingId)
+export const receiveListing = id => dispatch =>{
+  return ListingAPIUtil.fetchListing(id)
     .then(listing => dispatch(receiveOneListing(listing)))
 }
-export const createListing = listing => dispatch =>{
+export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
-  .then(createdlisting => dispatch(receiveOneListing(createdlisting)),
-  (errors) => dispatch(receiveListingErrors(errors.responseJSON)))
+  .then(createdlisting => {
+    dispatch(receiveOneListing(createdlisting))
+    debugger;
+    browserHistory.push(`/listings/${createdlisting.id}`)
+  }),
+  (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }
 
 

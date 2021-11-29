@@ -8,6 +8,7 @@ import SiteDetails from "./site_details";
 import Amenities from "./amenenities_checklist";
 import Activities from "./activities";
 import CheckInForm from "./check_in_form";
+import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -52,7 +53,7 @@ class ListingForm extends React.Component {
   }
     handleSubmit(e) {
       e.preventDefault();
-      formData.append('listing[step]', this.state.step)
+      const formData = new FormData();
       formData.append('listing[host_id]', this.state.host_id)
       formData.append('listing[name]', this.state.name)
       formData.append('listing[description]', this.state.description)
@@ -64,7 +65,9 @@ class ListingForm extends React.Component {
       formData.append('listing[guests_allowed]', this.state.guests_allowed)
       formData.append('listing[cancellation_policy]', this.state.cancellation_policy)
       formData.append('listing[booking_time]', this.state.booking_time)
+      formData.append('listing[minimum_night]', this.state.minimum_night)
       formData.append('listing[is_trash]', this.state.is_trash)
+      formData.append('listing[is_toilet]', this.state.is_toilet)
       formData.append('listing[is_kitchen]', this.state.is_kitchen)
       formData.append('listing[is_shower]', this.state.is_shower)
       formData.append('listing[is_wifi]', this.state.is_wifi)
@@ -75,17 +78,19 @@ class ListingForm extends React.Component {
       formData.append('listing[is_hiking]', this.state.is_hiking)
       formData.append('listing[is_wildlife]', this.state.is_wildlife)
       formData.append('listing[is_paddling]', this.state.is_paddling)
+      debugger;
       if (this.state.photoFile) {
 
         formData.append('listing[photo]', this.state.photoFile);
       }
-      this.props.createForm(this.state);
+      this.props.createListing(formData);
       this.navigateToHome();
       // if (this.props.errors.length===0){
       // this.navigateToHome()
       // }
     }
   handleFile(e) {
+
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -94,18 +99,16 @@ class ListingForm extends React.Component {
     };
     if (file) {
       fileReader.readAsDataURL(file);
+      }
+  }
+  navigateToHome(){
+    this.props.history.push('/');
+  }
+  handleInput(type){
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
     }
   }
-    navigateToHome() {
-      this.props.history.push('/')
-    } 
-      // <Link to={`/listings/${this.props.listing.id}`}></Link>
-    
-    handleInput(type) {
-      return e => {
-        this.setState({ [type]: e.currentTarget.value })
-      }
-    }
 
   numberInput(type) {
     const regex = /^[0-9\b]+$/;
@@ -207,9 +210,16 @@ class ListingForm extends React.Component {
           prevPage={this.previousStep}
           toggleCheck={this.toggleBoolean}
         />
+        <PhotoForm
+          currentPage={this.state.step}
+          prevPage={this.previousStep}
+          handlePhoto={this.handleFile}
+          nextPage={this.nextStep}
+          photoURL={this.state.photoUrl}
+          photoFile={this.state.photoFile}
+        />
         <CheckInForm
           currentPage={this.state.step}
-          nextPage={this.nextStep}
           prevPage={this.previousStep}
           handleInput={this.handleInput}
           arrival={this.state.on_arrival}
