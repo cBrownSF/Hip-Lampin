@@ -4,6 +4,7 @@ export const RECEIVE_ALL_LISTINGS = 'RECEIVE_ALL_LISTINGS'
 export const RECEIVE_LISTING = 'RECEIVE_LISTING'
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
 export const REMOVE_LISTING = 'REMOVE_LISTING'
+export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
  const receiveListings = listings => ({
   type: RECEIVE_ALL_LISTINGS,
   listings
@@ -20,6 +21,9 @@ export const removeListing = listing =>({
 const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
   errors
+})
+export const removeListingErrors = () => ({
+  type: REMOVE_LISTING_ERRORS
 })
 
 export const receiveAllListings = () =>dispatch =>{

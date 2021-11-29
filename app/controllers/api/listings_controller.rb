@@ -1,6 +1,6 @@
 require 'byebug'
 class Api::ListingsController < ApplicationController
-
+before_action :require_logged_in, only: [:create]
   def create
     @listing = Listing.new(listing_params)
     if @listing.save

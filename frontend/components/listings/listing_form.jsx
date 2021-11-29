@@ -43,9 +43,10 @@ class ListingForm extends React.Component {
   }
     handleSubmit(e) {
       e.preventDefault();
-      console.log(this.props.listings)
       this.props.createForm(this.state);
+      if (this.props.errors.length===0){
       this.navigateToHome()
+      }
     }
     navigateToHome() {
       this.props.history.push('/')

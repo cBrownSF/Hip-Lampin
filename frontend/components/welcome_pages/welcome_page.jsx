@@ -11,6 +11,7 @@ class Greeting extends React.Component {
       return (
         <div className="logged-in">
         <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
+          <button className= 'log-out-button'><Link className ="navBarButton" to= '/new'>Start Hosting</Link></button>
           <button className="log-out-button" onClick={logout}>Logout</button>
         </div>
       )
@@ -19,8 +20,7 @@ class Greeting extends React.Component {
         <div className="navBar">
             <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
             <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
-            <span className = 'navList'><Link className ="navBarButton" to= '/hosting'>Start Hosting</Link></span>
-            <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>
+          <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>
         </div>
       )
     }

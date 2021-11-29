@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
-import {createListing} from "../../actions/listings_actions";
+import {createListing,removeListingErrors} from "../../actions/listings_actions";
 import ListingForm from './listing_form';
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.listings,
+    errors: state.errors.listing,
     currentUser: state.entities.users[state.sessions.currentUser],
     listings: state.entities.listings
   }
@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) =>{
   return{
-    createForm: (listing) => dispatch(createListing(listing))
-    
+    createForm: (listing) => dispatch(createListing(listing)),
+    clearErrors: () => dispatch(removeListingErrors())
   }
 }
 export default connect (mapStateToProps,mapDispatchtoProps)(ListingForm)
