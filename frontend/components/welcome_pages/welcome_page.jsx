@@ -11,8 +11,8 @@ class Greeting extends React.Component {
       return (
         <div className="logged-in">
         <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
-          <button className= 'log-out-button'><Link className ="navBarButton" to= '/new'>Start Hosting</Link></button>
           <button className="log-out-button" onClick={logout}>Logout</button>
+          <button className= 'start-hosting'><Link className ="navBarButton" to= '/new'>Start Hosting</Link></button>
         </div>
       )
     } else {

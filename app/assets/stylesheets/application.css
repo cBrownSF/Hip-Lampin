@@ -39,7 +39,7 @@ body{
 }
 .log-out-button{
   font-family: inherit;
-   background-color:#39C39A;
+   /* background-color:#39C39A;
    color:white;
    text-align: center;
    border-radius: 3px;
@@ -47,9 +47,17 @@ body{
    border: .1px;
    font-size: 16px;
    margin: 2px;
-   width: 60px;
-   height:30px;
+   width: 120px;
+   height:40px; */
    cursor:pointer;
+   text-decoration: none;
+   color: black;
+   outline:none;
+   background-color: transparent;
+   font-size:16px;
+   font-style: inherit;
+   border:none;
+   margin-right:20px;
 }
 /* .greeting{
   
@@ -385,4 +393,23 @@ body{
 
  .check-in-button{
    margin-top:80px;
+ }
+
+ .start-hosting{
+    font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   width: 120px;
+   height: 40px;
+   cursor:pointer;
+   margin:2px;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+  text-decoration: none;
+ }
+.start-hosting:hover{
+  background-color: transparent;
+  color:#39C39A;
  }
