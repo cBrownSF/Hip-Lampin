@@ -5,7 +5,8 @@ import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
 import ListingFormContainer from './listings/listing_form_container'
 import ListingShowContainer from "./listings/listing_show_container";
-import { AuthRoute } from "../util/routes";
+import { AuthRoute,ProtectedRoute } from "../util/routes";
+
 const App = () => (
   <div>
     <header>
