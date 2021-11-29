@@ -5,19 +5,39 @@ const CostForm = (props) => {
     return null
   }
   return(
-    <div classname="costBox">
-      {console.log(props)}
-        <h1>How much do you want to charge per night?</h1>
-        <input 
+    <div className="name-box">
+      <br/>
+        <h1 id='name-title'>How much do you want to charge per night?</h1>
+        <input className = "text-bubble"
           type="text"
           placeholder='e.g. 80'
           value={props.cost}
           onChange={props.handleNumInput('cost')}
         />
-        <br/>
-      <button className='next-button' onClick={props.nextPage}>Next</button>
-      <button className='previous-button' onClick={props.prevPage}>Previous</button>
+      <p id='required'>This is a required field</p>
+      <br/>
+      <br/>
+      <br/>
+        <div>
+     <h1 id='name-title'>Minimum nights stay</h1>
+        <select className = "select-bubble" value={props.minNight} onChange={props.handleInput('minimum_night')}>
+          <option value="1">1 Night</option>
+          <option value="2">2 Nights</option>
+          <option value="3">3 Nights</option>
+          <option value="4">4 Nights</option>
+        </select>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
 
+        <div>
+      <button className='previous-button' onClick={props.prevPage}>Previous</button>
+      <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
+    </div>
     </div>
   )
 }

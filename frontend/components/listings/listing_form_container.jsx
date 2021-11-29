@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchtoProps = (dispatch) =>{
   return{
     createForm: (listing) => dispatch(createListing(listing))
+    
   }
 }
 export default connect (mapStateToProps,mapDispatchtoProps)(ListingForm)

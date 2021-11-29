@@ -6,6 +6,7 @@ import DescriptionForm from './description_form'
 import CostForm from './cost'
 import SiteDetails from "./site_details";
 import Amenities from "./amenenities_checklist";
+import CheckInForm from "./check_in_form";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -78,6 +79,13 @@ class ListingForm extends React.Component {
         }
   }
 }
+  componentDidMount() {
+    this.props.clearErrors()
+  }
+  showErrors() {
+    let singleError = this.props.errors[0]
+    return singleError;
+  }
 //WHY DIDNT WORKreturn e =>{
       //   this.setState(prevState => ({
       //     [type]: !prevState.type
@@ -126,6 +134,8 @@ class ListingForm extends React.Component {
         prevPage={this.previousStep}
         handleNumInput={this.numberInput}
         cost = {this.state.cost}
+        minNight={this.state.minimum_night}
+        handleInput={this.handleInput}
         />
       <Amenities
         currentPage={this.state.step}
@@ -140,12 +150,19 @@ class ListingForm extends React.Component {
             handleInput={this.handleInput}
             cancel={this.state.cancellation_policy}
             bookingWindow={this.state.booking_time}
-            arrival={this.state.on_arrival}
-            checkOut={this.state.check_out_time}
-            checkIn={this.state.check_in_time}
-            minNight={this.state.minimum_night}
-            history ={this.navigateToHome}
+            
             />
+          <CheckInForm
+              currentPage={this.state.step}
+              nextPage={this.nextStep}
+              prevPage={this.previousStep}
+              handleInput={this.handleInput}
+              arrival={this.state.on_arrival}
+              checkOut={this.state.check_out_time}
+              checkIn={this.state.check_in_time}
+              minNight={this.state.minimum_night}
+              history={this.navigateToHome}
+          />
       </form>
       </React.Fragment>
       </div>

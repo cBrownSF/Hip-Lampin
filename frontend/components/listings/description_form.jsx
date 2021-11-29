@@ -5,24 +5,28 @@ if (props.currentPage !== 2){
   return null
 }
     return(
-      <div className = 'create-form-boxes'>
-     
-          <h1>Describe your listing</h1>
-        <textarea 
+      <div className = 'name-box'>
+     <br/>
+          <h1 id='name-title'>Describe your listing</h1>
+          <p id='blurb'>Provide a bit more detail about what Hipcampers can see,do,and expect here</p>
+        <textarea id='description-text-area'
           type="textarea"
           placeholder='e.g. Stay beneath the stars in our open cottage'
           value={props.description}
           onChange={props.handleInput('description')}
         />
-        <p className ='above-descript-list'>Things to consider mentioning</p>
-        <ul className='description-list'>
+        <p id='required'>This is a required field</p>
+        <p id ='tips-descript'>THINGS TO CONSIDER MENTIONING</p>
+        <ul id ='tips-list'>
           <li>Information on scenery</li>
           <li>Any relevant historical information</li>
           <li>Nearby attractions</li>
-          <li>Link,phone number,and email addresses are not supported</li>
         </ul>
-         <button className = 'next-button' onClick={props.nextPage}>Next</button>
+        
+        <div className='descript-buttons'>
         <button className = 'previous-button' onClick={props.prevPage}>Previous</button>
+         <button className = 'next-button-with-prev' onClick={props.nextPage}>Next</button>
+        </div>
         </div>
     )
   }
