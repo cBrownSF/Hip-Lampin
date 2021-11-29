@@ -52,12 +52,29 @@ class ListingForm extends React.Component {
   }
     handleSubmit(e) {
       e.preventDefault();
+      formData.append('listing[step]', this.state.step)
+      formData.append('listing[host_id]', this.state.host_id)
       formData.append('listing[name]', this.state.name)
       formData.append('listing[description]', this.state.description)
       formData.append('listing[cost]', this.state.cost)
-      formData.append('listing[na]', this.state.name)
-      formData.append('listing[name]', this.state.name)
-      formData.append('listing[name]', this.state.name)
+      formData.append('listing[check_in_time]', this.state.check_in_time)
+      formData.append('listing[check_out_time]', this.state.check_out_time)
+      formData.append('listing[response_time]', this.state.response_time)
+      formData.append('listing[on_arrival]', this.state.on_arrival)
+      formData.append('listing[guests_allowed]', this.state.guests_allowed)
+      formData.append('listing[cancellation_policy]', this.state.cancellation_policy)
+      formData.append('listing[booking_time]', this.state.booking_time)
+      formData.append('listing[is_trash]', this.state.is_trash)
+      formData.append('listing[is_kitchen]', this.state.is_kitchen)
+      formData.append('listing[is_shower]', this.state.is_shower)
+      formData.append('listing[is_wifi]', this.state.is_wifi)
+      formData.append('listing[is_picnic_table]', this.state.is_picnic_table)
+      formData.append('listing[is_campfire_allowed]', this.state.is_campfire_allowed)
+      formData.append('listing[is_fishing]', this.state.is_fishing)
+      formData.append('listing[is_swimming]', this.state.is_swimming)
+      formData.append('listing[is_hiking]', this.state.is_hiking)
+      formData.append('listing[is_wildlife]', this.state.is_wildlife)
+      formData.append('listing[is_paddling]', this.state.is_paddling)
       if (this.state.photoFile) {
 
         formData.append('listing[photo]', this.state.photoFile);
@@ -147,60 +164,60 @@ class ListingForm extends React.Component {
       <div>
       <React.Fragment>
       <form onSubmit = {this.handleSubmit} className = 'create-listing-form'>
-      <NameForm 
-        currentPage = {this.state.step}
-        name = {this.state.name}
-        handleInput ={this.handleInput}
-        nextPage = {this.nextStep}
-      />
-      <DescriptionForm  
-        currentPage={this.state.step}
-        nextPage={this.nextStep}
-        prevPage={this.previousStep}
-        handleInput={this.handleInput}
-        description = {this.state.description}
-      />
-      <CostForm 
-        currentPage={this.state.step}
-        nextPage={this.nextStep}
-        prevPage={this.previousStep}
-        handleNumInput={this.numberInput}
-        cost = {this.state.cost}
-        minNight={this.state.minimum_night}
-        handleInput={this.handleInput}
+        <NameForm 
+          currentPage = {this.state.step}
+          name = {this.state.name}
+          handleInput ={this.handleInput}
+          nextPage = {this.nextStep}
         />
-      <Amenities
-        currentPage={this.state.step}
-        nextPage={this.nextStep}
-        prevPage={this.previousStep}
-        toggleCheck = {this.toggleBoolean}
+        <DescriptionForm  
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          handleInput={this.handleInput}
+          description = {this.state.description}
         />
-        <SiteDetails 
-            currentPage={this.state.step}
-            nextPage={this.nextStep}
-            prevPage={this.previousStep}
-            handleInput={this.handleInput}
-            cancel={this.state.cancellation_policy}
-            bookingWindow={this.state.booking_time}
-            
-            />
-            <Activities
-              currentPage={this.state.step}
-              nextPage={this.nextStep}
-              prevPage={this.previousStep}
-              toggleCheck={this.toggleBoolean}
-            />
-          <CheckInForm
-              currentPage={this.state.step}
-              nextPage={this.nextStep}
-              prevPage={this.previousStep}
-              handleInput={this.handleInput}
-              arrival={this.state.on_arrival}
-              checkOut={this.state.check_out_time}
-              checkIn={this.state.check_in_time}
-              minNight={this.state.minimum_night}
-              history={this.navigateToHome}
+        <CostForm 
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          handleNumInput={this.numberInput}
+          cost = {this.state.cost}
+          minNight={this.state.minimum_night}
+          handleInput={this.handleInput}
           />
+        <Amenities
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          toggleCheck = {this.toggleBoolean}
+          />
+        <SiteDetails 
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          handleInput={this.handleInput}
+          cancel={this.state.cancellation_policy}
+          bookingWindow={this.state.booking_time}
+          
+        />
+        <Activities
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          toggleCheck={this.toggleBoolean}
+        />
+        <CheckInForm
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          handleInput={this.handleInput}
+          arrival={this.state.on_arrival}
+          checkOut={this.state.check_out_time}
+          checkIn={this.state.check_in_time}
+          minNight={this.state.minimum_night}
+          history={this.navigateToHome}
+        />
       </form>
       </React.Fragment>
       </div>
