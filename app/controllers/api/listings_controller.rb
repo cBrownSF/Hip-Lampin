@@ -63,6 +63,7 @@ before_action :require_logged_in, only: [:create]
       :is_wifi, 
       :is_picnic_table,
       :is_toilet,
-      :is_campfire_allowed)
+      :is_campfire_allowed,
+      :photo)
   end
 end
