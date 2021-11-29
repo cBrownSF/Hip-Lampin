@@ -37,7 +37,9 @@ class ListingForm extends React.Component {
       is_swimming:false,
       is_hiking:false,
       is_paddling: false,
-      is_wildlife: false
+      is_wildlife: false,
+      photoFile: null,
+      photoUrl: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
@@ -46,14 +48,37 @@ class ListingForm extends React.Component {
     this.toggleBoolean = this.toggleBoolean.bind(this)
     this.numberInput = this.numberInput.bind(this)
     this.navigateToHome = this.navigateToHome.bind(this)
+    this.handleFile = this.handleFile.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
-      this.props.createForm(this.state);
-      if (this.props.errors.length===0){
-      this.navigateToHome()
+      formData.append('listing[name]', this.state.name)
+      formData.append('listing[description]', this.state.description)
+      formData.append('listing[cost]', this.state.cost)
+      formData.append('listing[na]', this.state.name)
+      formData.append('listing[name]', this.state.name)
+      formData.append('listing[name]', this.state.name)
+      if (this.state.photoFile) {
+
+        formData.append('listing[photo]', this.state.photoFile);
       }
+      this.props.createForm(this.state);
+      this.navigateToHome();
+      // if (this.props.errors.length===0){
+      // this.navigateToHome()
+      // }
     }
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
     navigateToHome() {
       this.props.history.push('/')
     } 
