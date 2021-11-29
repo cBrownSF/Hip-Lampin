@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const CheckInForm = (props) => {
-  if (props.currentPage !== 6) {
+  if (props.currentPage !== 7) {
     return null
   }
   return (
     <div className='name-box'>
       <br />
-      <h1 id='name-title'>What are your check in preferences?</h1>
+      <h1 id='act-amen-title'>What are your check in preferences?</h1>
       <br/>
     <label id='booking-title'>Check in process
       <select className="select-bubble-booking" value={props.arrival} onChange={props.handleInput('on_arrival')}>

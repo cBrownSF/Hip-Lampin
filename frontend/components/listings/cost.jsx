@@ -19,7 +19,7 @@ const CostForm = (props) => {
       <br/>
       <br/>
         <div>
-     <h1 id='name-title'>Minimum nights stay</h1>
+     <h1 id='act-amen-title'>Minimum nights stay</h1>
         <select className = "select-bubble" value={props.minNight} onChange={props.handleInput('minimum_night')}>
           <option value="1">1 Night</option>
           <option value="2">2 Nights</option>
@@ -27,14 +27,9 @@ const CostForm = (props) => {
           <option value="4">4 Nights</option>
         </select>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      
 
-        <div>
+        <div className='cost-buttons'>
       <button className='previous-button' onClick={props.prevPage}>Previous</button>
       <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
     </div>

@@ -6,6 +6,7 @@ import DescriptionForm from './description_form'
 import CostForm from './cost'
 import SiteDetails from "./site_details";
 import Amenities from "./amenenities_checklist";
+import Activities from "./activities";
 import CheckInForm from "./check_in_form";
 class ListingForm extends React.Component {
   constructor(props) {
@@ -32,6 +33,11 @@ class ListingForm extends React.Component {
       is_picnic_table:false,
       is_toilet: false,
       is_campfire_allowed: false,
+      is_fishing:false,
+      is_swimming:false,
+      is_hiking:false,
+      is_paddling: false,
+      is_wildlife: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
@@ -152,6 +158,12 @@ class ListingForm extends React.Component {
             cancel={this.state.cancellation_policy}
             bookingWindow={this.state.booking_time}
             
+            />
+            <Activities
+              currentPage={this.state.step}
+              nextPage={this.nextStep}
+              prevPage={this.previousStep}
+              toggleCheck={this.toggleBoolean}
             />
           <CheckInForm
               currentPage={this.state.step}

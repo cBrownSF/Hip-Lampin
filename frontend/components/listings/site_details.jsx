@@ -1,12 +1,12 @@
 import React from "react";
 const SiteDetails = (props) => {
-  if (props.currentPage !== 5) {
+  if (props.currentPage !== 6) {
     return null
   }
   return(
     <div className ='name-box'>
       <br/>
-      <h1 id='name-title'>What are your booking policies?</h1>
+      <h1 id='act-amen-title'>What are your booking policies?</h1>
       <p id='blurb'>Adjust these settings to determine how Hipcampers will book with you</p>
      <br/>
       <label id='booking-title'>Cancellation Policy

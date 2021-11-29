@@ -6,7 +6,7 @@ const amenities = (props) =>{
   }
   return(
     <div className="name-box">
-      <p id='name-title'>Which amenities are available to Hipcampers?</p>
+      <p id='act-amen-title'>Which amenities are available to Hipcampers?</p>
       <ul id='amenities-list'>
         <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_trash')} />Trash Cans</label></li>
       <li><label><input type="checkbox" value = "checked" onChange={props.toggleCheck('is_kitchen')} />Kitchen</label></li>
@@ -16,7 +16,7 @@ const amenities = (props) =>{
     <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_toilet')} />Toilet</label></li >
     <li><label><input type="checkbox" value="checked" onChange={props.toggleCheck('is_campfire_allowed')} />Campfires Allowed</label></li >
       </ul>
-      <div className= 'amenities-button'>
+      <div className = 'amenities-button'>
       <button className='previous-button' onClick={props.prevPage}>Previous</button>
       <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
       </div>
