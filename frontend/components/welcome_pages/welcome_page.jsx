@@ -12,7 +12,7 @@ class Greeting extends React.Component {
         <div className="logged-in">
         <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
           <button className="log-out-button" onClick={logout}>Logout</button>
-          <button className= 'start-hosting'><Link className ="navBarButton" to= 'listings/new'>Start Hosting</Link></button>
+          <button className= 'start-hosting'><Link className ="navBarButton" to= '/listings/new'>Start Hosting</Link></button>
         </div>
       )
     } else {

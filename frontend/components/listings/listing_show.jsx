@@ -5,6 +5,10 @@ class Listing extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
   }
+
+  componentWillUnmount(){
+    
+  }
   
   render() {
     if (!this.props.listing){
