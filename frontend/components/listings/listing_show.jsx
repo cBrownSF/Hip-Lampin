@@ -1,14 +1,12 @@
 import React from 'react'
+import {ProtectedRoute} from '../../util/routes'
 
-
-class Listing extends React.Component {
+class ListingShow extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
   }
 
-  componentWillUnmount(){
-    
-  }
+  
   
   render() {
     if (!this.props.listing){
@@ -37,7 +35,6 @@ class Listing extends React.Component {
   </div>
     )
   }
-  
 }
 
-export default (Listing);
+export default (ListingShow);

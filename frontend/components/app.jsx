@@ -10,13 +10,15 @@ import { AuthRoute,ProtectedRoute } from "../util/routes";
 const App = () => (
   <div>
     <header>
+
     <p className='mainLogo'>HipCamp</p>
+
     <GreetingContainer/>
   </header>
   <Switch>
-    <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
     <Route path="/listings/:listingId" component={ListingShowContainer} />
   </Switch>
   </div>

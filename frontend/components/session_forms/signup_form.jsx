@@ -34,9 +34,9 @@ class SessionForm extends React.Component {
     }
 
   render() {
-    if (this.props.currentUser !== undefined) {
-      return <Redirect to='/' />
-    }
+    // if (this.props.currentUser !== undefined) {
+    //   return <Redirect to='/' />
+    // }
     return (
       <div className='form-container'>
           <h2 className = "form-main-header">Join Hipcamp!</h2>

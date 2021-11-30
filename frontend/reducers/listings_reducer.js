@@ -1,6 +1,5 @@
 import { RECEIVE_LISTING,RECEIVE_ALL_LISTINGS,REMOVE_LISTING } from "../actions/listings_actions";
 const listingsReducer = (oldState = {},action) =>{
-  console.log(action)
   Object.freeze(oldState)
   switch (action.type) {
     case RECEIVE_ALL_LISTINGS:

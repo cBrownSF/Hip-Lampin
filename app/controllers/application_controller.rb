@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
-  skip_forgery_protection
+  # protect_from_forgery with: :null_session
+  # skip_forgery_protection
   helper_method :current_user, :logged_in?
 
   def current_user
