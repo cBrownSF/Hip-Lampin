@@ -48,7 +48,6 @@ class ListingForm extends React.Component {
     this.nextStep = this.nextStep.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
     this.numberInput = this.numberInput.bind(this)
-    this.navigateToHome = this.navigateToHome.bind(this)
     this.handleFile = this.handleFile.bind(this)
   }
     handleSubmit(e) {
@@ -86,7 +85,7 @@ class ListingForm extends React.Component {
 
       this.props.createListing(formData)
       // if (this.props.errors.length===0){
-      this.navigateToHome()
+     
       // }
     }
   handleFile(e) {
@@ -121,15 +120,15 @@ class ListingForm extends React.Component {
     }
   }
 
-    toggleBoolean(type) {
-      return e =>{
-        if (this.state[type] === false) {
-          this.setState({ [type]: true })
-        } else {
-          this.setState({ [type]: false })
-        }
+  toggleBoolean(type) {
+    return e =>{
+      if (this.state[type] === false) {
+        this.setState({ [type]: true })
+      } else {
+        this.setState({ [type]: false })
+      }
+    }
   }
-}
   componentDidMount() {
     this.props.clearErrors()
   }
@@ -142,14 +141,36 @@ class ListingForm extends React.Component {
       //     [type]: !prevState.type
       //   }))
       // }
-   
-    nextStep () {
-      let step = this.state.step
+    
+  nextStep () {
+    let step = this.state.step
+    let name = this.state.name
+    if(name.length > 10){
      return (
        this.setState({
-      step: step +1
+        step: step +1
       })
      )
+    }else{
+        this.setState({
+          step: step
+      })
+    }
+  }
+  nextStep() {
+    let step = this.state.step
+    let name = this.state.name
+    if (name.length > 10) {
+      return (
+        this.setState({
+          step: step + 1
+        })
+      )
+    } else {
+      this.setState({
+        step: step
+      })
+    }
   }
     
     previousStep() {
@@ -171,6 +192,7 @@ class ListingForm extends React.Component {
           name = {this.state.name}
           handleInput ={this.handleInput}
           nextPage = {this.nextStep}
+          samePage ={this.sameStep}
         />
         <DescriptionForm  
           currentPage={this.state.step}

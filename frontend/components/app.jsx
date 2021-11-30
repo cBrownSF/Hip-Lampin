@@ -17,7 +17,7 @@ const App = () => (
     <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
-    <Route exact path="/listings/:listingId" component={ListingShowContainer} />
+    <Route path="/listings/:listingId" component={ListingShowContainer} />
   </Switch>
   </div>
 );

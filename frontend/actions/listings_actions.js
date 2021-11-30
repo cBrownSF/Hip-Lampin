@@ -35,6 +35,9 @@ export const receiveListing = id => dispatch =>{
   return ListingAPIUtil.fetchListing(id)
     .then(listing => dispatch(receiveOneListing(listing)))
 }
+//fetchBench(id).then(payload => (
+// dispatch(receiveBench(payload))
+//   ))
 export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdlisting => {
@@ -48,8 +51,6 @@ export const createListing = listing => (dispatch) =>{
 export const updateListing = listing => dispatch =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => dispatch(receiveOneListing(listing)))
-
-    
 }
 
 export const deleteListing = listingId => dispatch =>{

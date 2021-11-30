@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+
 
 class Listing extends React.Component {
   componentDidMount() {
@@ -40,4 +40,4 @@ class Listing extends React.Component {
   
 }
 
-export default Listing;
+export default (Listing);
