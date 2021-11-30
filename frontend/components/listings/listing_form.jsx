@@ -50,47 +50,52 @@ class ListingForm extends React.Component {
     this.numberInput = this.numberInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.descriptNextStep = this.descriptNextStep.bind(this)
+    this.letterCount = this.letterCount.bind(this)
+    this.costNextStep=this.costNextStep.bind(this)
   }
-    handleSubmit(e) {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('listing[host_id]', this.state.host_id)
-      formData.append('listing[name]', this.state.name)
-      formData.append('listing[description]', this.state.description)
-      formData.append('listing[cost]', this.state.cost)
-      formData.append('listing[check_in_time]', this.state.check_in_time)
-      formData.append('listing[check_out_time]', this.state.check_out_time)
-      formData.append('listing[response_time]', this.state.response_time)
-      formData.append('listing[on_arrival]', this.state.on_arrival)
-      formData.append('listing[guests_allowed]', this.state.guests_allowed)
-      formData.append('listing[cancellation_policy]', this.state.cancellation_policy)
-      formData.append('listing[booking_time]', this.state.booking_time)
-      formData.append('listing[minimum_night]', this.state.minimum_night)
-      formData.append('listing[is_trash]', this.state.is_trash)
-      formData.append('listing[is_toilet]', this.state.is_toilet)
-      formData.append('listing[is_kitchen]', this.state.is_kitchen)
-      formData.append('listing[is_shower]', this.state.is_shower)
-      formData.append('listing[is_wifi]', this.state.is_wifi)
-      formData.append('listing[is_picnic_table]', this.state.is_picnic_table)
-      formData.append('listing[is_campfire_allowed]', this.state.is_campfire_allowed)
-      formData.append('listing[is_fishing]', this.state.is_fishing)
-      formData.append('listing[is_swimming]', this.state.is_swimming)
-      formData.append('listing[is_hiking]', this.state.is_hiking)
-      formData.append('listing[is_wildlife]', this.state.is_wildlife)
-      formData.append('listing[is_paddling]', this.state.is_paddling)
-      
-      if (this.state.photoFile) {
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('listing[host_id]', this.state.host_id)
+    formData.append('listing[name]', this.state.name)
+    formData.append('listing[description]', this.state.description)
+    formData.append('listing[cost]', this.state.cost)
+    formData.append('listing[check_in_time]', this.state.check_in_time)
+    formData.append('listing[check_out_time]', this.state.check_out_time)
+    formData.append('listing[response_time]', this.state.response_time)
+    formData.append('listing[on_arrival]', this.state.on_arrival)
+    formData.append('listing[guests_allowed]', this.state.guests_allowed)
+    formData.append('listing[cancellation_policy]', this.state.cancellation_policy)
+    formData.append('listing[booking_time]', this.state.booking_time)
+    formData.append('listing[minimum_night]', this.state.minimum_night)
+    formData.append('listing[is_trash]', this.state.is_trash)
+    formData.append('listing[is_toilet]', this.state.is_toilet)
+    formData.append('listing[is_kitchen]', this.state.is_kitchen)
+    formData.append('listing[is_shower]', this.state.is_shower)
+    formData.append('listing[is_wifi]', this.state.is_wifi)
+    formData.append('listing[is_picnic_table]', this.state.is_picnic_table)
+    formData.append('listing[is_campfire_allowed]', this.state.is_campfire_allowed)
+    formData.append('listing[is_fishing]', this.state.is_fishing)
+    formData.append('listing[is_swimming]', this.state.is_swimming)
+    formData.append('listing[is_hiking]', this.state.is_hiking)
+    formData.append('listing[is_wildlife]', this.state.is_wildlife)
+    formData.append('listing[is_paddling]', this.state.is_paddling)
+    
+    if (this.state.photoFile) {
 
-        formData.append('listing[photo]', this.state.photoFile);
-      }
-
-      this.props.createListing(formData)
-      // if (this.props.errors.length===0){
-     
-      // }
+      formData.append('listing[photo]', this.state.photoFile);
     }
-  handleFile(e) {
 
+    this.props.createListing(formData)
+    // if (this.props.errors.length===0){
+    
+    // }
+  }
+  letterCount() {
+    let charLeft = (10 - this.state.name.length);
+    return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
+  }
+  handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -100,15 +105,12 @@ class ListingForm extends React.Component {
       fileReader.readAsDataURL(file);
       }
   }
-  navigateToHome(){
-    this.props.history.push('/');
-  }
+  
   handleInput(type){
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }
   }
-
   numberInput(type) {
     const regex = /^[0-9\b]+$/;
 
@@ -119,7 +121,6 @@ class ListingForm extends React.Component {
       }
     }
   } 
-  
   toggleBoolean(type) {
     return e =>{
       if (this.state[type] === false) {
@@ -158,7 +159,6 @@ class ListingForm extends React.Component {
     }
   }
 
-
   nextStep() {
     let step = this.state.step
     let name = this.state.name
@@ -174,7 +174,24 @@ class ListingForm extends React.Component {
       })
     }
   }
-    
+  
+
+  costNextStep() {
+    debugger;
+    let step = this.state.step
+    let cost = this.state.cost
+    if (cost.length > 0) {
+      return (
+        this.setState({
+          step: step + 1
+        })
+      )
+    } else {
+      this.setState({
+        step: step
+      })
+    }
+  }
   previousStep() {
     let step = this.state.step
     return this.setState({
@@ -182,7 +199,7 @@ class ListingForm extends React.Component {
     })
   }
 
- 
+  
   render() {
     
     return (
@@ -205,7 +222,7 @@ class ListingForm extends React.Component {
         />
         <CostForm 
           currentPage={this.state.step}
-          nextPage={this.nextStep}
+          nextPage={this.costNextStep}
           prevPage={this.previousStep}
           handleNumInput={this.numberInput}
           cost = {this.state.cost}

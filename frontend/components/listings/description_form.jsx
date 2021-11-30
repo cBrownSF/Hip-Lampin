@@ -4,6 +4,11 @@ const Description = (props) => {
 if (props.currentPage !== 2){
   return null
 }
+
+const letterCount = () => {
+    let charLeft = (10 - props.description.length);
+    return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
+  }
     return(
       <div className = 'name-box'>
      <br/>
@@ -16,7 +21,7 @@ if (props.currentPage !== 2){
           value={props.description}
           onChange={props.handleInput('description')}
         />
-        <p id='required'>This is a required field</p>
+        <p id='required'>{letterCount()}</p>
         <p id ='tips-descript'>THINGS TO CONSIDER MENTIONING</p>
         <ul id ='tips-list'>
           <li>Information on scenery</li>
