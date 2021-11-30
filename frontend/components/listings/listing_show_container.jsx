@@ -1,12 +1,14 @@
 import { receiveListing } from "../../actions/listings_actions"
 import { connect } from "react-redux"
 import Listing from './listing_show'
-const mapStateToProps = (state, ownProps) => ({
-  listing: state.listings[ownProps.match.params.listingId]
-})
+const mapStateToProps = (state, ownProps) => {
+  return{
+    listing: state.entities.listings[ownProps.match.params.listingId]
+  }
+}
 
-const mapDispatchToProps = (dispatch) => ({
-  requestListing: (listingId) => dispatch(receiveListing(listingId))
+const mapDispatchToProps = dispatch => ({
+  receiveListing: id => dispatch(receiveListing(id))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Listing)

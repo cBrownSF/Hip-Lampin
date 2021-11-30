@@ -13,10 +13,10 @@ const App = () => (
     <p className='mainLogo'>HipCamp</p>
     <GreetingContainer/>
   </header>
-    <ProtectedRoute exact path='/listings/new' component ={ListingFormContainer} />
+    <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
-    <Route path="/listings/:listingId" component={ListingShowContainer} />
+    <Route exact path="/listings/:listingId" component={ListingShowContainer} />
   </div>
 );
 

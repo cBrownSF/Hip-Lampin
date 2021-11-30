@@ -2,22 +2,20 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 class Listing extends React.Component {
-
-
   componentDidMount() {
+    
     this.props.receiveListing(this.props.match.params.listingId)
   }
 
   render() {
-return(
-  <div>
-    <h1>{this.props.name}</h1>
+    if (!this.props.listing){
+      return null;
+    }
+    return(
     <div>
-      <h1>Description</h1>
-      <p>{this.props.description}</p>
-    </div>
-    <div>
-      <h1>Ameneties</h1>
+      <h1>{this.props.listing.name}</h1>
+      {/* <h1>Ameneties</h1>
+
       <p>{this.props.is_fishing}</p>
       <p>{this.props.is_shower}</p>
       <p>{this.props.is_wifi}</p>
@@ -32,10 +30,11 @@ return(
       <p>{this.props.booking_time}</p>
       <p>{this.props.minimum_night}</p>
       <p>{this.props.guests_allowed}</p>
-    </div>
+    </div> */}
   </div>
-)
+    )
   }
+  
 }
 
 export default Listing;

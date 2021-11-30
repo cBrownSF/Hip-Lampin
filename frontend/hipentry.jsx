@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.dispatch;
   window.dispatch = store.dispatch;
   window.receiveListing = receiveListing;
+  window.fetchListing = fetchListing
   window.deleteListing = deleteListing;
   window.createListing = createListing
   window.updateListing = updateListing;

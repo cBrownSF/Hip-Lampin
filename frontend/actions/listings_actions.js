@@ -10,7 +10,7 @@ export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
   listings
 })
 
-const receiveOneListing = listing =>({
+export const receiveOneListing = listing =>({
   type: RECEIVE_LISTING,
   listing
 })
@@ -39,8 +39,7 @@ export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdlisting => {
     dispatch(receiveOneListing(createdlisting))
-    debugger;
-    browserHistory.push(`/listings/${createdlisting.id}`)
+    browserHistory.push(`/#/listings/${createdlisting.id}`)
   }),
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }

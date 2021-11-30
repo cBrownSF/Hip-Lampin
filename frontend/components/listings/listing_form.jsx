@@ -78,7 +78,7 @@ class ListingForm extends React.Component {
       formData.append('listing[is_hiking]', this.state.is_hiking)
       formData.append('listing[is_wildlife]', this.state.is_wildlife)
       formData.append('listing[is_paddling]', this.state.is_paddling)
-      debugger;
+      
       if (this.state.photoFile) {
 
         formData.append('listing[photo]', this.state.photoFile);
