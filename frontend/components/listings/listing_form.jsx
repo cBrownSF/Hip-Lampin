@@ -49,6 +49,7 @@ class ListingForm extends React.Component {
     this.toggleBoolean = this.toggleBoolean.bind(this)
     this.numberInput = this.numberInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
+    this.descriptNextStep = this.descriptNextStep.bind(this)
   }
     handleSubmit(e) {
       e.preventDefault();
@@ -110,16 +111,15 @@ class ListingForm extends React.Component {
 
   numberInput(type) {
     const regex = /^[0-9\b]+$/;
-    // const numArray =[0,1,2,3,4,5,6,7,8,9,',','$']
-    
+
     return e => {
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
     //  let formatNumber = (Number(e.currentTarget.value.replace(/\D/g, '')) || '').toLocaleString()
         this.setState({ [type]: e.currentTarget.value})
       }
     }
-  }
-
+  } 
+  
   toggleBoolean(type) {
     return e =>{
       if (this.state[type] === false) {
@@ -141,26 +141,28 @@ class ListingForm extends React.Component {
       //     [type]: !prevState.type
       //   }))
       // }
-    
-  nextStep () {
+  descriptNextStep() {
     let step = this.state.step
-    let name = this.state.name
-    if(name.length > 10){
-     return (
-       this.setState({
-        step: step +1
-      })
-     )
-    }else{
+    let description = this.state.description
+
+    if (description.length >= 10) {
+      return (
         this.setState({
-          step: step
+          step: step + 1
+        })
+      )
+    } else {
+      this.setState({
+        step: step
       })
     }
   }
+
+
   nextStep() {
     let step = this.state.step
     let name = this.state.name
-    if (name.length > 10) {
+    if (name.length >= 10) {
       return (
         this.setState({
           step: step + 1
@@ -173,7 +175,7 @@ class ListingForm extends React.Component {
     }
   }
     
-    previousStep() {
+  previousStep() {
     let step = this.state.step
     return this.setState({
       step: step - 1
@@ -196,10 +198,10 @@ class ListingForm extends React.Component {
         />
         <DescriptionForm  
           currentPage={this.state.step}
-          nextPage={this.nextStep}
+          description = {this.state.description}
+          nextPage={this.descriptNextStep}
           prevPage={this.previousStep}
           handleInput={this.handleInput}
-          description = {this.state.description}
         />
         <CostForm 
           currentPage={this.state.step}

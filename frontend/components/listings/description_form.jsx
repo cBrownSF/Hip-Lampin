@@ -7,6 +7,7 @@ if (props.currentPage !== 2){
     return(
       <div className = 'name-box'>
      <br/>
+     {console.log(props.description.length)}
           <h1 id='name-title'>Describe your listing</h1>
           <p id='blurb'>Provide a bit more detail about what Hipcampers can see,do,and expect here</p>
         <textarea id='description-text-area'
