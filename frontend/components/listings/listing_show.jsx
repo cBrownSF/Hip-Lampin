@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 class Listing extends React.Component {
   componentDidMount() {
-    
-    this.props.receiveListing(this.props.match.params.listingId)
+    this.props.receiveListing(this.props.match.params.listingId);
   }
-
+  
   render() {
     if (!this.props.listing){
       return null;

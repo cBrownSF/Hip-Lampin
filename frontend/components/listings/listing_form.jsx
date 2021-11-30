@@ -83,10 +83,10 @@ class ListingForm extends React.Component {
 
         formData.append('listing[photo]', this.state.photoFile);
       }
-      this.props.createListing(formData);
-      this.navigateToHome();
+
+      this.props.createListing(formData)
       // if (this.props.errors.length===0){
-      // this.navigateToHome()
+      this.navigateToHome()
       // }
     }
   handleFile(e) {
@@ -94,7 +94,6 @@ class ListingForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
     if (file) {

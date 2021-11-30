@@ -14,8 +14,8 @@ const App = () => (
     <GreetingContainer/>
   </header>
     <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
+    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
   </div>
 );
