@@ -5,7 +5,8 @@ export const RECEIVE_LISTING = 'RECEIVE_LISTING'
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
 export const REMOVE_LISTING = 'REMOVE_LISTING'
 export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
- const receiveListings = listings => ({
+ 
+const receiveListings = listings => ({
   type: RECEIVE_ALL_LISTINGS,
   listings
 })
@@ -14,9 +15,9 @@ export const receiveOneListing = listing =>({
   type: RECEIVE_LISTING,
   listing
 })
-export const removeListing = listing =>({
+export const removeListing = listingId =>({
   type: REMOVE_LISTING,
-  listing
+  listingId
 })
 const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
@@ -35,14 +36,12 @@ export const receiveListing = id => dispatch =>{
   return ListingAPIUtil.fetchListing(id)
     .then(listing => dispatch(receiveOneListing(listing)))
 }
-//fetchBench(id).then(payload => (
-// dispatch(receiveBench(payload))
-//   ))
+
 export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdlisting => {
     dispatch(receiveOneListing(createdlisting));
-    browserHistory.push(`#/listings/${createdlisting.id}`)
+    browserHistory.push(`/listings/${createdlisting.id}`)
   }),
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }
@@ -55,6 +54,8 @@ export const updateListing = listing => dispatch =>{
 
 export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
-    .then(() => dispatch(removeListing(listingId))
-    )
+    .then(() => {
+    dispatch(removeListing(listingId))
+    browserHistory.push(`/`)
+    })
 }

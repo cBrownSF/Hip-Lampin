@@ -177,7 +177,6 @@ class ListingForm extends React.Component {
   
 
   costNextStep() {
-    debugger;
     let step = this.state.step
     let cost = this.state.cost
     if (cost.length > 0) {

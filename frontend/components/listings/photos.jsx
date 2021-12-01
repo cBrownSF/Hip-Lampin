@@ -6,13 +6,14 @@ const PhotoForm = (props) => {
   }
 
 return(
-  <div>
+  <div className='name-box'>
+    <br/>
     <div className="button-holder">
-      <h3>Image preview </h3>
+      <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
     {props.photoUrl ? <img height="200px" width="200px" src={props.photoUrl} /> : null}
-      <h3 className="button-holder">Add a Picture</h3>
-      <input type="file" className="new-bench-button"
-        onChange={props.handleFile} />
+      
+      <input type="file" className="next-button-with-prev" 
+        onChange={props.handleFile} />Add a Photo
     </div>
     <div className='photos-buttons'>
       <button className='previous-button' onClick={props.prevPage}>Previous</button>

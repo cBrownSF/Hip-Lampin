@@ -25,6 +25,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def destroy
+
     @listing = Listing.find(params[:id])
     @listing.destroy
     render :show

@@ -1,1 +1,2 @@
-json.extract! listing, :id, :name
+json.merge! listing.attributes
+
