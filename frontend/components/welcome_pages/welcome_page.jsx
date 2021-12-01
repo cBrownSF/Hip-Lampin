@@ -10,7 +10,6 @@ class Greeting extends React.Component {
     if (currentUser) {
       const newTo = {
         pathname: "/listings/new",
-        search: '1',
         state: {value:1}
       };
       return (

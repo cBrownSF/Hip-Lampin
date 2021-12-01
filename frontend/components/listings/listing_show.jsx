@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -27,7 +27,7 @@ render() {
   }
   const listing = this.props.listing
   const descript = {
-    pathname: "/listings/new",
+    pathname: `/listings/${this.props.listing.id}/edit`,
     state: { value: 2 }
   }
   return(
@@ -46,6 +46,7 @@ render() {
           <p>{`showers: ${this.updatedProps(listing.is_shower)}`}</p>
           <p>{`wifi: ${this.updatedProps(listing.is_wifi)}`}</p>
           <p>{`picnic tables: ${this.updatedProps(listing.is_picnic_table)}`}</p>
+          <p>{}</p>
       </div>
         <div><h2>Essentials</h2></div>
         <p></p>
@@ -55,8 +56,8 @@ render() {
         {console.log(this.props.listing)}
       
         <button onClick={()=>this.onDelete()}>button</button>
-      {/* <Link to={`/${this.props.listing.id}/edit`}>Edit</Link> */
-        /* <Link to={descript}>Descript</Link> */}
+       {/* <Link to={`/listings/${this.props.listing.id}/edit`}>Edit</Link>   */}
+        <Link to={descript}>Descript</Link> 
     </div>
   )
   }

@@ -1,17 +1,20 @@
-// import ListingForm from './listing_form';
-// import { connect } from "react-redux"
-// import { deleteListing, updateListing } from "../../actions/listings_actions";
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     currentUser: state.entities.users[state.sessions.currentUser],
-//     listing: state.entities.listings[ownProps.match.params.listingId]
-//   }
-// }
+import ListingForm from './listing_form';
+import { connect } from "react-redux"
+import { deleteListing, updateListing,removeListingErrors} from "../../actions/listings_actions";
+const mapStateToProps = (state, ownProps) => {
+  debugger;
+  return {
+    errors: state.errors.listing,
+    currentUser: state.entities.users[state.sessions.currentUser],
+    listing: state.entities.listings[ownProps.match.params.listingId]
+  }
+}
 
-// const mapDispatchToProps = dispatch => ({
-//   updateListing: id => dispatch(updateListing(id)),
-//   deleteListing: (id) => dispatch(deleteListing(id))
-// })
+const mapDispatchToProps = dispatch => ({
+  submitEvent: id => dispatch(updateListing(id)),
+  deleteListing: (id) => dispatch(deleteListing(id)),
+  clearErrors: () => dispatch(removeListingErrors())
+})
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ListingForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ListingForm)

@@ -12,8 +12,8 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props.location.search)
-    console.log(this.props.location.state.value)
+    console.log(this.props)
+    console.log(this.props.listing)
     this.state = {
       step: this.props.location.state.value,
       host_id: this.props.currentUser.id,
@@ -53,6 +53,7 @@ class ListingForm extends React.Component {
     this.descriptNextStep = this.descriptNextStep.bind(this)
     this.letterCount = this.letterCount.bind(this)
     this.costNextStep=this.costNextStep.bind(this)
+    this.nameNextStep=this.nameNextStep.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -85,7 +86,7 @@ class ListingForm extends React.Component {
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
     }
-    this.props.createListing(formData)
+    this.props.submitEvent(formData)
   }
   
   letterCount() {
@@ -156,7 +157,7 @@ class ListingForm extends React.Component {
     }
   }
 
-  nextStep() {
+  nameNextStep() {
     let step = this.state.step
     let name = this.state.name
     if (name.length >= 10) {
@@ -172,9 +173,17 @@ class ListingForm extends React.Component {
     }
   }
   
+  nextStep(){
+    let step = this.state.step
+    return (
+      this.setState({
+      step: step + 1
+        })
+      )
+  }
+  
 
   costNextStep() {
-    debugger;
     let step = this.state.step
     let cost = this.state.cost
     if (cost.length > 0) {
@@ -207,7 +216,7 @@ class ListingForm extends React.Component {
           currentPage = {this.state.step}
           name = {this.state.name}
           handleInput ={this.handleInput}
-          nextPage = {this.nextStep}
+          nextPage = {this.nameNextStep}
           samePage ={this.sameStep}
         />
         <DescriptionForm  
