@@ -58,6 +58,7 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
+    // formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
     formData.append('listing[name]', this.state.name)
     formData.append('listing[description]', this.state.description)
@@ -86,6 +87,7 @@ class ListingForm extends React.Component {
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
     }
+   
     this.props.submitEvent(formData)
   }
   

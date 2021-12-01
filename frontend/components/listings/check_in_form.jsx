@@ -42,8 +42,8 @@ const CheckInForm = (props) => {
       <br/>
       <div className='check-in-button'>
         <button className='previous-button' onClick={props.prevPage}>Previous</button>
-        <button className='next-button-with-prev' type="submit"
-        >Create Listing</button>
+        <input className='next-button-with-prev' type="submit"
+        />
       </div>
     </div>
 

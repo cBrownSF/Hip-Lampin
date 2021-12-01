@@ -6,6 +6,7 @@ import SignupFormContainer from './session_forms/signup_form_container'
 import ListingFormContainer from './listings/listing_form_container'
 import ListingShowContainer from "./listings/listing_show_container";
 import EditFormContainer from "./listings/edit_form_container";
+import ListingIndexContainer from './listings/listings_index_container'
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
     <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
+    <Route exact path='/' component={ListingIndexContainer} />
   </Switch>
   </div>
 );
