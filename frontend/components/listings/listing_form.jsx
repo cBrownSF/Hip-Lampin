@@ -12,10 +12,12 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
+    debugger;
+    console.log(this.props)
     const listing = this.props.listing
  
     this.state = {
-      step: this.props.location.state.value,
+      step: this.props.location.state.value || 1,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
