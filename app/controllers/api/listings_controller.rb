@@ -18,7 +18,7 @@ before_action :require_logged_in, only: [:create]
 
   def update
     @listing = Listing.find(params[:id])
-    debugger
+
     if @listing.update(listing_params)
       render :show
     else

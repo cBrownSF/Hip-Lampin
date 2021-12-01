@@ -52,8 +52,7 @@ render() {
         <p></p>
         <p>{`Are campfires allowed: ${this.updatedProps(listing.is_campfire_allowed)}`}</p>
         <p>{`Toilets Available: ${this.updatedProps(listing.is_toilet)}`}</p>
-        {console.log(this.props.currentUser)}
-        {console.log(this.props.listing)}
+   
       
         <button onClick={()=>this.onDelete()}>button</button>
        {/* <Link to={`/listings/${this.props.listing.id}/edit`}>Edit</Link>   */}
