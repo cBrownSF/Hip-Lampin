@@ -1,17 +1,16 @@
 import React from 'react'
-import {ProtectedRoute} from '../../util/routes'
-import {Link} from 'react-router-dom'
+
 class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
   }
   componentDidUpdate() {
-    debugger;
     if (!this.props.listing){
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
@@ -33,7 +32,9 @@ render() {
   }
   return(
     <div>
-      {console.log}
+      
+      
+      
       <h1>{listing.name}</h1>
       <h2>{listing.description}</h2>
       <h2>{listing.cost}</h2>
@@ -54,11 +55,13 @@ render() {
         {console.log(this.props.listing)}
       
         <button onClick={()=>this.onDelete()}>button</button>
-      {/* <Link to={`/${this.props.listing.id}/edit`}>Edit</Link> */}
-        {/* <Link to={descript}>Descript</Link> */}
+      {/* <Link to={`/${this.props.listing.id}/edit`}>Edit</Link> */
+        /* <Link to={descript}>Descript</Link> */}
     </div>
   )
   }
 }
 
-export default (ListingShow);
+
+
+export default ListingShow;
