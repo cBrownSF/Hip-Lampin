@@ -24,9 +24,9 @@ export const createListing = (listing) => {
 }
 
 export const updateListing = (listing) => {
- 
+ debugger;
   return $.ajax({
-    url: `/api/listings/${listing.id}`,
+    url: `/api/listings/${listing.get('listing[id]')}`,
     method: 'PATCH',
     data: listing,
     contentType: false,

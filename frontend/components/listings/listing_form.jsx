@@ -12,16 +12,16 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props)
-    console.log(this.props.listing)
+ 
+ 
     this.state = {
       step: this.props.location.state.value,
       host_id: this.props.currentUser.id,
-      name: "",
-      description: "",
-      cost: '',
-      check_in_time: "02:00 PM",
-      check_out_time: "12:00 PM",
+      name: this.props.listing.name || "",
+      description: this.props.listing.description || "",
+      cost: this.props.listing.cost || '',
+      check_in_time: this.props.listing.check_in_time ||"02:00 PM",
+      check_out_time: this.props.listing.check_out_time|| "12:00 PM",
       response_time: '10 minutes',
       on_arrival: 'Meet and Greet',
       guests_allowed: 1,
@@ -56,9 +56,10 @@ class ListingForm extends React.Component {
     this.nameNextStep=this.nameNextStep.bind(this)
   }
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const formData = new FormData();
-    // formData.append('listing[id]', this.props.listing.id)
+    formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
     formData.append('listing[name]', this.state.name)
     formData.append('listing[description]', this.state.description)
