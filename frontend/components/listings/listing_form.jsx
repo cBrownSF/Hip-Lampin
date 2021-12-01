@@ -14,7 +14,7 @@ class ListingForm extends React.Component {
     super(props)
     debugger;
     console.log(this.props)
-    const listing = this.props.listing
+    const listing = this.props.listing 
  
     this.state = {
       step: this.props.location.state.value || 1,
