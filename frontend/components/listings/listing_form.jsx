@@ -12,9 +12,10 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props)
+    console.log(this.props.location.search)
+    console.log(this.props.location.state.value)
     this.state = {
-      step: 1,
+      step: this.props.location.state.value,
       host_id: this.props.currentUser.id,
       name: "",
       description: "",
@@ -82,15 +83,11 @@ class ListingForm extends React.Component {
     formData.append('listing[is_paddling]', this.state.is_paddling)
     
     if (this.state.photoFile) {
-
       formData.append('listing[photo]', this.state.photoFile);
     }
-
     this.props.createListing(formData)
-    // if (this.props.errors.length===0){
-    
-    // }
   }
+  
   letterCount() {
     let charLeft = (10 - this.state.name.length);
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
@@ -103,7 +100,7 @@ class ListingForm extends React.Component {
     };
     if (file) {
       fileReader.readAsDataURL(file);
-      }
+    }
   }
   
   handleInput(type){
@@ -149,7 +146,7 @@ class ListingForm extends React.Component {
     if (description.length >= 10) {
       return (
         this.setState({
-          step: step + 1
+          step: this.state.step + 1
         })
       )
     } else {
@@ -177,6 +174,7 @@ class ListingForm extends React.Component {
   
 
   costNextStep() {
+    debugger;
     let step = this.state.step
     let cost = this.state.cost
     if (cost.length > 0) {

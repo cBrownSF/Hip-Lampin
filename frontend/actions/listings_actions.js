@@ -41,7 +41,7 @@ export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdlisting => {
     dispatch(receiveOneListing(createdlisting));
-    browserHistory.push(`/listings/${createdlisting.id}`)
+    browserHistory.push(`/#/listings/${createdlisting.id}`)
   }),
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }
@@ -56,6 +56,6 @@ export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
     .then(() => {
     dispatch(removeListing(listingId))
-    browserHistory.push(`/`)
+    browserHistory.push(`/#/`)
     })
 }

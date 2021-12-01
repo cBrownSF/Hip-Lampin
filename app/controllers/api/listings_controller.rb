@@ -2,12 +2,14 @@ class Api::ListingsController < ApplicationController
 before_action :require_logged_in, only: [:create]
 
   def create
-    @listing = Listing.new(listing_params)
-    if @listing.save
-        render :show
-      else
-        render json: @listing.errors.full_messages, status: 422
-    end
+    @listing = Listing.create!(listing_params)
+    render :show
+    # if @listing.save
+    #     render :show
+    #   else
+    #     render json: @listing.errors.full_messages, status: 422
+    # end
+    #DOUBLE CHECK
   end
 
   def show

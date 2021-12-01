@@ -8,11 +8,16 @@ class Greeting extends React.Component {
   render() {
     const { currentUser, logout,login } = this.props
     if (currentUser) {
+      const newTo = {
+        pathname: "/listings/new",
+        search: '1',
+        state: {value:1}
+      };
       return (
         <div className="logged-in">
         <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
           <button className="log-out-button" onClick={logout}>Logout</button>
-          <button className= 'start-hosting'><Link className ="navBarButton" to= '/listings/new'>Start Hosting</Link></button>
+          <button className= 'start-hosting'><Link className ="navBarButton" to= {newTo}>Start Hosting</Link></button>
         </div>
       )
     } else {

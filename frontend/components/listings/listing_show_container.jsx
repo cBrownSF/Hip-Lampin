@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import ListingShow from './listing_show'
 const mapStateToProps = (state, ownProps) => {
   return{
+    currentUser: state.entities.users[state.sessions.currentUser],
     listing: state.entities.listings[ownProps.match.params.listingId]
   }
 }

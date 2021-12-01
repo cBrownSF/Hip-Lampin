@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 
 const NameForm = (props) =>{
+
  if (props.currentPage !== 1){
    return null
  }
+
 
   const letterCount = () => {
     let charLeft = (10 - props.name.length);
     return charLeft <= 0 ? '' : `${charLeft} more characters needed` ;
   }
   
+
   
   return (
     <div className="name-box">
@@ -38,6 +41,7 @@ const NameForm = (props) =>{
           <br/>
           <br/>
           <br/>
+          
       <button className='next-button-single' onClick={props.nextPage}>Next</button>
         </div>
         )
