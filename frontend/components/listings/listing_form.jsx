@@ -21,10 +21,10 @@ class ListingForm extends React.Component {
     //   this.props.history.push(`/listings/${this.props.match.params.listingId}`);
     // <Link to={`/listings/${this.props.match.params.listingId}`}></Link>
     
-    if (!this.props.listing) {
-      debugger;
-      this.props.receiveListing(this.props.match.params.listingId);
-    }
+    // if (!this.props.listing) {
+    //   debugger;
+    //   this.props.receiveListing(this.props.match.params.listingId);
+    // }
     const listing = this.props.listing
     this.state = {
       step:  Number(this.props.location.search[1])||1,
@@ -122,7 +122,7 @@ class ListingForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
-    console.log(this.state)
+    
     if (file) {
       fileReader.readAsDataURL(file);
     }
@@ -339,4 +339,4 @@ class ListingForm extends React.Component {
     }
 
 
-export default ListingForm
+export default withRouter(ListingForm)
