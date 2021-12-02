@@ -5,13 +5,13 @@ const CostForm = (props) => {
     return null
   }
   const hideButton = ()=>{  
-  if (props.listing !== ''){
-   return (
-     <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
-   )
-  }else{
-    return ''
-  }
+    if (props.listing !== ''){
+    return (
+      <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
+    )
+    }else{
+      return ''
+    }
   }
 
   return(

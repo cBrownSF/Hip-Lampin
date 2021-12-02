@@ -54,6 +54,7 @@ render() {
       
       <div className = 'name-show'>
       <h1>{listing.name}</h1>
+        <Link to={nameedit}>Name Edit</Link>
       </div>
 
       <div className = 'descript-show'>

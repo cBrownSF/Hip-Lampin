@@ -13,7 +13,7 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props)
     const listing = this.props.listing 
-    console.log(this.props)
+    console.log(this.props.listing)
     // if (!this.props.listing) {
     //   debugger;
     //   console.log('hello');
@@ -290,6 +290,11 @@ class ListingForm extends React.Component {
           nextPage={this.nextStep}
           prevPage={this.previousStep}
           toggleCheck={this.toggleBoolean}
+          fishing={this.state.is_fishing}
+          paddling={this.state.is_paddling}
+          wildlife={this.state.is_wildlife}
+          swimming={this.state.is_swimming}
+          hiking={this.state.is_hiking}
         />
         <PhotoForm
           currentPage={this.state.step}
