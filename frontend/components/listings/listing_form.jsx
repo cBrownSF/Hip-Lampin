@@ -12,12 +12,14 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    debugger;
-    console.log(this.props)
     const listing = this.props.listing 
- 
+    // if (this.props.listing !== '') {
+    //   debugger;
+    //  this.state = this.props.listing
+    // }else{
+    
     this.state = {
-      step: this.props.location.state.value || 1,
+      step:  Number(this.props.location.search[1]) || 1,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
@@ -45,6 +47,7 @@ class ListingForm extends React.Component {
       photoFile: listing.photoFile || null,
       photoUrl: listing.photoUrl || null
     }
+  
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -57,6 +60,14 @@ class ListingForm extends React.Component {
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
   }
+  componentDidMount() {
+    debugger;
+    console.log(this.props.listing)
+    // if (this.props.listing !== '') {
+    //  console.log('hello')
+    // }
+  }
+
   handleSubmit(e) {
 
     e.preventDefault();
@@ -212,7 +223,7 @@ class ListingForm extends React.Component {
 
   
   render() {
-    
+ 
     return (
       <div>
       <React.Fragment>

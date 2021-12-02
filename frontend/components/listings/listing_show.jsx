@@ -28,7 +28,8 @@ render() {
   const listing = this.props.listing
   const descript = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    state: { value: 2 }
+    search:'2',
+    state: this.props.listing 
   }
   return(
     <div>
