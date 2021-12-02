@@ -54,6 +54,7 @@ export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
       dispatch(receiveOneListing(listing))
+     
     })
 }
 
@@ -61,6 +62,6 @@ export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
     .then(() => {
     dispatch(removeListing(listingId))
-    browserHistory.push(`/#/`)
+      hashHistory.push(`/`)
     })
 }
