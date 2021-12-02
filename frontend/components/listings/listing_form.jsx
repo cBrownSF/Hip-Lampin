@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter, Link,withRouter } from "react-router-dom";
-import { Redirect } from "react-router-dom"
+import {  Link,withRouter } from "react-router-dom";
+import { hashHistory } from "react-router"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
 import CostForm from './cost'
@@ -13,18 +13,10 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props)
  
-    console.log(props.listing)
-   
-    // if (!this.props.listing !== '') {
-    //   debugger;
-    //   console.log('hello');
-    //   this.props.history.push(`/listings/${this.props.match.params.listingId}`);
-    // <Link to={`/listings/${this.props.match.params.listingId}`}></Link>
-    
-    // if (!this.props.listing) {
-    //   debugger;
-    //   this.props.receiveListing(this.props.match.params.listingId);
-    // }
+    if (!this.props.listing) {
+      hashHistory.push(`listings/${props.match.params.listingId}`)
+     return undefined;
+    }
     const listing = this.props.listing
     this.state = {
       step:  Number(this.props.location.search[1])||1,
@@ -55,7 +47,6 @@ class ListingForm extends React.Component {
       photoFile: listing.photoFile || null,
       photoUrl: listing.photoUrl || null
     }
-  
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -69,10 +60,8 @@ class ListingForm extends React.Component {
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
   }
-  
-  // getDerivedStateFromProps(){
-  //   debugger;
-  // }
+
+
   handleSubmit(e) {
 
     e.preventDefault();
@@ -153,11 +142,12 @@ class ListingForm extends React.Component {
     }
   }
   componentDidMount() {
+  
     this.props.clearErrors()
-    // if (!this.props.listing){
-    //   debugger;
-    //   this.props.receiveListing(this.props.match.params.listingId);
-    // }
+    if (!this.props.listing){
+      debugger;
+      this.props.receiveListing(this.props.match.params.listingId);
+    }
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -244,10 +234,11 @@ class ListingForm extends React.Component {
     }
   }
   render() {
-    // if (this.props.listing === undefined) {
-    //   debugger;
-    //   return null;
-    // }
+    if (this.props.listing === undefined) {
+      debugger;
+      return null;
+    }
+    debugger;
     return (
       <div >
       <React.Fragment>
