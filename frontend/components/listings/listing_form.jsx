@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link,withRouter } from "react-router-dom";
 import { Redirect } from "react-router-dom"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
@@ -13,13 +13,19 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props)
     const listing = this.props.listing 
-    // if (this.props.listing !== '') {
+    console.log(this.props)
+    // if (!this.props.listing) {
     //   debugger;
-    //  this.state = this.props.listing
-    // }else{
+    //   console.log('hello');
+    //   this.props.history.push(`/listings/${this.props.match.params.listingId}`);
+    // <Link to={`/listings/${this.props.match.params.listingId}`}></Link>
+    
+    // if (!this.props.listing) {
+    //  <Link to={this.props.location.pathname} />
+    // }
     
     this.state = {
-      step:  Number(this.props.location.search[1]) || 1,
+      step:  Number(this.props.location.search[1])||1,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
@@ -59,14 +65,9 @@ class ListingForm extends React.Component {
     this.letterCount = this.letterCount.bind(this)
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
+    this.hideButton=this.hideButton.bind(this)
   }
-  componentDidMount() {
-    debugger;
-    console.log(this.props.listing)
-    // if (this.props.listing !== '') {
-    //  console.log('hello')
-    // }
-  }
+  
 
   handleSubmit(e) {
 
@@ -146,6 +147,7 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
+    
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -221,13 +223,22 @@ class ListingForm extends React.Component {
     })
   }
 
-  
+ hideButton () {
+    
+    if (this.props.listing !== '') {
+      
+      return (
+        <Link to={`/listings/${this.props.listing.id}`}>X</Link>
+      )
+    }
+  }
   render() {
  
     return (
-      <div>
+      <div >
       <React.Fragment>
-      <form onSubmit = {this.handleSubmit} className = 'create-listing-form'>
+      <form onSubmit = {this.handleSubmit} className='create-listing-form'>
+        {/* <p className='hide-button'>{this.hideButton()}</p> */}
         <NameForm 
           currentPage = {this.state.step}
           name = {this.state.name}
@@ -250,12 +261,20 @@ class ListingForm extends React.Component {
           cost = {this.state.cost}
           minNight={this.state.minimum_night}
           handleInput={this.handleInput}
+          listing={this.props.listing}
           />
         <Amenities
           currentPage={this.state.step}
           nextPage={this.nextStep}
           prevPage={this.previousStep}
           toggleCheck = {this.toggleBoolean}
+          trash = {this.state.is_trash}
+          kitchen = {this.state.is_kitchen}
+          wifi = {this.state.is_wifi}
+          picnic={this.state.is_picnic_table}
+          shower={this.state.is_shower}
+          toilet ={this.state.is_toilet}
+          campfire = {this.state.is_campfire_allowed}
           />
         <SiteDetails 
           currentPage={this.state.step}
@@ -299,4 +318,4 @@ class ListingForm extends React.Component {
     }
 
 
-export default ListingForm
+export default withRouter(ListingForm)

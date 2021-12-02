@@ -18,6 +18,7 @@ class ListingShow extends React.Component {
   }
   
  updatedProps(word){
+
   return word === true ? 'Yes': 'No'
  }
  
@@ -31,33 +32,60 @@ render() {
     search:'2',
     state: this.props.listing 
   }
+  const amenities = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '4',
+    state: this.props.listing
+  }
+  const cost = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+      search: '3',
+        state: this.props.listing
+  }
+  const nameedit = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '1',
+    state: this.props.listing
+  
+  }
   return(
     <div>
       
       
-      
+      <div className = 'name-show'>
       <h1>{listing.name}</h1>
+      </div>
+
+      <div className = 'descript-show'>
       <h2>{listing.description}</h2>
+        <Link to={descript}>Descript Edit</Link>
+      </div>
+
+      <div className = 'cost-show'>
       <h2>{listing.cost}</h2>
+        <Link to={cost}>Cost Edit</Link>
+      </div>
+
       <h2>{listing.guests_allowed}</h2>
-      <h2>{listing.is_trash}</h2>
-      <div>
-        <h2>Ameneneties</h2>
+
+      <div className = 'amenities-show'>
+        <h2>Amenities</h2>
+        <Link to={amenities}>Amen Edit</Link>
           <p>{`trash bins: ${this.updatedProps(listing.is_trash)}`}</p>
           <p>{`showers: ${this.updatedProps(listing.is_shower)}`}</p>
           <p>{`wifi: ${this.updatedProps(listing.is_wifi)}`}</p>
           <p>{`picnic tables: ${this.updatedProps(listing.is_picnic_table)}`}</p>
-          <p>{}</p>
       </div>
-        <div><h2>Essentials</h2></div>
-        <p></p>
-        <p>{`Are campfires allowed: ${this.updatedProps(listing.is_campfire_allowed)}`}</p>
-        <p>{`Toilets Available: ${this.updatedProps(listing.is_toilet)}`}</p>
-   
-      
+      <div className = 'essentials-show'> 
+        <h2>Essentials</h2>
+        
+        <Link to={amenities}>Amen Edit</Link>
+      </div>
         <button onClick={()=>this.onDelete()}>button</button>
        {/* <Link to={`/listings/${this.props.listing.id}/edit`}>Edit</Link>   */}
-        <Link to={descript}>Descript</Link> 
+       
+       
+       
     </div>
   )
   }

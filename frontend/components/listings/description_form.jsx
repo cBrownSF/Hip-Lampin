@@ -10,7 +10,7 @@ const letterCount = () => {
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
     return(
-      <div className = 'name-box'>
+    <div className="name-box">
      <br/>
  
           <h1 id='name-title'>Describe your listing</h1>

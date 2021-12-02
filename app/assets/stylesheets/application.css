@@ -428,3 +428,13 @@ body{
    margin-bottom: 15px;
  }
  
+
+ .name-box #hide-button{
+   margin-right:100px; 
+ }
+
+ .x-button{
+   text-decoration: none;
+   font-size:30px;
+   color:#37474f;
+ }
