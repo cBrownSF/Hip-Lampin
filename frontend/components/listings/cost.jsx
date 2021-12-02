@@ -9,7 +9,8 @@ const CostForm = (props) => {
    return (
      <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
    )
- 
+  }else{
+    return ''
   }
   }
 

@@ -147,7 +147,6 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
-    
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -210,6 +209,7 @@ class ListingForm extends React.Component {
           step: step + 1
         })
       )
+
     } else {
       this.setState({
         step: step
