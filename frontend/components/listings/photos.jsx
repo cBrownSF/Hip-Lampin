@@ -11,7 +11,7 @@ return(
     <div className="button-holder">
       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
       {console.log(props)}
-    {props.photoUrl ? <img height="200px" width="200px" src={props.photoUrl} /> : null}
+    {props.photoURL ? <img height="200px" width="200px" src={props.photoURL} /> : null}
       
       <input type="file"  
         onChange={props.handleFile} />photo

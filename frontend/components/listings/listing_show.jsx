@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import PhotoForm from './photos';
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -56,6 +57,7 @@ render() {
       
       
       <div className = 'name-show'>
+        {/* <h1>{listing.photoUrl}</h1> */}
       <h1>{listing.name}</h1>
         <Link to={nameedit}>Name Edit</Link>
       </div>
@@ -64,7 +66,10 @@ render() {
       <h2>{listing.description}</h2>
         <Link to={descript}>Descript Edit</Link>
       </div>
-
+      <div>
+        <img src={listing.photoURL} alt="screenshot" />
+      {/* <img  src={listing.photoURL}>sdgsdg</img> */}
+      </div>
       <div className = 'cost-show'>
       <h2>{listing.cost}</h2>
         <Link to={cost}>Cost Edit</Link>

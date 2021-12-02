@@ -13,13 +13,14 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props)
  
-    if (!this.props.listing) {
+    if (!this.props.listing && this.props.formType === 'edit') {
       hashHistory.push(`listings/${props.match.params.listingId}`)
      return undefined;
     }
     const listing = this.props.listing
+    console.log(this.state)
     this.state = {
-      step:  Number(this.props.location.search[1])||1,
+      step:  Number(this.props.location.search[1]),
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
@@ -45,7 +46,7 @@ class ListingForm extends React.Component {
       is_paddling: listing.is_paddling ||false,
       is_wildlife: listing.is_wildlife || false,
       photoFile: listing.photoFile || null,
-      photoUrl: listing.photoUrl || null
+      photoURL: listing.photoURL|| null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
@@ -109,7 +110,7 @@ class ListingForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
+      this.setState({ photoFile: file, photoURL: fileReader.result });
     };
     
     if (file) {
@@ -142,12 +143,7 @@ class ListingForm extends React.Component {
     }
   }
   componentDidMount() {
-  
     this.props.clearErrors()
-    if (!this.props.listing){
-      debugger;
-      this.props.receiveListing(this.props.match.params.listingId);
-    }
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -235,10 +231,8 @@ class ListingForm extends React.Component {
   }
   render() {
     if (this.props.listing === undefined) {
-      debugger;
       return null;
     }
-    debugger;
     return (
       <div >
       <React.Fragment>
@@ -306,7 +300,7 @@ class ListingForm extends React.Component {
           prevPage={this.previousStep}
           handlePhoto={this.handleFile}
           nextPage={this.nextStep}
-          photoURL={this.state.photoUrl}
+          photoURL={this.state.photoURL}
           photoFile={this.state.photoFile}
           handleFile={this.handleFile}
         />
