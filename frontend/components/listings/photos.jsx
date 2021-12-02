@@ -10,10 +10,11 @@ return(
     <br/>
     <div className="button-holder">
       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
+      {console.log(props)}
     {props.photoUrl ? <img height="200px" width="200px" src={props.photoUrl} /> : null}
       
-      <input type="file" className="next-button-with-prev" 
-        onChange={props.handleFile} />Add a Photo
+      <input type="file"  
+        onChange={props.handleFile} />photo
     </div>
     <div className='photos-buttons'>
       <button className='previous-button' onClick={props.prevPage}>Previous</button>

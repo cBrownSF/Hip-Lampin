@@ -4,8 +4,10 @@ class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
+  
   }
   componentDidUpdate() {
+    console.log(this.props)
     if (!this.props.listing){
       this.props.receiveListing(this.props.match.params.listingId);
     }
@@ -23,6 +25,7 @@ class ListingShow extends React.Component {
  }
  
 render() {
+ 
   if (!this.props.listing){
     return null;
   }

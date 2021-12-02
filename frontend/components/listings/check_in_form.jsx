@@ -6,6 +6,7 @@ const CheckInForm = (props) => {
   }
   return (
     <div className='name-box'>
+      {console.log(props)}
       <br />
       <h1 id='act-amen-title'>What are your check in preferences?</h1>
       <br/>

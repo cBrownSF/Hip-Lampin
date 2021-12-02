@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {createListing,removeListingErrors} from "../../actions/listings_actions";
 import ListingForm from './listing_form';
-
+import { withRouter } from 'react-router';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.listing,
@@ -16,4 +16,4 @@ const mapDispatchtoProps = (dispatch) =>{
     clearErrors: () => dispatch(removeListingErrors())
   }
 }
-export default connect (mapStateToProps,mapDispatchtoProps)(ListingForm)
+export default withRouter(connect (mapStateToProps,mapDispatchtoProps)(ListingForm))

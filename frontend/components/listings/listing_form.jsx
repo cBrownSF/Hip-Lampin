@@ -12,18 +12,20 @@ import PhotoForm from "./photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    const listing = this.props.listing 
-    console.log(this.props.listing)
-    // if (!this.props.listing) {
+ 
+    console.log(props.listing)
+   
+    // if (!this.props.listing !== '') {
     //   debugger;
     //   console.log('hello');
     //   this.props.history.push(`/listings/${this.props.match.params.listingId}`);
     // <Link to={`/listings/${this.props.match.params.listingId}`}></Link>
     
-    // if (!this.props.listing) {
-    //  <Link to={this.props.location.pathname} />
-    // }
-    
+    if (!this.props.listing) {
+      debugger;
+      this.props.receiveListing(this.props.match.params.listingId);
+    }
+    const listing = this.props.listing
     this.state = {
       step:  Number(this.props.location.search[1])||1,
       host_id: this.props.currentUser.id,
@@ -68,7 +70,9 @@ class ListingForm extends React.Component {
     this.hideButton=this.hideButton.bind(this)
   }
   
-
+  // getDerivedStateFromProps(){
+  //   debugger;
+  // }
   handleSubmit(e) {
 
     e.preventDefault();
@@ -102,8 +106,10 @@ class ListingForm extends React.Component {
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
     }
-   
+
     this.props.submitEvent(formData)
+    
+    // this.props.history.push(`/listing/${this.props.listing.id}`)
   }
   
   letterCount() {
@@ -116,6 +122,7 @@ class ListingForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
+    console.log(this.state)
     if (file) {
       fileReader.readAsDataURL(file);
     }
@@ -147,6 +154,10 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
+    // if (!this.props.listing){
+    //   debugger;
+    //   this.props.receiveListing(this.props.match.params.listingId);
+    // }
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -233,7 +244,10 @@ class ListingForm extends React.Component {
     }
   }
   render() {
- 
+    // if (this.props.listing === undefined) {
+    //   debugger;
+    //   return null;
+    // }
     return (
       <div >
       <React.Fragment>
@@ -303,6 +317,7 @@ class ListingForm extends React.Component {
           nextPage={this.nextStep}
           photoURL={this.state.photoUrl}
           photoFile={this.state.photoFile}
+          handleFile={this.handleFile}
         />
         <CheckInForm
           currentPage={this.state.step}
@@ -313,6 +328,7 @@ class ListingForm extends React.Component {
           checkIn={this.state.check_in_time}
           minNight={this.state.minimum_night}
           history={this.navigateToHome}
+          photoFile={this.state.photoFile}
         />
       </form>
       </React.Fragment>
@@ -323,4 +339,4 @@ class ListingForm extends React.Component {
     }
 
 
-export default withRouter(ListingForm)
+export default ListingForm
