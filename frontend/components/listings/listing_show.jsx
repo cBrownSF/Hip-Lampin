@@ -66,10 +66,10 @@ render() {
       <h2>{listing.description}</h2>
         <Link to={descript}>Descript Edit</Link>
       </div>
-      <div>
+      {/* <div>
         <img src={listing.photoURL} alt="screenshot" />
-      {/* <img  src={listing.photoURL}>sdgsdg</img> */}
-      </div>
+  
+      </div>  */}
       <div className = 'cost-show'>
       <h2>{listing.cost}</h2>
         <Link to={cost}>Cost Edit</Link>

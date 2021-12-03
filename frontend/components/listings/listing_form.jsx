@@ -234,7 +234,7 @@ class ListingForm extends React.Component {
       return null;
     }
     return (
-      <div >
+      <div className='name-form-background'>
       <React.Fragment>
       <form onSubmit = {this.handleSubmit} className='create-listing-form'>
         {/* <p className='hide-button'>{this.hideButton()}</p> */}
