@@ -195,7 +195,6 @@ class ListingForm extends React.Component {
       )
   }
   
-
   costNextStep() {
     let step = this.state.step
     let cost = this.state.cost

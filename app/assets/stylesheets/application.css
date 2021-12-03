@@ -358,10 +358,10 @@ body{
    
  }
  .descript-buttons{
-   margin-top:41px;
+   margin-top:15px;
  }
  .cost-buttons{
-   margin-top:108px;
+   margin-top:78px;
  }
  .name-box #amenities-list{
    font-family:inherit;
@@ -375,10 +375,10 @@ body{
    margin:10px;
  }
  .amenities-button{
-   margin-top:155px;
+   margin-top:115px;
  }
 .activities-button{
-   margin-top:189px;
+   margin-top:159px;
 }
  .name-box #booking-title{
    margin-left: 25px;
@@ -418,10 +418,10 @@ body{
    margin-bottom:12px;
  }
  .booking-detail-button{
-   margin-top:100px;
+   margin-top:60px;
  }
  .check-in-button{
-   margin-top:78px;
+   margin-top:38px;
  }
  .start-hosting{
     font-family: inherit;
@@ -492,8 +492,11 @@ input[type="file"] {
  .photos-buttons{
    margin-top:175px;
  }
- .index-link{
+ .index-item{
    text-decoration: none;
    font-weight:bold;
    font-size:16px;
+ }
+ .name-buttons{
+   margin-top:20px;
  }
