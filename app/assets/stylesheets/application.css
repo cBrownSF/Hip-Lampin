@@ -79,10 +79,10 @@ body{
 .navBar {
   background-color: transparent;
   display: flex;
+  flex-flow: row wrap;
   justify-content: flex-end;
+  margin:0;
   /* flex-wrap: wrap; */
-  position: fixed; 
-  top: 0; 
   width: 99%; 
 }
 .navBarButton{

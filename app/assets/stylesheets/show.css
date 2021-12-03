@@ -1,22 +1,47 @@
 .show-container{
   display:flex;
   flex-direction: row;
+  justify-content: flex-start;
   flex-wrap: wrap;
-
-  
+  background-color: whitesmoke;
+  padding:5px;
+}
+.show-container #side-pic{
+  width:10%;
 }
 .show-container #left-side-name{
   width:20%
 }
 .show-container #show-photo{
-  width:100%
+  width:80%;
 }
   .show-container #name-show{
   width:60%;
+  margin-right:30px;
   }
-
+.show-container #show-color{
+  color:lightgrey;
+}
   .show-container #cost-show{
-  width:20%
+  width:18%;
+  font-family: inherit;
+  border: solid lightgrey;
+  border-width: thin;
+}
+.show-container #solid{
+  color:lightgrey;
+ 
+}
+.show-container #price{
+  font-family: inherit;
+  font-size:28px;
+  font-weight:bold;
+  
+}
+.show-container #per-night{
+  font-family: inherit;
+  font-size:20px;
+  color:grey
 }
 .show-container #left{
   width:20%
@@ -32,10 +57,31 @@
 }
 
 .show-container#amenities-show{
-  width:20%
+  width:20%;
+  align-items:center;
+  border: solid lightgray;
+  margin-right:10px;
 }
 .show-container #activities-show{
-  width:20%
+  width:20%;
+  border: solid lightgray;
+  border-width:thin;
+  
+}
+.show-container #text{
+  font-family:inherit;
+  color:black;
+  text-align: left;
+  margin-left:18px;
+  list-style: none;
+}
+.show-container #headers{
+  font-family: inherit;
+  text-align:left;
+  margin-top:0px;
+  font-weight: bold;
+  margin-left:18px;
+  font-size:28px;
 }
 .show-container #essentials-show{
   width:20%
@@ -43,7 +89,18 @@
 .show-container #details-show{
   width:60%
 }
-
+.show-container #show-link{
+text-decoration: none;
+font:12px;
+font-family:inherit;
+text-align:right;
+color: grey;
+}
+.show-container #link-location{
+  text-align:right;
+  margin-right:4px;
+  margin-top:2px;
+}
 /* .show-delete-button{
   flex-grow:1
 }  */

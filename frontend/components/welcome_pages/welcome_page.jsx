@@ -14,8 +14,9 @@ class Greeting extends React.Component {
         state: {value:1}
       };
       return (
-        <div className="logged-in">
-        <h2 className ="greeting">Welcome {currentUser.fname}!</h2>
+        <div className="navBar">
+        {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
+          <span className='log-out-button'><Link className="navBarButton" to='/listings'>Listings</Link></span>
           <button className="log-out-button" onClick={logout}>Logout</button>
           <button className= 'start-hosting'><Link className ="navBarButton" to= {newTo}>New Listing</Link></button>
         </div>
@@ -23,6 +24,7 @@ class Greeting extends React.Component {
     } else {
       return (
         <div className="navBar">
+            <span className = 'navList'><Link className = "navBarButton" to= '/listings'>Listings</Link></span>
             <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
             <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
           <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>

@@ -54,7 +54,7 @@ export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
       dispatch(receiveOneListing(listing))
-     
+      hashHistory.push(`/listings/${listing.id}`)
     })
 }
 

@@ -53,26 +53,32 @@ render() {
   }
   return(
     <div className='show-container'>
+      <div id="side-pic"></div>
       <div id = "show-photo">
-        <img src={listing.photoURL} height="200px" width="200px" alt="screenshot" />
+        <img src={listing.photoURL} height="500px"  alt="coverphoto" />
       </div>
+      <div id="side-pic"></div>
 
       
       <div id="left"></div>
       <div id = 'name-show'>
+        <p id="link-location"><Link id = 'show-link'to={nameedit}>Edit</Link></p>
         <h1>{listing.name}</h1>
-          <Link id = 'show-Link'to={nameedit}>Edit</Link>
           <p id = 'nearby-show'>Nearby: Golden Gate Bridge</p>
-          <hr className="solid" />
+          <hr id="solid" />
       </div>
       <div id='cost-show'>
-        <h2>{listing.cost}</h2>
-        <Link to={cost}>Cost Edit</Link>
+        <p id="link-location"><Link id='show-link' to={cost}>Edit</Link></p>
+        <span id="price">${listing.cost}</span>
+        <p id='per-night'>per night(2 guests)</p>
+        
+      
+       
       </div>
       <div id="left"></div>
       <div id= 'descript-show'>
-        <Link id='show-Link'to={descript}>Edit</Link>
-        <h2>{listing.description}</h2>
+        <p id="link-location"><Link id='show-link' to={descript}>Edit</Link></p>
+        <span>{listing.description}</span>
       </div>
       <div id="right"></div>
       {/* <div>
@@ -80,23 +86,24 @@ render() {
       </div> */}
 
       <div id="left"></div>
-        <div id= 'amenities-show'>
-          <h2>Amenities</h2>
-        
-          <Link id='show-Link' to={amenities}>Amen Edit</Link>
-            <p>{`Trash bins ${this.updatedProps(listing.is_trash)}`}</p>
-            <p>{`Showers ${this.updatedProps(listing.is_shower)}`}</p>
-            <p>{`Wifi ${this.updatedProps(listing.is_wifi)}`}</p>
-            <p>{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</p>
+      <div id= 'activities-show'>
+        <p id="link-location"><Link id='show-link' to={amenities}>Edit</Link></p>
+          <p id='headers'>Amenities</p>
+        <ul>
+          <li id="text">{`Trash cans ${this.updatedProps(listing.is_trash)}`}</li>
+          <li id="text">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
+          <li id="text">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
+          <li id="text">{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</li>
+        </ul>
         </div>
 
-        <div id = 'essentials-show'> 
-          <h2>Essentials</h2>
-          <Link id='show-Link' to={amenities}>Amen Edit</Link>
+      <div id= 'activities-show'>
+          <p id="link-location" ><Link id='show-link' to={amenities}>Edit</Link></p>
+          <p id='headers'>Essentials</p>
         </div>
 
         <div id='activities-show'>
-          <span>Activities</span>
+          <span id='headers'>Activities</span>
           <span>{listing.is_hiking}</span>
           <span>{listing.is_swimming}</span>
           <span>{listing.is_paddling}</span>
@@ -104,6 +111,7 @@ render() {
           <span>{listing.is_fishing}</span>
         </div>
   <div id="right"></div>
+
       <div id="left"></div>
       <div id="details-show">
         <span>Details</span>

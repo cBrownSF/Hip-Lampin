@@ -117,9 +117,7 @@ class ListingForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-  handleWifi(){
-    
-  }
+  
   handleInput(type){
     return e => {
       this.setState({ [type]: e.currentTarget.value })
@@ -159,7 +157,7 @@ class ListingForm extends React.Component {
   descriptNextStep() {
     let step = this.state.step
     let description = this.state.description
-
+    
     if (description.length >= 10) {
       return (
         this.setState({
