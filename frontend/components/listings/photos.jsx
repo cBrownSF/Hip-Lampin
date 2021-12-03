@@ -8,13 +8,15 @@ const PhotoForm = (props) => {
 return(
   <div className='name-box'>
     <br/>
-    <div className="button-holder">
+    <div >
       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
       {console.log(props)}
-    {props.photoURL ? <img height="200px" width="200px" src={props.photoURL} /> : null}
-      
-      <input type="file"  
-        onChange={props.handleFile} />photo
+    {props.photoURL ? <img className="upload-photo" height="200px" width="200px" src={props.photoURL} /> : null}
+      <label for="form-file-upload" className="button-photo-upload">
+        Upload Photo
+      </label>
+      <input id="form-file-upload" type="file"  
+        onChange={props.handleFile} />
     </div>
     <div className='photos-buttons'>
       <button className='previous-button' onClick={props.prevPage}>Previous</button>

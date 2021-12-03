@@ -139,6 +139,7 @@ body{
    top: 0;
    height: 50vh;
  }
+ 
  .session-form{
     display:flex;
     justify-content: center;
@@ -460,4 +461,28 @@ body{
    text-decoration: none;
    font-size:20px;
    color:#37474f;
+ }
+
+input[type="file"] {
+    display: none;
+}
+
+.button-photo-upload{
+ font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   font-size: 12px;
+  text-align:center;
+  align-items:center;
+  cursor:pointer;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+  padding:10px;
+}
+
+.button-photo-upload:hover{
+  background-color: white;
+  color:#39C39A;
  }

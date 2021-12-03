@@ -128,7 +128,6 @@ class ListingForm extends React.Component {
 
     return e => {
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
-    //  let formatNumber = (Number(e.currentTarget.value.replace(/\D/g, '')) || '').toLocaleString()
         this.setState({ [type]: e.currentTarget.value})
       }
     }
@@ -235,7 +234,7 @@ class ListingForm extends React.Component {
       return null;
     }
     return (
-      <div>
+      <div className='background-of-form'>
       <React.Fragment>
       <form onSubmit = {this.handleSubmit} className='create-listing-form'>
         <p className='hide-button'>{this.hideButton()}</p>
