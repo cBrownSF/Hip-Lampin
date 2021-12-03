@@ -18,7 +18,7 @@ class ListingForm extends React.Component {
      return undefined;
     }
     const listing = this.props.listing
-    console.log(this.state)
+    
     this.state = {
       step:  Number(this.props.location.search[1]),
       host_id: this.props.currentUser.id,

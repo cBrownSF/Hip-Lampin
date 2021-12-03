@@ -6,7 +6,6 @@ const amenities = (props) =>{
   }
   return(
     <div className="name-box">
-      {console.log(props.shower)}
       <p id='act-amen-title'>Which amenities are available to Hipcampers?</p>
       <ul id='amenities-list'>
         <li><label><input type="checkbox" checked = {props.trash} onChange={props.toggleCheck('is_trash')} />Trash Cans</label></li>
