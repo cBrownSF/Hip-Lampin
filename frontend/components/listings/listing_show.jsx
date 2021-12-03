@@ -53,7 +53,7 @@ render() {
       search: '3',
         state: this.props.listing
   }
-  const nameedit = {
+  const nameEdit = {
     pathname: `/listings/${this.props.listing.id}/edit`,
     search: '1',
     state: this.props.listing
@@ -89,7 +89,8 @@ render() {
       <div id="left"></div>
       <div id= 'descript-show'>
         <p id="link-location"><Link id='show-link' to={descript}>Edit</Link></p>
-        <span>{listing.description}</span>
+        <p>Description</span>
+        <p>{listing.description}</p>
       </div>
       <div id="right"></div>
       
@@ -135,13 +136,13 @@ render() {
           <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
           <li id="list-item">Check in: <span className="list-item-data">{`After ${listing.check_in_time}`}</span></li>
           <li id="list-item">Check out: <span className="list-item-data">{`${listing.check_in_time} night`}</span></li>
-          <li className="list-item">Cancellation policy: <span className="list-item-data">{listing.cancellation_policy}</span></li>
-          <li className="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_in_time}`}</span></li>
-          <li className="list-item">Response time: <span className="list-item-data">{`Within ${listing.response_time}`}</span></li>
-          <li className="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
+          <li id="list-item">Cancellation policy: <span className="list-item-data">{listing.cancellation_policy}</span></li>
+          <li id="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_in_time}`}</span></li>
+          <li id="list-item">Response time: <span className="list-item-data">{`Within ${listing.response_time}`}</span></li>
+          <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
         </ul>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis aspernatur inventore, voluptatem vitae illum odio expedita aut, harum laboriosam natus accusamus mollitia praesentium exercitationem. Deserunt maxime, illo esse velit optio ut quibusdam dolores non vero saepe ipsa quidem mollitia placeat, temporibus veniam tempora porro voluptatum accusamus incidunt voluptas aut natus. Quia suscipit voluptatibus officia quasi quidem impedit sed obcaecati commodi.</p>
+      
       <div id="right"></div>
       <div>
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>

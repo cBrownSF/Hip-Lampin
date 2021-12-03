@@ -492,3 +492,8 @@ input[type="file"] {
  .photos-buttons{
    margin-top:175px;
  }
+ .index-link{
+   text-decoration: none;
+   font-weight:bold;
+   font-size:16px;
+ }

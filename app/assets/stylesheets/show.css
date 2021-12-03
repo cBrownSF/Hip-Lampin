@@ -15,6 +15,17 @@
 .show-container #show-photo{
   width:60%;
 }
+.show-container #list-item{
+  font-style:inherit;
+  font-weight:bold;
+  text-align: left;
+  margin-left:18px;
+  list-style: none;
+}
+.list-item-data{
+  font-style:inherit;
+  font-weight:normal;
+}
   .show-container #name-show{
   width:60%;
   margin-right:30px;
