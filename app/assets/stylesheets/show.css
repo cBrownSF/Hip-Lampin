@@ -1,0 +1,49 @@
+.show-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  
+}
+.show-container #left-side-name{
+  width:20%
+}
+.show-container #show-photo{
+  width:100%
+}
+  .show-container #name-show{
+  width:60%;
+  }
+
+  .show-container #cost-show{
+  width:20%
+}
+.show-container #left{
+  width:20%
+}
+.show-container #descript-show{
+ width:60%
+}
+.show-container #right{
+  width:20%
+}
+.show-container #details-show{
+  width:100%
+}
+
+.show-container#amenities-show{
+  width:20%
+}
+.show-container #activities-show{
+  width:20%
+}
+.show-container #essentials-show{
+  width:20%
+}
+.show-container #details-show{
+  width:60%
+}
+
+/* .show-delete-button{
+  flex-grow:1
+}  */

@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/cBrownSF/hip_to_be_square/issues"
   },
-  "homepage": "https://github.com/cBrownSF/hip_to_be_square#readme"
+  "homepage": "https://github.com/cBrownSF/hip_to_be_square#readme",
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
 }

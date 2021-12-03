@@ -18,9 +18,19 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          },
+        ],
+      },
     ]
   },
+
   devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]

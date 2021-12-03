@@ -117,7 +117,9 @@ class ListingForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-  
+  handleWifi(){
+    
+  }
   handleInput(type){
     return e => {
       this.setState({ [type]: e.currentTarget.value })
