@@ -60,9 +60,9 @@ render() {
   }
   const onEdit= ()=>{
     if (this.props.currentUser.id === this.props.listing.host_id) {
-    return <p id="link-location"><Link id='show-link' to={descript}>Edit</Link></p>
+    return <span id="link-location"><Link id='show-link' to={descript}>Edit</Link></span>
   } else {
-    return <p></p>
+    return <span> </span>
   }
 }
   return(
@@ -88,8 +88,7 @@ render() {
       </div>
       <div id="left"></div>
       <div id= 'descript-show'>
-        <p id="link-location"><Link id='show-link' to={descript}>Edit</Link></p>
-        <p>Description</span>
+        <span id="link-location"><Link id='show-link' to={descript}>Edit</Link></span>
         <p>{listing.description}</p>
       </div>
       <div id="right"></div>
@@ -130,7 +129,7 @@ render() {
 
       <div id="left"></div>
       <div id="details-show">
-        <span>Details</span>
+        <p id="headers">Details</p>
         <ul>
           <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
           <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>

@@ -112,6 +112,15 @@ color: grey;
   margin-right:4px;
   margin-top:2px;
 }
-/* .show-delete-button{
-  flex-grow:1
-}  */
+.show-container #show-delete-button{
+  font-family: inherit;
+  background-color:#39C39A;
+  color:white;
+  font-size: 12px;
+  margin-left:40px;
+  cursor:pointer;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+} 
