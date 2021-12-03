@@ -222,11 +222,12 @@ class ListingForm extends React.Component {
 
  hideButton () {
     
-    if (this.props.listing !== '') {
-      
+   if (this.props.formType === 'edit') {
       return (
-        <Link to={`/listings/${this.props.listing.id}`}>X</Link>
+        <Link className='x-button' to={`/listings/${this.props.listing.id}`}>✖</Link>
       )
+    }else{
+     return <span className='x-button'></span>
     }
   }
   render() {
@@ -237,7 +238,7 @@ class ListingForm extends React.Component {
       <div>
       <React.Fragment>
       <form onSubmit = {this.handleSubmit} className='create-listing-form'>
-        {/* <p className='hide-button'>{this.hideButton()}</p> */}
+        <p className='hide-button'>{this.hideButton()}</p>
         <NameForm 
           currentPage = {this.state.step}
           name = {this.state.name}

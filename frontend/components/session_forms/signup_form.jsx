@@ -38,8 +38,8 @@ class SessionForm extends React.Component {
     //   return <Redirect to='/' />
     // }
     return (
-      <div className='form-container'>
-          <h2 className = "form-main-header">Join Hipcamp!</h2>
+      <div className='sign-up-form-container'>
+        <h1>Join Hipcamp</h1>
         <form className = "session-form" onSubmit={this.handleSubmit}>
          <p className = "errors">{this.showErrors()}</p>
           <label>
@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
             />
           </label>
           <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
-
+            <hr className = "line-break"/>
           <div className = 'link-to-signup'>
             <p className= "font-before-link">Already a member? <Link className = "login-sign-up-link" to='/login'>Log In!</Link ></p>
           </div>

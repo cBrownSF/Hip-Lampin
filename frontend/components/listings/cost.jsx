@@ -4,19 +4,19 @@ const CostForm = (props) => {
   if (props.currentPage !== 3) {
     return null
   }
-  const hideButton = ()=>{  
-    if (props.listing !== ''){
-    return (
-      <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
-    )
-    }else{
-      return ''
-    }
-  }
+  // const hideButton = ()=>{  
+  //   if (props.listing !== ''){
+  //   return (
+  //     <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
+  //   )
+  //   }else{
+  //     return ''
+  //   }
+  // }
 
   return(
     <div className="name-box">
-      <p id='hide-button'>{hideButton()}</p>
+      {/* <p id='hide-button'>{hideButton()}</p> */}
       
       <br/>
         <h1 id='name-title'>How much do you want to charge per night?</h1>

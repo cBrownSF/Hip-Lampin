@@ -55,7 +55,7 @@ render() {
     <div className='show-container'>
       <div id="side-pic"></div>
       <div id = "show-photo">
-        <img src={listing.photoURL} height="500px"  alt="coverphoto" />
+        <img src={listing.photoURL} width="925" height = '300' alt="coverphoto" />
       </div>
       <div id="side-pic"></div>
 

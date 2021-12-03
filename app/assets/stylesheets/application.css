@@ -15,15 +15,17 @@
  */
 body{
   font-family: 'Helvetica', 'Arial', sans-serif;
-  background-color: beige;
+  background-color: rgb(234, 232, 228);
   margin:0
 }
 .mainLogo{
-  display:flex;
+  margin: 4px;
+  margin-right: auto;
   background-color: transparent;
   color:red;
-  font-size: 20px;
+  font-size: 30px;
   font-family: inherit;
+  text-decoration: none;
 }
 .logged-in{
     display:flex;
@@ -71,19 +73,19 @@ body{
    outline:none;
    border: .1px;
    font-size: 16px;
-   width: 161px;
-   height:30px;
+   width: 342px;
+   height:57px;
    margin:2px;
    
  }
 .navBar {
-  background-color: transparent;
+  background-color: rgb(234, 232, 228);
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   margin:0;
   /* flex-wrap: wrap; */
-  width: 99%; 
+  width: 100%; 
 }
 .navBarButton{
   text-decoration: none;
@@ -109,24 +111,60 @@ body{
     justify-content: center;
     flex-flow: column;
     align-items: center;
+    max-width: 450px; 
+   margin:auto;
+   display:flex;
+   justify-content: center;
+   position:absolute;
+   right:0;
+   left:0;
+   bottom: 20;
+   top: 0;
+   height: 60vh;
  }
  
+ .sign-up-form-container{
+    display:flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    max-width: 450px; 
+   margin:auto;
+   display:flex;
+   justify-content: center;
+   position:absolute;
+   right:0;
+   left:0;
+   bottom: 0;
+   top: 0;
+   height: 50vh;
+ }
  .session-form{
     display:flex;
     justify-content: center;
     flex-flow: column;
     align-items: center;
  }
+ 
  .font-before-link{
   font-size:16px;
   font-style: inherit;
   color: black;
  }
+ .line-break{
+   color:black;
+ }
+ 
  .form-boxes{
-   padding: 10px;
-   margin: 2px;
+   font-family:"Calibre", Helvetica, Arial, sans-serif;
+   padding: 16px;
+   margin: 10px;
    border-color:black;
-   border-width:thin
+   border-width:thin;
+   line-height: 1.5;
+  width:310px;
+  height:48px;
+    font-size: 20px
    /* border-color: black; */
    /* flex-basis: 0 0 200px; */
  }
@@ -135,6 +173,7 @@ body{
    font-size: 10px;
  }
  .create-listing-form{
+   /* background-color: darkgrey; */
    max-width: 450px;
    margin:auto;
    display:flex;
@@ -411,11 +450,14 @@ body{
    margin-bottom: 15px;
  }
  
- .name-box #hide-button{
-   margin-right:100px; 
+ .hide-button{
+  position:absolute;
+  top:0; 
+  right: 3px;;
+  
  }
  .x-button{
    text-decoration: none;
-   font-size:30px;
+   font-size:20px;
    color:#37474f;
  }

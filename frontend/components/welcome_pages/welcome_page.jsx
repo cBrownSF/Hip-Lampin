@@ -16,6 +16,7 @@ class Greeting extends React.Component {
       return (
         <div className="navBar">
         {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
+          <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
           <span className='log-out-button'><Link className="navBarButton" to='/listings'>Listings</Link></span>
           <button className="log-out-button" onClick={logout}>Logout</button>
           <button className= 'start-hosting'><Link className ="navBarButton" to= {newTo}>New Listing</Link></button>
@@ -24,6 +25,7 @@ class Greeting extends React.Component {
     } else {
       return (
         <div className="navBar">
+          <span className='mainLogo'><Link className='mainLogo' to= '/'>HipLampin</Link></span>
             <span className = 'navList'><Link className = "navBarButton" to= '/listings'>Listings</Link></span>
             <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
             <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
