@@ -16,6 +16,9 @@ class ListingShow extends React.Component {
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
+    }else{
+      debugger;
+      return ''
     }
   }
   
@@ -23,6 +26,13 @@ class ListingShow extends React.Component {
     return word === true ? 'available': 'unavailable'
   }
   
+  showEdit(){
+    if (this.props.currentUser.id === this.props.listing.host_id){
+      return <p id="link-location"><Link id='show-link' to={descript}>Edit</Link></p>
+    }else{
+      return <p></p>
+    }
+  }
 
 render() {
  
@@ -52,6 +62,7 @@ render() {
     state: this.props.listing
   }
   return(
+   
     <div className='show-container'>
       <div id="side-pic"></div>
       <div id = "show-photo">
@@ -69,7 +80,7 @@ render() {
       </div>
       <div id='cost-show'>
         <p id="link-location"><Link id='show-link' to={cost}>Edit</Link></p>
-        <span id="price">${listing.cost}</span>
+        <span id="price">{`$${listing.cost}`}</span>
         <p id='per-night'>per night(2 guests)</p>
         
       
@@ -81,10 +92,7 @@ render() {
         <span>{listing.description}</span>
       </div>
       <div id="right"></div>
-      {/* <div>
-        <li className="list-item">{listing.guests_allowed}</li>
-      </div> */}
-
+      
       <div id="left"></div>
       <div id= 'activities-show'>
         <p id="link-location"><Link id='show-link' to={amenities}>Edit</Link></p>
@@ -100,6 +108,10 @@ render() {
       <div id= 'activities-show'>
           <p id="link-location" ><Link id='show-link' to={amenities}>Edit</Link></p>
           <p id='headers'>Essentials</p>
+          <ul>
+            <li id="text">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
+            <li id="text">{`Campfires are ${this.updatedProps(listing.is_campfire_allowed)}`}</li>
+          </ul>
         </div>
 
         <div id='activities-show'>
@@ -128,7 +140,7 @@ render() {
       </div>
       <div id="right"></div>
       <div>
-        <button id='show-delete-button' onClick={()=>this.onDelete()}>button</button>
+        <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
       </div>
     </div>
   )
