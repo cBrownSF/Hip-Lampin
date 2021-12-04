@@ -1,3 +1,7 @@
 json.merge! listing.attributes
-json.photoURL url_for(listing.photo)
+if listing.photo.attachment == nil
+   json.photoUrl = ""
+else
+   json.photoURL url_for(listing.photo)
+end
 

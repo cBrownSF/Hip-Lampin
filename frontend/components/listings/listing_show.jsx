@@ -57,9 +57,29 @@ render() {
     search: '1',
     state: this.props.listing
   }
+  const activities = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '5',
+    state: this.props.listing
+  }
+  const details = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '6',
+    state: this.props.listing
+  }
+  const checkIn = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '8',
+    state: this.props.listing
+  }
+  const photo = {
+    pathname: `/listings/${this.props.listing.id}/edit`,
+    search: '7',
+    state: this.props.listing
+  }
   const onEdit= ()=>{
     if (this.props.currentUser.id === this.props.listing.host_id) {
-    return <span id="link-location"><Link id='show-link' to={descript}>Edit</Link></span>
+    return <span id="link-location"><Link id='show-link' to={nameEdit}>Edit</Link></span>
   } else {
     return <span> </span>
   }
@@ -67,6 +87,7 @@ render() {
   return(
    
     <div className='show-container'>
+      <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p>
       <div id="side-pic"></div>
       <div id = "show-photo">
         <img src={listing.photoURL} width="925" height = '300' alt="coverphoto" />
@@ -115,6 +136,7 @@ render() {
         </div>
 
       <div id='activities-show'>
+        <p id="link-location" ><Link id='show-link' to={activities}>Edit</Link></p>
         <p id='headers'>Activities</p>
         <ul>
           <li id='text'>{`Hiking: ${this.updatedYesProps(listing.is_hiking)}`}</li>
@@ -128,14 +150,14 @@ render() {
 
       <div id="left"></div>
       <div id="details-show">
+        <p id="link-location" ><Link id='show-link' to={details}>Edit</Link></p>
         <p id="headers">Details</p>
         <ul>
           <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
           <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
           <li id="list-item">Check in: <span className="list-item-data">{`After ${listing.check_in_time}`}</span></li>
-          <li id="list-item">Check out: <span className="list-item-data">{`${listing.check_in_time} night`}</span></li>
+          <li id="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_out_time}`}</span></li>
           <li id="list-item">Cancellation policy: <span className="list-item-data">{listing.cancellation_policy}</span></li>
-          <li id="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_in_time}`}</span></li>
           <li id="list-item">Response time: <span className="list-item-data">{`Within ${listing.response_time}`}</span></li>
           <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
         </ul>
