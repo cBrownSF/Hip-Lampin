@@ -1,4 +1,4 @@
-# Hip to be Square
+# HipLampin
 Ruby version--2.7.2
 
 Database configuration
