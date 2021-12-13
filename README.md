@@ -9,7 +9,7 @@ Features
 
 * Hosts are able to sign up and login and logout of the application. When users are logged in they are able to create a new listing. 
 * A multi-step form which allows the host to create a new listing 
-* Hosts have the ability to delete their own listings <br/
+* Hosts have the ability to delete their own listings 
 * Hosts can also update their listing including adding a new photo 
 * The hosts show page has separate edit links for each section of their listing. The links direct the host to the applicable section of the multi step form. Hosts can then choose whether to update multiple sections of the form or update one section of the form. After the user submits the updated form they are redirected to the listings show page.
 * Users can view all of the listings on the index page
