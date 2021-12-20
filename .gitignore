@@ -27,3 +27,6 @@
 /config/master.key
 /config/application.yml
 bundle.js*
+# Ignore application configuration
+/config/application.yml
+
