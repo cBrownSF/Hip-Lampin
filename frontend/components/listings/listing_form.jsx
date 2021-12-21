@@ -66,7 +66,7 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
-    debugger;
+
     const formData = new FormData();
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
