@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-
+import MarkerManager from '../../util/markers';
 class ListingMap extends React.Component {
 componentDidMount(){
   const mapOptions = {
@@ -8,6 +8,13 @@ componentDidMount(){
     zoom: 13
   };
   this.map = new google.maps.Map(this.mapNode, mapOptions);
+  this.MarkerManager= new MarkerManager(this.map)
+  debugger;
+  this.MarkerManager.updateMarkers();
+}
+componentDidUpdate(){
+  debugger;
+  this.MarkerManager.updateMarkers();
 }
 render(){
   return(
