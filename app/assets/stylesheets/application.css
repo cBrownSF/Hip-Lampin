@@ -500,3 +500,10 @@ input[type="file"] {
  .name-buttons{
    margin-top:20px;
  }
+
+  .map {
+   width: 500px;
+   height: 500px;
+   float: left;
+   position: relative;
+ }

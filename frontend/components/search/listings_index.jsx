@@ -6,15 +6,17 @@ class ListingIndex extends React.Component{
     super(props)
   }
   componentDidMount(){
-    this.props.receiveListings()
+    // debugger;
+    // // this.props.receiveListings()
   }
   
   render(){
-    // if (!this.props.listing) {
-    //   return null;
-    // }
+    if (Object.keys(props.listing).length === 0) {
+      debugger;
+      return null;
+    }
     const Array = Object.values(this.props.listings)
-
+    debugger;
     return (
       <div>
         <h1>Listing: </h1>
