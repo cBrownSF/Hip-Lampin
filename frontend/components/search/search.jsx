@@ -11,7 +11,8 @@ class Search extends React.Component{
   }
 
 render(){
-  if (!this.props.listings){
+  if (Object.keys(this.props.listings).length ===0){
+    debugger;
     return null;
   }
   return(
