@@ -8,9 +8,16 @@ class MarkerManager {
   }
 
   updateMarkers(listings) {
-  //   const allListings = {};
-  //   listings.forEach(listing=> allListings[listing.id] = listing)
-  //   if (listing.id !=)
+    const allListings = {};
+    listings.forEach(listing=> allListings[listing.id] = listing)
+  }
+  createMarkerForListing(listing){
+    const position = new google.maps.LatLng(listing.lat, listing.lng);
+    const marker = new google.maps.Marker({
+      position:position,
+      listingId: listing.id,
+      map: this.map,
+    });
 
   }
 }

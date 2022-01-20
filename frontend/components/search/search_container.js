@@ -2,9 +2,12 @@ import {connect} from 'react-redux';
 import Search from './search'
 import { receiveAllListings } from '../../actions/listings_actions'
 const mapStatetoProps = state => {
-  return{
-    listings: state.entities.listings
-  }
+  debugger;
+  console.log('hello')
+  return({
+   
+    listings: Object.values(state.entities.listings)
+  })
 }
 
 const mapDispatchToProps = dispatch => ({
