@@ -34,7 +34,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def index
-    @listings = Listing.all
+    @listings = bounds ? Bench.in_bounds(bounds) : Bench.all
     render :index
   end
   
@@ -68,7 +68,9 @@ before_action :require_logged_in, only: [:create]
       :is_toilet,
       :is_campfire_allowed,
       :photo,
-      :is_swimming
+      :is_swimming,
+      :lat,
+      :lng
       )
   end
 end
