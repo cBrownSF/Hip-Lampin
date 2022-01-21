@@ -31,6 +31,8 @@ class ListingForm extends React.Component {
       on_arrival: listing.on_arrival ||'Meet and Greet',
       guests_allowed: listing.guests_allowed || 1,
       minimum_night: listing.minimum_night || 1,
+      lat: 37.7758, 
+      lng: -122.435,
       cancellation_policy: listing.cancellation_policy || 'Flexible',
       booking_time: listing.booking_time ||'12 months in advance',
       is_trash: listing.is_trash || false,
@@ -93,7 +95,8 @@ class ListingForm extends React.Component {
     formData.append('listing[is_hiking]', this.state.is_hiking)
     formData.append('listing[is_wildlife]', this.state.is_wildlife)
     formData.append('listing[is_paddling]', this.state.is_paddling)
-    
+    formData.append('listing[lat]',this.state.lat)
+    formData.append('listing[lng]',this.state.lng)
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
     }

@@ -14,11 +14,11 @@ class ListingMap extends React.Component {
 componentDidMount(){
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.MarkerManager= new MarkerManager(this.map)
-  debugger;
+
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 componentDidUpdate(){
-  debugger;
+ 
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 eventListeners(){

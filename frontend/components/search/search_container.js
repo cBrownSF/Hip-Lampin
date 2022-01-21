@@ -3,7 +3,7 @@ import Search from './search'
 import { updateBounds } from '../../actions/filter_actions';
 import { receiveAllListings } from '../../actions/listings_actions'
 const mapStatetoProps = state => {
-  debugger;
+ 
   console.log('hello')
   return({
    

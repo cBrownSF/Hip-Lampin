@@ -7,12 +7,12 @@ class Search extends React.Component{
   }
   componentDidMount() {
     this.props.receiveListings()
-    debugger;
+   
   }
 
 render(){
   if (Object.keys(this.props.listings).length ===0){
-    debugger;
+    
     return null;
   }
   return(
