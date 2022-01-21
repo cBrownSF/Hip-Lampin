@@ -68,12 +68,8 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
-
-    const formData = new FormData();
     debugger;
-    console.log(`lat ${this.state.lat}`)
-    console.log(`lat ${this.state.lng}`)
-    console.log(typeof this.state.lng)
+    const formData = new FormData();
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
     formData.append('listing[name]', this.state.name)

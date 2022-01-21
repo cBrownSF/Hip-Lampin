@@ -32,6 +32,7 @@ eventListeners(){
     this.props.updateBounds(bounds);
   })
 google.maps.event.addListener(this.map,'click',(event)=>{
+  debugger;
   const coordinates = getCoordinates(event.latLng)
 })
 }

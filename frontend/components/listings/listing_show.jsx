@@ -78,7 +78,7 @@ render() {
     state: this.props.listing
   }
   const onEdit= ()=>{
-    if (this.props.currentUser.id === this.props.listing.host_id) {
+    if (this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id) {
     return <span id="link-location"><Link id='show-link' to={nameEdit}>Edit</Link></span>
   } else {
     return <span> </span>
