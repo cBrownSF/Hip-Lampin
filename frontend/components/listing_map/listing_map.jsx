@@ -12,6 +12,7 @@ const mapOptions = {
 };
 class ListingMap extends React.Component {
 componentDidMount(){
+  debugger;
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.MarkerManager= new MarkerManager(this.map)
 
