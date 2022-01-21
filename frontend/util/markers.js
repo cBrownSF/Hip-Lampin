@@ -1,14 +1,15 @@
 import listingErrorsReducer from "../reducers/listing_error_reducer";
 
 class MarkerManager {
-  constructor(map,handleClick){
+  constructor(map){
     
     this.map = map;
-    this.handleClick = handleClick;
+    // this.handleClick = handleClick;
     this.markers = {};
   }
 
   updateMarkers(listings) {
+    console.log('updating')
     const allListings = {};
     listings.forEach(listing=> allListings[listing.id] = listing)
   }

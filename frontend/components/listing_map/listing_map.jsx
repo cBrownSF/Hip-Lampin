@@ -11,6 +11,7 @@ const mapOptions = {
   zoom: 13
 };
 class ListingMap extends React.Component {
+ 
 componentDidMount(){
   debugger;
   this.map = new google.maps.Map(this.mapNode, mapOptions);

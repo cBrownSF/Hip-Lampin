@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const CheckInForm = (props) => {
-  if (props.currentPage !== 8) {
+  if (props.currentPage !== 9) {
     return null
   }
   return (

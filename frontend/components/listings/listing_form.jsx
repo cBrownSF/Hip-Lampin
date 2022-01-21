@@ -9,6 +9,7 @@ import Amenities from "./amenenities_checklist";
 import Activities from "./activities";
 import CheckInForm from "./check_in_form";
 import PhotoForm from "./photos";
+import LocationForm from "./location"
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -25,6 +26,11 @@ class ListingForm extends React.Component {
       name: listing.name || "",
       description: listing.description || "",
       cost: listing.cost || '',
+      state:listing.state ||'',
+      country:listing.country ||'',
+      address:listing.address || '',
+      city:listing.city ||'',
+      zip:listing.zipCode || '',
       check_in_time: listing.check_in_time ||"02:00 PM",
       check_out_time: listing.check_out_time|| "12:00 PM",
       response_time: listing.response_time || '10 minutes',
@@ -97,6 +103,11 @@ class ListingForm extends React.Component {
     formData.append('listing[is_paddling]', this.state.is_paddling)
     formData.append('listing[lat]',this.state.lat)
     formData.append('listing[lng]',this.state.lng)
+    formData.append('listing[address]',this.state.address)
+    formData.append('listing[city]',this.state.city)
+    formData.append('listing[state]',this.state.state)
+    formData.append('listing[state]',this.state.zipCode)
+    formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
     }
@@ -221,7 +232,23 @@ class ListingForm extends React.Component {
       step: step - 1
     })
   }
-
+  locationNextStep(){
+    let geocoder = new google.maps.Geocoder()
+    geocoder.geocode(
+      { address: `${this.state.address},${this.state.city}, ${this.state.state},${this.state.postal_code},${this.state.country}`},
+    (results, status) => {
+      if (status == 'OK') {
+        this.setState(
+          { lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), step: step + 1 }
+        )
+      }else{
+        this.setState({
+          step: step
+        })//add some way of adding an error in here
+      }
+    }
+    )
+  }
  hideButton () {
     
    if (this.props.formType === 'edit') {
@@ -297,6 +324,16 @@ class ListingForm extends React.Component {
           wildlife={this.state.is_wildlife}
           swimming={this.state.is_swimming}
           hiking={this.state.is_hiking}
+        />
+        <LocationForm
+          currentPage={this.state.step}
+          nextPage={this.nextStep}
+          prevPage={this.previousStep}
+          handleInput={this.handleInput}
+          city={this.state.city}
+          country={this.state.country}
+          address={this.state.address}
+          state={this.state.state}
         />
         <PhotoForm
           currentPage={this.state.step}
