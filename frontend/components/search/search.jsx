@@ -22,6 +22,7 @@ render(){
   <ListingMap 
     listings={this.props.listings}
     receiveListings={this.props.receiveListings}
+    updateBounds={this.props.updateBounds}
   />
 </div>
 <div>
