@@ -71,6 +71,11 @@ before_action :require_logged_in, only: [:create]
       :is_swimming,
       :lat,
       :lng,
+      :street_address,
+       :city, 
+       :state, 
+       :zip_code, 
+       :country
       )
   end
 
