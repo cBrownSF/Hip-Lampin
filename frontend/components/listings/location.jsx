@@ -12,7 +12,7 @@ const locationForm = (props) => {
       <p>address</p>
       <input type="text" 
         value={props.address}
-        onChange={props.handleInput('address')}
+        onChange={props.handleInput('street_address')}
       />
       <p>City</p>
       <input type="text" 
@@ -27,8 +27,8 @@ const locationForm = (props) => {
       />
       <p>Zip Code</p>
       <input type="text" 
-        value={props.state}
-        onChange={props.handleInput('zipCode')}
+        value={props.zipCode}
+        onChange={props.handleInput('zip_code')}
       />
       <p>Country</p>
       <input type="text" 

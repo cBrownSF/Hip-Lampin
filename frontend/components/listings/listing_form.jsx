@@ -28,17 +28,17 @@ class ListingForm extends React.Component {
       cost: listing.cost || '',
       state:listing.state ||'',
       country:listing.country ||'',
-      address:listing.address || '',
+      street_address:listing.street_address || '',
       city:listing.city ||'',
-      zip:listing.zipCode || '',
+      zip_code:listing.zip_code || '',
       check_in_time: listing.check_in_time ||"02:00 PM",
       check_out_time: listing.check_out_time|| "12:00 PM",
       response_time: listing.response_time || '10 minutes',
       on_arrival: listing.on_arrival ||'Meet and Greet',
       guests_allowed: listing.guests_allowed || 1,
       minimum_night: listing.minimum_night || 1,
-      lat: 37.7758, 
-      lng: -122.435,
+      lat: '', 
+      lng: '',
       cancellation_policy: listing.cancellation_policy || 'Flexible',
       booking_time: listing.booking_time ||'12 months in advance',
       is_trash: listing.is_trash || false,
@@ -68,6 +68,7 @@ class ListingForm extends React.Component {
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
+    this.locationNextStep = this.locationNextStep.bind(this)
   }
 
 
@@ -103,10 +104,10 @@ class ListingForm extends React.Component {
     formData.append('listing[is_paddling]', this.state.is_paddling)
     formData.append('listing[lat]',this.state.lat)
     formData.append('listing[lng]',this.state.lng)
-    formData.append('listing[address]',this.state.address)
+    formData.append('listing[street_address]',this.state.address)
     formData.append('listing[city]',this.state.city)
     formData.append('listing[state]',this.state.state)
-    formData.append('listing[state]',this.state.zipCode)
+    formData.append('listing[zip_code]',this.state.zip_code)
     formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
       formData.append('listing[photo]', this.state.photoFile);
@@ -234,17 +235,29 @@ class ListingForm extends React.Component {
   }
   locationNextStep(){
     let geocoder = new google.maps.Geocoder()
+    const { street_address, city, zip_code, country,state,step,lat,lng } = this.state
+    console.log(geocoder)
     geocoder.geocode(
-      { address: `${this.state.address},${this.state.city}, ${this.state.state},${this.state.postal_code},${this.state.country}`},
+      { address: `${street_address}${city} ${state}${zip_code}${country}`},
     (results, status) => {
-      if (status == 'OK') {
-        this.setState(
-          { lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), step: step + 1 }
+      
+      if (status == google.maps.GeocoderStatus.OK){
+        console.log(`city:${results.address_components[4]}`)
+        console.log(`country:${results.address_components[7]}`)
+        console.log(`state${results.address_components[6]}`)
+        console.log(`zip${results.address_components[8]}`)
+        return this.setState(
+          { lng: results[0].geometry.location.lng(), 
+            lat: results[0].geometry.location.lat(), 
+            step: step + 1 
+          }
         )
       }else{
-        this.setState({
-          step: step
-        })//add some way of adding an error in here
+        debugger;
+        console.log('not hitting')
+       return this.setState({
+          step: this.state.step
+        })//add some way of showing an error in here
       }
     }
     )
@@ -327,13 +340,14 @@ class ListingForm extends React.Component {
         />
         <LocationForm
           currentPage={this.state.step}
-          nextPage={this.nextStep}
+          nextPage={this.locationNextStep}
           prevPage={this.previousStep}
           handleInput={this.handleInput}
           city={this.state.city}
           country={this.state.country}
-          address={this.state.address}
+          address={this.state.street_address}
           state={this.state.state}
+
         />
         <PhotoForm
           currentPage={this.state.step}
