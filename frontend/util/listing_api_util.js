@@ -36,7 +36,6 @@ export const updateListing = (listing) => {
 }
 
 export const deleteListing = (listingId) => {
-  debugger;
   return $.ajax({
     url: `/api/listings/${listingId}`,
     method: "DELETE"

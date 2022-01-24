@@ -16,7 +16,6 @@ componentDidMount(){
   debugger;
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.MarkerManager= new MarkerManager(this.map)
-
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 componentDidUpdate(){
@@ -37,6 +36,7 @@ google.maps.event.addListener(this.map,'click',(event)=>{
   const coordinates = getCoordinates(event.latLng)
 })
 }
+
 render(){
   return(
     <div className='map' ref={ map => this.mapNode = map }>
