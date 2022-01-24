@@ -24,6 +24,7 @@ componentDidUpdate(){
 }
 eventListeners(){
   google.maps.event.addListener(this.map,"idle",()=>{
+    debugger;
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       southWest: { lat: south, lng: west },
@@ -34,6 +35,7 @@ eventListeners(){
 google.maps.event.addListener(this.map,'click',(event)=>{
   debugger;
   const coordinates = getCoordinates(event.latLng)
+
 })
 }
 

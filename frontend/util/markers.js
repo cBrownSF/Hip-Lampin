@@ -38,13 +38,20 @@ class MarkerManager {
       content:contentString
     })
     marker.addListener('click', () =>{
+      console.log(this.info)
+      if (this.info) {
+        debugger;
+        this.info.close();
+      }
       info.open({
         anchor:marker,
         map:this.map,
         shouldFocus:true
       })
+      this.info=info;
     });
     this.markers[marker.listingId] = marker;
+    
   }
 
   
