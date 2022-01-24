@@ -10,9 +10,11 @@ const locationForm = (props) => {
     <div>
       <div>Where is the property located?</div>
       <p>address</p>
-      <input type="text" 
+      <input id="autocomplete"
+        type="text" 
         value={props.address}
         onChange={props.handleInput('street_address')}
+      onSelect={props.auto}
       />
       <p>City</p>
       <input type="text" 

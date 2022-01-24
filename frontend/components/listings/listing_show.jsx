@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import { hashHistory } from 'react-router';
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -16,6 +16,11 @@ class ListingShow extends React.Component {
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
+      .then(()=>{
+        debugger;
+       this.props.history.push('/')
+      })
+      //redirect here instead of dispatch
     }else{
       return ''
     }
