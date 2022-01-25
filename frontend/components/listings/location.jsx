@@ -29,7 +29,7 @@ const locationForm = (props) => {
       />
       <p>Zip Code</p>
       <input type="text" 
-        value={props.zipCode}
+        value={props.zip}
         onChange={props.handleInput('zip_code')}
       />
       

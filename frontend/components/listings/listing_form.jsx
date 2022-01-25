@@ -426,6 +426,7 @@ class ListingForm extends React.Component {
           country={this.state.country}
           address={this.state.street_address}
           state={this.state.state}
+          zip={this.state.zip_code}
           auto={this.autoCompleteNextStep}
 
         />
