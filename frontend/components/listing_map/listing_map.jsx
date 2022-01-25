@@ -17,6 +17,9 @@ componentDidMount(){
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.MarkerManager= new MarkerManager(this.map)
   this.MarkerManager.updateMarkers(this.props.listings);
+  let service = new google.maps.places.PlacesService(this.map)
+  console.log(service)
+  console.log(new google.maps.places.AutocompleteService())
 }
 componentDidUpdate(){
  

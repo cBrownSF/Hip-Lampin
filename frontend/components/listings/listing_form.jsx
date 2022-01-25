@@ -57,7 +57,7 @@ class ListingForm extends React.Component {
       photoURL: listing.photoURL|| null,
 
     }
-    // this.autocomplete;
+    this.autoComplete = null;
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -71,7 +71,7 @@ class ListingForm extends React.Component {
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
     this.locationNextStep = this.locationNextStep.bind(this)
-    this.handlePlaceSelect=this.handlePlaceSelect.bind(this)
+    this.handleAuto=this.handleAuto.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
   }
 
@@ -238,34 +238,41 @@ class ListingForm extends React.Component {
     })
   }
   autoCompleteNextStep(){
-    console.log(textInput)
     const options = {
       componentRestrictions: { country: "us" },
-      fields: ["address_components", "geometry", "icon", "name"],
-      strictBounds: false,
-      types: ["establishment"],
+      // fields: ["address_components", "geometry", "icon", "name"],
+      // strictBounds: false,
+      types: ['street_address', "premise",],
     };
     let textInput = document.getElementById("autocomplete")
-    let autoComplete = new google.maps.places.AutoComplete(textInput,options)
-    // autoComplete.addListener('place_changed',this.handlePlaceSelect)
-    this.autocomplete=autoComplete;
-    this.autocomplete.setFields(['address_components',
-      'formatted_address']);
-  }
-  handlePlaceSelect = () => {
-    const addressObject = this.autocomplete.getPlace();
-    const address = addressObject.address_components;
+    let autoComplete = new google.maps.places.Autocomplete(textInput, {
+      componentRestrictions: { country: ["us", "ca"] },
+      fields: ["address_components", "geometry","formatted_address","type","adr_address","name"],
+      types: ["address"],
+    })
+    
+    google.maps.event.addListener(autoComplete, 'place_changed', function(){
+     
+      let address= autoComplete.getPlace()
+      console.log(address)
+      let splitA=address.adr_address.split(',')
+      console.log(splitA)
+      console.log(splitA[0].slice(29,-7))
+      console.log(splitA[1])
+      //29,-7==street address
+      console.log(address.geometry.location.lat())
+      console.log(address.geometry.location.lng())
 
-    if (address) {
-      debugger;
-      this.setState(
-        {
-          city: address[0].long_name,
-          street_address: addressObject.formatted_address,
-        }
-      );
-    }
+      
+    })
+    // this.autoComplete.addListener('place_changed', function () {
+    //   var place = autocomplete.getPlace();
+      
+    // )
+    // this.handleAuto)
+
   }
+
   locationNextStep(){
     let geocoder = new google.maps.Geocoder()
     const { street_address, city, zip_code, country,state,step } = this.state
@@ -273,11 +280,10 @@ class ListingForm extends React.Component {
     geocoder.geocode(
       { address: `${street_address}${city} ${state}${zip_code}${country}`},
     (results, status) => {
-      debugger;
       
       if (status == google.maps.GeocoderStatus.OK){
         this.validAdress=true;
-        debugger;
+       
         return this.setState(
           { lng: results[0].geometry.location.lng(), 
             lat: results[0].geometry.location.lat(), 
