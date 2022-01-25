@@ -57,7 +57,8 @@ class ListingForm extends React.Component {
       photoURL: listing.photoURL|| null,
 
     }
-    this.autoComplete = null;
+    this.autoComplete=null;
+    this.error=false;
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -72,6 +73,7 @@ class ListingForm extends React.Component {
     this.hideButton=this.hideButton.bind(this)
     this.locationNextStep = this.locationNextStep.bind(this)
     this.handleAuto=this.handleAuto.bind(this)
+    this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
   }
 
@@ -163,6 +165,7 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
+    
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -239,40 +242,83 @@ class ListingForm extends React.Component {
   }
   autoCompleteNextStep(){
     const options = {
-      componentRestrictions: { country: "us" },
-      // fields: ["address_components", "geometry", "icon", "name"],
-      // strictBounds: false,
-      types: ['street_address', "premise",],
-    };
-    let textInput = document.getElementById("autocomplete")
-    let autoComplete = new google.maps.places.Autocomplete(textInput, {
       componentRestrictions: { country: ["us", "ca"] },
-      fields: ["address_components", "geometry","formatted_address","type","adr_address","name"],
+      fields: ["address_components", "geometry", "formatted_address", "type", "adr_address", "name"],
       types: ["address"],
+    }
+    let textInput = document.getElementById("autocomplete")
+   this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
+    // console.log(this.autoComplete)
+    let auto = this.autoComplete
+    let city = this.city
+    let zip=this.zip
+    let address=this.add
+    let lati;
+    
+    this.autoComplete.addListener('place_changed', ()=> {
+      let address= auto.getPlace()
+      console.log(address)
+      this.setState({
+        lat: address.geometry.location.lat(),
+        lng: address.geometry.location.lng()
+      })
+      let splitA=address.adr_address.split(',')
+      let splitFormat=address.formattedAdd
+      console.log(splitA[2])
+      console.log(splitA[3])
+      // // console.log(splitA)
+      // // console.log(splitA[0].slice(29,-7))
+      // // console.log(splitA[0].includes('street-address'))
+      splitA.forEach((segment) => {
+          if(segment.includes('street-address')){
+            console.log(segment.slice(29,-7))
+            this.setState({
+              street_address:segment.slice(29,-7)
+            })
+          }
+          else if(segment.includes('locality')){
+            console.log(segment.slice(24,-7))
+            this.setState({
+              city: segment.slice(24, -7)
+            })
+        }
+      })
+      console.log(this.state)
+      // console.log(address.geometry.location.lat())
+      // console.log(address.geometry.location.lng())
+
+      
     })
     
-    google.maps.event.addListener(autoComplete, 'place_changed', function(){
-     
-      let address= autoComplete.getPlace()
-      console.log(address)
-      let splitA=address.adr_address.split(',')
-      console.log(splitA)
-      console.log(splitA[0].slice(29,-7))
-      console.log(splitA[1])
-      //29,-7==street address
-      console.log(address.geometry.location.lat())
-      console.log(address.geometry.location.lng())
-
-      
-    })
-    // this.autoComplete.addListener('place_changed', function () {
-    //   var place = autocomplete.getPlace();
-      
-    // )
-    // this.handleAuto)
+    // this.autoComplete.addListener('place_changed', this.handleAuto)
 
   }
-
+  handleAuto(){
+    let address = this.autoComplete.getPlace()
+    console.log(address)
+  }
+  extractAddressInfo(splitAddress){
+    splitAddress.forEach((segment) => {
+      debugger;
+      if (segment.includes('street-address')) {
+        this.setState({
+          street_address: segment.slice(29, -7)
+        })
+        debugger;
+        console.log(segment.slice(29, -7))
+      }
+      else if (segment.includes('locality')) {
+        console.log(segment.slice(24, -7))
+      }
+    })
+  }
+  locNextStep(){
+    if (this.state.city !==undefined && this.state.street_address){
+      this.error=false;
+    }else{
+      this.error=true
+    }
+  }
   locationNextStep(){
     let geocoder = new google.maps.Geocoder()
     const { street_address, city, zip_code, country,state,step } = this.state

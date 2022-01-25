@@ -7,11 +7,11 @@ class ListingShow extends React.Component {
     this.props.receiveListing(this.props.match.params.listingId);
   }
   
-  componentDidUpdate() {
-    if (!this.props.listing){
-      this.props.receiveListing(this.props.match.params.listingId);
-    }
-  }
+  // componentDidUpdate() {
+  //   if (!this.props.listing){
+  //     this.props.receiveListing(this.props.match.params.listingId);
+  //   }
+  // }
 
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){

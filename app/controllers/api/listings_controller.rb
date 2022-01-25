@@ -27,10 +27,13 @@ before_action :require_logged_in, only: [:create]
   end
 
   def destroy
-
     @listing = Listing.find(params[:id])
-    @listing.destroy
-    render :show
+     if @listing
+      @listing.destroy
+      render :show
+    else
+        render json: {message: "Not found in my list"}, status: 422
+    end
   end
 
   def index
