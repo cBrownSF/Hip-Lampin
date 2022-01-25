@@ -9,10 +9,9 @@ class MarkerManager {
   }
 
   updateMarkers(listings) {
-    console.log('updating')
-  
     listings.forEach(listing=> {
-      if (!(listing.id in this.markers)){
+      let listingIdArray=Object.keys(this.markers)
+      if (!listingIdArray.includes(listing.id)){
         this.markers[listing.id] = listing
         this.createMarkerForListing(listing)
     }
@@ -51,7 +50,6 @@ class MarkerManager {
       this.info=info;
     });
     this.markers[marker.listingId] = marker;
-    
   }
 
   
