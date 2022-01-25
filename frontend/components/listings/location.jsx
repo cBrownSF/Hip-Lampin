@@ -16,7 +16,7 @@ const locationForm = (props) => {
         onChange={props.handleInput('street_address')}
       onSelect={props.auto}
       />
-      {/* <p>City</p>
+      <p>City</p>
       <input type="text" 
         value={props.city}
         onChange={props.handleInput('city')}
@@ -32,11 +32,7 @@ const locationForm = (props) => {
         value={props.zipCode}
         onChange={props.handleInput('zip_code')}
       />
-      <p>Country</p>
-      <input type="text" 
-        value={props.country}
-        onChange={props.handleInput('country')}
-      /> */}
+      
       <div className='amenities-button'>
         <button className='previous-button' onClick={props.prevPage}>Previous</button>
         <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>

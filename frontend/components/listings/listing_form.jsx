@@ -59,6 +59,7 @@ class ListingForm extends React.Component {
     }
     this.autoComplete=null;
     this.error=false;
+    this.locNextStep=this.locNextStep.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -72,8 +73,8 @@ class ListingForm extends React.Component {
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
     this.locationNextStep = this.locationNextStep.bind(this)
-    this.handleAuto=this.handleAuto.bind(this)
-    this.extractAddressInfo=this.extractAddressInfo.bind(this)
+    
+    // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
   }
 
@@ -248,73 +249,65 @@ class ListingForm extends React.Component {
     }
     let textInput = document.getElementById("autocomplete")
    this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
-    // console.log(this.autoComplete)
-    let auto = this.autoComplete
-    let city = this.city
-    let zip=this.zip
-    let address=this.add
-    let lati;
-    
-    this.autoComplete.addListener('place_changed', ()=> {
+   let auto =this.autoComplete;
+  this.autoComplete.addListener('place_changed', ()=> {
       let address= auto.getPlace()
-      console.log(address)
+      for (const section of address.address_components) {
+        const addressType = section.types[0];
+        switch (addressType) {
+          case "postal_code":
+            this.setState({
+              zip_code: section.long_name
+            })
+            break;
+        case "locality":
+          debugger;
+          this.setState({
+            city:section.long_name
+          })
+        case "administrative_area_level_1": {
+            this.setState({
+              state: section.short_name
+            })
+          break;
+        }
+          default:
+            break;
+        }
+        
+      }
+      let splitFormat = address.formatted_address.split(',')
+      let streetA=splitFormat[0]
       this.setState({
         lat: address.geometry.location.lat(),
-        lng: address.geometry.location.lng()
+        lng: address.geometry.location.lng(),
+        street_address:streetA
       })
-      let splitA=address.adr_address.split(',')
-      let splitFormat=address.formattedAdd
-      console.log(splitA[2])
-      console.log(splitA[3])
-      // // console.log(splitA)
-      // // console.log(splitA[0].slice(29,-7))
-      // // console.log(splitA[0].includes('street-address'))
-      splitA.forEach((segment) => {
-          if(segment.includes('street-address')){
-            console.log(segment.slice(29,-7))
-            this.setState({
-              street_address:segment.slice(29,-7)
-            })
-          }
-          else if(segment.includes('locality')){
-            console.log(segment.slice(24,-7))
-            this.setState({
-              city: segment.slice(24, -7)
-            })
-        }
-      })
-      console.log(this.state)
-      // console.log(address.geometry.location.lat())
-      // console.log(address.geometry.location.lng())
-
-      
-    })
-    
-    // this.autoComplete.addListener('place_changed', this.handleAuto)
-
-  }
-  handleAuto(){
-    let address = this.autoComplete.getPlace()
-    console.log(address)
-  }
-  extractAddressInfo(splitAddress){
-    splitAddress.forEach((segment) => {
-      debugger;
-      if (segment.includes('street-address')) {
-        this.setState({
-          street_address: segment.slice(29, -7)
-        })
-        debugger;
-        console.log(segment.slice(29, -7))
-      }
-      else if (segment.includes('locality')) {
-        console.log(segment.slice(24, -7))
-      }
     })
   }
+
+  // extractAddressInfo(splitAddress){
+  //   splitAddress.forEach((segment) => {
+  //     debugger;
+  //     if (segment.includes('street-address')) {
+  //       this.setState({
+  //         street_address: segment.slice(29, -7)
+  //       })
+  //       debugger;
+  //       console.log(segment.slice(29, -7))
+  //     }
+  //     else if (segment.includes('locality')) {
+  //       console.log(segment.slice(24, -7))
+  //     }
+  //   })
+  // }
   locNextStep(){
-    if (this.state.city !==undefined && this.state.street_address){
+    if (this.state.city !==undefined && this.state.street_address !==undefined){
       this.error=false;
+      return this.setState(
+        {
+          step: this.state.step + 1
+        })
     }else{
       this.error=true
     }
@@ -426,7 +419,7 @@ class ListingForm extends React.Component {
         />
         <LocationForm
           currentPage={this.state.step}
-          nextPage={this.locationNextStep}
+          nextPage={this.locNextStep}
           prevPage={this.previousStep}
           handleInput={this.handleInput}
           city={this.state.city}
