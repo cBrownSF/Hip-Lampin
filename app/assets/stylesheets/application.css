@@ -523,3 +523,33 @@ input[type="file"] {
  .map-button{
    margin-top:5px;
  }
+ .pac-container{
+   width:370px;
+   color:blue;
+   border:none;
+   border-style:none;
+   box-shadow:none;
+   shadow:none;
+   margin-top:15px;
+ }
+ .pac-container pac-logo{
+   width:200px;
+ }
+ .pac-matched{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+ }
+ .pac-item{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+   border-top:none;
+   padding:10px;
+   border-bottom:lightgray solid 1px;
+ }
+ .pac-item:hover{
+   background-color: lightgray;
+ }
+ .pac-item-query{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+ }

@@ -20,8 +20,8 @@ const miniMap =(props)=>{
        address={props.address}
        />
        <div className='map-button'>
-         <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
-         <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
+         <button type="button" className='previous-button' onClick={props.prevPage}>Retry</button>
+         <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Confirm</button>
        </div>
      </div>
    )
