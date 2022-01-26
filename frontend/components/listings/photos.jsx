@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PhotoForm = (props) => {
-  if (props.currentPage !== 8) {
+  if (props.currentPage !== 9) {
     return null
   }
 

@@ -10,6 +10,7 @@ import Activities from "./activities";
 import CheckInForm from "./check_in_form";
 import PhotoForm from "./photos";
 import LocationForm from "./location"
+import MiniMap from "./minimap";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -429,6 +430,13 @@ class ListingForm extends React.Component {
           zip={this.state.zip_code}
           auto={this.autoCompleteNextStep}
 
+        />
+        <MiniMap
+          currentPage={this.state.step}
+          prevPage={this.previousStep}
+          lat={this.state.lat}
+          lng={this.state.lng}
+          
         />
         <PhotoForm
           currentPage={this.state.step}

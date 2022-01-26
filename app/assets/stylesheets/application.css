@@ -507,3 +507,10 @@ input[type="file"] {
    float: left;
    position: relative;
  }
+
+ .mini-map {
+   display:flex;
+   width: 400px;
+   height: 400px;
+   justify-content: center;
+ }
