@@ -83,7 +83,7 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
-    debugger;
+
     const formData = new FormData();
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
@@ -262,7 +262,6 @@ class ListingForm extends React.Component {
             })
             break;
         case "locality":
-          debugger;
           this.setState({
             city:section.long_name
           })
@@ -282,8 +281,10 @@ class ListingForm extends React.Component {
       this.setState({
         lat: address.geometry.location.lat(),
         lng: address.geometry.location.lng(),
-        street_address:streetA
+        street_address:streetA,
+        step:8
       })
+      console.log(this.state)
     })
   }
 
@@ -313,35 +314,35 @@ class ListingForm extends React.Component {
       this.error=true
     }
   }
-  locationNextStep(){
-    let geocoder = new google.maps.Geocoder()
-    const { street_address, city, zip_code, country,state,step } = this.state
-    console.log(geocoder)
-    geocoder.geocode(
-      { address: `${street_address}${city} ${state}${zip_code}${country}`},
-    (results, status) => {
+  // locationNextStep(){
+  //   let geocoder = new google.maps.Geocoder()
+  //   const { street_address, city, zip_code, country,state,step } = this.state
+  //   console.log(geocoder)
+  //   geocoder.geocode(
+  //     { address: `${street_address}${city} ${state}${zip_code}${country}`},
+  //   (results, status) => {
       
-      if (status == google.maps.GeocoderStatus.OK){
-        this.validAdress=true;
+  //     if (status == google.maps.GeocoderStatus.OK){
+  //       this.validAdress=true;
        
-        return this.setState(
-          { lng: results[0].geometry.location.lng(), 
-            lat: results[0].geometry.location.lat(), 
-            step: step + 1 
-          }
-        )
-      }else{
-        debugger;
-        console.log(this.validAdress)
-        this.validAdress=false;
-        console.log('not hitting')
-       return this.setState({
-          step: this.state.step
-        })//add some way of showing an error in here
-      }
-    }
-    )
-  }
+  //       return this.setState(
+  //         { lng: results[0].geometry.location.lng(), 
+  //           lat: results[0].geometry.location.lat(), 
+  //           step: step + 1 
+  //         }
+  //       )
+  //     }else{
+  //       debugger;
+  //       console.log(this.validAdress)
+  //       this.validAdress=false;
+  //       console.log('not hitting')
+  //      return this.setState({
+  //         step: this.state.step
+  //       })//add some way of showing an error in here
+  //     }
+  //   }
+  //   )
+  // }
  hideButton () {
     
    if (this.props.formType === 'edit') {

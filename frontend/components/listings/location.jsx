@@ -7,17 +7,18 @@ const locationForm = (props) => {
   }
 
   return (
-    <div>
-      <div>Where is the property located?</div>
-      <p>address</p>
+    <div className="name-box">
+      <br/>
+      <h1 id="name-title">Where is the property located?</h1>
+      
       <input id="autocomplete"
         className='text-bubble'
         type="text" 
-        value={props.address}
-        onChange={props.handleInput('street_address')}
+        // value={props.address}
+        // onChange={props.handleInput('street_address')}
       onSelect={props.auto}
       />
-      <p>City</p>
+      {/* <p>City</p>
       <input type="text" 
         value={props.city}
         onChange={props.handleInput('city')}
@@ -32,7 +33,7 @@ const locationForm = (props) => {
       <input type="text" 
         value={props.zip}
         onChange={props.handleInput('zip_code')}
-      />
+      /> */}
       
       <div className='amenities-button'>
         <button className='previous-button' onClick={props.prevPage}>Previous</button>
