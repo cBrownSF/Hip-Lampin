@@ -11,6 +11,7 @@ const locationForm = (props) => {
       <div>Where is the property located?</div>
       <p>address</p>
       <input id="autocomplete"
+        className='text-bubble'
         type="text" 
         value={props.address}
         onChange={props.handleInput('street_address')}
