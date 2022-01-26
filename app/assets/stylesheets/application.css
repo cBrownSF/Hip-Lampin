@@ -510,7 +510,16 @@ input[type="file"] {
 
  .mini-map {
    display:flex;
-   width: 400px;
+   width: 450px;
    height: 400px;
    justify-content: center;
+   align-self: center;
+ }
+ .full-address{
+   font-size:18px;
+   font-style:inherit;
+   text-align:center;
+ }
+ .map-button{
+   margin-top:5px;
  }

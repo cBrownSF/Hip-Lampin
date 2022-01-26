@@ -11,8 +11,11 @@ return(
     <div >
       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
      
-    {props.photoURL ? <img className="upload-photo" height="200px" width="200px" src={props.photoURL} /> : null}
-    
+    {props.photoURL ? (
+    <img className="upload-photo" height="200px" width="200px" src={props.photoURL} />) 
+    : null
+  }
+  
       <label for="form-file-upload" id="button-photo-upload">
         Upload Photo
       </label>

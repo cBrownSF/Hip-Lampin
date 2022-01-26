@@ -19,7 +19,7 @@ const miniMap =(props)=>{
        state={props.state}
        address={props.address}
        />
-       <div className='amenities-button'>
+       <div className='map-button'>
          <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
          <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
        </div>

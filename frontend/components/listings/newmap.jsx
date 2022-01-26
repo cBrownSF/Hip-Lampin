@@ -13,6 +13,7 @@ class CreateMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, {
       center: { lat: this.props.lat, lng: this.props.lng },
       gestureHandling: "none",
+      fullscreenControl: false,
       zoom: 16
     });
     this.createMarker()
@@ -56,14 +57,12 @@ class CreateMap extends React.Component {
     const fullAddress = `${address}, ${city}, ${state}, ${zip}`
   
     return (
-      <div>
-        <div>
-          property location
-        </div>
-        <div>
+      <div className="name-box">
+        <br/>
+        <div id='name-title'>
           Confirm your property address
         </div>
-        <div>
+        <div className='full-address'>
           {this.fullAddress}
         </div>
       <div className='mini-map' ref={map => this.mapNode = map}>
