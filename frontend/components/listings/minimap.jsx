@@ -13,6 +13,10 @@ const miniMap =(props)=>{
        <CreateMap
        lat={props.lat}
        lng={props.lng}
+       zip={props.zip}
+       city={props.city}
+       state={props.state}
+       address={props.address}
        />
    )
 }
