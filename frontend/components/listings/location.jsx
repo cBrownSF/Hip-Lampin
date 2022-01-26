@@ -13,7 +13,8 @@ const locationForm = (props) => {
       
       <input id="autocomplete"
         className='text-bubble'
-        type="text" 
+        type="text"
+        onKeyPress={props.keyPress} 
         // value={props.address}
         // onChange={props.handleInput('street_address')}
       onSelect={props.auto}

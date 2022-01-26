@@ -73,7 +73,7 @@ class ListingForm extends React.Component {
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
-    
+    this.handleKeyPress=this.handleKeyPress.bind(this)
     
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
@@ -156,6 +156,24 @@ class ListingForm extends React.Component {
       }
     }
   } 
+
+    handleKeyPress(e) {
+        if (e.key === "Enter") {
+          debugger;
+         if(this.state.cost.length >0){
+           debugger;
+         this.setState({
+           step:this.state.step +1
+         })
+        }else{
+          debugger;
+           this.setState({
+             step:3
+           })
+        }
+        }
+      
+  }
   toggleBoolean(type) {
     return e =>{
       if (this.state[type] === false) {
@@ -342,6 +360,7 @@ class ListingForm extends React.Component {
           minNight={this.state.minimum_night}
           handleInput={this.handleInput}
           listing={this.props.listing}
+              keyPress={this.handleKeyPress}
           />
         <Amenities
           currentPage={this.state.step}
@@ -387,6 +406,7 @@ class ListingForm extends React.Component {
           state={this.state.state}
           zip={this.state.zip_code}
           auto={this.autoCompleteNextStep}
+          keyPress={this.handleKeyPress}
 
         />
         <MiniMap
