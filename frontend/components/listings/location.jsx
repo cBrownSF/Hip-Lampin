@@ -2,6 +2,7 @@ import React from 'react'
 
 
 const locationForm = (props) => {
+
   if (props.currentPage !== 7) {
     return null
   }
@@ -14,7 +15,8 @@ const locationForm = (props) => {
       <input id="autocomplete"
         className='text-bubble'
         type="text"
-        onKeyPress={props.keyPress} 
+        placeholder="enter new address"
+        onKeyPress={props.keyDown}
         // value={props.address}
         // onChange={props.handleInput('street_address')}
       onSelect={props.auto}
@@ -37,8 +39,8 @@ const locationForm = (props) => {
       /> */}
       
       <div className='amenities-button'>
-        <button className='previous-button' onClick={props.prevPage}>Previous</button>
-        <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
+        <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
+        <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
       </div>
     </div>
     )

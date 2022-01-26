@@ -44,8 +44,8 @@ const CostForm = (props) => {
       
 
         <div className='cost-buttons'>
-      <button className='previous-button' onClick={props.prevPage}>Previous</button>
-      <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
+        <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
+        <button type="button"className='next-button-with-prev' onClick={props.nextPage}>Next</button>
     </div>
     </div>
   )

@@ -74,6 +74,7 @@ class ListingForm extends React.Component {
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
     this.handleKeyPress=this.handleKeyPress.bind(this)
+    this.handleKeyDown=this.handleKeyDown.bind(this)
     
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
@@ -156,24 +157,32 @@ class ListingForm extends React.Component {
       }
     }
   } 
-
+  handleKeyDown(e){
+   
+    if (e.key === "Enter") {
+      e.preventDefault()
+      this.setState({
+        step: this.state.step
+      })
+    }
+  }
     handleKeyPress(e) {
         if (e.key === "Enter") {
-          debugger;
+      
          if(this.state.cost.length >0){
-           debugger;
+  
          this.setState({
            step:this.state.step +1
          })
         }else{
-          debugger;
            this.setState({
              step:3
            })
         }
         }
-      
   }
+  
+  
   toggleBoolean(type) {
     return e =>{
       if (this.state[type] === false) {
@@ -207,9 +216,12 @@ class ListingForm extends React.Component {
         })
       )
     } else {
-      this.setState({
+      debugger;
+      return(
+        this.setState({
         step: step
       })
+      )
     }
   }
 
@@ -223,13 +235,16 @@ class ListingForm extends React.Component {
         })
       )
     } else {
+      return(
       this.setState({
         step: step
       })
+      )
     }
   }
   
-  nextStep(){
+  nextStep(e){
+    e.preventDefault()
     let step = this.state.step
     return (
       this.setState({
@@ -254,8 +269,10 @@ class ListingForm extends React.Component {
       })
     }
   }
-  previousStep() {
+  previousStep(e) {
+    e.preventDefault()
     let step = this.state.step
+    debugger;
     return this.setState({
       step: step - 1
     })
@@ -270,6 +287,7 @@ class ListingForm extends React.Component {
    this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
    let auto =this.autoComplete;
   this.autoComplete.addListener('place_changed', ()=> {
+debugger;
       let address= auto.getPlace()
       for (const section of address.address_components) {
         const addressType = section.types[0];
@@ -284,6 +302,7 @@ class ListingForm extends React.Component {
             city:section.long_name
           })
         case "administrative_area_level_1": {
+        
             this.setState({
               state: section.short_name
             })
@@ -296,6 +315,7 @@ class ListingForm extends React.Component {
       }
       let splitFormat = address.formatted_address.split(',')
       let streetA=splitFormat[0]
+      console.log(streetA)
       this.setState({
         lat: address.geometry.location.lat(),
         lng: address.geometry.location.lng(),
@@ -406,8 +426,7 @@ class ListingForm extends React.Component {
           state={this.state.state}
           zip={this.state.zip_code}
           auto={this.autoCompleteNextStep}
-          keyPress={this.handleKeyPress}
-
+          keyDown={this.handleKeyDown}
         />
         <MiniMap
           currentPage={this.state.step}
@@ -419,6 +438,7 @@ class ListingForm extends React.Component {
           address={this.state.street_address}
           state={this.state.state}
           zip={this.state.zip_code}
+          nextPage={this.nextStep}
         />
         <PhotoForm
           currentPage={this.state.step}
