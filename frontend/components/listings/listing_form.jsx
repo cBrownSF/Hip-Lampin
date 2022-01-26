@@ -73,7 +73,7 @@ class ListingForm extends React.Component {
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
-    this.locationNextStep = this.locationNextStep.bind(this)
+    
     
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
@@ -288,21 +288,6 @@ class ListingForm extends React.Component {
     })
   }
 
-  // extractAddressInfo(splitAddress){
-  //   splitAddress.forEach((segment) => {
-  //     debugger;
-  //     if (segment.includes('street-address')) {
-  //       this.setState({
-  //         street_address: segment.slice(29, -7)
-  //       })
-  //       debugger;
-  //       console.log(segment.slice(29, -7))
-  //     }
-  //     else if (segment.includes('locality')) {
-  //       console.log(segment.slice(24, -7))
-  //     }
-  //   })
-  // }
   locNextStep(){
     if (this.state.city !==undefined && this.state.street_address !==undefined){
       this.error=false;
@@ -314,35 +299,7 @@ class ListingForm extends React.Component {
       this.error=true
     }
   }
-  // locationNextStep(){
-  //   let geocoder = new google.maps.Geocoder()
-  //   const { street_address, city, zip_code, country,state,step } = this.state
-  //   console.log(geocoder)
-  //   geocoder.geocode(
-  //     { address: `${street_address}${city} ${state}${zip_code}${country}`},
-  //   (results, status) => {
-      
-  //     if (status == google.maps.GeocoderStatus.OK){
-  //       this.validAdress=true;
-       
-  //       return this.setState(
-  //         { lng: results[0].geometry.location.lng(), 
-  //           lat: results[0].geometry.location.lat(), 
-  //           step: step + 1 
-  //         }
-  //       )
-  //     }else{
-  //       debugger;
-  //       console.log(this.validAdress)
-  //       this.validAdress=false;
-  //       console.log('not hitting')
-  //      return this.setState({
-  //         step: this.state.step
-  //       })//add some way of showing an error in here
-  //     }
-  //   }
-  //   )
-  // }
+  
  hideButton () {
     
    if (this.props.formType === 'edit') {
