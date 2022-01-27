@@ -120,6 +120,7 @@ class ListingForm extends React.Component {
     formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
+        console.log(this.state.photoFile.length)
         formData.append("post[photos][]", this.state.photoFile[i]);
       }
     }
