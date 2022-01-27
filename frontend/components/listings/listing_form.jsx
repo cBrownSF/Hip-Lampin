@@ -83,7 +83,6 @@ class ListingForm extends React.Component {
 
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
 
     const formData = new FormData();
@@ -125,7 +124,7 @@ class ListingForm extends React.Component {
         formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
-    debugger;
+    
     this.props.submitEvent(formData)
     
     // this.props.history.push(`/listing/${this.props.listing.id}`)
@@ -140,7 +139,6 @@ class ListingForm extends React.Component {
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       if(!this.state.photoFile.length){
-        debugger
         this.setState({
           photoFile: [this.state.photoFile[0] = file],
           photoURL: [this.state.photoURL[0] = fileReader.result]
@@ -253,7 +251,6 @@ class ListingForm extends React.Component {
         })
       )
     } else {
-      debugger;
       return(
         this.setState({
         step: step
@@ -309,7 +306,6 @@ class ListingForm extends React.Component {
   previousStep(e) {
     e.preventDefault()
     let step = this.state.step
-    debugger;
     return this.setState({
       step: step - 1
     })
@@ -324,7 +320,6 @@ class ListingForm extends React.Component {
    this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
    let auto =this.autoComplete;
   this.autoComplete.addListener('place_changed', ()=> {
-debugger;
       let address= auto.getPlace()
       for (const section of address.address_components) {
         const addressType = section.types[0];

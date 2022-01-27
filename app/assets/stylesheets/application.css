@@ -472,11 +472,11 @@ input[type="file"] {
    background-color:#39C39A;
    color:white;
    font-size: 12px;
-  margin-top:100px;
-  margin-left:175px;
+   display:flex;
+   justify-content: center;
+   margin-top:100px;
+  margin-left:135px;
   width:120px;
-  height:40px;
-  margin-left:40px;
   cursor:pointer;
   border-radius: 40px;
   border-color:#39C39A;

@@ -9,7 +9,7 @@ const SecondPhotos = (props) => {
     <div >
       <h1 id='name-title'>Second Photos </h1>
 
-      {props.photoURL.length ? (
+      {props.photoURL.length===2 ? (
         <img className="upload-photo" height="200px" width="200px" src={props.photoURL[1]} />)
         : null
       }
