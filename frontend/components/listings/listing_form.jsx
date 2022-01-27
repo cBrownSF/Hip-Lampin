@@ -138,10 +138,21 @@ class ListingForm extends React.Component {
       this.setState({ photoFile: file, photoURL: fileReader.result });
     };
     
-    if (file) {
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
+      console.log(file.type)
       fileReader.readAsDataURL(file);
     }
   }
+  handleMultiplFiles(e){
+      for (let i = 0; i < e.target.files.length; i++) {
+        console.log('current file:', e.target.files[i]);
+        let file = e.target.files[i];
+        
+
+        // Do necessary request to upload here.......
+
+      }
+    }
   
   handleInput(type){
     return e => {
