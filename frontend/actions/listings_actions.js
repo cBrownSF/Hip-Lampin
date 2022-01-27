@@ -60,8 +60,7 @@ export const updateListing = listing => (dispatch) =>{
 
 export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
-    .then(() => {
+  .then(()=>{
     dispatch(removeListing(listingId))
-      hashHistory.push(`/`)
-    })
+  })
 }

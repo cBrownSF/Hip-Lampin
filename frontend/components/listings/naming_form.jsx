@@ -42,7 +42,7 @@ const NameForm = (props) =>{
           <br/>
           <br/>
           <div id="name-button">
-      <button className='next-button-single' onClick={props.nextPage}>Next</button>
+      <button  className='next-button-single' onClick={props.nextPage}>Next</button>
         </div>
         </div>
         )

@@ -472,11 +472,29 @@ input[type="file"] {
    background-color:#39C39A;
    color:white;
    font-size: 12px;
-  margin-top:100px;
-  margin-left:175px;
+   display:flex;
+   justify-content: center;
+   margin-top:100px;
+  margin-left:135px;
   width:120px;
-  height:40px;
-  margin-left:40px;
+  cursor:pointer;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+  padding:10px;
+}
+.name-box #button-photo-added-upload{
+ font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   font-size: 12px;
+   display:flex;
+   justify-content: center;
+   margin-top:1px;
+   margin-bottom:0px;
+  margin-left:135px;
+  width:120px;
   cursor:pointer;
   border-radius: 40px;
   border-color:#39C39A;
@@ -499,4 +517,65 @@ input[type="file"] {
  }
  .name-buttons{
    margin-top:20px;
+ }
+
+  .map {
+   width: 500px;
+   height: 500px;
+   float: left;
+   position: relative;
+ }
+
+ .mini-map {
+   display:flex;
+   width: 450px;
+   height: 400px;
+   justify-content: center;
+   align-self: center;
+ }
+ .full-address{
+   font-size:18px;
+   font-style:inherit;
+   text-align:center;
+ }
+ .map-button{
+   margin-top:5px;
+ }
+ .pac-container{
+   width:370px;
+   color:blue;
+   border:none;
+   border-style:none;
+   box-shadow:none;
+   /* shadow:none; */
+   margin-top:15px;
+ }
+ .pac-container pac-logo{
+   width:200px;
+ }
+ .pac-matched{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+ }
+ .pac-item{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+   border-top:none;
+   padding:10px;
+   border-bottom:lightgray solid 1px;
+ }
+ .pac-item:hover{
+   background-color: lightgray;
+ }
+ .pac-item-query{
+   font-style:'Helvetica', 'Arial', sans-serif;
+   font-size:16px;
+ }
+
+  .location-button{
+   margin-top: 270px
+ }
+
+ .uploaded-photo{
+  margin-left:125px;
  }

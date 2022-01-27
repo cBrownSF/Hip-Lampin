@@ -1,21 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import { hashHistory } from 'react-router';
 class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
+    debugger;
   }
   
-  componentDidUpdate() {
-    if (!this.props.listing){
-      this.props.receiveListing(this.props.match.params.listingId);
-    }
-  }
+  // componentDidUpdate() {
+  //   if (!this.props.listing){
+  //     this.props.receiveListing(this.props.match.params.listingId);
+  //   }
+  // }
 
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
+      .then(()=>{
+        debugger;
+       this.props.history.push('/')
+      })
+      //redirect here instead of dispatch
     }else{
       return ''
     }
@@ -34,7 +40,7 @@ render() {
   if (!this.props.listing){
     return null;
   }
-
+  debugger;
   const listing = this.props.listing
   
   const descript = {
@@ -69,17 +75,17 @@ render() {
   }
   const checkIn = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '8',
+    search: '11',
     state: this.props.listing
   }
   const photo = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '7',
+    search: '9',
     state: this.props.listing
   }
-  const onEdit= ()=>{
-    if (this.props.currentUser.id === this.props.listing.host_id) {
-    return <span id="link-location"><Link id='show-link' to={nameEdit}>Edit</Link></span>
+  const isHost= (link)=>{
+    if (this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id) {
+    return <span id="link-location"><Link id='show-link' to={link}>Edit</Link></span>
   } else {
     return <span> </span>
   }
@@ -90,32 +96,35 @@ render() {
       <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p>
       <div id="side-pic"></div>
       <div id = "show-photo">
-        <img src={listing.photoURL} width="925" height = '300' alt="coverphoto" />
+        <img src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
+        <img src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
       </div>
       <div id="side-pic"></div>
       <div id="left"></div>
       <div id = 'name-show'>
-        <p id="link-location">{onEdit()}</p>
+        <p id="link-location">{isHost(nameEdit)}</p>
         <h1>{listing.name}</h1>
-          <p id = 'nearby-show'>Nearby: Golden Gate Bridge</p>
+          <p id = 'nearby-show'>{listing.city}</p>
+          <p id = 'nearby-show'>{listing.zip_code}</p>
+
           <hr id="solid" />
       </div>
       <div id='cost-show'>
-        <p id="link-location"><Link id='show-link' to={cost}>Edit</Link></p>
+        <p id="link-location">{isHost(cost)}</p>
         <span id="price">{`$${listing.cost}`}</span>
         <p id='per-night'>per night(2 guests)</p>
         
       </div>
       <div id="left"></div>
       <div id= 'descript-show'>
-        <span id="link-location"><Link id='show-link' to={descript}>Edit</Link></span>
+        <p id="link-location">{isHost(descript)}</p>
         <p>{listing.description}</p>
       </div>
       <div id="right"></div>
       
       <div id="left"></div>
       <div id= 'activities-show'>
-        <p id="link-location"><Link id='show-link' to={amenities}>Edit</Link></p>
+        <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Amenities</p>
         <ul>
           <li id="text">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
@@ -127,7 +136,7 @@ render() {
         </div>
 
       <div id= 'activities-show'>
-          <p id="link-location" ><Link id='show-link' to={amenities}>Edit</Link></p>
+         <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Essentials</p>
           <ul>
             <li id="text">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
@@ -136,7 +145,7 @@ render() {
         </div>
 
       <div id='activities-show'>
-        <p id="link-location" ><Link id='show-link' to={activities}>Edit</Link></p>
+        <p id="link-location">{isHost(activities)}</p>
         <p id='headers'>Activities</p>
         <ul>
           <li id='text'>{`Hiking: ${this.updatedYesProps(listing.is_hiking)}`}</li>
@@ -150,7 +159,7 @@ render() {
 
       <div id="left"></div>
       <div id="details-show">
-        <p id="link-location" ><Link id='show-link' to={details}>Edit</Link></p>
+        <p id="link-location">{isHost(details)}</p>
         <p id="headers">Details</p>
         <ul>
           <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
@@ -165,7 +174,9 @@ render() {
       
       <div id="right"></div>
       <div>
+        {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
+        ) :''}
       </div>
     </div>
   )

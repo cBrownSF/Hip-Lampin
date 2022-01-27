@@ -18,7 +18,7 @@ const amenities = (props) =>{
     <li><label><input type="checkbox" checked={props.campfire} onChange={props.toggleCheck('is_campfire_allowed')} />Campfires Allowed</label></li >
       </ul>
       <div className = 'amenities-button'>
-      <button className='previous-button' onClick={props.prevPage}>Previous</button>
+      <button  className='previous-button' onClick={props.prevPage}>Previous</button>
       <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
       </div>
     </div>

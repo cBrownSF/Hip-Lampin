@@ -9,6 +9,9 @@ import Amenities from "./amenenities_checklist";
 import Activities from "./activities";
 import CheckInForm from "./check_in_form";
 import PhotoForm from "./photos";
+import LocationForm from "./location"
+import MiniMap from "./minimap";
+import SecondPhotos from "./second_photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -18,19 +21,26 @@ class ListingForm extends React.Component {
      return undefined;
     }
     const listing = this.props.listing
-    
+
     this.state = {
       step:  Number(this.props.location.search[1]),
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
       cost: listing.cost || '',
+      state:listing.state ||'',
+      country:listing.country ||'',
+      street_address:listing.street_address || '',
+      city:listing.city ||'',
+      zip_code:listing.zip_code || '',
       check_in_time: listing.check_in_time ||"02:00 PM",
       check_out_time: listing.check_out_time|| "12:00 PM",
       response_time: listing.response_time || '10 minutes',
       on_arrival: listing.on_arrival ||'Meet and Greet',
       guests_allowed: listing.guests_allowed || 1,
       minimum_night: listing.minimum_night || 1,
+      lat: '', 
+      lng: '',
       cancellation_policy: listing.cancellation_policy || 'Flexible',
       booking_time: listing.booking_time ||'12 months in advance',
       is_trash: listing.is_trash || false,
@@ -45,9 +55,13 @@ class ListingForm extends React.Component {
       is_hiking:listing.is_hiking || false,
       is_paddling: listing.is_paddling ||false,
       is_wildlife: listing.is_wildlife || false,
-      photoFile: listing.photoFile || null,
-      photoURL: listing.photoURL|| null
+      photoFile: listing.photos|| [],
+      photoURL: listing.photos|| [],
+
     }
+    this.autoComplete=null;
+    this.error=false;
+    this.locNextStep=this.locNextStep.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
@@ -60,12 +74,17 @@ class ListingForm extends React.Component {
     this.costNextStep=this.costNextStep.bind(this)
     this.nameNextStep=this.nameNextStep.bind(this)
     this.hideButton=this.hideButton.bind(this)
+    this.handleKeyPress=this.handleKeyPress.bind(this)
+    this.handleKeyDown=this.handleKeyDown.bind(this)
+    // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
+    // this.extractAddressInfo=this.extractAddressInfo.bind(this)
+    this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
   }
 
 
   handleSubmit(e) {
-
     e.preventDefault();
+
     const formData = new FormData();
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
@@ -92,11 +111,20 @@ class ListingForm extends React.Component {
     formData.append('listing[is_hiking]', this.state.is_hiking)
     formData.append('listing[is_wildlife]', this.state.is_wildlife)
     formData.append('listing[is_paddling]', this.state.is_paddling)
-    
+    formData.append('listing[lat]',this.state.lat)
+    formData.append('listing[lng]',this.state.lng)
+    formData.append('listing[street_address]', this.state.street_address)
+    formData.append('listing[city]',this.state.city)
+    formData.append('listing[state]',this.state.state)
+    formData.append('listing[zip_code]',this.state.zip_code)
+    formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
-      formData.append('listing[photo]', this.state.photoFile);
+      for (let i = 0; i < this.state.photoFile.length; i++) {
+        console.log(this.state.photoFile.length)
+        formData.append("listing[photos][]", this.state.photoFile[i]);
+      }
     }
-
+    
     this.props.submitEvent(formData)
     
     // this.props.history.push(`/listing/${this.props.listing.id}`)
@@ -106,17 +134,59 @@ class ListingForm extends React.Component {
     let charLeft = (10 - this.state.name.length);
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoURL: fileReader.result });
-    };
+  
+    handleFile(e) {
+      const file = e.currentTarget.files[0];
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        this.setState({
+          photoFile: [...this.state.photoFile, file],
+          photoURL: [...this.state.photoURL, fileReader.result]
+        })
+      }
+      // if(!this.state.photoFile.length){
+      //   this.setState({
+      //     photoFile: [this.state.photoFile[0] = file],
+      //     photoURL: [this.state.photoURL[0] = fileReader.result]
+      //   })
+      // }else{
+
+      //   this.setState({
+          
+      //     photoFile: [this.state.photoFile[1] = file],
+      //     photoURL: [this.state.photoURL[1] = fileReader.result]
+          
+      //   })
+      //   debugger;
+      // }
+      // }
     
-    if (file) {
+    
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
       fileReader.readAsDataURL(file);
     }
   }
+
+  // handleMultiplFiles(e){
+  //     for (let i = 0; i < e.target.files.length; i++) {
+  //       console.log('current file:', e.target.files[i]);
+  //       let file = e.target.files[i];
+  //       const fileReader = new FileReader();
+  //       fileReader.onloadend = () => {
+  //         if (i !== 1) {
+  //           this.setState({ 
+  //             photoFile: [...this.state.photoFile,file], 
+  //             photoURL: [...this.state.photoURL, fileReader.result]
+  //           })
+  //         }else{
+  //           this.setState({ photoFile: file, photoURL: fileReader.result });
+  //         }
+  //         if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+  //           fileReader.readAsDataURL(file);
+  //         }
+  //     }
+  //   }
+  // }
   
   handleInput(type){
     return e => {
@@ -132,6 +202,32 @@ class ListingForm extends React.Component {
       }
     }
   } 
+  handleKeyDown(e){
+   
+    if (e.key === "Enter") {
+      e.preventDefault()
+      this.setState({
+        step: this.state.step
+      })
+    }
+  }
+    handleKeyPress(e) {
+        if (e.key === "Enter") {
+      
+         if(this.state.cost.length >0){
+  
+         this.setState({
+           step:this.state.step +1
+         })
+        }else{
+           this.setState({
+             step:3
+           })
+        }
+        }
+  }
+  
+  
   toggleBoolean(type) {
     return e =>{
       if (this.state[type] === false) {
@@ -143,6 +239,7 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
+    
   }
   showErrors() {
     let singleError = this.props.errors[0]
@@ -164,9 +261,11 @@ class ListingForm extends React.Component {
         })
       )
     } else {
-      this.setState({
+      return(
+        this.setState({
         step: step
       })
+      )
     }
   }
 
@@ -180,13 +279,16 @@ class ListingForm extends React.Component {
         })
       )
     } else {
+      return(
       this.setState({
         step: step
       })
+      )
     }
   }
   
-  nextStep(){
+  nextStep(e){
+    e.preventDefault()
     let step = this.state.step
     return (
       this.setState({
@@ -211,13 +313,76 @@ class ListingForm extends React.Component {
       })
     }
   }
-  previousStep() {
+  previousStep(e) {
+    e.preventDefault()
     let step = this.state.step
     return this.setState({
       step: step - 1
     })
   }
+  autoCompleteNextStep(){
+    const options = {
+      componentRestrictions: { country: ["us", "ca"] },
+      fields: ["address_components", "geometry", "formatted_address", "type", "adr_address", "name"],
+      types: ["address"],
+    }
+    let textInput = document.getElementById("autocomplete")
+   this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
+   let auto =this.autoComplete;
+  this.autoComplete.addListener('place_changed', ()=> {
+      let address= auto.getPlace()
+      for (const section of address.address_components) {
+        const addressType = section.types[0];
+        switch (addressType) {
+          case "postal_code":
+            this.setState({
+              zip_code: section.long_name
+            })
+            break;
+        case "locality":
+          this.setState({
+            city:section.long_name
+          })
+        case "administrative_area_level_1": {
+        
+            this.setState({
+              state: section.short_name
+            })
+          break;
+        }
+          default:
+            break;
+        }
+        
+      }
+      let splitFormat = address.formatted_address.split(',')
+      let streetA=splitFormat[0]
+      console.log(streetA)
+      this.setState({
+        lat: address.geometry.location.lat(),
+        lng: address.geometry.location.lng(),
+        street_address:streetA,
+        step:8
+      })
+      console.log(this.state)
+    })
+  }
 
+  locNextStep(){
+    if (this.state.city !==undefined && this.state.street_address !==undefined){
+      return this.setState(
+        {
+          step: this.state.step
+        })
+    }else{
+      
+      return this.setState(
+        {
+          step: this.state.step + 1
+        })
+    }
+  }
+  
  hideButton () {
     
    if (this.props.formType === 'edit') {
@@ -260,6 +425,7 @@ class ListingForm extends React.Component {
           minNight={this.state.minimum_night}
           handleInput={this.handleInput}
           listing={this.props.listing}
+              keyPress={this.handleKeyPress}
           />
         <Amenities
           currentPage={this.state.step}
@@ -294,6 +460,31 @@ class ListingForm extends React.Component {
           swimming={this.state.is_swimming}
           hiking={this.state.is_hiking}
         />
+        <LocationForm
+          currentPage={this.state.step}
+          nextPage={this.locNextStep}
+          prevPage={this.previousStep}
+          handleInput={this.handleInput}
+          city={this.state.city}
+          country={this.state.country}
+          address={this.state.street_address}
+          state={this.state.state}
+          zip={this.state.zip_code}
+          auto={this.autoCompleteNextStep}
+          keyDown={this.handleKeyDown}
+        />
+        <MiniMap
+          currentPage={this.state.step}
+          prevPage={this.previousStep}
+          lat={this.state.lat}
+          lng={this.state.lng}
+          city={this.state.city}
+          country={this.state.country}
+          address={this.state.street_address}
+          state={this.state.state}
+          zip={this.state.zip_code}
+          nextPage={this.nextStep}
+        />
         <PhotoForm
           currentPage={this.state.step}
           prevPage={this.previousStep}
@@ -303,6 +494,15 @@ class ListingForm extends React.Component {
           photoFile={this.state.photoFile}
           handleFile={this.handleFile}
         />
+            <SecondPhotos
+              currentPage={this.state.step}
+              prevPage={this.previousStep}
+              handlePhoto={this.handleFile}
+              nextPage={this.nextStep}
+              photoURL={this.state.photoURL}
+              photoFile={this.state.photoFile}
+              handleFile={this.handleFile}
+            />
         <CheckInForm
           currentPage={this.state.step}
           prevPage={this.previousStep}

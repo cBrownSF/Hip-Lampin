@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const CostForm = (props) => {
+  
   if (props.currentPage !== 3) {
     return null
   }
@@ -25,6 +26,7 @@ const CostForm = (props) => {
           placeholder='e.g. 80'
           value={props.cost}
           onChange={props.handleNumInput('cost')}
+          onKeyDown={props.keyPress}
         />
       <p id='required'>This is a required field</p>
       <br/>
@@ -42,8 +44,8 @@ const CostForm = (props) => {
       
 
         <div className='cost-buttons'>
-      <button className='previous-button' onClick={props.prevPage}>Previous</button>
-      <button className='next-button-with-prev' onClick={props.nextPage}>Next</button>
+        <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
+        <button type="button"className='next-button-with-prev' onClick={props.nextPage}>Next</button>
     </div>
     </div>
   )

@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
-  has_one_attached :photo
-  validates :host_id,presence: true
+   has_many_attached :photos
+  validates :host_id,:lat, :lng,:state,:city,:zip_code,:street_address, presence: true
   validates :is_shower,:is_wifi, :is_picnic_table,:is_toilet,:is_campfire_allowed,:is_trash, :is_kitchen,inclusion: {in: [true, false] }
   # validates :is_kitchen, inclusion: {in: [true, false] }
   validates :name,:description,:cost,:guests_allowed, :on_arrival,:minimum_night, presence:true
@@ -11,4 +11,10 @@ class Listing < ApplicationRecord
   foreign_key: :host_id,
   class_name: 'User'
   
+   def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+      .where("lat > ?", bounds[:southWest][:lat])
+      .where("lng > ?", bounds[:southWest][:lng])
+      .where("lng < ?", bounds[:northEast][:lng])
+  end
 end

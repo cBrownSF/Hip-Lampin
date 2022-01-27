@@ -27,14 +27,17 @@ before_action :require_logged_in, only: [:create]
   end
 
   def destroy
-
     @listing = Listing.find(params[:id])
-    @listing.destroy
-    render :show
+     if @listing
+      @listing.destroy
+      render :show
+    else
+        render json: {message: "Not found in my list"}, status: 422
+    end
   end
 
   def index
-    @listings = Listing.all
+    @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.all
     render :index
   end
   
@@ -67,8 +70,19 @@ before_action :require_logged_in, only: [:create]
       :is_picnic_table,
       :is_toilet,
       :is_campfire_allowed,
-      :photo,
-      :is_swimming
+      :is_swimming,
+      :lat,
+      :lng,
+      :street_address,
+       :city, 
+       :state, 
+       :zip_code, 
+       :country,
+       photos:[],
       )
+  end
+
+  def bounds
+    params[:bounds]
   end
 end
