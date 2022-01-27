@@ -1,6 +1,7 @@
 import React from 'react'
 
 const PhotoForm = (props) => {
+  console.log(props.handleFile)
   if (props.currentPage !== 9) {
     return null
   }
@@ -11,7 +12,7 @@ return(
     <div >
       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
      
-    {props.photoURL ? (
+    {props.photoURL.length ? (
     <img className="upload-photo" height="200px" width="200px" src={props.photoURL[0]} />) 
     : null
   }
