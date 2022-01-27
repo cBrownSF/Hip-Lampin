@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PhotoForm = (props) => {
-  console.log(props.handleFile)
   if (props.currentPage !== 9) {
     return null
   }
