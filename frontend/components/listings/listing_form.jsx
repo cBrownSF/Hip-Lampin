@@ -82,7 +82,7 @@ class ListingForm extends React.Component {
 
 
   handleSubmit(e) {
-
+    debugger;
     e.preventDefault();
 
     const formData = new FormData();
@@ -113,7 +113,7 @@ class ListingForm extends React.Component {
     formData.append('listing[is_paddling]', this.state.is_paddling)
     formData.append('listing[lat]',this.state.lat)
     formData.append('listing[lng]',this.state.lng)
-    formData.append('listing[street_address]',this.state.address)
+    formData.append('listing[street_address]', this.state.street_address)
     formData.append('listing[city]',this.state.city)
     formData.append('listing[state]',this.state.state)
     formData.append('listing[zip_code]',this.state.zip_code)
