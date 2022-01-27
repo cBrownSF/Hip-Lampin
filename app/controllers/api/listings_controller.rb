@@ -70,7 +70,6 @@ before_action :require_logged_in, only: [:create]
       :is_picnic_table,
       :is_toilet,
       :is_campfire_allowed,
-      :photo,
       :is_swimming,
       :lat,
       :lng,
@@ -78,7 +77,8 @@ before_action :require_logged_in, only: [:create]
        :city, 
        :state, 
        :zip_code, 
-       :country
+       :country,
+       photos:[],
       )
   end
 

@@ -54,8 +54,8 @@ class ListingForm extends React.Component {
       is_hiking:listing.is_hiking || false,
       is_paddling: listing.is_paddling ||false,
       is_wildlife: listing.is_wildlife || false,
-      photoFile: listing.photoFile || null,
-      photoURL: listing.photoURL|| null,
+      photoFile: listing.photoFile || [],
+      photoURL: listing.photoURL|| [],
 
     }
     this.autoComplete=null;
@@ -75,7 +75,7 @@ class ListingForm extends React.Component {
     this.hideButton=this.hideButton.bind(this)
     this.handleKeyPress=this.handleKeyPress.bind(this)
     this.handleKeyDown=this.handleKeyDown.bind(this)
-    
+    // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
   }
@@ -119,7 +119,9 @@ class ListingForm extends React.Component {
     formData.append('listing[zip_code]',this.state.zip_code)
     formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
-      formData.append('listing[photo]', this.state.photoFile);
+      for (let i = 0; i < this.state.photoFile.length; i++) {
+        formData.append("post[photos][]", this.state.photoFile[i]);
+      }
     }
 
     this.props.submitEvent(formData)
@@ -135,24 +137,37 @@ class ListingForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoURL: fileReader.result });
-    };
+        this.setState({
+          photoFile: [...this.state.photoFile, file],
+          photoURL: [...this.state.photoURL, fileReader.result]
+        })
+    }
     
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
-      console.log(file.type)
       fileReader.readAsDataURL(file);
     }
   }
-  handleMultiplFiles(e){
-      for (let i = 0; i < e.target.files.length; i++) {
-        console.log('current file:', e.target.files[i]);
-        let file = e.target.files[i];
-        
 
-        // Do necessary request to upload here.......
-
-      }
-    }
+  // handleMultiplFiles(e){
+  //     for (let i = 0; i < e.target.files.length; i++) {
+  //       console.log('current file:', e.target.files[i]);
+  //       let file = e.target.files[i];
+  //       const fileReader = new FileReader();
+  //       fileReader.onloadend = () => {
+  //         if (i !== 1) {
+  //           this.setState({ 
+  //             photoFile: [...this.state.photoFile,file], 
+  //             photoURL: [...this.state.photoURL, fileReader.result]
+  //           })
+  //         }else{
+  //           this.setState({ photoFile: file, photoURL: fileReader.result });
+  //         }
+  //         if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+  //           fileReader.readAsDataURL(file);
+  //         }
+  //     }
+  //   }
+  // }
   
   handleInput(type){
     return e => {
