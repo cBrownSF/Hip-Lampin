@@ -9,7 +9,17 @@ const SecondPhotos = (props) => {
       <h1 id='name-title'>Second Photos </h1>
 
       {props.photoURL.length===2 ? (
-        <img className="upload-photo" height="200px" width="200px" src={props.photoURL[1]} />)
+        <div>
+        <img className="upload-photo" height="200px" width="200px" src={props.photoURL[1]} />
+          <label for="form-file-upload" id="button-photo-added-upload">
+            Replace Photo
+          </label>
+          <input id="form-file-upload"
+            type="file"
+            accept=".png, .jpeg"
+            onChange={props.handleFile} />
+        </div>
+        )
         : (
           <div>
           <label for="form-file-upload" id="button-photo-upload">

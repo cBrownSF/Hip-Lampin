@@ -484,6 +484,24 @@ input[type="file"] {
   border-width:thin;
   padding:10px;
 }
+.name-box #button-photo-added-upload{
+ font-family: inherit;
+   background-color:#39C39A;
+   color:white;
+   font-size: 12px;
+   display:flex;
+   justify-content: center;
+   margin-top:1px;
+   margin-bottom:0px;
+  margin-left:135px;
+  width:120px;
+  cursor:pointer;
+  border-radius: 40px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+  padding:10px;
+}
 
 .name-box #button-photo-upload:hover{
   background-color: white;
