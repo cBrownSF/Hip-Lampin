@@ -134,22 +134,32 @@ class ListingForm extends React.Component {
     let charLeft = (10 - this.state.name.length);
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      if(!this.state.photoFile.length){
+  
+    handleFile(e) {
+      const file = e.currentTarget.files[0];
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
         this.setState({
-          photoFile: [this.state.photoFile[0] = file],
-          photoURL: [this.state.photoURL[0] = fileReader.result]
-        })
-      }else{
-        this.setState({
-          photoFile: [this.state.photoFile[0] = file],
-          photoURL: [this.state.photoURL[0] = fileReader.result]
+          photoFile: [...this.state.photoFile, file],
+          photoURL: [...this.state.photoURL, fileReader.result]
         })
       }
-      }
+      // if(!this.state.photoFile.length){
+      //   this.setState({
+      //     photoFile: [this.state.photoFile[0] = file],
+      //     photoURL: [this.state.photoURL[0] = fileReader.result]
+      //   })
+      // }else{
+
+      //   this.setState({
+          
+      //     photoFile: [this.state.photoFile[1] = file],
+      //     photoURL: [this.state.photoURL[1] = fileReader.result]
+          
+      //   })
+      //   debugger;
+      // }
+      // }
     
     
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
