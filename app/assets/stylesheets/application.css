@@ -575,3 +575,7 @@ input[type="file"] {
   .location-button{
    margin-top: 270px
  }
+
+ .uploaded-photo{
+  margin-left:125px;
+ }

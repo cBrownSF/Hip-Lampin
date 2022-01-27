@@ -10,7 +10,7 @@ const SecondPhotos = (props) => {
 
       {props.photoURL.length===2 ? (
         <div>
-        <img className="upload-photo" height="200px" width="200px" src={props.photoURL[1]} />
+        <img className="uploaded-photo" height="200px" width="200px" src={props.photoURL[1]} />
           <label for="form-file-upload" id="button-photo-added-upload">
             Replace Photo
           </label>
