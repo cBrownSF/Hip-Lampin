@@ -19,7 +19,7 @@ return(
       <label for="form-file-upload" id="button-photo-upload">
         Upload Photo
       </label>
-      <input id="form-file-upload" type="file"  
+      <input id="form-file-upload" type="file" accept=".png, .jpeg"  
         onChange={props.handleFile} />
     </div>
     <div className='photos-buttons'>
