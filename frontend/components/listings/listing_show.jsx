@@ -75,12 +75,12 @@ render() {
   }
   const checkIn = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '8',
+    search: '11',
     state: this.props.listing
   }
   const photo = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '7',
+    search: '9',
     state: this.props.listing
   }
   const isHost= (link)=>{
@@ -104,7 +104,9 @@ render() {
       <div id = 'name-show'>
         <p id="link-location">{isHost(nameEdit)}</p>
         <h1>{listing.name}</h1>
-          <p id = 'nearby-show'>Nearby: Golden Gate Bridge</p>
+          <p id = 'nearby-show'>{listing.city}</p>
+          <p id = 'nearby-show'>{listing.zip_code}</p>
+
           <hr id="solid" />
       </div>
       <div id='cost-show'>

@@ -55,8 +55,8 @@ class ListingForm extends React.Component {
       is_hiking:listing.is_hiking || false,
       is_paddling: listing.is_paddling ||false,
       is_wildlife: listing.is_wildlife || false,
-      photoFile: listing.photoFile || [],
-      photoURL: listing.photoURL|| [],
+      photoFile: listing.photos|| [],
+      photoURL: listing.photos|| [],
 
     }
     this.autoComplete=null;
