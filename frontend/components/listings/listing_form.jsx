@@ -11,6 +11,7 @@ import CheckInForm from "./check_in_form";
 import PhotoForm from "./photos";
 import LocationForm from "./location"
 import MiniMap from "./minimap";
+import SecondPhotos from "./second_photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -121,10 +122,10 @@ class ListingForm extends React.Component {
     if (this.state.photoFile) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
         console.log(this.state.photoFile.length)
-        formData.append("post[photos][]", this.state.photoFile[i]);
+        formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
-
+    debugger;
     this.props.submitEvent(formData)
     
     // this.props.history.push(`/listing/${this.props.listing.id}`)
@@ -476,6 +477,15 @@ debugger;
           photoFile={this.state.photoFile}
           handleFile={this.handleFile}
         />
+            <SecondPhotos
+              currentPage={this.state.step}
+              prevPage={this.previousStep}
+              handlePhoto={this.handleFile}
+              nextPage={this.nextStep}
+              photoURL={this.state.photoURL}
+              photoFile={this.state.photoFile}
+              handleFile={this.handleFile}
+            />
         <CheckInForm
           currentPage={this.state.step}
           prevPage={this.previousStep}
