@@ -365,13 +365,16 @@ debugger;
 
   locNextStep(){
     if (this.state.city !==undefined && this.state.street_address !==undefined){
-      this.error=false;
+      return this.setState(
+        {
+          step: this.state.step
+        })
+    }else{
+      
       return this.setState(
         {
           step: this.state.step + 1
         })
-    }else{
-      this.error=true
     }
   }
   

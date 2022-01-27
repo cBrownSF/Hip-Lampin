@@ -38,7 +38,7 @@ const locationForm = (props) => {
         onChange={props.handleInput('zip_code')}
       /> */}
       
-      <div className='amenities-button'>
+      <div className='location-button'>
         <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
         <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
       </div>
