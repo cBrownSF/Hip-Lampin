@@ -5,7 +5,6 @@ class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
-    debugger;
   }
   
   // componentDidUpdate() {
@@ -18,7 +17,6 @@ class ListingShow extends React.Component {
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
       .then(()=>{
-        debugger;
        this.props.history.push('/')
       })
       //redirect here instead of dispatch
@@ -40,7 +38,6 @@ render() {
   if (!this.props.listing){
     return null;
   }
-  debugger;
   const listing = this.props.listing
   
   const descript = {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const Description = (props) => {
+  console.log(props)
 if (props.currentPage !== 2){
   return null
 }
@@ -31,8 +32,13 @@ const letterCount = () => {
         
         <div className='descript-buttons'>
           <button type="button" className = 'previous-button' onClick={props.prevPage}>Previous</button>
+          {props.formType==='create' ?(
           <button type="button" className = 'next-button-with-prev' onClick={props.nextPage}>Next</button>
-        </div>
+          ) :(
+              <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Edit</button>
+          )
+          }
+          </div>
         </div>
     )
   }

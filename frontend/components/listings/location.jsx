@@ -17,7 +17,7 @@ const locationForm = (props) => {
         type="text"
         placeholder="enter new address"
         onKeyPress={props.keyDown}
-        // value={props.address}
+        value={props.address}
         // onChange={props.handleInput('street_address')}
       onSelect={props.auto}
       />

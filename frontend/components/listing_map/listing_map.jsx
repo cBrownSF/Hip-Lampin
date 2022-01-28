@@ -13,7 +13,6 @@ const mapOptions = {
 class ListingMap extends React.Component {
  
 componentDidMount(){
-  debugger;
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.MarkerManager= new MarkerManager(this.map)
   this.MarkerManager.updateMarkers(this.props.listings);
@@ -27,7 +26,6 @@ componentDidUpdate(){
 }
 eventListeners(){
   google.maps.event.addListener(this.map,"idle",()=>{
-    debugger;
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       southWest: { lat: south, lng: west },
@@ -36,7 +34,6 @@ eventListeners(){
     this.props.updateBounds(bounds);
   })
 google.maps.event.addListener(this.map,'click',(event)=>{
-  debugger;
   const coordinates = getCoordinates(event.latLng)
 
 })

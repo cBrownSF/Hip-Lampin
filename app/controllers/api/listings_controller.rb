@@ -13,15 +13,16 @@ before_action :require_logged_in, only: [:create]
   end
 
   def show
-    @listing= Listing.find(params[:id])
+    @listing= Listing.with_attached_photos.find(params[:id])
   end
 
   def update
-    @listing = Listing.find(params[:id])
-
+    @listing = Listing.find_by(id: params[:id])
+    debugger
     if @listing.update(listing_params)
       render :show
     else
+      debugger;
       render json: @listing.errors_full_messages
     end
   end
@@ -37,7 +38,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def index
-    @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.all
+    @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.with_attached_photos.all
     render :index
   end
   
@@ -46,6 +47,7 @@ before_action :require_logged_in, only: [:create]
   def listing_params
   
     params.require(:listing).permit(
+      :id,
       :name,
       :host_id,
       :description,

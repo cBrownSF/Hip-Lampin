@@ -39,8 +39,8 @@ class ListingForm extends React.Component {
       on_arrival: listing.on_arrival ||'Meet and Greet',
       guests_allowed: listing.guests_allowed || 1,
       minimum_night: listing.minimum_night || 1,
-      lat: '', 
-      lng: '',
+      lat: listing.lat||'', 
+      lng: listing.lng || '',
       cancellation_policy: listing.cancellation_policy || 'Flexible',
       booking_time: listing.booking_time ||'12 months in advance',
       is_trash: listing.is_trash || false,
@@ -86,6 +86,7 @@ class ListingForm extends React.Component {
     e.preventDefault();
 
     const formData = new FormData();
+    debugger;
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
     formData.append('listing[name]', this.state.name)
@@ -273,12 +274,14 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let name = this.state.name
     if (name.length >= 10) {
+      debugger;
       return (
         this.setState({
           step: step + 1
         })
       )
     } else {
+      debugger;
       return(
       this.setState({
         step: step
@@ -370,12 +373,13 @@ class ListingForm extends React.Component {
 
   locNextStep(){
     if (this.state.city !==undefined && this.state.street_address !==undefined){
+      debugger;
       return this.setState(
         {
           step: this.state.step
         })
     }else{
-      
+      debugger;
       return this.setState(
         {
           step: this.state.step + 1
@@ -387,8 +391,10 @@ class ListingForm extends React.Component {
     
    if (this.props.formType === 'edit') {
       return (
-        <Link className='x-button' to={`/listings/${this.props.listing.id}`}>✖</Link>
+        <Link className='x-button' onClick={this.handleSubmit }>✖</Link>
       )
+      //`/listings/${this.props.listing.id}`
+    //  onClick = { this.handleSubmit }
     }else{
      return <span className='x-button'></span>
     }
@@ -415,6 +421,7 @@ class ListingForm extends React.Component {
           nextPage={this.descriptNextStep}
           prevPage={this.previousStep}
           handleInput={this.handleInput}
+          formType={this.props.formType}
         />
         <CostForm 
           currentPage={this.state.step}
