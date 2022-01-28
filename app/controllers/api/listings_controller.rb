@@ -14,6 +14,7 @@ before_action :require_logged_in, only: [:create]
 
   def show
     @listing= Listing.find(params[:id])
+    render :show
   end
 
   def update
