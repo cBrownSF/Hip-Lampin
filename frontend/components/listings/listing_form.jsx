@@ -377,7 +377,8 @@ class ListingForm extends React.Component {
   }
 
   locNextStep(){
-    if (this.state.city !==undefined && this.state.street_address !==undefined){
+    debugger;
+    if (this.state.city ===undefined && this.state.street_address ===undefined){
       debugger;
       return this.setState(
         {
