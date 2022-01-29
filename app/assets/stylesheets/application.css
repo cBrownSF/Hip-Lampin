@@ -377,7 +377,7 @@ body{
    margin-top:80px;
  }
 .activities-button{
-   margin-top:159px;
+   margin-top:115px;
 }
  .name-box #booking-title{
    margin-left: 25px;
@@ -417,7 +417,7 @@ body{
    margin-bottom:12px;
  }
  .booking-detail-button{
-   margin-top:60px;
+   margin-top:30px;
  }
  .check-in-button{
    margin-top:38px;
@@ -572,7 +572,7 @@ input[type="file"] {
  }
 
   .location-button{
-   margin-top: 270px
+   margin-top: 230px
  }
 
  .uploaded-photo{

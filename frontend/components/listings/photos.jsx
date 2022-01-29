@@ -17,6 +17,7 @@ return(
         </label>
         <input id="form-file-upload"
           type="file"
+          multiple
           accept=".png, .jpeg"
           onChange={props.handleFile} />
       </div>
@@ -28,6 +29,7 @@ return(
           </label>
           <input id="form-file-upload"
             type="file"
+            multiple
             accept=".png, .jpeg"
             onChange={props.handleFile} />
         </div>

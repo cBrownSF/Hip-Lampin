@@ -86,7 +86,6 @@ class ListingForm extends React.Component {
     e.preventDefault();
 
     const formData = new FormData();
-    debugger;
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
     formData.append('listing[name]', this.state.name)
@@ -121,8 +120,11 @@ class ListingForm extends React.Component {
     formData.append('listing[country]',this.state.country)
     if (this.state.photoFile) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
+       //will have to mess with this to figure out how to replace a file
         console.log(this.state.photoFile.length)
+        if (!typeof String){
         formData.append("listing[photos][]", this.state.photoFile[i]);
+        }
       }
     }
     
@@ -144,7 +146,11 @@ class ListingForm extends React.Component {
           photoFile: [...this.state.photoFile, file],
           photoURL: [...this.state.photoURL, fileReader.result]
         })
+        //sending down photos is fixed just need way to set up function to replace them.
+//only send down new photos that are added. So some sort of conditional if this.formType is edit than replace the existing photo using this.currentPage to delineate between them
+//so somehow replace the photo and then also only send down new photos because old photos don't have enough info
       }
+     
       // if(!this.state.photoFile.length){
       //   this.setState({
       //     photoFile: [this.state.photoFile[0] = file],
@@ -166,6 +172,7 @@ class ListingForm extends React.Component {
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
       fileReader.readAsDataURL(file);
     }
+      debugger;
   }
 
   // handleMultiplFiles(e){
@@ -274,14 +281,12 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let name = this.state.name
     if (name.length >= 10) {
-      debugger;
       return (
         this.setState({
           step: step + 1
         })
       )
     } else {
-      debugger;
       return(
       this.setState({
         step: step
@@ -379,7 +384,6 @@ class ListingForm extends React.Component {
           step: this.state.step
         })
     }else{
-      debugger;
       return this.setState(
         {
           step: this.state.step + 1
