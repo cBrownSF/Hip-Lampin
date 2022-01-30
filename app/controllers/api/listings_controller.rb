@@ -3,7 +3,6 @@ before_action :require_logged_in, only: [:create]
 
   def create
     @listing = Listing.create!(listing_params)
-    debugger
     render :show
     # if @listing.save
     #     render :show
@@ -20,8 +19,6 @@ before_action :require_logged_in, only: [:create]
   def update
     @listing = Listing.find_by(id: params[:id])
 
-
-    debugger
     if @listing.update(listing_params)
       render :show
     else

@@ -23,7 +23,7 @@ class ListingForm extends React.Component {
     const listing = this.props.listing
     console.log(this.props.location.state)
     this.state = {
-      step:  this.props.location.state,
+      step:  this.props.location.state || 1,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
@@ -172,7 +172,7 @@ class ListingForm extends React.Component {
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
       fileReader.readAsDataURL(file);
     }
-      debugger;
+  
   }
 
   // handleMultiplFiles(e){

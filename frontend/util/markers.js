@@ -39,7 +39,6 @@ class MarkerManager {
     marker.addListener('click', () =>{
   
       if (this.info) {
-        debugger;
         this.info.close();
       }
       info.open({
