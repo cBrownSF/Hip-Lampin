@@ -37,7 +37,7 @@ class MarkerManager {
       content:contentString
     })
     marker.addListener('click', () =>{
-      console.log(this.info)
+  
       if (this.info) {
         debugger;
         this.info.close();

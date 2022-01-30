@@ -42,43 +42,35 @@ render() {
   
   const descript = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search:'2',
-    state: this.props.listing 
+    state: 2
   }
   const amenities = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '4',
-    state: this.props.listing
+    state: 4
   }
   const cost = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-      search: '3',
-        state: this.props.listing
+        state: 3,
   }
   const nameEdit = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '1',
-    state: this.props.listing
+    state: 1
   }
   const activities = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '5',
-    state: this.props.listing
+    state: 5
   }
   const details = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '6',
-    state: this.props.listing
+    state: 6
   }
   const checkIn = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '11',
-    state: this.props.listing
+    state: 11
   }
   const photo = {
     pathname: `/listings/${this.props.listing.id}/edit`,
-    search: '9',
-    state: this.props.listing
+    state: 9
   }
   const isHost= (link)=>{
     if (this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id) {

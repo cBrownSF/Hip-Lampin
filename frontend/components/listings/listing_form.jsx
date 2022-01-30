@@ -15,15 +15,15 @@ import SecondPhotos from "./second_photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
- 
+    debugger
     if (!this.props.listing && this.props.formType === 'edit') {
       hashHistory.push(`listings/${props.match.params.listingId}`)
      return undefined;
     }
     const listing = this.props.listing
-
+    console.log(this.props.location.state)
     this.state = {
-      step:  Number(this.props.location.search[1]),
+      step:  this.props.location.state,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
@@ -365,7 +365,7 @@ class ListingForm extends React.Component {
       }
       let splitFormat = address.formatted_address.split(',')
       let streetA=splitFormat[0]
-      console.log(streetA)
+      
       this.setState({
         lat: address.geometry.location.lat(),
         lng: address.geometry.location.lng(),
@@ -396,6 +396,7 @@ class ListingForm extends React.Component {
     
    if (this.props.formType === 'edit') {
       return (
+        //has to be a button not a link
         <Link className='x-button' onClick={this.handleSubmit }>✖</Link>
       )
       //`/listings/${this.props.listing.id}`

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const Description = (props) => {
-  console.log(props)
+
 if (props.currentPage !== 2){
   return null
 }

@@ -4,7 +4,7 @@ import { updateBounds } from '../../actions/filter_actions';
 import { receiveAllListings } from '../../actions/listings_actions'
 const mapStatetoProps = state => {
  
-  console.log('hello')
+ 
   return({
    
     listings: Object.values(state.entities.listings)
