@@ -142,38 +142,40 @@ class ListingForm extends React.Component {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     const {photoFile,step,photoURL}=this.state;
-    
+    let page =step-9
     if (step ===9){
-    fileReader.onloadend = () => {
+    fileReader.onloadend = (page) => {
       let photos=[...this.state.photoFile]
       let url=[...this.state.photoURL]
       photos[0]=file
       url[0]=fileReader.result
+      console.log
       this.setState({
-        photoFile: [photos],
-        photoURL: [url]
+        photoFile: photos,
+        photoURL: url
       })
-      
+      }
+    }else if(step ===10){
+        debugger;
+        fileReader.onloadend = () => {
+          let photos2=[...this.state.photoFile]
+          console.log(photos2)
+        let url2 = [...this.state.photoURL]
+        photos2[1]=file
+        url2[1]=(fileReader.result)
+        debugger;
+        this.setState({
+          photoFile: photos2,
+          photoURL: url2
+        })
+      }
     }
-  
-  // }else if(step ===10){
-  //   debugger;
-  //   fileReader.onloadend = () => {
-  //     let photos=[...this.state.photoFile]
-  //   let url = [...this.state.photoURL]
-  //   photos[1] = file
-  //   url[1] = fileReader.result
-  //   this.setState({
-  //     photoFile: [photos],
-  //     photoURL: [url]
-  //   })  
-  // }
 
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
       debugger;
       fileReader.readAsDataURL(file);
     }
-  }
+  
   }
 
   // handleMultiplFiles(e){
