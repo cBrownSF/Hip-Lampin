@@ -1,5 +1,5 @@
 import React from "react";
-import {  Link,withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { hashHistory } from "react-router"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
@@ -15,55 +15,55 @@ import SecondPhotos from "./second_photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-    debugger
+
     if (!this.props.listing && this.props.formType === 'edit') {
       hashHistory.push(`listings/${props.match.params.listingId}`)
-     return undefined;
+      return undefined;
     }
     const listing = this.props.listing
     console.log(this.props.location.state)
     this.state = {
-      step:  this.props.location.state || 1,
+      step: this.props.location.state || 1,
       host_id: this.props.currentUser.id,
       name: listing.name || "",
       description: listing.description || "",
       cost: listing.cost || '',
-      state:listing.state ||'',
-      country:listing.country ||'',
-      street_address:listing.street_address || '',
-      city:listing.city ||'',
-      zip_code:listing.zip_code || '',
-      check_in_time: listing.check_in_time ||"02:00 PM",
-      check_out_time: listing.check_out_time|| "12:00 PM",
+      state: listing.state || '',
+      country: listing.country || '',
+      street_address: listing.street_address || '',
+      city: listing.city || '',
+      zip_code: listing.zip_code || '',
+      check_in_time: listing.check_in_time || "02:00 PM",
+      check_out_time: listing.check_out_time || "12:00 PM",
       response_time: listing.response_time || '10 minutes',
-      on_arrival: listing.on_arrival ||'Meet and Greet',
+      on_arrival: listing.on_arrival || 'Meet and Greet',
       guests_allowed: listing.guests_allowed || 1,
       minimum_night: listing.minimum_night || 1,
-      lat: listing.lat||'', 
+      lat: listing.lat || '',
       lng: listing.lng || '',
       cancellation_policy: listing.cancellation_policy || 'Flexible',
-      booking_time: listing.booking_time ||'12 months in advance',
+      booking_time: listing.booking_time || '12 months in advance',
       is_trash: listing.is_trash || false,
       is_kitchen: listing.is_kitchen || false,
       is_shower: listing.is_shower || false,
       is_wifi: listing.is_wifi || false,
-      is_picnic_table:listing.is_picnic_table || false,
+      is_picnic_table: listing.is_picnic_table || false,
       is_toilet: listing.is_toilet || false,
       is_campfire_allowed: listing.is_campfire_allowed || false,
-      is_fishing: listing.is_fishing ||false,
-      is_swimming:listing.is_swimming ||false,
-      is_hiking:listing.is_hiking || false,
-      is_paddling: listing.is_paddling ||false,
+      is_fishing: listing.is_fishing || false,
+      is_swimming: listing.is_swimming || false,
+      is_hiking: listing.is_hiking || false,
+      is_paddling: listing.is_paddling || false,
       is_wildlife: listing.is_wildlife || false,
-      photoFile: listing.photos|| [],
-      photoURL: listing.photos|| [],
+      photoFile: listing.photos || [],
+      photoURL: listing.photos || [],
 
     }
-    this.autoComplete=null;
-    this.error=false;
-    this.locNextStep=this.locNextStep.bind(this)
+    this.autoComplete = null;
+    this.error = false;
+    this.locNextStep = this.locNextStep.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleInput=this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this)
     this.previousStep = this.previousStep.bind(this)
     this.nextStep = this.nextStep.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
@@ -71,14 +71,14 @@ class ListingForm extends React.Component {
     this.handleFile = this.handleFile.bind(this)
     this.descriptNextStep = this.descriptNextStep.bind(this)
     this.letterCount = this.letterCount.bind(this)
-    this.costNextStep=this.costNextStep.bind(this)
-    this.nameNextStep=this.nameNextStep.bind(this)
-    this.hideButton=this.hideButton.bind(this)
-    this.handleKeyPress=this.handleKeyPress.bind(this)
-    this.handleKeyDown=this.handleKeyDown.bind(this)
+    this.costNextStep = this.costNextStep.bind(this)
+    this.nameNextStep = this.nameNextStep.bind(this)
+    this.hideButton = this.hideButton.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
     // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
-    this.autoCompleteNextStep=this.autoCompleteNextStep.bind(this)
+    this.autoCompleteNextStep = this.autoCompleteNextStep.bind(this)
   }
 
 
@@ -111,68 +111,69 @@ class ListingForm extends React.Component {
     formData.append('listing[is_hiking]', this.state.is_hiking)
     formData.append('listing[is_wildlife]', this.state.is_wildlife)
     formData.append('listing[is_paddling]', this.state.is_paddling)
-    formData.append('listing[lat]',this.state.lat)
-    formData.append('listing[lng]',this.state.lng)
+    formData.append('listing[lat]', this.state.lat)
+    formData.append('listing[lng]', this.state.lng)
     formData.append('listing[street_address]', this.state.street_address)
-    formData.append('listing[city]',this.state.city)
-    formData.append('listing[state]',this.state.state)
-    formData.append('listing[zip_code]',this.state.zip_code)
-    formData.append('listing[country]',this.state.country)
+    formData.append('listing[city]', this.state.city)
+    formData.append('listing[state]', this.state.state)
+    formData.append('listing[zip_code]', this.state.zip_code)
+    formData.append('listing[country]', this.state.country)
     if (this.state.photoFile) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
-       //will have to mess with this to figure out how to replace a file
+        //will have to mess with this to figure out how to replace a file
         console.log(this.state.photoFile.length)
-        if (!typeof String){
-        formData.append("listing[photos][]", this.state.photoFile[i]);
+        if (!typeof String) {
+          formData.append("listing[photos][]", this.state.photoFile[i]);
         }
       }
     }
-    
+
     this.props.submitEvent(formData)
-    
+
     // this.props.history.push(`/listing/${this.props.listing.id}`)
   }
-  
+
   letterCount() {
     let charLeft = (10 - this.state.name.length);
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
-  
-    handleFile(e) {
-      const file = e.currentTarget.files[0];
-      const fileReader = new FileReader();
-      fileReader.onloadend = () => {
-        this.setState({
-          photoFile: [...this.state.photoFile, file],
-          photoURL: [...this.state.photoURL, fileReader.result]
-        })
-        //sending down photos is fixed just need way to set up function to replace them.
-//only send down new photos that are added. So some sort of conditional if this.formType is edit than replace the existing photo using this.currentPage to delineate between them
-//so somehow replace the photo and then also only send down new photos because old photos don't have enough info
-      }
-     
-      // if(!this.state.photoFile.length){
-      //   this.setState({
-      //     photoFile: [this.state.photoFile[0] = file],
-      //     photoURL: [this.state.photoURL[0] = fileReader.result]
-      //   })
-      // }else{
 
-      //   this.setState({
-          
-      //     photoFile: [this.state.photoFile[1] = file],
-      //     photoURL: [this.state.photoURL[1] = fileReader.result]
-          
-      //   })
-      //   debugger;
-      // }
-      // }
+  handleFile(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    const {photoFile,step,photoURL}=this.state;
     
-    
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png' )) {
-      fileReader.readAsDataURL(file);
+    if (step ===9){
+    fileReader.onloadend = () => {
+      let photos=[...this.state.photoFile]
+      let url=[...this.state.photoURL]
+      photos[0]=file
+      url[0]=fileReader.result
+      this.setState({
+        photoFile: [photos],
+        photoURL: [url]
+      })
+      
     }
   
+  // }else if(step ===10){
+  //   debugger;
+  //   fileReader.onloadend = () => {
+  //     let photos=[...this.state.photoFile]
+  //   let url = [...this.state.photoURL]
+  //   photos[1] = file
+  //   url[1] = fileReader.result
+  //   this.setState({
+  //     photoFile: [photos],
+  //     photoURL: [url]
+  //   })  
+  // }
+
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      debugger;
+      fileReader.readAsDataURL(file);
+    }
+  }
   }
 
   // handleMultiplFiles(e){
@@ -195,8 +196,8 @@ class ListingForm extends React.Component {
   //     }
   //   }
   // }
-  
-  handleInput(type){
+
+  handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }
@@ -206,12 +207,12 @@ class ListingForm extends React.Component {
 
     return e => {
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
-        this.setState({ [type]: e.currentTarget.value})
+        this.setState({ [type]: e.currentTarget.value })
       }
     }
-  } 
-  handleKeyDown(e){
-   
+  }
+  handleKeyDown(e) {
+
     if (e.key === "Enter") {
       e.preventDefault()
       this.setState({
@@ -219,25 +220,25 @@ class ListingForm extends React.Component {
       })
     }
   }
-    handleKeyPress(e) {
-        if (e.key === "Enter") {
-      
-         if(this.state.cost.length >0){
-  
-         this.setState({
-           step:this.state.step +1
-         })
-        }else{
-           this.setState({
-             step:3
-           })
-        }
-        }
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+
+      if (this.state.cost.length > 0) {
+
+        this.setState({
+          step: this.state.step + 1
+        })
+      } else {
+        this.setState({
+          step: 3
+        })
+      }
+    }
   }
-  
-  
+
+
   toggleBoolean(type) {
-    return e =>{
+    return e => {
       if (this.state[type] === false) {
         this.setState({ [type]: true })
       } else {
@@ -247,21 +248,21 @@ class ListingForm extends React.Component {
   }
   componentDidMount() {
     this.props.clearErrors()
-    
+
   }
   showErrors() {
     let singleError = this.props.errors[0]
     return singleError;
   }
-//WHY DIDNT WORKreturn e =>{
-      //   this.setState(prevState => ({
-      //     [type]: !prevState.type
-      //   }))
-      // }
+  //WHY DIDNT WORKreturn e =>{
+  //   this.setState(prevState => ({
+  //     [type]: !prevState.type
+  //   }))
+  // }
   descriptNextStep() {
     let step = this.state.step
     let description = this.state.description
-    
+
     if (description.length >= 10) {
       return (
         this.setState({
@@ -269,10 +270,10 @@ class ListingForm extends React.Component {
         })
       )
     } else {
-      return(
+      return (
         this.setState({
-        step: step
-      })
+          step: step
+        })
       )
     }
   }
@@ -287,24 +288,24 @@ class ListingForm extends React.Component {
         })
       )
     } else {
-      return(
-      this.setState({
-        step: step
-      })
+      return (
+        this.setState({
+          step: step
+        })
       )
     }
   }
-  
-  nextStep(e){
+
+  nextStep(e) {
     e.preventDefault()
     let step = this.state.step
     return (
       this.setState({
-      step: step + 1
-        })
-      )
+        step: step + 1
+      })
+    )
   }
-  
+
   costNextStep() {
     let step = this.state.step
     let cost = this.state.cost
@@ -328,17 +329,17 @@ class ListingForm extends React.Component {
       step: step - 1
     })
   }
-  autoCompleteNextStep(){
+  autoCompleteNextStep() {
     const options = {
       componentRestrictions: { country: ["us", "ca"] },
       fields: ["address_components", "geometry", "formatted_address", "type", "adr_address", "name"],
       types: ["address"],
     }
     let textInput = document.getElementById("autocomplete")
-   this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
-   let auto =this.autoComplete;
-  this.autoComplete.addListener('place_changed', ()=> {
-      let address= auto.getPlace()
+    this.autoComplete = new google.maps.places.Autocomplete(textInput, options)
+    let auto = this.autoComplete;
+    this.autoComplete.addListener('place_changed', () => {
+      let address = auto.getPlace()
       for (const section of address.address_components) {
         const addressType = section.types[0];
         switch (addressType) {
@@ -347,62 +348,61 @@ class ListingForm extends React.Component {
               zip_code: section.long_name
             })
             break;
-        case "locality":
-          this.setState({
-            city:section.long_name
-          })
-        case "administrative_area_level_1": {
-        
+          case "locality":
+            this.setState({
+              city: section.long_name
+            })
+          case "administrative_area_level_1": {
+
             this.setState({
               state: section.short_name
             })
-          break;
-        }
+            break;
+          }
           default:
             break;
         }
-        
+
       }
       let splitFormat = address.formatted_address.split(',')
-      let streetA=splitFormat[0]
-      
+      let streetA = splitFormat[0]
+
       this.setState({
         lat: address.geometry.location.lat(),
         lng: address.geometry.location.lng(),
-        street_address:streetA,
-        step:8
+        street_address: streetA,
+        step: 8
       })
       console.log(this.state)
     })
+
   }
 
-  locNextStep(){
-    debugger;
-    if (this.state.city ===undefined && this.state.street_address ===undefined){
-      debugger;
+  locNextStep() {
+    if (this.state.city === undefined && this.state.street_address === undefined) {
       return this.setState(
         {
           step: this.state.step
         })
-    }else{
+    } else {
       return this.setState(
         {
           step: this.state.step + 1
         })
     }
   }
-  
- hideButton () {
-    
-   if (this.props.formType === 'edit') {
+
+  hideButton() {
+
+    if (this.props.formType === 'edit') {
       return (
         //has to be a button not a link
-        <Link className='x-button' onClick={this.handleSubmit }>✖</Link>
+        <Link className='x-button' onClick={this.handleSubmit}>✖</Link>
       )
       //`/listings/${this.props.listing.id}`
-    //  onClick = { this.handleSubmit }
-    }else{
-     return <span className='x-button'></span>
+      //  onClick = { this.handleSubmit }
+    } else {
+      return <span className='x-button'></span>
     }
   }
   render() {
@@ -411,102 +411,102 @@ class ListingForm extends React.Component {
     }
     return (
       <div className='background-of-form'>
-      <React.Fragment>
-      <form onSubmit = {this.handleSubmit} className='create-listing-form'>
-        <p className='hide-button'>{this.hideButton()}</p>
-        <NameForm 
-          currentPage = {this.state.step}
-          name = {this.state.name}
-          handleInput ={this.handleInput}
-          nextPage = {this.nameNextStep}
-          samePage ={this.sameStep}
-        />
-        <DescriptionForm  
-          currentPage={this.state.step}
-          description = {this.state.description}
-          nextPage={this.descriptNextStep}
-          prevPage={this.previousStep}
-          handleInput={this.handleInput}
-          formType={this.props.formType}
-        />
-        <CostForm 
-          currentPage={this.state.step}
-          nextPage={this.costNextStep}
-          prevPage={this.previousStep}
-          handleNumInput={this.numberInput}
-          cost = {this.state.cost}
-          minNight={this.state.minimum_night}
-          handleInput={this.handleInput}
-          listing={this.props.listing}
+        <React.Fragment>
+          <form onSubmit={this.handleSubmit} className='create-listing-form'>
+            <p className='hide-button'>{this.hideButton()}</p>
+            <NameForm
+              currentPage={this.state.step}
+              name={this.state.name}
+              handleInput={this.handleInput}
+              nextPage={this.nameNextStep}
+              samePage={this.sameStep}
+            />
+            <DescriptionForm
+              currentPage={this.state.step}
+              description={this.state.description}
+              nextPage={this.descriptNextStep}
+              prevPage={this.previousStep}
+              handleInput={this.handleInput}
+              formType={this.props.formType}
+            />
+            <CostForm
+              currentPage={this.state.step}
+              nextPage={this.costNextStep}
+              prevPage={this.previousStep}
+              handleNumInput={this.numberInput}
+              cost={this.state.cost}
+              minNight={this.state.minimum_night}
+              handleInput={this.handleInput}
+              listing={this.props.listing}
               keyPress={this.handleKeyPress}
-          />
-        <Amenities
-          currentPage={this.state.step}
-          nextPage={this.nextStep}
-          prevPage={this.previousStep}
-          toggleCheck = {this.toggleBoolean}
-          trash = {this.state.is_trash}
-          kitchen = {this.state.is_kitchen}
-          wifi = {this.state.is_wifi}
-          picnic={this.state.is_picnic_table}
-          shower={this.state.is_shower}
-          toilet ={this.state.is_toilet}
-          campfire = {this.state.is_campfire_allowed}
-          />
-        <SiteDetails 
-          currentPage={this.state.step}
-          nextPage={this.nextStep}
-          prevPage={this.previousStep}
-          handleInput={this.handleInput}
-          cancel={this.state.cancellation_policy}
-          bookingWindow={this.state.booking_time}
-          
-        />
-        <Activities
-          currentPage={this.state.step}
-          nextPage={this.nextStep}
-          prevPage={this.previousStep}
-          toggleCheck={this.toggleBoolean}
-          fishing={this.state.is_fishing}
-          paddling={this.state.is_paddling}
-          wildlife={this.state.is_wildlife}
-          swimming={this.state.is_swimming}
-          hiking={this.state.is_hiking}
-        />
-        <LocationForm
-          currentPage={this.state.step}
-          nextPage={this.locNextStep}
-          prevPage={this.previousStep}
-          handleInput={this.handleInput}
-          city={this.state.city}
-          country={this.state.country}
-          address={this.state.street_address}
-          state={this.state.state}
-          zip={this.state.zip_code}
-          auto={this.autoCompleteNextStep}
-          keyDown={this.handleKeyDown}
-        />
-        <MiniMap
-          currentPage={this.state.step}
-          prevPage={this.previousStep}
-          lat={this.state.lat}
-          lng={this.state.lng}
-          city={this.state.city}
-          country={this.state.country}
-          address={this.state.street_address}
-          state={this.state.state}
-          zip={this.state.zip_code}
-          nextPage={this.nextStep}
-        />
-        <PhotoForm
-          currentPage={this.state.step}
-          prevPage={this.previousStep}
-          handlePhoto={this.handleFile}
-          nextPage={this.nextStep}
-          photoURL={this.state.photoURL}
-          photoFile={this.state.photoFile}
-          handleFile={this.handleFile}
-        />
+            />
+            <Amenities
+              currentPage={this.state.step}
+              nextPage={this.nextStep}
+              prevPage={this.previousStep}
+              toggleCheck={this.toggleBoolean}
+              trash={this.state.is_trash}
+              kitchen={this.state.is_kitchen}
+              wifi={this.state.is_wifi}
+              picnic={this.state.is_picnic_table}
+              shower={this.state.is_shower}
+              toilet={this.state.is_toilet}
+              campfire={this.state.is_campfire_allowed}
+            />
+            <SiteDetails
+              currentPage={this.state.step}
+              nextPage={this.nextStep}
+              prevPage={this.previousStep}
+              handleInput={this.handleInput}
+              cancel={this.state.cancellation_policy}
+              bookingWindow={this.state.booking_time}
+
+            />
+            <Activities
+              currentPage={this.state.step}
+              nextPage={this.nextStep}
+              prevPage={this.previousStep}
+              toggleCheck={this.toggleBoolean}
+              fishing={this.state.is_fishing}
+              paddling={this.state.is_paddling}
+              wildlife={this.state.is_wildlife}
+              swimming={this.state.is_swimming}
+              hiking={this.state.is_hiking}
+            />
+            <LocationForm
+              currentPage={this.state.step}
+              nextPage={this.locNextStep}
+              prevPage={this.previousStep}
+              handleInput={this.handleInput}
+              city={this.state.city}
+              country={this.state.country}
+              address={this.state.street_address}
+              state={this.state.state}
+              zip={this.state.zip_code}
+              auto={this.autoCompleteNextStep}
+              keyDown={this.handleKeyDown}
+            />
+            <MiniMap
+              currentPage={this.state.step}
+              prevPage={this.previousStep}
+              lat={this.state.lat}
+              lng={this.state.lng}
+              city={this.state.city}
+              country={this.state.country}
+              address={this.state.street_address}
+              state={this.state.state}
+              zip={this.state.zip_code}
+              nextPage={this.nextStep}
+            />
+            <PhotoForm
+              currentPage={this.state.step}
+              prevPage={this.previousStep}
+              handlePhoto={this.handleFile}
+              nextPage={this.nextStep}
+              photoURL={this.state.photoURL}
+              photoFile={this.state.photoFile}
+              handleFile={this.handleFile}
+            />
             <SecondPhotos
               currentPage={this.state.step}
               prevPage={this.previousStep}
@@ -516,24 +516,24 @@ class ListingForm extends React.Component {
               photoFile={this.state.photoFile}
               handleFile={this.handleFile}
             />
-        <CheckInForm
-          currentPage={this.state.step}
-          prevPage={this.previousStep}
-          handleInput={this.handleInput}
-          arrival={this.state.on_arrival}
-          checkOut={this.state.check_out_time}
-          checkIn={this.state.check_in_time}
-          minNight={this.state.minimum_night}
-          history={this.navigateToHome}
-          photoFile={this.state.photoFile}
-        />
-      </form>
-      </React.Fragment>
+            <CheckInForm
+              currentPage={this.state.step}
+              prevPage={this.previousStep}
+              handleInput={this.handleInput}
+              arrival={this.state.on_arrival}
+              checkOut={this.state.check_out_time}
+              checkIn={this.state.check_in_time}
+              minNight={this.state.minimum_night}
+              history={this.navigateToHome}
+              photoFile={this.state.photoFile}
+            />
+          </form>
+        </React.Fragment>
       </div>
     )
 
-      }
-    }
+  }
+}
 
 
 export default withRouter(ListingForm)

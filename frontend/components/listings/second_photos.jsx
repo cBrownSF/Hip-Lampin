@@ -3,6 +3,7 @@ const SecondPhotos = (props) => {
   if (props.currentPage !== 10) {
     return null
   }
+  console.log(`2:${props.photoFile[1]}`)
   return(
   <div className='name-box'>
     <br />
@@ -16,17 +17,20 @@ const SecondPhotos = (props) => {
           </label>
           <input id="form-file-upload"
             type="file"
+            multiple
             accept=".png, .jpeg"
             onChange={props.handleFile} />
         </div>
         )
         : (
           <div>
+            {/* <img className="uploaded-photo" height="200px" width="200px" src={props.photoURL[1]} /> */}
           <label for="form-file-upload" id="button-photo-upload">
         Upload Photo
       </label>
       <input id="form-file-upload"
         type="file"
+        multiple
         accept=".png, .jpeg"
         onChange={props.handleFile} />
     </div>
