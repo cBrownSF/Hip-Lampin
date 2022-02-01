@@ -121,16 +121,16 @@ class ListingForm extends React.Component {
     formData.append('listing[zip_code]', this.state.zip_code)
     formData.append('listing[country]', this.state.country)
     if (this.state.photoFile) {
-      debugger;
-      console.log(this.state.photoFile.length)
+      // formData.append("listing[photos][]", this.state.photoFile[i]);
+      // formData.delete("listing[photos][]")
       for (let i = 0; i < this.state.photoFile.length; i++) {
-      
+      // console.log(formData)
         if (this.state.photoFile[i] instanceof File){
           formData.append("listing[photos][]", this.state.photoFile[i]);
-          debugger;
+        }
           
         }
-      }
+      // 
     }
     
     this.props.submitEvent(formData)
@@ -149,7 +149,7 @@ class ListingForm extends React.Component {
     const {photoFile,step,photoURL}=this.state;
     let page =step-9
     if (step ===9){
-    fileReader.onloadend = (page) => {
+    fileReader.onloadend = () => {
       let photos=[...this.state.photoFile]
       let url=[...this.state.photoURL]
       photos[0]=file
@@ -161,14 +161,14 @@ class ListingForm extends React.Component {
       })
       }
     }else if(step ===10){
-        debugger;
+
         fileReader.onloadend = () => {
           let photos2=[...this.state.photoFile]
           console.log(photos2)
         let url2 = [...this.state.photoURL]
         photos2[1]=file
         url2[1]=(fileReader.result)
-        debugger;
+    
         this.setState({
           photoFile: photos2,
           photoURL: url2
@@ -177,7 +177,7 @@ class ListingForm extends React.Component {
     }
 
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-      debugger;
+    
       fileReader.readAsDataURL(file);
     }
   

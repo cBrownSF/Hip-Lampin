@@ -39,8 +39,7 @@ render() {
     return null;
   }
   const listing = this.props.listing
-  console.log(this.props.listing.photos[0])
-  debugger;
+  
   const descript = {
     pathname: `/listings/${this.props.listing.id}/edit`,
     state: 2

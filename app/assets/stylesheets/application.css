@@ -101,9 +101,9 @@ body{
    list-style:none;
    display:flex;
  }
- .nav-li:hover{
+ /* .nav-li:hover{
    border-bottom:1px solid turquoise;
- }
+ } */
 .navBar {
   background-color: transparent;
   display: flex;

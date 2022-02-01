@@ -2,6 +2,7 @@ class Api::ListingsController < ApplicationController
 before_action :require_logged_in, only: [:create]
 
   def create
+    debugger
     @listing = Listing.create!(listing_params)
     render :show
     # if @listing.save
@@ -17,7 +18,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def update
-    @listing = Listing.find_by(id: params[:id])
+    @listing = Listing.with_attached_photos.find_by(id: params[:id])
     debugger
     if @listing.update(listing_params)
       render :show
@@ -27,7 +28,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def destroy
-    @listing = Listing.find(params[:id])
+    @listing = Listing.with_attached_photos.find(params[:id])
      if @listing
       @listing.destroy
       render :show
