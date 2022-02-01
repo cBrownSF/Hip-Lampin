@@ -99,6 +99,10 @@ body{
  }
  .nav-bar{
    list-style:none;
+   display:flex;
+ }
+ .nav-li:hover{
+   border-bottom:1px solid turquoise;
  }
 .navBar {
   background-color: transparent;
@@ -604,4 +608,30 @@ input[type="file"] {
 
  .uploaded-photo{
   margin-left:125px;
+ }
+.splash-container{
+  display:flex;
+  flex-direction:column;
+  margin:50px;
+}
+ .title-container{
+   display:flex;
+   justify-content: center;
+   align-items:center;
+   flex-direction: column;
+ }
+ .header-home{
+   text-align:center;
+   font-weight:600;
+   font-size:5vw;
+   padding:20px 10%;
+   margin:0px;
+   margin-top:20px;
+ }
+ .sub-header-home{
+   text-align:center;
+   font-weight:500;
+   font-size:2.5vw;
+   margin:0px;
+    padding:10px 25%;
  }

@@ -7,6 +7,7 @@ import ListingFormContainer from './listings/listing_form_container'
 import ListingShowContainer from "./listings/listing_show_container";
 import EditFormContainer from "./listings/edit_form_container";
 import SearchContainer from './search/search_container';
+import HomePage from './welcome_pages/home_page'
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 
 const App = () => (
@@ -21,6 +22,8 @@ const App = () => (
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
+      <Route exact path="/" component={HomePage} />
+
   </Switch>
   </div>
 );
