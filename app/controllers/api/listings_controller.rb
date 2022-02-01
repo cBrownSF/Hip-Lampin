@@ -18,7 +18,7 @@ before_action :require_logged_in, only: [:create]
 
   def update
     @listing = Listing.find_by(id: params[:id])
-
+    debugger
     if @listing.update(listing_params)
       render :show
     else
@@ -46,7 +46,6 @@ before_action :require_logged_in, only: [:create]
   def listing_params
   
     params.require(:listing).permit(
-      :id,
       :name,
       :host_id,
       :description,

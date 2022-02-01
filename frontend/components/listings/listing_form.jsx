@@ -59,6 +59,7 @@ class ListingForm extends React.Component {
       photoURL: listing.photos || [],
 
     }
+   
     this.autoComplete = null;
     this.error = false;
     this.locNextStep = this.locNextStep.bind(this)
@@ -79,6 +80,7 @@ class ListingForm extends React.Component {
     // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep = this.autoCompleteNextStep.bind(this)
+    
   }
 
 
@@ -119,15 +121,18 @@ class ListingForm extends React.Component {
     formData.append('listing[zip_code]', this.state.zip_code)
     formData.append('listing[country]', this.state.country)
     if (this.state.photoFile) {
+      debugger;
+      console.log(this.state.photoFile.length)
       for (let i = 0; i < this.state.photoFile.length; i++) {
-        //will have to mess with this to figure out how to replace a file
-        console.log(this.state.photoFile.length)
-        if (!typeof String) {
+      
+        if (this.state.photoFile[i] instanceof File){
           formData.append("listing[photos][]", this.state.photoFile[i]);
+          debugger;
+          
         }
       }
     }
-
+    
     this.props.submitEvent(formData)
 
     // this.props.history.push(`/listing/${this.props.listing.id}`)
@@ -177,27 +182,6 @@ class ListingForm extends React.Component {
     }
   
   }
-
-  // handleMultiplFiles(e){
-  //     for (let i = 0; i < e.target.files.length; i++) {
-  //       console.log('current file:', e.target.files[i]);
-  //       let file = e.target.files[i];
-  //       const fileReader = new FileReader();
-  //       fileReader.onloadend = () => {
-  //         if (i !== 1) {
-  //           this.setState({ 
-  //             photoFile: [...this.state.photoFile,file], 
-  //             photoURL: [...this.state.photoURL, fileReader.result]
-  //           })
-  //         }else{
-  //           this.setState({ photoFile: file, photoURL: fileReader.result });
-  //         }
-  //         if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-  //           fileReader.readAsDataURL(file);
-  //         }
-  //     }
-  //   }
-  // }
 
   handleInput(type) {
     return e => {
