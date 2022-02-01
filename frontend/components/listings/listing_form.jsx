@@ -462,6 +462,7 @@ class ListingForm extends React.Component {
             <LocationForm
               currentPage={this.state.step}
               nextPage={this.locNextStep}
+              formType={this.props.formType}
               prevPage={this.previousStep}
               handleInput={this.handleInput}
               city={this.state.city}

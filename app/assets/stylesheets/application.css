@@ -144,7 +144,7 @@ body{
    left:0;
    bottom: 20;
    top: 0;
-   height: 60vh;
+   height: 550px;
  }
  
  .sign-up-form-container{
@@ -201,15 +201,15 @@ body{
    /* background-color: darkgrey; */
    max-width: 450px;
    margin:auto;
-   display:flex;
+   /* display:flex; */
    justify-content: center;
-   position:absolute;
+   /* position:absolute; */
    right:0;
    left:0;
    bottom: 0;
    top: 0;
-   height: 60vh;
-   align-items: stretch;
+   /* height: 60vh; */
+   /* align-items: stretch; */
    gap: 20px;
    border-radius: 30px;
   border: solid #000;
@@ -243,6 +243,7 @@ body{
    cursor:pointer;
    margin-right:30px;
    margin-left: 150px;
+   margin-bottom:15px;
   border-radius: 40px;
   border-color:#39C39A;
   border-style:solid;
