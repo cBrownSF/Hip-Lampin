@@ -13,19 +13,38 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 body{
   font-family: 'Helvetica', 'Arial', sans-serif;
   background-color: rgb(234, 232, 228);
-  margin:0
+  margin:0;
+  padding:0;
 }
+.nav-bar-container{
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+  padding:30px 5%
+}
+.nav-li{
+   font-family: "Montserrat",sans-serif;
+   display:inline-block;
+   padding:0px 20px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size:16px;
+  color:black;
+}
+
 .mainLogo{
   margin: 4px;
   margin-right: auto;
   background-color: transparent;
   color:red;
   font-size: 30px;
-  font-family: inherit;
+  font-family: "Montserrat",sans-serif;
   text-decoration: none;
+  cursor:pointer;
 }
 .logged-in{
     display:flex;
@@ -40,7 +59,7 @@ body{
   font-family: inherit;
 }
 .log-out-button{
-  font-family: inherit;
+  font-family: "Montserrat",sans-serif;
    /* background-color:#39C39A;
    color:white;
    text-align: center;
@@ -65,7 +84,7 @@ body{
   
 } */
  .sign-up-sign-in-button{
-   font-family: inherit;
+   font-family: "Montserrat",sans-serif;
    background-color:#39C39A;
    color:white;
    text-align: center;
@@ -78,12 +97,16 @@ body{
    margin:2px;
    
  }
+ .nav-bar{
+   list-style:none;
+ }
 .navBar {
-  background-color: rgb(234, 232, 228);
+  background-color: transparent;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   margin:0;
+  list-style:none;
   /* flex-wrap: wrap; */
   width: 100%; 
 }
@@ -93,14 +116,15 @@ body{
    outline:none;
    background-color: transparent;
    font-size:16px;
-   font-style: inherit;
+   font-family: "Montserrat",sans-serif;
 }
  .login-sign-up-link{
    font-weight:bold;
    text-decoration: none;
    color: black;
    font-size:16px;
-   font-style: inherit;
+   font-family: "Montserrat",sans-serif;
+   text-decoration: none;
  }      
  
  .navList{
@@ -423,13 +447,15 @@ body{
    margin-top:38px;
  }
  .start-hosting{
-    font-family: inherit;
+   padding: 9px 25px;
+   margin-left:20px;
+   font-size:16px;
+  font-family: "Montserrat",sans-serif;
    background-color:#39C39A;
    color:white;
-   width: 120px;
-   height: 40px;
+   /* width: 120px;
+   height: 40px; */
    cursor:pointer;
-   margin:2px;
   border-radius: 40px;
   border-color:#39C39A;
   border-style:solid;
