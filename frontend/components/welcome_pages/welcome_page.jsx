@@ -37,7 +37,7 @@ class Greeting extends React.Component {
             <li className='nav-li'><Link className="nav-li" onClick = {login} to='/'>DemoLogin</Link></li>
           </ul>
         </nav>
-          <button className='start-hosting'><Link className="nav-li" to='/signup'>Sign Up</Link></button>
+          <Link to='/signup'><button className='start-hosting'>Sign Up</button></Link>
         </div>
       )
     }
