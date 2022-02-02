@@ -83,39 +83,52 @@ render() {
    
     <div className='show-container'>
       <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p>
-      <div id="side-pic"></div>
-      <div id = "show-photo">
-        <img src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
-        <img src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
+      <div className="photo-container">
+        <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
+        <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
       </div>
-      <div id="side-pic"></div>
-      <div id="left"></div>
-      <div id = 'name-show'>
+ 
+    
+      <div className = 'name-show'>
         <p id="link-location">{isHost(nameEdit)}</p>
-        <h1>{listing.name}</h1>
-          <p id = 'nearby-show'>{listing.city}</p>
-          <p id = 'nearby-show'>{listing.zip_code}</p>
+        <h1 className="listing-title">{listing.name}</h1>
+        <p id='nearby-show'>{`${listing.city}, ${listing.zip_code}`}</p>
 
-          <hr id="solid" />
+         
       </div>
-      <div id='cost-show'>
-        <p id="link-location">{isHost(cost)}</p>
-        <span id="price">{`$${listing.cost}`}</span>
-        <p id='per-night'>per night(2 guests)</p>
-        
+      <div className="recommended-show">
+        <p>100% recommended</p>
+        <p>save</p>
       </div>
-      <div id="left"></div>
-      <div id= 'descript-show'>
+      <div className="line-break">
+        <hr id="solid" />
+      </div>
+
+      <div className="booking-box">
+        <div className='cost-show'>
+          <p id="link-location">{isHost(cost)}</p>
+          <span id="price">{`$${listing.cost}`}</span>
+          <p id='per-night'>per night(2 guests)</p>
+          <div className='check-in'>
+          <button>Check In</button><button>Check Out</button>
+          
+          </div>
+          <button>Request to Book</button>
+          <hr id="solid"/>
+        </div>
+      </div>
+
+      <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
+        <p>Host pic</p>
+        <p>Host Name</p>
         <p>{listing.description}</p>
       </div>
-      <div id="right"></div>
-      
-      <div id="left"></div>
+      <div className='box-show-page'>
       <div id= 'activities-show'>
         <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Amenities</p>
-        <ul>
+        <ul className='list-show-page'>
           <li id="text">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
           <li id="text">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
           <li id="text">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
@@ -123,42 +136,51 @@ render() {
           <li id="text">{`Kitchen ${this.updatedProps(listing.is_kitchen)}`}</li>
         </ul>
         </div>
-
-      <div id= 'activities-show'>
-         <p id="link-location">{isHost(amenities)}</p>
+        <div id='activities-show'>
+          <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Essentials</p>
-          <ul>
+          <ul className='list-show-page'>
             <li id="text">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
             <li id="text">{`Campfires are ${this.updatedProps(listing.is_campfire_allowed)}`}</li>
           </ul>
         </div>
-
-      <div id='activities-show'>
-        <p id="link-location">{isHost(activities)}</p>
-        <p id='headers'>Activities</p>
-        <ul>
-          <li id='text'>{`Hiking: ${this.updatedYesProps(listing.is_hiking)}`}</li>
-          <li id='text'>{`Swimming: ${this.updatedYesProps(listing.is_swimming)}`}</li>
-          <li id='text'>{`Paddling: ${this.updatedYesProps(listing.is_paddling)}`}</li>
-          <li id='text'>{`Wildlife:${this.updatedYesProps(listing.is_wildlife)}`}</li>
-          <li id='text'>{`Fishing: ${this.updatedYesProps(listing.is_fishing)}`}</li>
-      </ul>
+        <div id='activities-show'>
+          <p id="link-location">{isHost(activities)}</p>
+          <p id='headers'>Activities</p>
+          <ul className='list-show-page'>
+            <li id='text'>{`Hiking: ${this.updatedYesProps(listing.is_hiking)}`}</li>
+            <li id='text'>{`Swimming: ${this.updatedYesProps(listing.is_swimming)}`}</li>
+            <li id='text'>{`Paddling: ${this.updatedYesProps(listing.is_paddling)}`}</li>
+            <li id='text'>{`Wildlife:${this.updatedYesProps(listing.is_wildlife)}`}</li>
+            <li id='text'>{`Fishing: ${this.updatedYesProps(listing.is_fishing)}`}</li>
+          </ul>
+        </div>
       </div>
-      <div id="right"></div>
+      
 
-      <div id="left"></div>
-      <div id="details-show">
+   
+      <div className="details-show">
         <p id="link-location">{isHost(details)}</p>
-        <p id="headers">Details</p>
+        <div className="detail-title-show">
+          <p className="detail-header">Details</p>
+        </div>
+        <div>
         <ul>
-          <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
-          <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
           <li id="list-item">Check in: <span className="list-item-data">{`After ${listing.check_in_time}`}</span></li>
           <li id="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_out_time}`}</span></li>
           <li id="list-item">Cancellation policy: <span className="list-item-data">{listing.cancellation_policy}</span></li>
+          <br/>
+          <br/>
           <li id="list-item">Response time: <span className="list-item-data">{`Within ${listing.response_time}`}</span></li>
-          <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
         </ul>
+        </div>
+        <div>
+          <ul>
+            <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
+            <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
+            <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
+          </ul>
+        </div>
       </div>
       
       <div id="right"></div>

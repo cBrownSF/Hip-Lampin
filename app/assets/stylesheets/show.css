@@ -1,10 +1,10 @@
 .show-container{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   flex-wrap: wrap;
   background-color: whitesmoke;
-  padding:5px;
+  padding:30px 10%;
 }
 .show-container #side-pic{
   width:20%;
@@ -33,12 +33,7 @@
 .show-container #show-color{
   color:lightgrey;
 }
-  .show-container #cost-show{
-  width:18%;
-  font-family: inherit;
-  border: solid lightgrey;
-  border-width: thin;
-}
+ 
 .show-container #solid{
   color:lightgrey;
  
@@ -57,15 +52,13 @@
 .show-container #left{
   width:20%
 }
-.show-container #descript-show{
- width:60%
-}
+
 .show-container #right{
   width:20%
 }
-.show-container #details-show{
+/* .show-container #details-show{
   width:100%
-}
+} */
 
 .show-container#amenities-show{
   width:20%;
@@ -74,10 +67,9 @@
   margin-right:10px;
 }
 .show-container #activities-show{
-  width:20%;
   border: solid lightgray;
   border-width:thin;
-  
+  margin:20px;
 }
 .show-container #text{
   font-family:inherit;
@@ -87,11 +79,12 @@
   list-style: none;
 }
 .show-container #headers{
+  display:flex;
+  justify-content: center;
   font-family: inherit;
-  text-align:left;
+  /* text-align:left; */
   margin-top:0px;
   font-weight: bold;
-  margin-left:18px;
   font-size:28px;
 }
 .show-container #essentials-show{
@@ -108,7 +101,7 @@ text-align:right;
 color: grey;
 }
 .show-container #link-location{
-  text-align:right;
+  text-align:left;
   margin-right:4px;
   margin-top:2px;
 }
@@ -124,3 +117,72 @@ color: grey;
   border-style:solid;
   border-width:thin;
 } 
+ .photo-container{
+   display:flex;
+   flex-direction: row;
+   margin-bottom: 15px;
+ }
+ .show-images{
+   padding:10px;
+   height:40vh;
+   width:30vw;
+ }
+ .listing-title{
+   font-size:60px;
+   font-weight:600;
+   font-style:inherit;
+   margin:0px;
+ }
+ .name-show{
+   display:flex;
+   flex-direction: column
+ }
+ .recommended-show{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+ .cost-show{
+   display:flex;
+   flex-direction:column;
+   font-family: inherit;
+  border: solid lightgrey;
+  border-width: thin;
+ }
+ .booking-box{
+   display:flex;
+   flex-direction:column;
+ }
+ .check-in{
+   display:flex;
+   flex-direction:row;
+ }
+ .descript-show{
+   display:flex;
+   flex-direction:row;
+ }
+ .box-show-page{
+  display:flex;
+ }
+ .list-show-page{
+   line-height:1.5;
+   display:flex;
+   flex-direction:column;
+   justify-content:center
+ }
+ .details-container{
+   display:flex;
+
+ }
+ .detail-title-show{
+  display:flex;
+  flex-direction:column;
+ }
+ .detail-header{
+  font-family:inherit;
+  font-size:16px;
+ }
+ .details-show{
+  display:flex;
+  
+ }
