@@ -6,6 +6,7 @@ class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
+    window.scrollTo(0, 0);
   }
   
   // componentDidUpdate() {
