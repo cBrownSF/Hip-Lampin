@@ -5,16 +5,18 @@ export const RECEIVE_LISTING = 'RECEIVE_LISTING'
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
 export const REMOVE_LISTING = 'REMOVE_LISTING'
 export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
- 
+export const RECEIVE_REVIEW = 'REMOVE_REVIEW'
 
 const receiveListings = listings => ({
   type: RECEIVE_ALL_LISTINGS,
   listings
 })
 
-export const receiveOneListing = listing =>({
+export const receiveOneListing = ({listing,reviews,authors}) =>({
   type: RECEIVE_LISTING,
-  listing
+  listing,
+  reviews,
+  authors
 })
 export const removeListing = listingId =>({
   type: REMOVE_LISTING,
@@ -26,6 +28,12 @@ const receiveListingErrors = errors => ({
 })
 export const removeListingErrors = () => ({
   type: REMOVE_LISTING_ERRORS
+})
+
+export const receiveOneReview = ({review,author})=> ({
+  type: RECEIVE_REVIEW,
+  review,
+  author
 })
 
 export const receiveAllListings = () =>dispatch =>{
@@ -63,5 +71,18 @@ export const deleteListing = listingId => dispatch =>{
   return ListingAPIUtil.deleteListing(listingId)
   .then(()=>{
     dispatch(removeListing(listingId))
+  })
+}
+
+export const createReview = review => (dispatch) =>{
+  return ListingAPIUtil.createReview(review)
+  .then(createdReview=>{
+    dispatch(receiveOneReview(createdReview))
+  })
+}
+export const updateReview = review => (dispatch) =>{
+  return ListingAPIUtil.updateReview(review)
+  .then(updatedReview=>{
+    dispatch(receiveOneReview(updatedReview))
   })
 }

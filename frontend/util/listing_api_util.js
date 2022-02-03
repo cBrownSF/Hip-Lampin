@@ -40,3 +40,18 @@ export const deleteListing = (listingId) => {
     method: "DELETE"
   })
 }
+
+export const createReview = (review) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/reviews`,
+    data: { review }
+  })
+}
+export const updateReview = (review) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/reviews/${review.id}`,
+    data: review,
+  })
+}

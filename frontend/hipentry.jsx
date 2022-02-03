@@ -5,7 +5,7 @@ import Root from './components/root.jsx'
 import {receiveAllListings,updateListing,createListing,deleteListing,receiveListing} from './actions/listings_actions'
 import { login, logout,signup } from './actions/session_actions'
 // import { login, logout,signup } from './util/session_api_util'
-import {fetchListings,fetchListing} from './util/listing_api_util'
+import {fetchListings,createReview} from './util/listing_api_util'
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.receiveListing = receiveListing;
   window.fetchListings = fetchListings
-  window.deleteListing = deleteListing;
+  window.createReview = createReview;
   window.createListing = createListing
   window.updateListing = updateListing;
   window.receiveAllListings = receiveAllListings;
