@@ -1,7 +1,7 @@
 import { $CombinedState } from "redux"
 
-export const recieveListing = id => {
-  return $CombinedState.ajax({
+export const recieveReview = id => {
+  return $.ajax({
     method: 'GET',
     url: `/api/reviews/${id}`
   })

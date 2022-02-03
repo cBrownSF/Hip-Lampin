@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @review = Review.create!(review_params)
+    @review = current_user.reviews.new(review_params)
 
     if @review.save
       render :show
@@ -12,24 +12,24 @@ class Api::ReviewsController < ApplicationController
   end
 
    def update
-    @review = Listing.with_attached_photos.find_by(id: params[:id])
-    debugger
+    @review = Review.find_by(id: params[:id])
+    
     if @review.update(review_params)
-      render :shows
+      render :show
     else
       render json: @review.errors_full_messages
     end
   end
 
-  def index
-    @reviews= Review.all
-    render :index
-  end
+  # def index
+  #   @reviews= Review.all
+  #   render :index
+  # end
 
-  def show
-    @review= Review.find(params[:id])
-    render :show
-  end
+  # def show
+  #   @review= Review.find(params[:id])
+  #   render :show
+  # end
   
   private
 
