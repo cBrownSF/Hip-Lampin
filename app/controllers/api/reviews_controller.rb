@@ -11,6 +11,16 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
+   def update
+    @review = Listing.with_attached_photos.find_by(id: params[:id])
+    debugger
+    if @review.update(review_params)
+      render :shows
+    else
+      render json: @review.errors_full_messages
+    end
+  end
+
   def index
     @reviews= Review.all
     render :index
