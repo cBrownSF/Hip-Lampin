@@ -110,7 +110,7 @@ render() {
         <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
           <span id="price">{`$${listing.cost}`}</span>
-          <p id='per-night'>per night(2 guests)</p>
+          <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
           <div className='check-in'>
           <button>Check In</button><button>Check Out</button>
           
@@ -131,7 +131,7 @@ render() {
         <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Amenities</p>
         <ul className='list-show-page'>
-          <li id="text">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
+            {console.log(listing.is_trash)}
           <li id="text">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
           <li id="text">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
           <li id="text">{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</li>
@@ -142,6 +142,7 @@ render() {
           <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Essentials</p>
           <ul className='list-show-page'>
+            <li id="text">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
             <li id="text">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
             <li id="text">{`Campfires are ${this.updatedProps(listing.is_campfire_allowed)}`}</li>
           </ul>
@@ -149,12 +150,16 @@ render() {
         <div id='activities-show'>
           <p id="link-location">{isHost(activities)}</p>
           <p id='headers'>Activities</p>
+          {console.log(listing.is_hiking)}
           <ul className='list-show-page'>
-            <li id='text'>{`Hiking: ${this.updatedYesProps(listing.is_hiking)}`}</li>
-            <li id='text'>{`Swimming: ${this.updatedYesProps(listing.is_swimming)}`}</li>
-            <li id='text'>{`Paddling: ${this.updatedYesProps(listing.is_paddling)}`}</li>
-            <li id='text'>{`Wildlife:${this.updatedYesProps(listing.is_wildlife)}`}</li>
-            <li id='text'>{`Fishing: ${this.updatedYesProps(listing.is_fishing)}`}</li>
+            {//fix this later and make sure ! is correct// 
+}
+            <li id='text'>{!listing.is_hiking? "Hiking":""}</li>
+            <li id='text'>{!listing.is_swimming? "Swimming":""}</li>
+            <li id='text'>{listing.is_paddling? "Paddling":""}</li>
+            <li id='text'>{!listing.is_wildlife? "Wildlife":""}</li>
+            <li id='text'>{listing.is_fishing? "Fishing":""}</li>
+
           </ul>
         </div>
       </div>
@@ -180,6 +185,8 @@ render() {
             <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
             <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
             <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
+            <br/>
+            <li id="list-item">Guests Allowed: <span className="list-item-data">{listing.guests_allowed}</span></li>
           </ul>
         </div>
       </div>
@@ -194,7 +201,6 @@ render() {
           address={this.props.listing.street_address}
           styling='show-map'
         />
-
       </div>
       <div>
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(

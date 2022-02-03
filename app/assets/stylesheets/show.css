@@ -189,7 +189,7 @@ color: grey;
  .show-map{
    width:800px;
    height:400px;
-   
+   position:relative;
  }
  .location{
    text-align:center;
