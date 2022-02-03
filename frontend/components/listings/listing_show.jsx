@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { hashHistory } from 'react-router';
+import CreateMap from './newmap';
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -38,6 +39,7 @@ render() {
   if (!this.props.listing){
     return null;
   }
+  debugger;
   const listing = this.props.listing
   
   const descript = {
@@ -165,25 +167,35 @@ render() {
           <p className="detail-header">Details</p>
         </div>
         <div>
-        <ul>
+          <ul className='list-show-page'>
           <li id="list-item">Check in: <span className="list-item-data">{`After ${listing.check_in_time}`}</span></li>
           <li id="list-item">Check out: <span className="list-item-data">{`Before ${listing.check_out_time}`}</span></li>
           <li id="list-item">Cancellation policy: <span className="list-item-data">{listing.cancellation_policy}</span></li>
-          <br/>
           <br/>
           <li id="list-item">Response time: <span className="list-item-data">{`Within ${listing.response_time}`}</span></li>
         </ul>
         </div>
         <div>
-          <ul>
+          <ul className='list-show-page'>
             <li id="list-item">On arrival: <span className="list-item-data">{listing.on_arrival}</span></li>
             <li id="list-item">Minimum nights: <span className="list-item-data">{listing.minimum_night}</span></li>
             <li id="list-item">Accepts Booking: <span className="list-item-data">{listing.booking_time}</span></li>
           </ul>
         </div>
       </div>
-      
-      <div id="right"></div>
+      <div className ="show-map">
+        <div className='location'>Location on map</div>
+        <CreateMap
+          lat={this.props.listing.lat}
+          lng={this.props.listing.lng}
+          zip={this.props.listing.zip_code}
+          city={this.props.listing.city}
+          state={this.props.listing.state}
+          address={this.props.listing.street_address}
+          styling='show-map'
+        />
+
+      </div>
       <div>
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>

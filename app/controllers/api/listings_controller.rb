@@ -21,7 +21,8 @@ before_action :require_logged_in, only: [:create]
     @listing = Listing.with_attached_photos.find_by(id: params[:id])
     debugger
     if @listing.update(listing_params)
-      render :show
+      
+      render :shows
     else
       render json: @listing.errors_full_messages
     end

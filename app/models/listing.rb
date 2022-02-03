@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-   has_many_attached :photos
+   has_many_attached :photos,dependent: :destroy
   validates :host_id,:lat, :lng,:state,:city,:zip_code,:street_address, presence: true
   validates :is_shower,:is_wifi, :is_picnic_table,:is_toilet,:is_campfire_allowed,:is_trash, :is_kitchen,inclusion: {in: [true, false] }
   # validates :is_kitchen, inclusion: {in: [true, false] }

@@ -122,13 +122,14 @@ class ListingForm extends React.Component {
     formData.append('listing[country]', this.state.country)
     if (this.state.photoFile) {
       // formData.append("listing[photos][]", this.state.photoFile[i]);
+      debugger
       // formData.delete("listing[photos][]")
       for (let i = 0; i < this.state.photoFile.length; i++) {
-      // console.log(formData)
+        debugger;
+        // this.props.listing.slice(0,2)
         if (this.state.photoFile[i] instanceof File){
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
-          
         }
       // 
     }
@@ -147,14 +148,13 @@ class ListingForm extends React.Component {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     const {photoFile,step,photoURL}=this.state;
-    let page =step-9
+    // let page =step-9
     if (step ===9){
     fileReader.onloadend = () => {
       let photos=[...this.state.photoFile]
       let url=[...this.state.photoURL]
       photos[0]=file
       url[0]=fileReader.result
-      console.log
       this.setState({
         photoFile: photos,
         photoURL: url

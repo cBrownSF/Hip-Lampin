@@ -186,3 +186,13 @@ color: grey;
   display:flex;
   
  }
+ .show-map{
+   width:800px;
+   height:400px;
+   
+ }
+ .location{
+   text-align:center;
+   font-family:inherit;
+   font-size:40px;
+ }
