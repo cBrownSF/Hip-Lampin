@@ -2,6 +2,7 @@ class Api::ListingsController < ApplicationController
 before_action :require_logged_in, only: [:create]
 
   def create
+    debugger
     @listing = Listing.create!(listing_params)
     render :show
     # if @listing.save
@@ -13,23 +14,22 @@ before_action :require_logged_in, only: [:create]
   end
 
   def show
-    @listing= Listing.find(params[:id])
-    #added render
-    render :show
+    @listing= Listing.with_attached_photos.find(params[:id])
   end
 
   def update
-    @listing = Listing.find(params[:id])
-
+    @listing = Listing.with_attached_photos.find_by(id: params[:id])
+    debugger
     if @listing.update(listing_params)
-      render :show
+      
+      render :shows
     else
       render json: @listing.errors_full_messages
     end
   end
 
   def destroy
-    @listing = Listing.find(params[:id])
+    @listing = Listing.with_attached_photos.find(params[:id])
      if @listing
       @listing.destroy
       render :show
@@ -39,7 +39,7 @@ before_action :require_logged_in, only: [:create]
   end
 
   def index
-    @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.all
+    @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.with_attached_photos.all
     render :index
   end
   

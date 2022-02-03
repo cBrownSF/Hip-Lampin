@@ -19,7 +19,6 @@ class MarkerManager {
 
   }
   createMarkerForListing(listing){
-    debugger;
     const position = new google.maps.LatLng(listing.lat, listing.lng);
     const marker = new google.maps.Marker({
       position,
@@ -37,9 +36,8 @@ class MarkerManager {
       content:contentString
     })
     marker.addListener('click', () =>{
-      console.log(this.info)
+  
       if (this.info) {
-        debugger;
         this.info.close();
       }
       info.open({

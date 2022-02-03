@@ -4,7 +4,7 @@ const PhotoForm = (props) => {
   if (props.currentPage !== 9) {
     return null
   }
-
+  console.log(`1:${props.photoURL.length}`)
 return(
   <div className='name-box'>
     <br/>
@@ -17,6 +17,7 @@ return(
         </label>
         <input id="form-file-upload"
           type="file"
+          multiple
           accept=".png, .jpeg"
           onChange={props.handleFile} />
       </div>
@@ -28,6 +29,7 @@ return(
           </label>
           <input id="form-file-upload"
             type="file"
+            multiple
             accept=".png, .jpeg"
             onChange={props.handleFile} />
         </div>

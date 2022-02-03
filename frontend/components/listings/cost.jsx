@@ -30,8 +30,6 @@ const CostForm = (props) => {
         />
       <p id='required'>This is a required field</p>
       <br/>
-      <br/>
-      <br/>
         <div>
      <h1 id='act-amen-title'>Minimum nights stay</h1>
         <select className = "select-bubble" value={props.minNight} onChange={props.handleInput('minimum_night')}>

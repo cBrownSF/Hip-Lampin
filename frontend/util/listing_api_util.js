@@ -14,7 +14,6 @@ export const fetchListing = id => {
 }
 
 export const createListing = (listing) => {
-  debugger;
   return $.ajax({
     url: `/api/listings`,
     method: "POST",
@@ -25,7 +24,7 @@ export const createListing = (listing) => {
 }
 
 export const updateListing = (listing) => {
-
+debugger
   return $.ajax({
     url: `/api/listings/${listing.get('listing[id]')}`,
     method: 'PATCH',

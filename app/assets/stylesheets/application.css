@@ -13,19 +13,38 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 body{
   font-family: 'Helvetica', 'Arial', sans-serif;
   background-color: rgb(234, 232, 228);
-  margin:0
+  margin:0;
+  padding:0;
 }
+.nav-bar-container{
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+  padding:30px 5%
+}
+.nav-li{
+   font-family: "Montserrat",sans-serif;
+   display:inline-block;
+   padding:0px 20px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size:16px;
+  color:black;
+}
+
 .mainLogo{
   margin: 4px;
   margin-right: auto;
   background-color: transparent;
   color:red;
   font-size: 30px;
-  font-family: inherit;
+  font-family: "Montserrat",sans-serif;
   text-decoration: none;
+  cursor:pointer;
 }
 .logged-in{
     display:flex;
@@ -40,7 +59,7 @@ body{
   font-family: inherit;
 }
 .log-out-button{
-  font-family: inherit;
+  font-family: "Montserrat",sans-serif;
    /* background-color:#39C39A;
    color:white;
    text-align: center;
@@ -65,7 +84,7 @@ body{
   
 } */
  .sign-up-sign-in-button{
-   font-family: inherit;
+   font-family: "Montserrat",sans-serif;
    background-color:#39C39A;
    color:white;
    text-align: center;
@@ -78,12 +97,20 @@ body{
    margin:2px;
    
  }
+ .nav-bar{
+   list-style:none;
+   display:flex;
+ }
+ /* .nav-li:hover{
+   border-bottom:1px solid turquoise;
+ } */
 .navBar {
-  background-color: rgb(234, 232, 228);
+  background-color: transparent;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   margin:0;
+  list-style:none;
   /* flex-wrap: wrap; */
   width: 100%; 
 }
@@ -93,14 +120,15 @@ body{
    outline:none;
    background-color: transparent;
    font-size:16px;
-   font-style: inherit;
+   font-family: "Montserrat",sans-serif;
 }
  .login-sign-up-link{
    font-weight:bold;
    text-decoration: none;
    color: black;
    font-size:16px;
-   font-style: inherit;
+   font-family: "Montserrat",sans-serif;
+   text-decoration: none;
  }      
  
  .navList{
@@ -120,7 +148,7 @@ body{
    left:0;
    bottom: 20;
    top: 0;
-   height: 60vh;
+   height: 550px;
  }
  
  .sign-up-form-container{
@@ -177,15 +205,15 @@ body{
    /* background-color: darkgrey; */
    max-width: 450px;
    margin:auto;
-   display:flex;
+   /* display:flex; */
    justify-content: center;
-   position:absolute;
+   /* position:absolute; */
    right:0;
    left:0;
    bottom: 0;
    top: 0;
-   height: 60vh;
-   align-items: stretch;
+   /* height: 60vh; */
+   /* align-items: stretch; */
    gap: 20px;
    border-radius: 30px;
   border: solid #000;
@@ -219,6 +247,7 @@ body{
    cursor:pointer;
    margin-right:30px;
    margin-left: 150px;
+   margin-bottom:15px;
   border-radius: 40px;
   border-color:#39C39A;
   border-style:solid;
@@ -329,7 +358,6 @@ body{
    border-radius: 30px;
    border-width: thin;
    margin-left:30px;
-   margin-top: 15px;
    resize: none;
  }
   .name-box #tips-descript{
@@ -375,10 +403,10 @@ body{
    margin:10px;
  }
  .amenities-button{
-   margin-top:115px;
+   margin-top:80px;
  }
 .activities-button{
-   margin-top:159px;
+   margin-top:115px;
 }
  .name-box #booking-title{
    margin-left: 25px;
@@ -418,19 +446,21 @@ body{
    margin-bottom:12px;
  }
  .booking-detail-button{
-   margin-top:60px;
+   margin-top:30px;
  }
  .check-in-button{
    margin-top:38px;
  }
  .start-hosting{
-    font-family: inherit;
+   padding: 9px 25px;
+   margin-left:20px;
+   font-size:16px;
+  font-family: "Montserrat",sans-serif;
    background-color:#39C39A;
    color:white;
-   width: 120px;
-   height: 40px;
+   /* width: 120px;
+   height: 40px; */
    cursor:pointer;
-   margin:2px;
   border-radius: 40px;
   border-color:#39C39A;
   border-style:solid;
@@ -452,7 +482,7 @@ body{
  }
  
  .hide-button{
-  position:absolute;
+  /* position:absolute; */
   top:0; 
   right: 3px;;
   
@@ -573,9 +603,60 @@ input[type="file"] {
  }
 
   .location-button{
-   margin-top: 270px
+   margin-top: 230px
  }
 
  .uploaded-photo{
   margin-left:125px;
+ }
+.splash-container{
+  display:flex;
+  flex-direction:column;
+  margin:50px;
+}
+ .title-container{
+   display:flex;
+   justify-content: center;
+   align-items:center;
+   flex-direction: column;
+ }
+ .header-home{
+   text-align:center;
+   font-weight:600;
+   font-size:5vw;
+   padding:20px 10%;
+   margin:0px;
+   margin-top:20px;
+ }
+ .sub-header-home{
+   text-align:center;
+   font-weight:500;
+   font-size:2.5vw;
+   margin:0px;
+    padding:10px 25%;
+ }
+ .search-wrapper{
+   display:flex;
+   flex-direction:row;
+   justify-content: center;
+   padding:30px 15px;
+   margin-top:40px;
+   margin-left:5px;
+   margin-right:5px;
+   border-radius:70px;
+   border:1px solid lightgray
+ }
+ .search-bar{
+   display:flex;
+   flex-direction:column
+ }
+ .search-form{
+   display:flex;
+   padding:10px;
+ }
+ .home-boxes{
+   margin:10px;
+   padding:10px;
+   border-radius:20px;
+   border: 1px solid grey
  }

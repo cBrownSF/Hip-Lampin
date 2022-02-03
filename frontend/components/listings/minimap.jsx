@@ -18,6 +18,7 @@ const miniMap =(props)=>{
        city={props.city}
        state={props.state}
        address={props.address}
+       styling='mini-map'
        />
        <div className='map-button'>
          <button type="button" className='previous-button' onClick={props.prevPage}>Retry</button>

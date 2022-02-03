@@ -10,28 +10,34 @@ class Greeting extends React.Component {
     if (currentUser) {
       const newTo = {
         pathname: "/listings/new",
-        search: '1',
-        state: {value:1}
+        state: 1
       };
       return (
-      
-        <div className="navBar">
-        {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
+      <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
-          <span className='log-out-button'><Link className="navBarButton" to='/listings'>Listings</Link></span>
-          <button className="log-out-button" onClick={logout}>Logout</button>
-          <button className= 'start-hosting'><Link className ="navBarButton" to= {newTo}>New Listing</Link></button>
+        <nav>
+        {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
+        <ul className="nav-bar">
+          <li><Link className="nav-li" to='/listings'>Listings</Link></li>
+          <li className="nav-li" onClick={logout}>Logout</li>
+          <li className="nav-li">Profile</li>
+        </ul>
+        </nav>
+          <Link to={newTo}><button className='start-hosting'>New Listing</button></Link>
         </div>
-    
       )
     } else {
       return (
-        <div className="navBar">
+        <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to= '/'>HipLampin</Link></span>
-            <span className = 'navList'><Link className = "navBarButton" to= '/listings'>Listings</Link></span>
-            <span className = 'navList'><Link className="navBarButton" to='/signup'>Sign Up</Link></span>
-            <span className = 'navList'><Link className ="navBarButton" to='/login'>Log In</Link></span>
-          <span className='navList'><Link className="navBarButton" onClick = {login} to='/'>DemoLogin</Link></span>
+        <nav >
+          <ul className="nav-bar">
+            <li className = 'nav-li'><Link className = "nav-li" to= '/listings'>Listings</Link></li>
+            <li className = 'nav-li'><Link className ="nav-li" to='/login'>Log In</Link></li>
+            <li className='nav-li'><Link className="nav-li" onClick = {login} to='/'>DemoLogin</Link></li>
+          </ul>
+        </nav>
+          <Link to='/signup'><button className='start-hosting'>Sign Up</button></Link>
         </div>
       )
     }

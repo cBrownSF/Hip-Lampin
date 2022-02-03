@@ -53,6 +53,7 @@ export const createListing = listing => (dispatch) =>{
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
+      console.log('hitting it')
       dispatch(receiveOneListing(listing))
       hashHistory.push(`/listings/${listing.id}`)
     })
