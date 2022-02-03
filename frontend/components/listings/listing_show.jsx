@@ -116,16 +116,16 @@ render() {
           
           </div>
           <button>Request to Book</button>
-          <hr id="solid"/>
         </div>
       </div>
-
+     
       <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
         <p>Host pic</p>
         <p>Host Name</p>
         <p>{listing.description}</p>
       </div>
+      
       <div className='box-show-page'>
       <div id= 'activities-show'>
         <p id="link-location">{isHost(amenities)}</p>
@@ -162,9 +162,12 @@ render() {
 
           </ul>
         </div>
+        
       </div>
       
-
+      <div className="line-break">
+        <hr id="solid" />
+      </div>
    
       <div className="details-show">
         <p id="link-location">{isHost(details)}</p>
@@ -189,6 +192,12 @@ render() {
             <li id="list-item">Guests Allowed: <span className="list-item-data">{listing.guests_allowed}</span></li>
           </ul>
         </div>
+        <div>
+        <hr id="solid" />
+        </div>
+      </div>
+      <div className="line-break">
+        <hr id="solid" />
       </div>
       <div className ="show-map">
         <div className='location'>Location on map</div>
