@@ -42,6 +42,7 @@ export const deleteListing = (listingId) => {
 }
 
 export const createReview = (review) => {
+  debugger;
   return $.ajax({
     method: 'POST',
     url: `/api/reviews`,

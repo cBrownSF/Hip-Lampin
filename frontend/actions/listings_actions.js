@@ -57,7 +57,14 @@ export const createListing = listing => (dispatch) =>{
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }
 
-
+export const createReview = review => (dispatch) => {
+  debugger;
+  return ListingAPIUtil.createReview(review)
+    .then(createdReview => {
+      debugger;
+      dispatch(receiveOneReview(createdReview))
+    })
+}
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
@@ -74,12 +81,7 @@ export const deleteListing = listingId => dispatch =>{
   })
 }
 
-export const createReview = review => (dispatch) =>{
-  return ListingAPIUtil.createReview(review)
-  .then(createdReview=>{
-    dispatch(receiveOneReview(createdReview))
-  })
-}
+
 export const updateReview = review => (dispatch) =>{
   return ListingAPIUtil.updateReview(review)
   .then(updatedReview=>{

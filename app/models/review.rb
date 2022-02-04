@@ -3,8 +3,8 @@ class Review < ApplicationRecord
 
   belongs_to :listing,
     foreign_key: :listing_id
-    class_name: :Listing
+    #class_name: :Listing
   belongs_to :author,
-    foreign_key: :author_id
+    # foreign_key: :author_id
     class_name: :User
 end

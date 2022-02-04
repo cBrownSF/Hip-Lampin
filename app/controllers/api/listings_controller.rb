@@ -40,7 +40,7 @@ before_action :require_logged_in, only: [:create]
 
   def index
     @listings = bounds ? Listing.in_bounds(params[:bounds]) : Listing.with_attached_photos.all
-    @listings= listings.includes(:reviews)
+    # @listings= @listings.includes(:reviews)
     render :index
   end
   

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { hashHistory } from 'react-router';
 import CreateMap from './newmap';
+import CreateReviewContainer from '../reviews/review_container'
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -40,7 +41,6 @@ render() {
   if (!this.props.listing){
     return null;
   }
-  debugger;
   const listing = this.props.listing
   
   const descript = {
@@ -216,6 +216,19 @@ render() {
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
         ) :''}
+      </div>
+      <div >
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <CreateReviewContainer
+          listing={this.props.listing}
+          listingId={this.props.listing.id}
+        />
       </div>
     </div>
   )
