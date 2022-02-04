@@ -246,13 +246,15 @@ debugger
           <div>
             <h1><p>Reviews</p></h1>
             <ul>
-              {reviews.map((review) => {
-               if(reviewIdArray.includes(review.id)) {
-                <ReviewIndexItem
-                  review={review}
-                />
-               }})
-               }
+                {reviews.map((review) => {
+                  if (reviewIdArray.includes(review.id)) {
+                    return(<ReviewIndexItem
+                      review={review}
+                    />
+                    )
+                  }
+                })
+                }
             </ul>
           </div>
         )}
