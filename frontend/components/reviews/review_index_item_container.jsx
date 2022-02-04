@@ -1,28 +1,37 @@
+import { connect } from 'react-redux';
 import React from 'react';
 
-const ReviewIndexItem = ({ review}) => {
+const ReviewIndexItem = ({ author,review}) => {
   debugger;
- console.log(review)
-  const { title, description } = review;
+  const { title, description,recommends } = review;
+  const {lname,fname}= author
+  
   return (
+    {recommends = true ? (
     <div>
-      <ul>
-        <li>{title}</li>
-        <li>{description}</li>
-
-      </ul>
+        <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
+        <p>{title}</p>
+        <p>{description}</p>
     </div>
-  );
+    ) :(
+        <div>
+          <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
+          <p>{title}</p>
+          <p>{description}</p>
+        </div>
+    )
+  
+    });
 };
-export default ReviewIndexItem;
+// export default ReviewIndexItem;
 
 
 
-// const mSTP = (state) => {
-//   debugger;
-//   return {
-//     author: state.entities.users[state.entities.review.author_id]
-//   };
-// };
+const mSTP = (state,ownProps) => {
+  debugger;
+  return {
+    author: state.entities.users[ownProps.authorId]
+  };
+};
 
-// export default connect (mSTP)(ReviewIndexItem)
+export default connect (mSTP)(ReviewIndexItem)

@@ -47,7 +47,7 @@ class ReviewForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            Review Form
+            Add a review
           </div>
           <div>Title</div>
           <input type="text" 
@@ -55,12 +55,16 @@ class ReviewForm extends React.Component {
             onChange={this.update("title")}
             placeholder=" Enter Title"
           />
-          <div> Descript</div>
+          <div> Description</div>
           <input type="text"
             value={this.state.description}
             onChange={this.update("description")}
             placeholder=" Enter the details"
           />
+          <div>
+            Recommends
+          </div>
+          <div>Helpful</div>
           <div>
             <button
               type="submit"

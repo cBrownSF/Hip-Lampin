@@ -5,7 +5,10 @@ import CreateMap from './newmap';
 import CreateReviewContainer from '../reviews/review_container'
 import ReviewIndexItem from '../reviews/review_index_item_container'
 class ListingShow extends React.Component {
-
+  constructor(props){
+    super(props)
+    this.state={count:0}
+  }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
     window.scrollTo(0, 0);
@@ -40,7 +43,6 @@ class ListingShow extends React.Component {
 render() {
  
   if (!this.props.listing){
-    debugger;
     return null;
   }
   const listing = this.props.listing
@@ -86,8 +88,6 @@ render() {
 }
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
-  console.log(this.props)
-debugger
   return(
    
     <div className='show-container'>
@@ -106,7 +106,7 @@ debugger
          
       </div>
       <div className="recommended-show">
-        <p>100% recommended</p>
+        <p>{this.state.count / reviewIdArray.length}</p>
         <p>save</p>
       </div>
       <div className="line-break">
@@ -138,7 +138,6 @@ debugger
         <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Amenities</p>
         <ul className='list-show-page'>
-            {console.log(listing.is_trash)}
           <li id="text">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
           <li id="text">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
           <li id="text">{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</li>
@@ -157,7 +156,6 @@ debugger
         <div id='activities-show'>
           <p id="link-location">{isHost(activities)}</p>
           <p id='headers'>Activities</p>
-          {console.log(listing.is_hiking)}
           <ul className='list-show-page'>
             {//fix this later and make sure ! is correct// 
 }
@@ -237,7 +235,6 @@ debugger
         />
       </div>
       <div>
-        {console.log(reviews)}
         {reviews.length === 0 ? (
           <div>
             <p>No reviews yet</p>
@@ -247,12 +244,21 @@ debugger
             <h1><p>Reviews</p></h1>
             <ul>
                 {reviews.map((review) => {
+                  // if (review.recommends === true) {
+                  //   console.log('hits')
+                  //   this.setState((prevState) => ({
+                  //     count: prevState.count + 1
+                  //   }))
+                  // }
                   if (reviewIdArray.includes(review.id)) {
                     return(<ReviewIndexItem
                       review={review}
+                      authorId={review.author_id}
+                      key={review.id}
                     />
                     )
                   }
+                
                 })
                 }
             </ul>
