@@ -7,11 +7,10 @@ const reviewsReducer = (oldState={},action) => {
     switch (action.type) {
     
       case RECEIVE_REVIEW:
-        debugger;
-        console.log('hit recieve review')
+        const { review } = action;
+        console.log(review)
         return  Object.assign({}, oldState, { [action.review.id]: action.review })
       case RECEIVE_LISTING:
-        debugger;
         return   Object.assign({}, oldState, action.reviews)
       default:
         'hit default'

@@ -1,3 +1,5 @@
-export const selectBench = ({ listings }, listingId) => {
+export const selectListing = ({ listings }, listingId) => {
   return listings[listingId];
 };
+
+

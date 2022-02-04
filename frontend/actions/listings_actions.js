@@ -31,6 +31,7 @@ export const removeListingErrors = () => ({
 })
 
 export const receiveOneReview = ({review,author})=> ({
+  
   type: RECEIVE_REVIEW,
   review,
   author
@@ -58,10 +59,8 @@ export const createListing = listing => (dispatch) =>{
 }
 
 export const createReview = review => (dispatch) => {
-  debugger;
   return ListingAPIUtil.createReview(review)
     .then(createdReview => {
-      debugger;
       dispatch(receiveOneReview(createdReview))
     })
 }

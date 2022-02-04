@@ -24,7 +24,7 @@ export const createListing = (listing) => {
 }
 
 export const updateListing = (listing) => {
-debugger
+
   return $.ajax({
     url: `/api/listings/${listing.get('listing[id]')}`,
     method: 'PATCH',
@@ -42,7 +42,7 @@ export const deleteListing = (listingId) => {
 }
 
 export const createReview = (review) => {
-  debugger;
+
   return $.ajax({
     method: 'POST',
     url: `/api/reviews`,

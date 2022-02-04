@@ -13,7 +13,6 @@ class ReviewForm extends React.Component {
     this.numberInput = this.numberInput.bind(this)
   }
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const listing_id =this.props.listingId 
     const review = Object.assign({}, this.state, {

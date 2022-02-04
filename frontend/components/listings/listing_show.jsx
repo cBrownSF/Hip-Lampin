@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { hashHistory } from 'react-router';
 import CreateMap from './newmap';
 import CreateReviewContainer from '../reviews/review_container'
+import ReviewIndexItem from '../reviews/review_index_item_container'
 class ListingShow extends React.Component {
 
   componentDidMount() {
@@ -39,6 +40,7 @@ class ListingShow extends React.Component {
 render() {
  
   if (!this.props.listing){
+    debugger;
     return null;
   }
   const listing = this.props.listing
@@ -82,6 +84,10 @@ render() {
     return <span> </span>
   }
 }
+  const reviews=this.props.reviews
+  const reviewIdArray=this.props.listing.reviewIds
+  console.log(this.props)
+debugger
   return(
    
     <div className='show-container'>
@@ -230,11 +236,31 @@ render() {
           listingId={this.props.listing.id}
         />
       </div>
+      <div>
+        {console.log(reviews)}
+        {reviews.length === 0 ? (
+          <div>
+            <p>No reviews yet</p>
+          </div>
+        ) : (
+          <div>
+            <h1><p>Reviews</p></h1>
+            <ul>
+              {reviews.map((review) => {
+               if(reviewIdArray.includes(review.id)) {
+                <ReviewIndexItem
+                  review={review}
+                />
+               }})
+               }
+            </ul>
+          </div>
+        )}
     </div>
+  </div>
   )
   }
 }
-
 
 
 export default ListingShow;

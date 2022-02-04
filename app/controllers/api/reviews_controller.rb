@@ -4,10 +4,8 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
-    @review.listing_id=@listing.id
     # @review.author_id=@author.id
     if @review.save
-      debugger
       render :show
     else
       render json: @review.errors.full_messages, status: 422

@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const ReviewIndexItem = ({ review}) => {
   debugger;
- 
+ console.log(review)
   const { title, description } = review;
   return (
     <div>
@@ -15,13 +14,15 @@ const ReviewIndexItem = ({ review}) => {
     </div>
   );
 };
+export default ReviewIndexItem;
 
 
 
-const mSTP = (state) => {
-  return {
-    author: state.entities.users[state.entities.review.author_id]
-  };
-};
+// const mSTP = (state) => {
+//   debugger;
+//   return {
+//     author: state.entities.users[state.entities.review.author_id]
+//   };
+// };
 
-export default connect (mSTP)(ReviewIndexItem)
+// export default connect (mSTP)(ReviewIndexItem)
