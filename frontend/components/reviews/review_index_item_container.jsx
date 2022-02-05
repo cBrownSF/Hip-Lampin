@@ -1,27 +1,31 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-const ReviewIndexItem = ({ author,review}) => {
+const ReviewIndexItem = ({ author,review,helpfulFunc}) => {
   debugger;
   const { title, description,recommends } = review;
   const {lname,fname}= author
   
   return (
-    {recommends = true ? (
     <div>
-        <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
-        <p>{title}</p>
-        <p>{description}</p>
-    </div>
-    ) :(
+      {/* {recommends= true ? ( */}
+        <div>
+          <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
+          <p>{title}</p>
+          <p>{description}</p>
+          <button onClick={helpfulFunc}>Helpful</button>
+        </div>
+      {/* ) :( */}
         <div>
           <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
           <p>{title}</p>
           <p>{description}</p>
+            <button onClick={helpfulFunc}>Helpful</button>
+
         </div>
-    )
-  
-    });
+      {/* )} */}
+    </div >
+  )
 };
 // export default ReviewIndexItem;
 

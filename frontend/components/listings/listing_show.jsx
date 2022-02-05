@@ -7,6 +7,7 @@ import ReviewIndexItem from '../reviews/review_index_item_container'
 class ListingShow extends React.Component {
   constructor(props){
     super(props)
+    this.helpfulClick=this.helpfulClick.bind(this)
     this.state={count:0}
   }
   componentDidMount() {
@@ -19,7 +20,13 @@ class ListingShow extends React.Component {
   //     this.props.receiveListing(this.props.match.params.listingId);
   //   }
   // }
-
+  helpfulClick(e){
+    e.preventDefault()
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }))   
+    debugger;
+  }
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
@@ -255,6 +262,7 @@ render() {
                       review={review}
                       authorId={review.author_id}
                       key={review.id}
+                      helpfulFunc={this.helpfulClick}
                     />
                     )
                   }

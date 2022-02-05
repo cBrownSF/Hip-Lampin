@@ -6,8 +6,8 @@ class ReviewForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      helpful: false,
-      recommends: 2,
+      helpful: 0,
+      recommends: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.numberInput = this.numberInput.bind(this)
@@ -24,13 +24,16 @@ class ReviewForm extends React.Component {
         this.setState({
           title: '',
           description: '',
-          helpful: false,
-          recommends: 2,
+          helpful: 0,
+          recommends: false,
         })
       )
   }
   update(field) {
+    console.log(this.state.recommends) 
+
     return (e) => this.setState({ [field]: e.currentTarget.value });
+    
   }
 
   numberInput(type) {
@@ -56,15 +59,19 @@ class ReviewForm extends React.Component {
             placeholder=" Enter Title"
           />
           <div> Description</div>
-          <input type="text"
+          <textarea 
             value={this.state.description}
             onChange={this.update("description")}
             placeholder=" Enter the details"
           />
           <div>
-            Recommends
+        <label >Do you recommend this listing?</label>
+          <select value={this.state.recommends} onChange={this.update('recommends')}>
+           <option value={null}>---</option>
+           <option value={true}>Yes</option>
+           <option value={false}>No</option>
+          </select>
           </div>
-          <div>Helpful</div>
           <div>
             <button
               type="submit"
