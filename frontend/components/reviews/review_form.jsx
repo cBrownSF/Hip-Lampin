@@ -9,6 +9,7 @@ class ReviewForm extends React.Component {
       description: '',
       helpful: 0,
       recommends: null,
+      helpful_authors:[]
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.numberInput = this.numberInput.bind(this)

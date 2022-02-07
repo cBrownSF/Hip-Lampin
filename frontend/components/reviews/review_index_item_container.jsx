@@ -8,6 +8,7 @@ class ReviewIndexItem extends React.Component{
   super(props)
   console.log(props)
   this.state={...this.props.review}
+
  }
  
   render(){
@@ -33,7 +34,7 @@ class ReviewIndexItem extends React.Component{
       <div>
         {
           currentUser && currentUser.id !== this.props.author.id ? (<button onClick={
-
+            
             () => console.log(this.props.author)
           }>
             Works. Use this for "allowing Helpful"
@@ -52,8 +53,14 @@ class ReviewIndexItem extends React.Component{
           <p>{title}</p>
           <p>{description}</p>
           <button onClick={() => {
-            
-            this.setState({ helpful: this.state.helpful + 1 },()=>{
+            let newArray = this.props.review.helpful_authors.concat(this.props.author.id)
+            console.log(newArray)
+            console.log(this.state)
+            this.setState({ 
+              helpful: this.state.helpful + 1, 
+             helpful_authors: [...this.state.helpful_authors,this.props.author.id]
+            },()=>{
+              debugger
               this.props.updateReview(this.state)
             })
           }}>
