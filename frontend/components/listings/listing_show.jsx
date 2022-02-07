@@ -263,6 +263,7 @@ render() {
                       authorId={review.author_id}
                       key={review.id}
                       helpfulFunc={this.helpfulClick}
+                      currentUser={this.props.currentUser}
                     />
                     )
                   }

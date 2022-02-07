@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-const ReviewIndexItem = ({ author,review,helpfulFunc}) => {
+const ReviewIndexItem = ({ author,review,helpfulFunc,currentUser}) => {
   debugger;
-  const { title, description,recommends } = review;
+  const { title, description,recommends,id } = review;
   const {lname,fname}= author
   
   return (
     <div>
-      {/* {recommends= true ? ( */}
+      {currentUser.id===id? <Link to ={createUpdateContainer}><button>Edit</button></Link> : ''}
+      <div>
         <div>
           <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
           <p>{title}</p>
@@ -21,10 +22,10 @@ const ReviewIndexItem = ({ author,review,helpfulFunc}) => {
           <p>{title}</p>
           <p>{description}</p>
             <button onClick={helpfulFunc}>Helpful</button>
-
         </div>
       {/* )} */}
     </div >
+    </div>
   )
 };
 // export default ReviewIndexItem;
