@@ -17,16 +17,18 @@ class Api::ReviewsController < ApplicationController
 
    def update
     @review = Review.find_by(id: params[:id])
-    
+    debugger
     if @review.update(review_params)
       render :show
     else
+      debugger
       render json: @review.errors_full_messages
     end
   end
 
   def destroy
    @review = Review.find_by(id: params[:id])
+   debugger
    if @review
     debugger
     @review.destroy

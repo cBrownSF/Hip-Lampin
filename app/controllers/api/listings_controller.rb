@@ -19,7 +19,7 @@ before_action :require_logged_in, only: [:create]
 
   def update
     @listing = Listing.with_attached_photos.find_by(id: params[:id])
-
+    debugger;
     if @listing.update(listing_params)
 
       #doubleCheck I just updated shows to show

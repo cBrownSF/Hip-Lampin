@@ -68,6 +68,12 @@ export const createReview = review => (dispatch) => {
       dispatch(receiveOneReview(createdReview))
     })
 }
+export const updateReview = review => (dispatch) => {
+  return ListingAPIUtil.updateReview(review)
+    .then(updatedReview => {
+      dispatch(receiveOneReview(updatedReview))
+    })
+}
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
@@ -88,12 +94,7 @@ export const deleteListing = listingId => dispatch =>{
 }
 
 
-export const updateReview = review => (dispatch) =>{
-  return ListingAPIUtil.updateReview(review)
-  .then(updatedReview=>{
-    dispatch(receiveOneReview(updatedReview))
-  })
-}
+
 
 export const deleteReview = reviewId=> (dispatch)=>{
   return ListingAPIUtil.deleteReview(reviewId)

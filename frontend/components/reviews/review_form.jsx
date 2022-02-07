@@ -2,6 +2,7 @@ import React from 'react'
 class ReviewForm extends React.Component {
   constructor(props) {
     debugger;
+    console.log(props)
     super(props);
     this.state = {
       title: '',
@@ -39,6 +40,7 @@ class ReviewForm extends React.Component {
     const regex = /^[1-5\b]+$/;
 
     return e => {
+      
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value) && e.currentTarget.value.length <= 1) {
         this.setState({ [type]: e.currentTarget.value })
       }
