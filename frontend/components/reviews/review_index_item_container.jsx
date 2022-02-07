@@ -38,29 +38,31 @@ class ReviewIndexItem extends React.Component{
       {/* {currentUser.id===id? <Link to ={createUpdateContainer}><button>Edit</button></Link> : ''} */}
       <div>
         <div>
+          {this.state.recommends? (
           <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
+          ):(
+              <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
+          )}
           <p>{title}</p>
           <p>{description}</p>
           <button onClick={() => {
             
             this.setState({ helpful: this.state.helpful + 1 },()=>{
-              console.log(this.props.author.id)
-              console.log(this.props.updateReview)
               this.props.updateReview(this.state)
             })
           }}>
-            Helpful
+            Helpful{this.state.helpful}
           </button>
           {/* <button onClick={helpfulFunc}>Helpful</button> */}
         </div>
-      {/* ) :( */}
+{/* 
         <div>
           <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
           <p>{title}</p>
           <p>{description}</p>
             {/* <button onClick={helpfulFunc}>Helpful</button> */}
-        </div>
-      {/* )} */}
+      
+
     </div >
     </div>
   )
