@@ -6,6 +6,7 @@ import React,{useState} from 'react';
 class ReviewIndexItem extends React.Component{
  constructor(props){
   super(props)
+  console.log(props)
   this.state={...this.props.review}
  }
  
@@ -29,13 +30,18 @@ class ReviewIndexItem extends React.Component{
             ""
           )}
       </div>
-      <button onClick={
-        
-        () => console.log(this.props.author)
-      }>
-        Test button
-      </button>
-      {/* {currentUser.id===id? <Link to ={createUpdateContainer}><button>Edit</button></Link> : ''} */}
+      <div>
+        {
+          currentUser && currentUser.id !== this.props.author.id ? (<button onClick={
+
+            () => console.log(this.props.author)
+          }>
+            Works. Use this for "allowing Helpful"
+          </button>
+          ) : ('')
+        }
+      </div>
+      
       <div>
         <div>
           {this.state.recommends? (
@@ -53,15 +59,8 @@ class ReviewIndexItem extends React.Component{
           }}>
             Helpful{this.state.helpful}
           </button>
-          {/* <button onClick={helpfulFunc}>Helpful</button> */}
         </div>
-{/* 
-        <div>
-          <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
-          <p>{title}</p>
-          <p>{description}</p>
-            {/* <button onClick={helpfulFunc}>Helpful</button> */}
-      
+
 
     </div >
     </div>
