@@ -8,9 +8,28 @@ class ReviewIndexItem extends React.Component{
   super(props)
   console.log(props)
   this.state={...this.props.review}
-
+  this.helpfulFunc=this.helpfulFunc.bind(this)
  }
  
+ helpfulFunc(){
+   if (this.state.helpful_authors.includes(this.props.author.id)){
+     let arrDoub = [...this.state.helpful_authors]
+     let index=arrDoub.indexOf(this.props.author.id)
+     arrDoub.splice(index,1)
+
+    return this.setState({
+      
+       helpful: this.state.helpful - 1,
+       helpful_authors: arrDoub
+     })
+   
+   }else{
+   return this.setState({
+     helpful: this.state.helpful + 1,
+     helpful_authors: [...this.state.helpful_authors, this.props.author.id]
+   })
+  }
+ }
   render(){
     const { title, description, recommends, id } = this.props.review;
     const { lname, fname,authorId } = this.props.author
@@ -33,9 +52,9 @@ class ReviewIndexItem extends React.Component{
       </div>
       <div>
         {
-          currentUser && currentUser.id !== this.props.author.id ? (<button onClick={
-            
-            () => console.log(this.props.author)
+          currentUser && currentUser.id === this.props.author.id ? (<button onClick={()=>{
+            this.helpfulFunc()
+          }
           }>
             Works. Use this for "allowing Helpful"
           </button>
