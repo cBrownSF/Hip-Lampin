@@ -30,7 +30,6 @@ class ReviewForm extends React.Component {
       )
   }
   update(field) {
-    console.log(this.state.recommends) 
 
     return (e) => this.setState({ [field]: e.currentTarget.value });
     

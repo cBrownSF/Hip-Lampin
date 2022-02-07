@@ -134,7 +134,10 @@ class ListingForm extends React.Component {
       // 
     }
     
-    this.props.submitEvent(formData)
+    this.props.submitEvent(formData).then((res)=>{
+      debugger;
+      console.log(res.payload)
+    })
 
     // this.props.history.push(`/listing/${this.props.listing.id}`)
   }

@@ -6,6 +6,7 @@ class Api::ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     # @review.author_id=@author.id
     if @review.save
+      debugger
       render :show
     else
       render json: @review.errors.full_messages, status: 422
@@ -20,6 +21,9 @@ class Api::ReviewsController < ApplicationController
     else
       render json: @review.errors_full_messages
     end
+  end
+  def destroy
+   @review = Review.find_by(id: params[:id])
   end
   def find_listing
     @listing=Listing.find_by(params[:listing_id])

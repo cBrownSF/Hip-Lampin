@@ -17,6 +17,8 @@ class ListingShow extends React.Component {
   
   // componentDidUpdate() {
   //   if (!this.props.listing){
+  //     debugger;
+  //     console.log(this.props)
   //     this.props.receiveListing(this.props.match.params.listingId);
   //   }
   // }
@@ -224,6 +226,12 @@ render() {
         />
       </div>
       <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
         ) :''}

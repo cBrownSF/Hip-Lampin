@@ -12,7 +12,7 @@ class HomePage extends React.Component {
       <div className="search-wrapper">
         <form className="search-form">
         <div className="search-bar">
-          <label for="search">Where to?</label>
+          <label htmlFor="search">Where to?</label>
           <input 
           className="home-boxes"
           type="search"
@@ -20,7 +20,7 @@ class HomePage extends React.Component {
           placeholder='Try Yosemite,Moss Beach,Joshua Tree'/>
               </div>
         <div className="search-bar">
-          <label for="dates">Dates</label>
+          <label htmlFor="dates">Dates</label>
             <input 
             type="date" 
             className="home-boxes"

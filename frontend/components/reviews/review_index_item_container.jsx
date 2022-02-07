@@ -8,7 +8,7 @@ const ReviewIndexItem = ({ author,review,helpfulFunc,currentUser}) => {
   
   return (
     <div>
-      {currentUser.id===id? <Link to ={createUpdateContainer}><button>Edit</button></Link> : ''}
+      {/* {currentUser.id===id? <Link to ={createUpdateContainer}><button>Edit</button></Link> : ''} */}
       <div>
         <div>
           <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>

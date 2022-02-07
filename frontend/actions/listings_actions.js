@@ -51,8 +51,8 @@ export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdListing => {
     dispatch(receiveOneListing(createdListing))
-
-     hashHistory.push(`/listings/${createdListing.id}`)
+    debugger;
+    hashHistory.push(`/listings/${Object.values(createdListing)[0].id}`)
    
   }),
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
@@ -67,9 +67,12 @@ export const createReview = review => (dispatch) => {
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
-      console.log('hitting it')
+      debugger;
+      console.log('update listing hash history push')
+
       dispatch(receiveOneListing(listing))
-      hashHistory.push(`/listings/${listing.id}`)
+      console.log(listing.id)
+      hashHistory.push(`/listings/${Object.values(listing)[0].id}`)
     })
 }
 
