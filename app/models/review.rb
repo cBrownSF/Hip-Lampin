@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   validates :author_id,:listing_id,:description,:title,:recommends,:helpful,presence: true
-
+ validates :recommends,inclusion: {in: [true, false] }
   belongs_to :listing,
     foreign_key: :listing_id
     #class_name: :Listing

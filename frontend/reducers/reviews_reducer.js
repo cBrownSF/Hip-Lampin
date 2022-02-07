@@ -1,4 +1,4 @@
-import { RECEIVE_REVIEW,RECEIVE_LISTING } from "../actions/listings_actions";
+import { RECEIVE_REVIEW,RECEIVE_LISTING,REMOVE_REVIEW } from "../actions/listings_actions";
 
 
 const reviewsReducer = (oldState={},action) => {
@@ -11,6 +11,10 @@ const reviewsReducer = (oldState={},action) => {
       case RECEIVE_LISTING:
      console.log('reviewReducer')
         return   Object.assign({}, oldState, action.reviews)
+      case REMOVE_REVIEW:
+        let nextState = Object.assign({}, oldState)
+        delete nextState[action.reviewId]
+        return nextState
       default:
         return oldState;
     }

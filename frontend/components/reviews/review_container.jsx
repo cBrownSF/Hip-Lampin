@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import { createReview,updateReview } from '../../actions/listings_actions'
+import { createReview,updateReview,deleteReview } from '../../actions/listings_actions'
 import ReviewForm from './review_form'
 const mSTP = (state,ownProps) => {
   return{
@@ -10,7 +10,8 @@ const mSTP = (state,ownProps) => {
 
 const mDTP = dispatch => ({
   submitReview: review => dispatch(createReview(review)),
-  updateReview: review => dispatch(updateReview(review))
+  updateReview: review => dispatch(updateReview(review)),
+  deleteReview: id=> dispatch(deleteReview(id))
 })
 
 export default connect(mSTP,mDTP)(ReviewForm)

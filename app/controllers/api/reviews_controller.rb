@@ -1,14 +1,16 @@
 class Api::ReviewsController < ApplicationController
   before_action :require_logged_in
-  before_action :find_listing,:find_author
+  # before_action :find_listing,:find_author
 
   def create
     @review = current_user.reviews.new(review_params)
+    debugger
     # @review.author_id=@author.id
     if @review.save
       debugger
       render :show
     else
+      debugger
       render json: @review.errors.full_messages, status: 422
     end
   end
@@ -22,15 +24,20 @@ class Api::ReviewsController < ApplicationController
       render json: @review.errors_full_messages
     end
   end
+
   def destroy
    @review = Review.find_by(id: params[:id])
+   if @review
+    debugger
+    @review.destroy
+    render :show
+   else
+    debugger
+    render json: {message: "Not found in my list"}, status: 422
+   end
   end
-  def find_listing
-    @listing=Listing.find_by(params[:listing_id])
-  end
-  def find_author
-    @author=User.find_by(params[:author_id])
-  end
+
+ 
   # def index
   #   @reviews= Review.all
   #   render :index
