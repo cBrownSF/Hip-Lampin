@@ -12,14 +12,23 @@ class ReviewIndexItem extends React.Component{
  }
  
  helpfulFunc(){
-   if (this.state.helpful_authors.includes(this.props.author.id)){
+   if (this.state.helpful_authors.includes(this.props.author.id) && this.state.helpful_authors.length ===1) {
+     let emptyArray = []
+    return this.setState({
+       helpful_authors: emptyArray,
+      helpful: this.state.helpful - 1,
+     }, () => {
+       debugger
+       this.props.updateReview(this.state)
+     })
+    }else if (this.state.helpful_authors.includes(this.props.author.id)){
      let arrDoub = [...this.state.helpful_authors]
      let index=arrDoub.indexOf(this.props.author.id)
      arrDoub.splice(index,1)
     return this.setState({
        helpful: this.state.helpful - 1,
        helpful_authors: arrDoub,
-       helped:true
+       helped:false
     }, () => {
       debugger
       this.props.updateReview(this.state)
@@ -29,7 +38,7 @@ class ReviewIndexItem extends React.Component{
    return this.setState({
      helpful: this.state.helpful + 1,
      helpful_authors: [...this.state.helpful_authors, this.props.author.id],
-     helped: false
+     helped: true
    }, () => {
      this.props.updateReview(this.state)
    }
