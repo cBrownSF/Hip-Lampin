@@ -18,7 +18,8 @@ class ReviewIndexItem extends React.Component{
      arrDoub.splice(index,1)
     return this.setState({
        helpful: this.state.helpful - 1,
-       helpful_authors: arrDoub
+       helpful_authors: arrDoub,
+       helped:true
     }, () => {
       debugger
       this.props.updateReview(this.state)
@@ -27,9 +28,9 @@ class ReviewIndexItem extends React.Component{
    }else{
    return this.setState({
      helpful: this.state.helpful + 1,
-     helpful_authors: [...this.state.helpful_authors, this.props.author.id]
+     helpful_authors: [...this.state.helpful_authors, this.props.author.id],
+     helped: false
    }, () => {
-     debugger
      this.props.updateReview(this.state)
    }
    
@@ -79,7 +80,7 @@ class ReviewIndexItem extends React.Component{
           <p>{description}</p>
           <button onClick={() => {
             this.helpfulFunc()
-          }}>
+          }}className={this.state.helped?"greyed-out-button":"green-helpful-button"}>
             Helpful {this.state.helpful}
           </button>
         </div>
