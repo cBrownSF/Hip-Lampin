@@ -51,11 +51,11 @@ class ReviewIndexItem extends React.Component{
     const currentUser=this.props.currentUser
   return (
     <div>
-      <div>
+      <div className="button-review-div">
         {
           currentUser && currentUser.id === this.props.author.id ? (
-            <div >
-              <button onClick={
+            <div className="Delete-review-button-div">
+              <button className="Delete-review-button" onClick={
                 () => this.props.deleteReview(id)
               }>
                 Delete Review
@@ -79,18 +79,26 @@ class ReviewIndexItem extends React.Component{
       
       <div>
         <div>
+          <div>
           {this.state.recommends? (
-          <h1>{`${fname} ${lname[0]}. recommends this listing`}</h1>
+            <h1><p className="name-initial-review">{`${fname} ${lname[0]}.`}</p> recommends this listing</h1>
           ):(
-              <h1>{`${fname} ${lname[0]}. does not recommend this listing`}</h1>
+              <h1><p className="name-initial-review">{`${fname} ${lname[0]}.`}</p> does not recommend this listing</h1>
           )}
-          <p>{title}</p>
-          <p>{description}</p>
-          <button onClick={() => {
-            this.helpfulFunc()
-          }}className={this.state.helped?"greyed-out-button":"green-helpful-button"}>
-            Helpful {this.state.helpful}
+          </div>
+          <div>
+            <p>{title}</p>
+          </div>
+          <div>
+            <p>{description}</p>
+          </div>
+          <div>
+          <button 
+          onClick={() => this.helpfulFunc()}
+          className={this.state.helped?"greyed-out-button":"green-helpful-button"}>
+          Helpful {this.state.helpful}
           </button>
+          </div>
         </div>
 
 
