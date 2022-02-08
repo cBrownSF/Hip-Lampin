@@ -115,7 +115,7 @@ render() {
          
       </div>
       <div className="recommended-show">
-        <p>{this.state.count / reviewIdArray.length}</p>
+        <p>{Math.floor(this.state.count / reviewIdArray.length)}% Recommend</p>
         <p>save</p>
       </div>
       <div className="line-break">
@@ -244,10 +244,13 @@ render() {
         <br />
         <br />
         <br />
-        <CreateReviewContainer
-          listing={this.props.listing}
-          listingId={this.props.listing.id}
-        />
+        <div>
+          {reviews.some((review) => this.props.currentUser.id ==review.author_id) ? "":(
+                <CreateReviewContainer
+                  listing={this.props.listing}
+                  listingId={this.props.listing.id}
+                />)}
+        </div>
       </div>
       <div>
         {reviews.length === 0 ? (
@@ -256,7 +259,9 @@ render() {
           </div>
         ) : (
           <div>
-            <h1><p>Reviews</p></h1>
+            <div>
+                {reviews.length >= 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
+            </div>
             <ul>
                 {reviews.map((review) => {
                   // if (review.recommends === true) {

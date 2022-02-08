@@ -9,7 +9,6 @@ const reviewsReducer = (oldState={},action) => {
         const { review } = action;
         return  Object.assign({}, oldState, { [action.review.id]: action.review })
       case RECEIVE_LISTING:
-     console.log('reviewReducer')
         return   Object.assign({}, oldState, action.reviews)
       case REMOVE_REVIEW:
         let nextState = Object.assign({}, oldState)

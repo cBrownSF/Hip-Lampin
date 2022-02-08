@@ -4,7 +4,6 @@ const PhotoForm = (props) => {
   if (props.currentPage !== 9) {
     return null
   }
-  console.log(`1:${props.photoURL.length}`)
 return(
   <div className='name-box'>
     <br/>

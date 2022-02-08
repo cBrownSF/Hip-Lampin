@@ -78,10 +78,8 @@ export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
       debugger;
-      console.log('update listing hash history push')
 
       dispatch(receiveOneListing(listing))
-      console.log(listing.id)
       hashHistory.push(`/listings/${Object.values(listing)[0].id}`)
     })
 }

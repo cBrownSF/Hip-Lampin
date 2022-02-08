@@ -21,7 +21,6 @@ class ListingForm extends React.Component {
       return undefined;
     }
     const listing = this.props.listing
-    console.log(this.props.location.state)
     this.state = {
       step: this.props.location.state || 1,
       host_id: this.props.currentUser.id,
@@ -136,7 +135,6 @@ class ListingForm extends React.Component {
     
     this.props.submitEvent(formData).then((res)=>{
       debugger;
-      console.log(res.payload)
     })
 
     // this.props.history.push(`/listing/${this.props.listing.id}`)
@@ -167,7 +165,7 @@ class ListingForm extends React.Component {
 
         fileReader.onloadend = () => {
           let photos2=[...this.state.photoFile]
-          console.log(photos2)
+
         let url2 = [...this.state.photoURL]
         photos2[1]=file
         url2[1]=(fileReader.result)
@@ -362,7 +360,6 @@ class ListingForm extends React.Component {
         street_address: streetA,
         step: 8
       })
-      console.log(this.state)
     })
 
   }

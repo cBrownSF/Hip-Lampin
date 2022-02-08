@@ -1,8 +1,6 @@
 import React from 'react'
 class ReviewForm extends React.Component {
   constructor(props) {
-    debugger;
-    console.log(props)
     super(props);
     this.state = {
       title: '',
@@ -50,6 +48,7 @@ class ReviewForm extends React.Component {
   } 
   render() { 
     return (  
+  
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
