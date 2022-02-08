@@ -23,7 +23,7 @@ export const removeListing = listingId =>({
   listingId
 })
 export const removeReview = reviewId =>({
-  type: REMOVE_LISTING,
+  type: REMOVE_REVIEW,
   reviewId
 })
 const receiveListingErrors = errors => ({
@@ -100,6 +100,6 @@ export const deleteReview = reviewId=> (dispatch)=>{
   return ListingAPIUtil.deleteReview(reviewId)
   .then(()=>{
     debugger;
-    dispatch(removeListing(reviewId))
+    dispatch(removeReview(reviewId))
   })
 }

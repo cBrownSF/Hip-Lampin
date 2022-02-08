@@ -33,7 +33,6 @@ class ReviewIndexItem extends React.Component{
       debugger
       this.props.updateReview(this.state)
    })
-   
    }else{
    return this.setState({
      helpful: this.state.helpful + 1,
