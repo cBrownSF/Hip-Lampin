@@ -16,18 +16,24 @@ class ReviewIndexItem extends React.Component{
      let arrDoub = [...this.state.helpful_authors]
      let index=arrDoub.indexOf(this.props.author.id)
      arrDoub.splice(index,1)
-
     return this.setState({
-      
        helpful: this.state.helpful - 1,
        helpful_authors: arrDoub
-     })
+    }, () => {
+      debugger
+      this.props.updateReview(this.state)
+   })
    
    }else{
    return this.setState({
      helpful: this.state.helpful + 1,
      helpful_authors: [...this.state.helpful_authors, this.props.author.id]
-   })
+   }, () => {
+     debugger
+     this.props.updateReview(this.state)
+   }
+   
+   )
   }
  }
   render(){
@@ -72,18 +78,9 @@ class ReviewIndexItem extends React.Component{
           <p>{title}</p>
           <p>{description}</p>
           <button onClick={() => {
-            let newArray = this.props.review.helpful_authors.concat(this.props.author.id)
-            console.log(newArray)
-            console.log(this.state)
-            this.setState({ 
-              helpful: this.state.helpful + 1, 
-             helpful_authors: [...this.state.helpful_authors,this.props.author.id]
-            },()=>{
-              debugger
-              this.props.updateReview(this.state)
-            })
+            this.helpfulFunc()
           }}>
-            Helpful{this.state.helpful}
+            Helpful {this.state.helpful}
           </button>
         </div>
 
