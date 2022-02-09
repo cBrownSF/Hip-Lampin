@@ -230,7 +230,7 @@ display: flex;
 
 .name-initial-review{
   font-size: 18px;
-  font-weight:525;
+  font-weight:550;
   font-style:inherit;
   margin:0px
 }
@@ -238,14 +238,10 @@ display: flex;
 .recommends-review{
   font-size: 18px;
   font-style:inherit;
-  margin:0px
+  font-weight:400;
+  margin:0 0 0 5px;
 }
-.title-review{
-    font-size: 26px;
-    font-weight: 600;
-    font-style: inherit;
-    margin-top:20px;
-}
+
 .review-time{
   color: grey;
     font-size: 18px;
@@ -291,16 +287,24 @@ display: flex;
 }
 .title-review{
   line-height: 1.42;
-  font-size: 38px;
   font-style:"Calibre", Helvetica, Arial, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 550;
+  margin-top:15px;
+  margin-bottom:15px;
 }
 .delete-review-button{
   font-style:inherit;
   background-color:#39C39A;
   color:white;
   cursor:pointer;
+  padding:10px;
   border-style:none;
   margin-left:auto;
+  font-weight: 700px;
+  border:solid 1px transparent;
+  cursor:pointer;
+  text-decoration:none
 }
 
 .delete-review-button-div{
@@ -310,3 +314,7 @@ display: flex;
   margin-left: auto;
 }
 
+.review-break{
+  border-top:1px solid lightgrey;
+  margin-top:35px;
+}

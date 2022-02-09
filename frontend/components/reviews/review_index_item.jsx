@@ -66,7 +66,7 @@ class ReviewIndexItem extends React.Component{
               <button className="delete-review-button" onClick={
                 () => this.props.deleteReview(id)
               }>
-                Delete Review
+                Delete
               </button>
             </div>
           ) : (
@@ -91,13 +91,13 @@ class ReviewIndexItem extends React.Component{
           <div className="review-recommends-div">
           {this.state.recommends? (
             <div className='div-for-recommends'>
-            <p className="name-initial-review">{`${fname} ${lname[0]}.`}</p>
+            <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
             <p className='recommends-review'> recommends this listing</p>
             <p className='review-time'>{this.getTime()}</p>
             </div>
           ):(
               <div className='div-for-recommends'>
-                <p className="name-initial-review">{`${fname} ${lname[0]}.`}</p>
+                <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
                 <p className='recommends-review'> does not recommend this listing</p>
                 <p className='review-time'>{this.getTime()}</p>
               </div>
@@ -116,6 +116,9 @@ class ReviewIndexItem extends React.Component{
             </button>
           </div>
         </div>
+      <div className="line-break">
+        <hr className="review-break" />
+      </div>
     </div>
   )
   }
