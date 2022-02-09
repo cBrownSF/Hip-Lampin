@@ -466,6 +466,7 @@ body{
   border-style:solid;
   border-width:thin;
   text-decoration: none;
+  transition:0.45s
  }
 .start-hosting:hover{
   background-color: transparent;
