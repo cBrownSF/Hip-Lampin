@@ -251,7 +251,7 @@ display: flex;
     margin-bottom: 0px;
 }
 .green-helpful-button{
-  background-color:#39C39A;
+  background-color:rgba(57,195,154,.9);
   color:white;
   border-style:none;
   font-style:inherit;
@@ -260,7 +260,16 @@ display: flex;
   padding:12px 0px 12px 0px;
   border:solid 1px transparent;
   cursor:pointer;
-  text-decoration:none
+  text-decoration:none;
+
+  transition:0.3s;
+  /* transition-delay: 0s; */
+
+}
+.green-helpful-button:hover{
+      transform: scale(1.02);
+        background-color:rgba(57,195,154,1);
+
 }
 .greyed-out-button{
   color:#757575;
@@ -295,7 +304,7 @@ display: flex;
 }
 .delete-review-button{
   font-style:inherit;
-  background-color:#39C39A;
+ background-color:rgba(57,195,154,.9);
   color:white;
   cursor:pointer;
   padding:10px;
@@ -304,9 +313,12 @@ display: flex;
   font-weight: 700px;
   border:solid 1px transparent;
   cursor:pointer;
-  text-decoration:none
+  text-decoration:none;
+   background-color:rgba(57,195,154,1);
 }
-
+.delete-review-button:hover{
+      transform: scale(1.02);
+}
 .delete-review-button-div{
   margin-left: auto;
 }
