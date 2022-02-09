@@ -238,12 +238,27 @@ render() {
       </div>
       <div className="review-form-listing-show-div" >
         <div>
-          {reviews.some((review) => this.props.currentUser.id !==review.author_id) ? "":(
+          <CreateReviewContainer
+            listing={this.props.listing}
+            listingId={this.props.listing.id}
+          />
+          </div>
+        {/* <div>
+          {this.props.currentUser?(
+            <div>
+              {reviews.some((review) => this.props.currentUser.id !== review.author_id) ? "" : (
                 <CreateReviewContainer
                   listing={this.props.listing}
                   listingId={this.props.listing.id}
                 />)}
-        </div>
+            </div>
+          ):(
+            <div>
+              MUST BE SIGNED IN
+            </div>
+          )}
+        </div> */}
+        
       </div>
       <div className="review-index-item-show">
         {reviews.length === 0 ? (
@@ -253,7 +268,7 @@ render() {
         ) : (
           <div className="review-index-item-array-show-div">
             <div className="number-of-reviews-show">
-                {reviews.length > 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
+                {reviews.length === 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
             </div>
             <div className="review-index-item-array-show">
                   {reviews.map((review) => {

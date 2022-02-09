@@ -91,14 +91,31 @@ class ReviewIndexItem extends React.Component{
           <div className="review-recommends-div">
           {this.state.recommends? (
             <div className='div-for-recommends'>
-            <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
-            <p className='recommends-review'> recommends this listing</p>
-            <p className='review-time'>{this.getTime()}</p>
+              {currentUser && currentUser.id !== this.props.author.id ? (
+                <div className="div-inside-recommend-condition">
+              <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
+              <p className='recommends-review'> recommends this listing</p>
+              </div>) : (
+                  <div className="div-inside-recommend-condition">
+                    <p className="name-initial-review">{`You `}</p>
+                    <p className='recommends-review'> recommend this listing</p>
+                  </div>
+              )}
+              <p className='review-time'>{this.getTime()}</p>
             </div>
           ):(
+            
               <div className='div-for-recommends'>
-                <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
-                <p className='recommends-review'> does not recommend this listing</p>
+                {currentUser && currentUser.id !== this.props.author.id ? (
+                  <div className="div-inside-recommend-condition">
+                    <p className="name-initial-review">{`${fname} ${lname[0]}. `}</p>
+                    <p className='recommends-review'> does not recommend this listing</p>
+                  </div>) : (
+                  <div className="div-inside-recommend-condition">
+                    <p className="name-initial-review">{`You `}</p>
+                    <p className='recommends-review'> do not recommend this listing</p>
+                  </div>
+                )}
                 <p className='review-time'>{this.getTime()}</p>
               </div>
             )}
@@ -107,6 +124,7 @@ class ReviewIndexItem extends React.Component{
             <p className='review-body'>{description}</p>
           </div>
           <div className="button-helpful-div">
+          {currentUser && currentUser.id !== this.props.author.id ?(
             <button 
             onClick={() => this.helpfulFunc()}
             className={this.state.helped?"greyed-out-button":"green-helpful-button"}>
@@ -114,6 +132,7 @@ class ReviewIndexItem extends React.Component{
             <span className='helpful-word'>Helpful</span>
             <span className="number-of-votes">{this.state.helpful}</span>
             </button>
+          ):''}
           </div>
         </div>
       <div className="line-break">

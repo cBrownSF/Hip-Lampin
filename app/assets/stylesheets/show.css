@@ -330,3 +330,6 @@ display: flex;
   border-top:1px solid lightgrey;
   margin-top:35px;
 }
+.div-inside-recommend-condition{
+  display:flex
+}
