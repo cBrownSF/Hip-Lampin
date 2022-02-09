@@ -314,10 +314,10 @@ display: flex;
   border:solid 1px transparent;
   cursor:pointer;
   text-decoration:none;
-   background-color:rgba(57,195,154,1);
 }
 .delete-review-button:hover{
-      transform: scale(1.02);
+  transform: scale(1.02);
+  background-color:rgba(57,195,154,1);
 }
 .delete-review-button-div{
   margin-left: auto;
