@@ -261,8 +261,6 @@ display: flex;
   border:solid 1px transparent;
   cursor:pointer;
   text-decoration:none;
-
-  transition:0.3s;
   /* transition-delay: 0s; */
 
 }

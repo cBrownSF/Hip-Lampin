@@ -6,9 +6,19 @@ import React from 'react';
 class ReviewIndexItem extends React.Component{
  constructor(props){
   super(props)
+  console.log(this.props.review.helpful_authors)
   this.state={...this.props.review}
   this.helpfulFunc=this.helpfulFunc.bind(this)
   this.getTime=this.getTime.bind(this)
+ }
+ componentDidMount(){
+   let helpedArray=[...this.state.helpful_authors]
+   helpedArray.filter(Number)
+   console.log(helpedArray.filter(Number))
+   return this.setState({
+    helpful_authors:helpedArray
+   })
+   debugger;
  }
  getTime(){
    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -20,42 +30,47 @@ class ReviewIndexItem extends React.Component{
 
  }
  helpfulFunc(){
-   if (this.state.helpful_authors.includes(this.props.author.id) && this.state.helpful_authors.length ===1) {
-     let emptyArray = []
+   if (this.state.helpful_authors.includes(this.props.currentUser.id) && this.state.helpful_authors.length ===1) {
+     let arrDoub = ['']
     return this.setState({
-       helpful_authors: emptyArray,
+       helpful_authors: arrDoub,
       helpful: this.state.helpful - 1,
       helped:false
      }, () => {
        debugger
        this.props.updateReview(this.state)
      })
-    }else if (this.state.helpful_authors.includes(this.props.author.id)){
+    }
+    if (this.state.helpful_authors.includes(this.props.currentUser.id)){
      let arrDoub = [...this.state.helpful_authors]
-     let index=arrDoub.indexOf(this.props.author.id)
+     console.log(arrDoub)
+     let index=arrDoub.indexOf(this.props.currentUser.id) 
      arrDoub.splice(index,1)
+     debugger;
     return this.setState({
        helpful: this.state.helpful - 1,
        helpful_authors: arrDoub,
        helped:false
     }, () => {
-      debugger
-      this.props.updateReview(this.state)
+     debugger;
+        this.props.updateReview(this.state)
+    
+     
    })
    }else{
    return this.setState({
      helpful: this.state.helpful + 1,
-     helpful_authors: [...this.state.helpful_authors, this.props.author.id],
+     helpful_authors: [...this.state.helpful_authors, this.props.currentUser.id],
      helped: true
    }, () => {
-     this.props.updateReview(this.state)
-   }
-   )
-  }
+       this.props.updateReview(this.state)
+  })
  }
+}
   render(){
     const { title, description, recommends, id } = this.props.review;
     const { lname, fname,authorId } = this.props.author
+    const {helpful_authors,helped}=this.state
     const currentUser=this.props.currentUser
   return (
     <div className="review-index-item">
@@ -72,17 +87,6 @@ class ReviewIndexItem extends React.Component{
           ) : (
             ""
           )}
-      </div>
-      <div className='helpful-extra-css'>
-        {
-          currentUser && currentUser.id === this.props.author.id ? (<button onClick={()=>{
-            this.helpfulFunc()
-          }
-          }>
-            Works. Use this for "allowing Helpful"
-          </button>
-          ) : ('')
-        }
       </div>
         <div className="review-title-body-div">
           <div className="title-review-div" >
@@ -127,7 +131,7 @@ class ReviewIndexItem extends React.Component{
           {currentUser && currentUser.id !== this.props.author.id ?(
             <button 
             onClick={() => this.helpfulFunc()}
-            className={this.state.helped?"greyed-out-button":"green-helpful-button"}>
+              className={helped && helpful_authors.includes(currentUser.id) ?"greyed-out-button":"green-helpful-button"}>
             <span className="thumbs-up"><i className="far fa-thumbs-up"></i></span>
             <span className='helpful-word'>Helpful</span>
             <span className="number-of-votes">{this.state.helpful}</span>

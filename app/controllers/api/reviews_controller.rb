@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
 
    def update
     @review = Review.find_by(id: params[:id])
-    if @review.update(review_params)
+   if @review.update(review_params)
       render :show
     else
       render json: @review.errors_full_messages
@@ -45,6 +45,6 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:listing_id,:description,:title,:recommends,:helpful,:author_id,:helped,:helpful_authors => [])
+    params.require(:review).permit(:listing_id,:description,:title,:recommends,:helpful,:author_id,:helped,:helpful_authors,:helpful_authors => [])
   end
 end
