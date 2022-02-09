@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   flex-wrap: wrap;
+  font-style:"Calibre", Helvetica, Arial, sans-serif;
   background-color: whitesmoke;
   padding:30px 10%;
 }
@@ -198,3 +199,113 @@ color: grey;
    font-family:inherit;
    font-size:40px;
  }
+ .review-index-item-show{
+   display:flex;
+   flex-direction:column;
+ }
+ .number-of-reviews-show{
+   display:flex;
+ }
+.review-index-item-array-show-div{
+  display:flex;
+  flex-direction:column;
+}
+
+.number-of-reviews-show{
+  display:flex
+}
+.review-index-item{
+  display:flex;
+  flex-direction: column;
+  border:red solid 2px
+}
+.review-title-body-div{
+  display:flex;
+  flex-direction: column;
+}
+
+.div-for-recommends{
+display: flex;
+}
+
+.name-initial-review{
+  font-size: 18px;
+  font-weight:525;
+  font-style:inherit;
+  margin:0px
+}
+
+.recommends-review{
+  font-size: 18px;
+  font-style:inherit;
+  margin:0px
+}
+.title-review{
+    font-size: 26px;
+    font-weight: 600;
+    font-style: inherit;
+    margin-top:20px;
+}
+.review-time{
+  color: grey;
+    font-size: 18px;
+    font-style: inherit;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.green-helpful-button{
+  background-color:#39C39A;
+  color:white;
+  border-style:none;
+  font-style:inherit;
+  font-size:14px;
+  font-weight: 700px;
+  padding:20px 0px 20px 0px;
+  border:solid 1px transparent;
+  cursor:pointer;
+  text-decoration:none
+}
+.greyed-out-button{
+  color:#757575;
+  background-color: transparent;
+  border-style:none;
+  border: solid 3px #757575 ;
+  font-style:inherit;
+  font-size:14px;
+  font-weight: 900px;
+  padding:20px 0px 20px 0px;
+  cursor:pointer;
+  text-decoration:none
+}
+
+.helpful-word{
+  margin:0px 10px 0px 10px
+}
+.number-of-votes{
+  margin:0px 10px 0px 10px
+}
+.thumbs-up{
+  margin:0px 10px 0px 10px
+
+}
+.title-review{
+  line-height: 1.42;
+  font-size: 38px;
+  font-style:"Calibre", Helvetica, Arial, sans-serif;
+}
+.delete-review-button{
+  font-style:inherit;
+  background-color:#39C39A;
+  color:white;
+  cursor:pointer;
+  border-style:none;
+  margin-left:auto;
+}
+
+.delete-review-button-div{
+  margin-left: auto;
+}
+.button-review-div{
+  margin-left: auto;
+}

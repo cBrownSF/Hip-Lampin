@@ -15,7 +15,7 @@
  */
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 body{
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   background-color: rgb(234, 232, 228);
   margin:0;
   padding:0;
@@ -584,11 +584,11 @@ input[type="file"] {
    width:200px;
  }
  .pac-matched{
-   font-style:'Helvetica', 'Arial', sans-serif;
+   font-style:"Calibre", Helvetica, Arial, sans-serif;
    font-size:16px;
  }
  .pac-item{
-   font-style:'Helvetica', 'Arial', sans-serif;
+   font-style:"Calibre", Helvetica, Arial, sans-serif;
    font-size:16px;
    border-top:none;
    padding:10px;
@@ -598,7 +598,7 @@ input[type="file"] {
    background-color: lightgray;
  }
  .pac-item-query{
-   font-style:'Helvetica', 'Arial', sans-serif;
+   font-style:"Calibre", Helvetica, Arial, sans-serif;
    font-size:16px;
  }
 

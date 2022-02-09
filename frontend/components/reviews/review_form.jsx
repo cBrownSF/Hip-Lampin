@@ -49,7 +49,7 @@ class ReviewForm extends React.Component {
   render() { 
     return (  
   
-      <div>
+      <div className="review-form-div">
         <form onSubmit={this.handleSubmit}>
           <div>
             Add a review

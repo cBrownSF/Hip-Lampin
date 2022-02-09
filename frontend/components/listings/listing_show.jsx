@@ -236,54 +236,40 @@ render() {
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
         ) :''}
       </div>
-      <div >
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+      <div className="review-form-listing-show-div" >
         <div>
-          {reviews.some((review) => this.props.currentUser.id ==review.author_id) ? "":(
+          {reviews.some((review) => this.props.currentUser.id !==review.author_id) ? "":(
                 <CreateReviewContainer
                   listing={this.props.listing}
                   listingId={this.props.listing.id}
                 />)}
         </div>
       </div>
-      <div>
+      <div className="review-index-item-show">
         {reviews.length === 0 ? (
           <div>
             <p>No reviews yet</p>
           </div>
         ) : (
-          <div>
-            <div>
-                {reviews.length >= 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
+          <div className="review-index-item-array-show-div">
+            <div className="number-of-reviews-show">
+                {reviews.length > 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
             </div>
-            <ul>
-                {reviews.map((review) => {
-                  // if (review.recommends === true) {
-                  //   console.log('hits')
-                  //   this.setState((prevState) => ({
-                  //     count: prevState.count + 1
-                  //   }))
-                  // }
-                  if (reviewIdArray.includes(review.id)) {
-                    return(<ReviewIndexItem
-                      review={review}
-                      authorId={review.author_id}
-                      key={review.id}
-                      helpfulFunc={this.helpfulClick}
-                      currentUser={this.props.currentUser}
-                    />
-                    )
+            <div className="review-index-item-array-show">
+                  {reviews.map((review) => {
+                    if (reviewIdArray.includes(review.id)) {
+                      return(<ReviewIndexItem
+                        review={review}
+                        authorId={review.author_id}
+                        key={review.id}
+                        helpfulFunc={this.helpfulClick}
+                        currentUser={this.props.currentUser}
+                      />
+                      )
+                    }
+                  })
                   }
-                
-                })
-                }
-            </ul>
+            </div>
           </div>
         )}
     </div>
