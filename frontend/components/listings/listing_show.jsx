@@ -146,21 +146,42 @@ render() {
       <div id= 'activities-show'>
         <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Amenities</p>
-        <ul className='list-show-page'>
-          <li id="text">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
-          <li id="text">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
-          <li id="text">{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</li>
-          <li id="text">{`Kitchen ${this.updatedProps(listing.is_kitchen)}`}</li>
-        </ul>
+          <div className='flex-act-div'>
+            <div className='inner-div-essent'>
+            <li id="text-icons">{`Showers ${this.updatedProps(listing.is_shower)}`}</li>
+            <i className="fas fa-shower"></i>
+          </div>
+            <div className='inner-div-essent'>
+          <li id="text-icons">{`Wifi ${this.updatedProps(listing.is_wifi)}`}</li>
+          <i className="fas fa-wifi"></i>
+            </div>
+            <div className='inner-div-essent'>
+              <li id="text-icons">{`Picnic tables ${this.updatedProps(listing.is_picnic_table)}`}</li>
+              <i class="fas fa-campground"></i>
+            </div>
+            <div className='inner-div-essent'>
+              <li id="text-icons">{`Kitchen ${this.updatedProps(listing.is_kitchen)}`}</li>
+              <i class="fas fa-sink"></i>
+            </div>
+      </div>
         </div>
         <div id='activities-show'>
           <p id="link-location">{isHost(amenities)}</p>
           <p id='headers'>Essentials</p>
-          <ul className='list-show-page'>
-            <li id="text">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
-            <li id="text">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
-            <li id="text">{`Campfires are ${this.updatedProps(listing.is_campfire_allowed)}`}</li>
-          </ul>
+          <div className='flex-act-div'>
+            <div className='inner-div-essent'>
+              <li id="text-icons">{`Trash cans are ${this.updatedProps(listing.is_trash)}`}</li>
+              <i class="fas fa-trash-alt"></i>
+            </div>
+            <div className='inner-div-essent'>
+              <li id="text-icons">{`Toilet is ${this.updatedProps(listing.is_toilet)}`}</li>
+              <i class="fas fa-toilet-paper"></i>
+            </div>
+            <div className='inner-div-essent'>
+              <li id="text-icons">{`Campfires are ${this.updatedProps(listing.is_campfire_allowed)}`}</li>
+              <i class="fas fa-fire"></i>
+            </div>
+       </div>
         </div>
         <div id='activities-show'>
           <p id="link-location">{isHost(activities)}</p>
@@ -200,12 +221,12 @@ render() {
               {!listing.is_paddling ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Paddling</li>
-                  <i className="fas fa-swimmer"></i>
+                  <i className="fas fa-water"></i>
                 </div>
               ) : (
                 <div className="inner-div-act">
                   <li id='text-icons-no'>No Paddling Area</li>
-                  <i className="fas fa-swimmer" style={{ color: 'grey' }}></i>
+                    <i className="fas fa-water" style={{ color: 'grey' }}></i>
                 </div>
               )}
             </div >
@@ -213,12 +234,12 @@ render() {
               {listing.is_wildlife ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Wildlife</li>
-                  <i className="fas fa-fish"></i>
+                  <i className="fas- fa-binoculars"></i>
                 </div>
                 ):(
               <div className="inner-div-act">
                 <li id='text-icons'>Urban Setting</li>
-                <i className="fas fa-fish"></i>
+                <i class="fas fa-building"></i>
               </div>
                 )}
             </div>

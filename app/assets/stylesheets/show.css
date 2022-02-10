@@ -482,6 +482,10 @@ font-size: 2.4rem;
 .inner-div-act{
   display:flex;
 }
+.inner-div-essent{
+  display:flex;
+  margin:5px;
+}
 
  .list-show-page-icons{
    line-height:1.4;
@@ -497,3 +501,7 @@ font-size: 2.4rem;
  /* .fa-fish{
   color:green
  } */
+
+ .essentials-list-div{
+  display:flex;
+ }
