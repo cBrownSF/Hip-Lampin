@@ -75,7 +75,7 @@ class ReviewForm extends React.Component {
            <option value={false}>No</option>
           </select>
           </div>
-          <div>
+          <div className="submit-review-div">
             <button
             className="submit-review-button"
               type="submit"

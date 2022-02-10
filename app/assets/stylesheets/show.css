@@ -293,11 +293,9 @@ display: flex;
 
 }
 .title-review{
-  line-height: 1.42;
   font-style:"Calibre", Helvetica, Arial, sans-serif;
   font-size: 2.4rem;
-  font-weight: 550;
-  margin-top:15px;
+  margin-top:0px;
   margin-bottom:15px;
 }
 .delete-review-button{
@@ -434,5 +432,13 @@ font-size: 2.4rem;
 .div-holding-review-form{
   display:flex;
   justify-content:center;
+  margin-bottom:50px;
     /* border: solid 2px black; */
+}
+.submit-review-div{
+  display:flex;
+  justify-content: center;
+}
+.button-and-title{
+  display:flex;
 }

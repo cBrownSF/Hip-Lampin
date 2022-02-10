@@ -74,6 +74,10 @@ class ReviewIndexItem extends React.Component{
     const currentUser=this.props.currentUser
   return (
     <div className="review-index-item">
+      <div className="button-and-title">
+      <div className="title-review-div" >
+        <p className="title-review">{title}</p>
+      </div>
       <div className="button-review-div">
         {
           currentUser && currentUser.id === this.props.author.id ? (
@@ -88,10 +92,11 @@ class ReviewIndexItem extends React.Component{
             ""
           )}
       </div>
+      </div>
         <div className="review-title-body-div">
-          <div className="title-review-div" >
+          {/* <div className="title-review-div" >
             <p className="title-review">{title}</p>
-          </div>
+          </div> */}
           <div className="review-recommends-div">
           {this.state.recommends? (
             <div className='div-for-recommends'>
