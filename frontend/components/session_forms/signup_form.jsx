@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
           <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
             <hr className = "line-break"/>
           <div className = 'link-to-signup'>
-            <p className= "font-before-link">Already a member? <Link className = "login-sign-up-link" to='/login'>Log In!</Link ></p>
+            <p className= "font-before-link">Already a member? {this.props.switchForms}</p>
           </div>
         </form>
       </div >

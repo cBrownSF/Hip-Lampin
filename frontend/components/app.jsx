@@ -8,10 +8,12 @@ import ListingShowContainer from "./listings/listing_show_container";
 import EditFormContainer from "./listings/edit_form_container";
 import SearchContainer from './search/search_container';
 import HomePage from './welcome_pages/home_page'
+import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 
 const App = () => (
   <div>
+    <Modal />
     <header>
     <GreetingContainer/>
   </header>

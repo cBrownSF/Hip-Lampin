@@ -58,7 +58,7 @@ class LoginForm extends React.Component {
           </label>
           <input className= "sign-up-sign-in-button" type="submit" value= 'Log in' />
           <div>
-            <p className = "font-before-link">Don't have an account? <Link className = "login-sign-up-link" to='/signup'>Sign Up!</Link ></p>
+            <p className="font-before-link">Don't have an account? {this.props.switchForms}</p>
           </div>
         </form>
       </div >
