@@ -317,6 +317,7 @@ display: flex;
 }
 .delete-review-button-div{
   margin-left: auto;
+  margin-top:5px;
 }
 .button-review-div{
   margin-left: auto;
@@ -441,4 +442,8 @@ font-size: 2.4rem;
 }
 .button-and-title{
   display:flex;
+}
+.review-already-added{
+  padding:10px;
+  border:2px solid black 
 }

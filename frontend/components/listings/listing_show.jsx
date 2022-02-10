@@ -248,15 +248,16 @@ render() {
                 {reviews.length === 1 ? <div className="no-review-num-review">{`${reviews.length} Review`}</div> : <div>{`${reviews.length} Reviews`}</div>}
       <div className="review-form-listing-show-div" >
         <div className='div-holding-review-form'>
-          <CreateReviewContainer
-            listing={this.props.listing}
-            listingId={this.props.listing.id}
-          />
+          {reviews.some((review) => this.props.currentUser.id === review.author_id) ? <div className="review-already-added">You have already added a review</div> : (
+            <CreateReviewContainer
+              listing={this.props.listing}
+              listingId={this.props.listing.id}
+            />)}
           </div>
-        {/* <div>
+        <div>
           {this.props.currentUser?(
             <div>
-              {reviews.some((review) => this.props.currentUser.id !== review.author_id) ? "" : (
+              {reviews.some((review) => this.props.currentUser.id === review.author_id) ? "" : (
                 <CreateReviewContainer
                   listing={this.props.listing}
                   listingId={this.props.listing.id}
@@ -267,7 +268,7 @@ render() {
               MUST BE SIGNED IN
             </div>
           )}
-        </div> */}
+        </div>
         
       </div>
      
