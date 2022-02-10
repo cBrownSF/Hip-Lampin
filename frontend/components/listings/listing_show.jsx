@@ -106,6 +106,18 @@ render() {
         <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
       </div>
  
+      <div className="booking-box">
+        <div className='cost-show'>
+          <p id="link-location">{isHost(cost)}</p>
+          <span id="price">{`$${listing.cost}`}</span>
+          <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
+          <div className='check-in'>
+          <button>Check In</button><button>Check Out</button>
+          
+          </div>
+          <button>Request to Book</button>
+        </div>
+      </div>
     
       <div className = 'name-show'>
         <p id="link-location">{isHost(nameEdit)}</p>
@@ -122,18 +134,6 @@ render() {
         <hr id="solid" />
       </div>
 
-      <div className="booking-box">
-        <div className='cost-show'>
-          <p id="link-location">{isHost(cost)}</p>
-          <span id="price">{`$${listing.cost}`}</span>
-          <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
-          <div className='check-in'>
-          <button>Check In</button><button>Check Out</button>
-          
-          </div>
-          <button>Request to Book</button>
-        </div>
-      </div>
      
       <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>

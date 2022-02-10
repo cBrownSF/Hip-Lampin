@@ -152,8 +152,10 @@ color: grey;
   border-width: thin;
  }
  .booking-box{
+   right:20px;
+   position:fixed;
+   margin-top:-20px;
    display:flex;
-   flex-direction:column;
  }
  .check-in{
    display:flex;
