@@ -165,16 +165,77 @@ render() {
         <div id='activities-show'>
           <p id="link-location">{isHost(activities)}</p>
           <p id='headers'>Activities</p>
-          <ul className='list-show-page'>
+          <div className='flex-act-div'>
+          {/* <ul className='list-show-page-icons'> */}
             {//fix this later and make sure ! is correct// 
 }
-            <li id='text'>{!listing.is_hiking? "Hiking":""}</li>
-            <li id='text'>{!listing.is_swimming? "Swimming":""}</li>
-            <li id='text'>{listing.is_paddling? "Paddling":""}</li>
-            <li id='text'>{!listing.is_wildlife? "Wildlife":""}</li>
-            <li id='text'>{listing.is_fishing? "Fishing":""}</li>
 
-          </ul>
+            <div className='activities-list-div'>
+              {!listing.is_hiking ? (
+                <div className="inner-div-act">
+                  <li id='text-icons'>Hiking</li>
+                  <i className="fas fa-hiking"></i>
+                </div>
+              ) : (
+                <div className="inner-div-act">
+                  <li id='text-icons-no'>No Hiking nearby</li>
+                  <i className="fas fa-hiking" style={{ color: 'grey' }}></i>
+                </div>
+              )}
+            </div >
+            <div className='activities-list-div'>
+              {!listing.is_swimming ? (
+                <div className="inner-div-act">
+                  <li id='text-icons'>Swimming</li>
+                  <i className="fas fa-swimmer"></i>
+                </div>
+              ) : (
+                <div className="inner-div-act">
+                  <li id='text-icons-no'>No Swimming Area</li>
+                  <i className="fas fa-swimmer" style={{ color: 'grey' }}></i>
+                </div>
+              )}
+            </div >
+            <div className='activities-list-div'>
+              {!listing.is_paddling ? (
+                <div className="inner-div-act">
+                  <li id='text-icons'>Paddling</li>
+                  <i className="fas fa-swimmer"></i>
+                </div>
+              ) : (
+                <div className="inner-div-act">
+                  <li id='text-icons-no'>No Paddling Area</li>
+                  <i className="fas fa-swimmer" style={{ color: 'grey' }}></i>
+                </div>
+              )}
+            </div >
+            <div className='activities-list-div'>
+              {listing.is_wildlife ? (
+                <div className="inner-div-act">
+                  <li id='text-icons'>Wildlife</li>
+                  <i className="fas fa-fish"></i>
+                </div>
+                ):(
+              <div className="inner-div-act">
+                <li id='text-icons'>Urban Setting</li>
+                <i className="fas fa-fish"></i>
+              </div>
+                )}
+            </div>
+            <div className='activities-list-div'>
+              {listing.is_fishing ? (
+                <div className="inner-div-act">
+              <li id='text-icons'>Fishing</li>
+              <i className="fas fa-fish"></i>
+                </div>
+              ):(
+                  <div className="inner-div-act">
+                    <li id='text-icons-no'>Fishing is unavailable</li>
+                    <i className="fas fa-fish" style={{color: 'grey'}}></i>
+                  </div>
+              )}
+            </div>
+          </div>
         </div>
         
       </div>

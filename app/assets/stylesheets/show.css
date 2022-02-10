@@ -447,3 +447,53 @@ font-size: 2.4rem;
   padding:10px;
   border:2px solid black 
 }
+.fas-fa-hiking{
+  margin-right:5px
+}
+
+.show-container #text-icons{
+  font-family:inherit;
+  color:black;
+  text-align: left;
+  /* margin-left:5px;
+  
+  /* margin-left:18px;
+  padding-left:10px; */
+  list-style: none;
+  margin-right:5px;
+}
+.show-container #text-icons-no{
+  font-family:inherit;
+  color:gray;
+  text-align: left;
+  /* margin-left:5px;
+  
+  /* margin-left:18px;
+  padding-left:10px; */
+  list-style: none;
+  margin-right:5px;
+  
+}
+.activities-list-div{
+  display:flex;
+  margin:5px;
+
+}
+.inner-div-act{
+  display:flex;
+}
+
+ .list-show-page-icons{
+   line-height:1.4;
+   display:flex;
+   flex-direction:column;
+   justify-content:center
+ }
+
+ .flex-act-div{
+  display:flex;
+  flex-direction:column;
+ }
+ /* .fa-fish{
+  color:green
+ } */
