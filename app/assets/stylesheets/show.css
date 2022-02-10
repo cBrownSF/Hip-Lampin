@@ -217,7 +217,7 @@ color: grey;
 .review-index-item{
   display:flex;
   flex-direction: column;
-  border:red solid 2px
+
 }
 .review-title-body-div{
   display:flex;
@@ -330,4 +330,109 @@ display: flex;
 }
 .div-inside-recommend-condition{
   display:flex
+}
+
+.select-menu{
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  color:black;
+  font-style:inherit;
+  border:solid lightgray 2px;
+  border-radius:30px;
+}
+.select-prompt{
+  font-style:inherit;
+  font-size:20px;
+   margin:10px 0px 10px 0px;
+}
+.select-menu:focus,
+.select-menu:hover{
+  outline:none;
+  border:solid 2px darkgray;
+}
+.select-menu option{
+  background:white
+}
+.review-body-input{
+font-family: inherit;
+font-size: 16px;
+resize: none;
+border: solid lightgrey 2px;
+padding: 10px;
+border-radius: 15px;
+height:150px;
+width:350px;
+outline:none;
+margin-bottom:10px;
+
+}
+.review-prompt{
+  font-size: 20px;
+  font-family:inherit;
+  margin:10px 0px 10px 0px;
+
+}
+.review-title-text{
+  font-style:inherit;
+  font-size:20px;
+   margin:10px 0px 10px 0px;
+}
+.review-title-input{
+  font-style:inherit;
+  font-size:16px;
+  border: solid lightgrey 2px;
+  padding: 10px;
+  border-radius: 15px;
+  outline:none;
+}
+.add-review{
+  font-style:inherit;
+  font-weight:600;
+  font-size:20px;
+  margin:10px 0px 10px 0px;
+  text-align:center;
+
+}
+.submit-review-button{
+   padding: 9px 25px;
+   margin:10px 0px 10px 0px;
+   font-size:16px;
+  font-family: inherit;
+    background-color:rgba(57,195,154,.9);
+   color:white;
+  font-weight: 700px;
+  border:solid 1px transparent;
+  cursor:pointer;
+   cursor:pointer;
+  border-radius: 15px;
+  border-color:#39C39A;
+  border-style:solid;
+  border-width:thin;
+  text-decoration: none;
+}
+.submit-review-button:hover{
+  transform: scale(1.02);
+  background-color:rgba(57,195,154,1);
+}
+
+.no-review-num-review{
+font-style:inherit;
+font-size: 2.4rem;
+}
+.review-form-div{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+    border: solid 2px black;
+    justify-content: center;
+    padding:10px;
+}
+.div-holding-review-form{
+  display:flex;
+  justify-content:center;
+    /* border: solid 2px black; */
 }

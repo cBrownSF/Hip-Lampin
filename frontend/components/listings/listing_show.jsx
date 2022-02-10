@@ -236,8 +236,18 @@ render() {
         <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
         ) :''}
       </div>
+      <div className="line-break">
+        <hr id="solid" />
+      </div>
+
+      <div className="review-index-item-show">
+        {reviews.length === 0 ? (
+            <div className="no-review-num-review">No reviews yet</div>
+        ) : (
+          <div className="review-index-item-array-show-div">
+                {reviews.length === 1 ? <div className="no-review-num-review">{`${reviews.length} Review`}</div> : <div>{`${reviews.length} Reviews`}</div>}
       <div className="review-form-listing-show-div" >
-        <div>
+        <div className='div-holding-review-form'>
           <CreateReviewContainer
             listing={this.props.listing}
             listingId={this.props.listing.id}
@@ -260,16 +270,7 @@ render() {
         </div> */}
         
       </div>
-      <div className="review-index-item-show">
-        {reviews.length === 0 ? (
-          <div>
-            <p>No reviews yet</p>
-          </div>
-        ) : (
-          <div className="review-index-item-array-show-div">
-            <div className="number-of-reviews-show">
-                {reviews.length === 1 ? <h1><p>{`${reviews.length} Review`}</p></h1> : <h1><p>{`${reviews.length} Reviews`}</p></h1>}
-            </div>
+     
             <div className="review-index-item-array-show">
                   {reviews.map((review) => {
                     if (reviewIdArray.includes(review.id)) {

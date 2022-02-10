@@ -50,34 +50,36 @@ class ReviewForm extends React.Component {
     return (  
   
       <div className="review-form-div">
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            Add a review
-          </div>
-          <div>Title</div>
-          <input type="text" 
+        <form className="review-form-form" onSubmit={this.handleSubmit}>
+          <div className='add-review'>
+            Add your own
+          </div >
+          {/* <div className='review-title-text'>Give your review a title</div> */}
+          <input className='review-title-input' type="text" 
             value={this.state.title}
             onChange={this.update("title")}
             placeholder=" Enter Title"
           />
-          <div> Description</div>
+          <div className='review-prompt'> How was your stay?</div>
           <textarea 
             value={this.state.description}
             onChange={this.update("description")}
             placeholder=" Enter the details"
+            className='review-body-input'
           />
           <div>
-        <label >Do you recommend this listing?</label>
-          <select value={this.state.recommends} onChange={this.update('recommends')}>
-           <option value={null}>---</option>
+            <label className='select-prompt'>Do you recommend this listing?  </label>
+          <select className="select-menu" value={this.state.recommends} onChange={this.update('recommends')}>
+           <option value ={null}>---</option>
            <option value={true}>Yes</option>
            <option value={false}>No</option>
           </select>
           </div>
           <div>
             <button
+            className="submit-review-button"
               type="submit"
-            >SUBMIT BUTTON
+            >Submit Review
             </button>
             </div>
          </form>
