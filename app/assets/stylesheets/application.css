@@ -35,7 +35,17 @@ body{
   font-size:16px;
   color:black;
 }
-
+.nav-li-button{
+ font-family: "Montserrat",sans-serif;
+   display:inline-block;
+   padding:0px 20px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size:16px;
+  color:black;
+  border-style:none;
+  background-color: transparent;
+}
 .mainLogo{
   margin: 4px;
   margin-right: auto;

@@ -33,7 +33,7 @@ class Greeting extends React.Component {
         <nav >
           <ul className="nav-bar">
             <li className = 'nav-li'><Link className = "nav-li" to= '/listings'>Listings</Link></li>
-              <li className='nav-li'> <button onClick={() => openModal('login')}>Login</button></li>
+              <li className='nav-li'> <button className="nav-li-button" onClick={() => openModal('login')}>Login</button></li>
             <li className='nav-li'><Link className="nav-li" onClick = {login} to='/'>DemoLogin</Link></li>
           </ul>
         </nav>
