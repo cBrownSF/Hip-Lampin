@@ -608,12 +608,12 @@ input[type="file"] {
    margin-top:20px;
  }
 
-  .map {
+  /* .map {
    width: 500px;
-   height: 500px;
+   height: 100%;
    float: left;
    position: relative;
- }
+ } */
 
  .mini-map {
    display:flex;

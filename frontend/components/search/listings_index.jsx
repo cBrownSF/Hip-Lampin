@@ -7,8 +7,7 @@ const ListingIndex = (props) => {
       return null;
     }else{
       return(
-        <div>
-          <h1>Listing: </h1>
+        <div className="index-item">
           {Object.values(props.listings).map(listing => (
             <ListingIndexItem
               listings={listing}

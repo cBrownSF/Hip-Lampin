@@ -16,20 +16,21 @@ render(){
     return null;
   }
   return(
-<div>
-  <p>HELLO</p>
-  <div>
-  <ListingMap 
-    listings={this.props.listings}
-    receiveListings={this.props.receiveListings}
-    updateBounds={this.props.updateBounds}
-  />
-</div>
-<div>
-  <ListingIndex 
-    listings={this.props.listings}  
-  />
-</div>
+<div className="index-container">
+  <div className="map-item-container">
+    <div className="listing-index-container">
+    <ListingIndex 
+      listings={this.props.listings}  
+    />
+    </div>
+    <div className="listing-map-index-page">
+    <ListingMap 
+      listings={this.props.listings}
+      receiveListings={this.props.receiveListings}
+      updateBounds={this.props.updateBounds}
+    />
+    </div>
+  </div>
 </div>
 )
 }

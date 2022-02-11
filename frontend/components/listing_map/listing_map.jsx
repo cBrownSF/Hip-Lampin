@@ -41,9 +41,11 @@ google.maps.event.addListener(this.map,'click',(event)=>{
 
 render(){
   return(
+    <div className="map-container">
     <div className='map' ref={ map => this.mapNode = map }>
     Map
   </div>
+    </div>
   )
 }
 }
