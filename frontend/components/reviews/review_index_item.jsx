@@ -6,12 +6,16 @@ import React from 'react';
 class ReviewIndexItem extends React.Component{
  constructor(props){
   super(props)
-  console.log(this.props.review.helpful_authors)
+  // console.log(this.props.review.helpful_authors)
   this.state={...this.props.review}
   this.helpfulFunc=this.helpfulFunc.bind(this)
   this.getTime=this.getTime.bind(this)
  }
  componentDidMount(){
+   if(this.state.recommends){ 
+     this.props.count()
+   }
+  
    let helpedArray=[...this.state.helpful_authors]
    helpedArray.filter(Number)
    console.log(helpedArray.filter(Number))
@@ -87,7 +91,10 @@ class ReviewIndexItem extends React.Component{
           currentUser && currentUser.id === this.props.author.id ? (
             <div className="delete-review-button-div">
               <button className="delete-review-button" onClick={
-                () => this.props.deleteReview(id)
+                this.state.recommends ? (
+
+                    () => this.props.deleteReview(id).then(this.props.subCount())
+                  ) : () => this.props.deleteReview(id)
               }>
                 Delete
               </button>

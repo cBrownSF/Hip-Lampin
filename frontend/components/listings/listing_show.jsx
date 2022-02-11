@@ -7,27 +7,30 @@ import ReviewIndexItem from '../reviews/review_index_item_container'
 class ListingShow extends React.Component {
   constructor(props){
     super(props)
-    this.helpfulClick=this.helpfulClick.bind(this)
     this.state={count:0}
+    this.addToCount=this.addToCount.bind(this)
+    this.subtractCount=this.subtractCount.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
     window.scrollTo(0, 0);
   }
   
-  // componentDidUpdate() {
-  //   if (!this.props.listing){
-  //     debugger;
-  //     console.log(this.props)
-  //     this.props.receiveListing(this.props.match.params.listingId);
-  //   }
-  // }
-  helpfulClick(e){
-    e.preventDefault()
+  componentDidUpdate(prevState,nextState) {
+    if (prevState !== nextState){
+      console.log(this.state)
+    }
+  }
+  addToCount(){
+    return this.setState((prevState)=>({
+      count: prevState.count +1
+    }))
+
+  }
+  subtractCount(){
     this.setState((prevState) => ({
-      count: prevState.count + 1
+      count: prevState.count -1
     }))   
-    debugger;
   }
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
@@ -50,7 +53,7 @@ class ListingShow extends React.Component {
   }
   
 render() {
- 
+ console.log(this.state)
   if (!this.props.listing){
     return null;
   }
@@ -127,7 +130,7 @@ render() {
          
       </div>
       <div className="recommended-show">
-        <p>{Math.floor(this.state.count / reviewIdArray.length)}% Recommend</p>
+        <p>{(this.state.count / reviewIdArray.length) * 100}% Recommend</p>
         <p>save</p>
       </div>
       <div className="line-break">
@@ -349,12 +352,15 @@ render() {
             <div className="review-index-item-array-show">
                   {reviews.map((review) => {
                     if (reviewIdArray.includes(review.id)) {
-                      return(<ReviewIndexItem
+                      
+                      return(
+                      <ReviewIndexItem
                         review={review}
                         authorId={review.author_id}
                         key={review.id}
-                        helpfulFunc={this.helpfulClick}
                         currentUser={this.props.currentUser}
+                        count={this.addToCount}
+                        subCount={this.subtractCount}
                       />
                       )
                     }
