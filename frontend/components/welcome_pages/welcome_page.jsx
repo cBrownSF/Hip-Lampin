@@ -6,7 +6,7 @@ class Greeting extends React.Component {
   }
  
   render() {
-    const { currentUser, logout,login } = this.props
+    const { currentUser, logout,login,openModal } = this.props
     if (currentUser) {
       const newTo = {
         pathname: "/listings/new",

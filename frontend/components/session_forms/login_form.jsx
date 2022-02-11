@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state).then(this.props.closeModal);
   }
   handleInput(type) {
     return e => {

@@ -135,7 +135,7 @@ body{
    padding: 10px;
  }
  .form-container{
-    display:flex;
+    /* display:flex;
     justify-content: center;
     flex-flow: column;
     align-items: center;
@@ -148,24 +148,15 @@ body{
    left:0;
    bottom: 20;
    top: 0;
-   height: 550px;
+   height: 550px; */
  }
  
  .sign-up-form-container{
     display:flex;
     justify-content: center;
-    flex-flow: column;
-    align-items: center;
-    max-width: 450px; 
-   margin:auto;
-   display:flex;
-   justify-content: center;
-   position:absolute;
-   right:0;
-   left:0;
-   bottom: 0;
-   top: 0;
-   height: 50vh;
+    flex-direction:column;
+    border:solid black;
+    background-color:whitesmoke;
  }
  
  .session-form{
@@ -662,3 +653,20 @@ input[type="file"] {
    border-radius:20px;
    border: 1px solid grey
  }
+
+ .background-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
