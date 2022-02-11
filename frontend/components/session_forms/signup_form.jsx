@@ -12,12 +12,14 @@ class SessionForm extends React.Component {
       lname:''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
+    // this.renderErrors= this.renderErrors.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state).then(this.props.closeModal)
-    debugger;
+   
+    this.props.submitForm(this.state)
+    
   }
   handleInput(type) {
     return e => {
@@ -32,32 +34,38 @@ class SessionForm extends React.Component {
       let singleError = this.props.errors[0]
       return singleError;
     }
-
+  renderErrors() {
+    console.log('render errors')
+    return (
+      <ul className="list-name">
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     // if (this.props.currentUser !== undefined) {
     //   return <Redirect to='/' />
     // }
     return (
       <div className='sign-up-form-container'>
-        <h1>Join Hipcamp</h1>
+        <h1 className="header-sign-forms">Join Hipcamp</h1>
         <form className = "session-form" onSubmit={this.handleSubmit}>
-         <p className = "errors">{this.showErrors()}</p>
-          <label>
-            <input className='form-boxes'
+        <div className='first-name-last-name'>
+            <input className='form-boxes-first-name'
               placeholder='First name'
               type="text"
               value={this.state.fname}
               onChange={this.handleInput('fname')}
             />
-          </label>
-          <label >
-            <input className='form-boxes'
+            <input className='form-boxes-last-name'
               placeholder = 'Last name'
               type="text"
               value={this.state.lname}
               onChange={this.handleInput('lname')}
             />
-          </label>
+          </div>
           <label >
             <input className='form-boxes'
               type="password"
@@ -74,10 +82,12 @@ class SessionForm extends React.Component {
               onChange={this.handleInput('email')}
             />
           </label>
+         {/* <p className = "errors">{this.showErrors()}</p> */}
+         <div>{this.renderErrors()}</div>
           <input className = "sign-up-sign-in-button" type="submit" value= "Sign up" />
             <hr className = "line-break"/>
           <div className = 'link-to-signup'>
-            <p className= "font-before-link">Already a member? {this.props.switchForms}</p>
+            <p className= "font-before-link">Already a member?{this.props.switchForms}</p>
           </div>
         </form>
       </div >

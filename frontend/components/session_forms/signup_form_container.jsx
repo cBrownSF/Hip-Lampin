@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { closeModal } from "../../actions/modal_actions";
+import { closeModal,openModal } from "../../actions/modal_actions";
 import React from "react";
 import { signup,removeSessionErrors } from "../../actions/session_actions";
 import SessionForm from "./signup_form";
@@ -17,7 +17,7 @@ const mapDispatchtoProps = (dispatch) => {
     submitForm: (user) => dispatch(signup(user)),
     clearErrors: () => dispatch(removeSessionErrors()),
     switchForms: (
-      <button onClick={() => dispatch(openModal('login'))}>
+      <button className="font-switch-login" onClick={() => dispatch(openModal('login'))}>
         Log In!
       </button>),
     closeModal: () => dispatch(closeModal()),

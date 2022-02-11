@@ -84,17 +84,18 @@ body{
   
 } */
  .sign-up-sign-in-button{
-   font-family: "Montserrat",sans-serif;
+    font-family:"Calibre", Helvetica, Arial, sans-serif;
+   padding: 5%;
    background-color:#39C39A;
    color:white;
    text-align: center;
-   border-radius: 3px;
    outline:none;
    border: .1px;
-   font-size: 16px;
-   width: 342px;
-   height:57px;
-   margin:2px;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 90%;
+    height: 57px;
+    margin: 5%;
    
  }
  .nav-bar{
@@ -150,26 +151,46 @@ body{
    top: 0;
    height: 550px; */
  }
- 
+ .header-sign-forms{
+  font-size:40px;
+  font-weight:600px;
+  font-style:inherit;
+  text-align: center;
+  margin-bottom:0px;
+ }
  .sign-up-form-container{
     display:flex;
     justify-content: center;
     flex-direction:column;
-    border:solid black;
+    border:1px solid #ebebeb;
+    border-radius: 2px;
     background-color:whitesmoke;
+    width: 332px;
  }
  
  .session-form{
     display:flex;
-    justify-content: center;
+
     flex-flow: column;
-    align-items: center;
+
  }
  
  .font-before-link{
   font-size:16px;
   font-style: inherit;
   color: black;
+  text-align:center;
+ }
+ .font-switch-login{
+  font-weight:bold;
+   text-decoration: none;
+   color: black;
+   font-size:16px;
+   font-family: "Montserrat",sans-serif;
+   text-decoration: none;
+   background-color:transparent;
+   border-style:none;
+   cursor:pointer;
  }
  .line-break{
    color:black;
@@ -178,20 +199,53 @@ body{
  
  .form-boxes{
    font-family:"Calibre", Helvetica, Arial, sans-serif;
-   padding: 16px;
-   margin: 10px;
+   padding: 5%;
+   margin: 5%;
+   width:80%;
    border-color:black;
    border-width:thin;
    line-height: 1.5;
-  width:310px;
-  height:48px;
-    font-size: 20px
+    font-size: 16px
+    
+   /* border-color: black; */
+   /* flex-basis: 0 0 200px; */
+ }
+  .form-boxes-first-name{
+   font-family:"Calibre", Helvetica, Arial, sans-serif;
+   border-color:black;
+   border-width:thin;
+   line-height: 1.5;
+    font-size: 16px;
+  margin:5%;
+  margin-right:2%;
+  padding:5%;
+  width:40%
+   /* border-color: black; */
+   /* flex-basis: 0 0 200px; */
+ }
+ .form-boxes-last-name{
+   font-family:"Calibre", Helvetica, Arial, sans-serif;
+   border-color:black;
+   border-width:thin;
+   line-height: 1.5;
+    font-size: 16px;
+  margin:5%;
+  margin-left:2.5%;
+  padding:5%;
+  width:40%
    /* border-color: black; */
    /* flex-basis: 0 0 200px; */
  }
  .errors{
    font-family: inherit;
-   font-size: 10px;
+   font-size: 12px;
+   text-align:left;
+   list-style:none;
+   line-height:1.4
+ }
+ .list-name{
+   list-style:none;
+   margin:0px;
  }
  .create-listing-form{
    /* background-color: darkgrey; */
@@ -669,4 +723,7 @@ input[type="file"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.first-name-last-name{
+  display:flex;
 }
