@@ -51,7 +51,10 @@ class ListingShow extends React.Component {
   updatedYesProps(word) {
     return word === true ? 'Yes' : 'No'
   }
-  
+  percentRecommend(){
+    const reviewIdArray = this.props.listing.reviewIds
+   return (this.state.count / reviewIdArray.length) * 100
+  }
 render() {
  console.log(this.state)
   if (!this.props.listing){
@@ -130,7 +133,7 @@ render() {
          
       </div>
       <div className="recommended-show">
-        <p>{(this.state.count / reviewIdArray.length) * 100}% Recommend</p>
+        <p>{reviewIdArray.length? `${this.percentRecommend()} % Recommended`: 'No reviews yet'}</p>
         <p>save</p>
       </div>
       <div className="line-break">
@@ -334,7 +337,7 @@ render() {
             </div>
                 )}
         </div>
-      <div className="review-form-listing-show-div" >
+      <div className="review-form-listing-show-div-not-sign-in" >
           {this.props.currentUser?(
             <div className='div-holding-review-form'>
             {reviews.some((review) => this.props.currentUser.id === review.author_id) ? <div className="review-already-added">You have already added a review</div> : (
@@ -344,8 +347,18 @@ render() {
                 />)}
             </div>
           ):(
-            <div>
-              MUST BE SIGNED IN
+          <div className="review-form-listing-show-div" >
+            <div className='div-holding-not-signed-in'>
+              <div className='signed-out-review-must'>You must be signed in to add a review</div>
+              <div className="div-not-signed-in-show">
+                <button 
+                    className="green-sign-up-button"
+                onClick={() => this.props.openModal('login')}>Log in</button>
+                <button 
+                    className="green-sign-up-button"
+                onClick={() => this.props.openModal('signup')}>Sign up</button>
+              </div>
+            </div>
             </div>
           )}
       </div>

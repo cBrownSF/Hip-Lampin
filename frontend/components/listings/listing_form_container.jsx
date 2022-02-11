@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchtoProps = (dispatch) =>{
   return{
     submitEvent: (listing) => dispatch(createListing(listing)),
-    clearErrors: () => dispatch(removeListingErrors())
+    clearErrors: () => dispatch(removeListingErrors()),
   }
 }
 export default withRouter(connect (mapStateToProps,mapDispatchtoProps)(ListingForm))

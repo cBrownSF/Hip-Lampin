@@ -507,3 +507,45 @@ font-size: 2.4rem;
  .essentials-list-div{
   display:flex;
  }
+ .div-not-signed-in-show{
+   display:flex;
+   flex-direction:row;
+   padding:10px;
+   justify-content: space-between;
+ }
+ .div-holding-not-signed-in{
+  display:flex;
+  justify-content: center;
+  flex-direction:column;
+  border: solid;
+ }
+ .signed-out-review-must{
+   font-size:16px;
+   font-style:inherit;
+  padding:10px
+ }
+ .review-form-listing-show-div-not-sign-in{
+   display:flex;
+   justify-content: center;
+ }
+
+ .green-sign-up-button{
+  background-color:rgba(57,195,154,.9);
+  color:white;
+  border-style:none;
+  font-style:inherit;
+  font-size:14px;
+  font-weight: 700px;
+  padding:12px 0px 12px 0px;
+  border:solid 1px transparent;
+  cursor:pointer;
+  text-decoration:none;
+  width:40%
+  /* transition-delay: 0s; */
+
+}
+.green-sign-up-button:hover{
+      transform: scale(1.02);
+        background-color:rgba(57,195,154,1);
+
+}
