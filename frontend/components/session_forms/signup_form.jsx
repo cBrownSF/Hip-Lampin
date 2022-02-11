@@ -17,9 +17,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-   
-    this.props.submitForm(this.state)
-    
+    this.props.submitForm(this.state).then(this.props.closeModal);
   }
   handleInput(type) {
     return e => {
@@ -35,7 +33,6 @@ class SessionForm extends React.Component {
       return singleError;
     }
   renderErrors() {
-    console.log('render errors')
     return (
       <ul className="list-name">
         {this.props.errors.map((error, i) => (

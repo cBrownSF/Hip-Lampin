@@ -28,18 +28,24 @@ class LoginForm extends React.Component {
     let singleError = this.props.errors[0]
     return singleError;
   }
-  
+  renderErrors() {
+    return (
+      <ul className="list-name">
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     // if (this.props.currentUser !== undefined) {
     //   return <Redirect to='/' />
     // }
     return (
-      <div className = 'form-container'>
-        <h1 className="form-main-header">Welcome Back!</h1>
+      <div className='login-mod-form-container'>
+        <h1 className="header-sign-forms">Welcome Back!</h1>
       
         <form className ="session-form" onSubmit={this.handleSubmit}>
-         
-          <p className="errors">{this.showErrors()}</p>
           <label>
             <input className='form-boxes'
               type="text"
@@ -50,14 +56,16 @@ class LoginForm extends React.Component {
           </label>
           <label>
             <input className='form-boxes'
-            type="password"
+              type="password"
               placeholder='Password'
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
           </label>
+          <div>{this.renderErrors()}</div>
           <input className= "sign-up-sign-in-button" type="submit" value= 'Log in' />
-          <div>
+          <hr className="line-break" />
+          <div className='link-to-signup'>
             <p className="font-before-link">Don't have an account? {this.props.switchForms}</p>
           </div>
         </form>

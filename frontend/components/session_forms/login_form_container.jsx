@@ -16,7 +16,7 @@ const mapDispatchtoProps = (dispatch) => {
     submitForm: (user) => dispatch(login(user)),
     clearErrors: () => dispatch(removeSessionErrors()),
     switchForms:( 
-    <button onClick={() => dispatch(openModal('signup'))}>
+      <button className="font-switch-login" onClick={() => dispatch(openModal('signup'))}>
       Sign up!
     </button>),
     closeModal: ()=>dispatch(closeModal()),
