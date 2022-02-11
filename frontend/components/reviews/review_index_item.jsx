@@ -30,6 +30,10 @@ class ReviewIndexItem extends React.Component{
 
  }
  helpfulFunc(){
+   debugger;
+   if (!this.props.currentUser){
+     this.props.openModal('login')
+   }
    if (this.state.helpful_authors.includes(this.props.currentUser.id) && this.state.helpful_authors.length ===1) {
      let arrDoub = ['']
     return this.setState({
