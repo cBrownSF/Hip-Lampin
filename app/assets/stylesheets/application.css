@@ -106,7 +106,10 @@ body{
     width: 90%;
     height: 57px;
     margin: 5%;
-   
+     cursor:pointer;
+ }
+ .sign-up-sign-in-button:hover{
+     transform: scale(1.02);
  }
  .nav-bar{
    list-style:none;
@@ -145,22 +148,7 @@ body{
  .navList{
    padding: 10px;
  }
- .form-container{
-    /* display:flex;
-    justify-content: center;
-    flex-flow: column;
-    align-items: center;
-    max-width: 450px; 
-   margin:auto;
-   display:flex;
-   justify-content: center;
-   position:absolute;
-   right:0;
-   left:0;
-   bottom: 20;
-   top: 0;
-   height: 550px; */
- }
+ 
  .header-sign-forms{
   font-size:40px;
   font-weight:600px;
