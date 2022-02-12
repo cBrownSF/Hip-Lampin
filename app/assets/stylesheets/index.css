@@ -72,3 +72,14 @@
  .link-over-text-box:hover{
   background:whitesmoke
  }
+ .slider-div{
+   width: 50%;
+    height: 100%;
+   position:absolute;
+   opacity:1;
+   transition: opacity ease-in-out 0.4s
+ }
+ .next-carousel-button{
+   position:absolute;
+ }
+ /* change opacity to 0 at some point */
