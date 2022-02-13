@@ -22,7 +22,7 @@ class ReviewIndexItem extends React.Component{
    return this.setState({
     helpful_authors:helpedArray
    })
-   debugger;
+   
  }
  getTime(){
    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]

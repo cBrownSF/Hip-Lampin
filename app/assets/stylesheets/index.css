@@ -54,6 +54,7 @@
    width:100%;
    border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    object-fit:cover
  }
  .listing-map-index-page{
    box-shadow:0 2px 5px rgb(0 0 0 / 10%)
@@ -68,18 +69,43 @@
  }
 .link-over-text-box{
   text-decoration:none;
+  margin-top:-20px
 }
  .link-over-text-box:hover{
   background:whitesmoke
  }
  .slider-div{
-   width: 50%;
-    height: 100%;
-   position:absolute;
    opacity:1;
-   transition: opacity ease-in-out 0.4s
+   transition: opacity ease-in-out 0.4s;
+  /* margin-top:-6%; */
  }
  .next-carousel-button{
-   position:absolute;
+   cursor:pointer;
+   background-color: transparent;
+       border-style:none;
+
+    top: 50%;
+    left: 20px;
+
+   /* position:absolute; */
  }
+  .prev-carousel-button{
+  cursor: pointer;
+    background-color: transparent;
+    /* position: absolute; */
+    top: 50%;
+    left: 20px;
+    border-style:none;
+ }
+ .buttons-class{
+   display:flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+        transform: translateY(-200%);
+
+ }
+
+
  /* change opacity to 0 at some point */

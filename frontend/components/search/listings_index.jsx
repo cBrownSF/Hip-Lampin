@@ -7,7 +7,7 @@ const ListingIndex = (props) => {
       return null;
     }else{
       console.log(props.listings.id)
-      debugger;
+    
       return(
         <div className="index-item">
 

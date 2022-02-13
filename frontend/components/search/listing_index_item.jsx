@@ -11,7 +11,7 @@ class ListingIndexItem extends React.Component {
     this.prevImage=this.prevImage.bind(this)
   }
    nextImage(){
-     debugger;
+  
      const photos = this.props.listings;
      const slide = this.state;
      if(slide !==photos.length){
@@ -25,7 +25,7 @@ class ListingIndexItem extends React.Component {
       }
     }
     prevImage(){
-      debugger;
+    
       const photos = this.props.listings
       const slide = this.state
       if(slide!==1){
@@ -45,25 +45,15 @@ class ListingIndexItem extends React.Component {
     return (
     <li className='index-item-li'>
     <div className="listing-index-item-box">
+      <div className="slider-container">
           <div className='slider-div'>
-        {/* {photos.map((photo,i)=>{
-          return (
-          <div 
-          className='slider-div'
-          key={photo.id}
-          >
-            <img className="index-photo" src={photo} height="200px" width="200px" />
-          </div>
-          )
-        })} */}
-      {/* <img className="index-photo"src={photos[0]} height="200px" width="200px"/> */}
              <img className="index-photo"src={photos[this.state.slide]} height="200px" width="200px"/> 
-
-     <button className="next-carousel-button" onClick={()=> this.prevImage}>prev</button>
-            <button className="next-carousel-button" onClick={this.nextImage}>next</button>
-
-
+              <div className="buttons-class">
+              <button className="prev-carousel-button" onClick={this.prevImage}><i class="fas fa-chevron-left" style={{ color: 'white' }}></i></button>
+              <button className="next-carousel-button" onClick={this.nextImage}><i class="fas fa-chevron-right" style={{ color: 'white' }}></i></button>
+              </div>
       </div>
+          </div>
           {/* <img className="index-photo"src={photos[0]} height="200px" width="200px"/> */}
 
       <Link className='link-over-text-box' to={`/listings/${id}`}> <div className='text-index-box'>
