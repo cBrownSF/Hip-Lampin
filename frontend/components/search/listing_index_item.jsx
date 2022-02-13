@@ -48,9 +48,10 @@ class ListingIndexItem extends React.Component {
       <div className="slider-container">
           <div className='slider-div'>
              <img className="index-photo"src={photos[this.state.slide]} height="200px" width="200px"/> 
+
               <div className="buttons-class">
-              <button className="prev-carousel-button" onClick={this.prevImage}><i class="fas fa-chevron-left" style={{ color: 'white' }}></i></button>
-              <button className="next-carousel-button" onClick={this.nextImage}><i class="fas fa-chevron-right" style={{ color: 'white' }}></i></button>
+                <button className="carousel-button" onClick={this.prevImage}><i class="fas fa-chevron-left" style={{ color: 'white' }}></i></button>
+                <button className="carousel-button" onClick={this.nextImage}><i class="fas fa-chevron-right" style={{ color: 'white' }}></i></button>
               </div>
       </div>
           </div>
