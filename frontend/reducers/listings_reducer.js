@@ -5,6 +5,7 @@ const listingsReducer = (oldState = {},action) =>{
     case RECEIVE_ALL_LISTINGS:
       return action.listings
     case RECEIVE_LISTING:
+   
       return Object.assign({},oldState,{[action.listing.id]: action.listing})
     case REMOVE_LISTING:
       let nextState = Object.assign({},oldState)

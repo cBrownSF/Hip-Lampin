@@ -7,12 +7,20 @@ import ReviewIndexItem from '../reviews/review_index_item_container'
 class ListingShow extends React.Component {
   constructor(props){
     super(props)
-    this.state={count:0}
+    this.state={
+      count:0,
+      hostFname:null,
+      hostLname:null || ''}
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
+    this.findHostAuthor=this.findHostAuthor.bind(this)
   }
   componentDidMount() {
-    this.props.receiveListing(this.props.match.params.listingId);
+    this.props.receiveListing(this.props.match.params.listingId).then(()=>{
+      this.findHostAuthor()
+    })
+    debugger;
+    console.log(this.state)
     window.scrollTo(0, 0);
   }
   
@@ -55,13 +63,27 @@ class ListingShow extends React.Component {
     const reviewIdArray = this.props.listing.reviewIds
    return (this.state.count / reviewIdArray.length) * 100
   }
+  findHostAuthor(){
+    const authorArray=this.props.authors
+    const hostId = this.props.listing.host_id
+    authorArray.map((author)=>{
+      if (author.id === hostId){
+        debugger;
+        return this.setState({
+          hostFname:author.fname,
+          hostLname:author.lname
+        })
+      } 
+    })
+  }
 render() {
+
  console.log(this.state)
   if (!this.props.listing){
     return null;
   }
   const listing = this.props.listing
-  
+  console.log(this.props)
   const descript = {
     pathname: `/listings/${this.props.listing.id}/edit`,
     state: 2
@@ -101,8 +123,10 @@ render() {
     return <span> </span>
   }
 }
+
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
+  // this.findHostAuthor()
   return(
    
     <div className='show-container'>
@@ -134,7 +158,6 @@ render() {
       </div>
       <div className="recommended-show">
         <p>{reviewIdArray.length? `${this.percentRecommend()} % Recommended`: 'No reviews yet'}</p>
-        <p>save</p>
       </div>
       <div className="line-break">
         <hr id="solid" />
@@ -143,9 +166,9 @@ render() {
      
       <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
-        <p>Host pic</p>
-        <p>Host Name</p>
-        <p>{listing.description}</p>
+        <p>Hosted By: {this.state.hostFname} {this.state.hostLname[0]}</p>
+        <p>descript:{listing.description}</p>
+       
       </div>
       
       <div className='box-show-page'>

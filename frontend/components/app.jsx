@@ -6,6 +6,7 @@ import SignupFormContainer from './session_forms/signup_form_container'
 import ListingFormContainer from './listings/listing_form_container'
 import ListingShowContainer from "./listings/listing_show_container";
 import EditFormContainer from "./listings/edit_form_container";
+import ProfileContainer from "./profile/profile_container";
 import SearchContainer from './search/search_container';
 import HomePage from './welcome_pages/home_page'
 import Modal from './modal/modal';
@@ -21,6 +22,7 @@ const App = () => (
     {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
     <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
+    <Route exact path="/profile/:profileId" component = {ProfileContainer}/>
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
