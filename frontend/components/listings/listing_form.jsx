@@ -318,7 +318,7 @@ class ListingForm extends React.Component {
   }
   autoCompleteNextStep() {
     const options = {
-      componentRestrictions: { country: ["us", "ca"] },
+      componentRestrictions: { country: ["us"] },
       fields: ["address_components", "geometry", "formatted_address", "type", "adr_address", "name"],
       types: ["address"],
     }

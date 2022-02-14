@@ -10,6 +10,16 @@ def create
     end
   end
 
+def update
+ @user = User.with_attached_photos.find_by(id: params[:id])
+
+    if @user.update(user_params)
+      render "api/users/show"
+    else
+      render json: @user.errors_full_messages
+    end
+  end
+
 def show
   @user= User.find_by(id: params[:id])
   render :show
@@ -18,6 +28,6 @@ end
   private
   
   def user_params
-    params.require(:user).permit(:email, :password,:fname,:lname)
+    params.require(:user).permit(:email, :password,:fname,:lname,:intro,:photo)
   end
 end
