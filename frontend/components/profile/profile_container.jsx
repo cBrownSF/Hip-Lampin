@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./profile";
 
-const mSTP = (state)=>{
+const mSTP = (state,ownProps)=>{
   debugger;
   return {
     user: state.entities.users[ownProps.match.params.profileId],

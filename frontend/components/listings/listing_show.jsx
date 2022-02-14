@@ -166,6 +166,8 @@ render() {
      
       <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
+        <span><Link to ={`/profile/${this.props.listing.host_id}`} >Host Pic</Link></span>
+      
         <p>Hosted By: {this.state.hostFname} {this.state.hostLname[0]}</p>
         <p>descript:{listing.description}</p>
        

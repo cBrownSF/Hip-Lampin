@@ -12,6 +12,7 @@ class Greeting extends React.Component {
         pathname: "/listings/new",
         state: 1
       };
+
       return (
       <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
@@ -20,7 +21,7 @@ class Greeting extends React.Component {
         <ul className="nav-bar">
           <li><Link className="nav-li" to='/listings'>Listings</Link></li>
           <li className="nav-li" onClick={logout}>Logout</li>
-          <li className="nav-li">Profile</li>
+          <li ><Link className="nav-li" to={`/profile/${currentUser.id}`}>Profile</Link></li>
         </ul>
         </nav>
           <Link to={newTo}><button className='start-hosting'>New Listing</button></Link>

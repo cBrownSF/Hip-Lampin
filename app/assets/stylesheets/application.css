@@ -46,6 +46,9 @@ body{
   border-style:none;
   background-color: transparent;
 }
+.nav-li:hover{
+transform: scale(1.04);
+}
 .mainLogo{
   margin: 4px;
   margin-right: auto;
