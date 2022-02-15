@@ -9,6 +9,7 @@ import EditFormContainer from "./listings/edit_form_container";
 import ProfileContainer from "./profile/profile_container";
 import SearchContainer from './search/search_container';
 import HomePage from './welcome_pages/home_page'
+import EditProfileContainer from "./profile/edit_profile_container";
 import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 

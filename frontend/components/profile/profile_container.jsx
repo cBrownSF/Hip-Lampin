@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./profile";
-
+import { receiveAllListings } from "../../actions/listings_actions";
 const mSTP = (state,ownProps)=>{
   debugger;
   return {
@@ -10,7 +10,9 @@ const mSTP = (state,ownProps)=>{
     currentUser: state.entities.users[state.sessions.currentUser]
 }
 }
+const mDTP = dispatch => ({
+  receiveListings: () => dispatch(receiveAllListings())
+})
 
 
-
-export default connect(mSTP)(Profile)
+export default connect(mSTP,mDTP)(Profile)

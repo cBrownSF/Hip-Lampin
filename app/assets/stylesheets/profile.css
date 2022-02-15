@@ -1,0 +1,88 @@
+.left-side-prof{
+
+  display:flex;
+  flex-direction:column;
+}
+.header{
+border: solid lightgray;
+border-width: thin;
+box-shadow: 0 1px 5px 0 rgb(0 0 0 / 8%);
+margin:20px;
+padding:20px
+}
+.email-div{
+border: solid lightgray;
+border-width: thin;
+box-shadow: 0 1px 5px 0 rgb(0 0 0 / 8%);
+margin:20px;
+padding:20px
+}
+.users-listings{
+  display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    border: solid lightgray;
+border-width: thin;
+box-shadow: 0 1px 5px 0 rgb(0 0 0 / 8%);
+margin:20px;
+padding:20px
+}
+.user-listing-item{
+      display: flex;
+    flex-wrap: wrap;
+}
+.profile-div{
+  background-color:white;
+  display:flex;
+   padding:30px 10%;
+}
+.trip-listing-header{
+      display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.trip-listing-profile-title{
+   font-style:inherit;
+    font-size:25px;
+    font-weight:600px
+}
+.prof-trips{
+  display:flex;
+  flex-direction:column;
+   display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    border: solid lightgray;
+border-width: thin;
+box-shadow: 0 1px 5px 0 rgb(0 0 0 / 8%);
+margin:20px;
+padding:20px
+
+}
+.photo-and-name{
+  display:flex;
+
+}
+.greyed-trust{
+  color:darkgray;
+  font-size: 16px;
+  font-style:inherit;
+  font-weight:700px;
+}
+.email{
+  font-size: 16px;
+  font-style:inherit;
+  margin-left:5px
+}
+.prof-name{
+  font-size:22px;
+  overflow-wrap: break-word;
+  font-weight:600px;
+  font-style:inherit
+}
+.link-prof{
+  font-size:16px;
+  text-decoration: none;
+  font-style:inherit;
+  color:black;
+}

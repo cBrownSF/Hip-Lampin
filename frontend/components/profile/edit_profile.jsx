@@ -3,10 +3,14 @@ class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     const currentUser = this.props
+    
+    debugger;
     this.state={
-    intro= currentUser.intro,
+    // intro= '',
     photoFile: currentUser.photoFile ||null,
-    photoURL: currentUser.photoURL ||null
+    photoURL: currentUser.photoURL ||null,
+    introduction: ''
+   
     };
     this.handleFile=this.handleFile.bind(this)
   }
@@ -28,7 +32,11 @@ class EditProfile extends React.Component {
     }
   }
   render() { 
+    if (!this.props.listings){
+      return null
+    }
     return ( 
+      <div>
       <form >
         
         <div>
@@ -41,18 +49,14 @@ class EditProfile extends React.Component {
           />
         </div>
         <div className="uploadphoto">
+          Upload Photo
           <input type="file" 
           className="uploadphoto" 
           onChange={this.handleFile}
           />
         </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
       </form>
+      </div>
       );
   }
 }
