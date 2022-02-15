@@ -54,6 +54,17 @@ class Profile extends React.Component {
       })
     )}
   }
+  handleSubmit(e){
+
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('user[intro]', this.state.intro)
+    if (this.state.photoFile) {
+      formData.append('user[photo]', this.state.photoFile);
+    }
+
+    this.props.updateUser(formData)
+  }
   handleFile(e) {
     const { currentUser, user } = this.props
 
@@ -116,16 +127,21 @@ class Profile extends React.Component {
             <div>
               <div className='intro-div'>
                 {this.state.editable?(
+               <form >
                  <textarea 
                     type="textarea"
+                    className='text-box-intro'
                     placeholder="give a little introduction!"
                     value={intro}
                     onChange={this.handleInput('intro')}
-                 >{console.log('I have made it')}</textarea>
-                ):(''  
+                 ></textarea>
+                 </form>)
+                  // </div>)
+                :(
+                    <p className="intro">{intro}</p>
                 )
                 }
-                <p className="intro">{intro}</p>
+                {/* <p className="intro">{intro}</p> */}
               </div>
               <div>
                 <p><i class="fas fa-heart"></i>Hipcamper since {this.getTime()}</p>

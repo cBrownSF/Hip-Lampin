@@ -2,6 +2,7 @@
 
   display:flex;
   flex-direction:column;
+  width:30%
 }
 .header{
 border: solid lightgray;
@@ -111,4 +112,28 @@ padding:20px
 }
 .upload-prof-div{
   margin: 10px;
+}
+.text-box-intro{
+  border-style:none;
+  border:none;
+padding:5px;
+resize:none;
+/* width:100%; */
+overflow-wrap: break-word;
+border:solid black 1px
+}
+
+.text-box-div{
+  display:flex;
+  align-items: center;
+  position:fixed;
+  border:solid black 1px
+}
+.intro{
+  overflow-wrap: break-word;
+}
+.intro-div{
+  display:flex;
+  flex-direction: column;
+
 }
