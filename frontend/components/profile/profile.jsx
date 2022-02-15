@@ -10,17 +10,21 @@ class Profile extends React.Component {
       intro: this.props.user.intro || '',
       photoFile: user.photoFile || null,
       photoURL: user.photoURL || null,
-      created_at:this.props.user.created_at || null
+      created_at:this.props.user.created_at || null,
+      editable:false
      }
     this.imageInput = React.createRef()
     this.clickImageInput = this.clickImageInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
+    this.flipEdit=this.flipEdit.bind(this)
     }
   
   componentDidMount() {
     this.props.receiveListings()
   }
-
+  componentDidUpdate(){
+    console.log(`update${this.state.editable}`)
+  }
   handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value })
@@ -40,6 +44,16 @@ class Profile extends React.Component {
     if (currentUser.id !== user.id) return false
     this.imageInput.current.click()
   }
+  flipEdit(e){
+    const { currentUser, user } = this.props
+    e.preventDefault()
+    if (currentUser.id === user.id){
+    return (
+      this.setState({
+        editable:true
+      })
+    )}
+  }
   handleFile(e) {
     const { currentUser, user } = this.props
 
@@ -57,15 +71,14 @@ class Profile extends React.Component {
   }
 
   render() { 
-    const {intro,city,state,year, profilePic}=this.state
-   const {currentUser,user,listings}=this.props
+    const {intro}=this.state
+    const { currentUser, user, listings, editable}=this.props
    if (!user){
      return null
    }
 
-
-   debugger
     return (
+ 
       <div className="profile-div">
         <div className='left-side-prof'>
           <div className="header">
@@ -93,26 +106,26 @@ class Profile extends React.Component {
               <div>
             {currentUser.id === user.id? 
                   <div className="prof-name">Welcome {user.fname}!
-                <p><Link className="link-prof"to={`/profile/${user.id}/edit`} >Edit Optional Intro</Link></p>
+                <p className="link-prof" onClick={(e)=>{
+                  this.flipEdit(e)
+                }}>Edit Intro {console.log('re-rendered')}</p>
               </div>
                   : <div className="prof-name">{user.fname} {user.lname[0]}</div>}
               </div>
             </div>
             <div>
               <div className='intro-div'>
-                {this.editable?(
-                <div>
+                {this.state.editable?(
                  <textarea 
-                 className=""
-                 type="textarea"
-                 placeholder="give a little introduction!"
-                 value={this.state.intro}
-                 onChange={this.handleInput('intro')}
-                 ></textarea>
-                </div>):(
-                <p className="intro">{intro}</p>
+                    type="textarea"
+                    placeholder="give a little introduction!"
+                    value={intro}
+                    onChange={this.handleInput('intro')}
+                 >{console.log('I have made it')}</textarea>
+                ):(''  
                 )
                 }
+                <p className="intro">{intro}</p>
               </div>
               <div>
                 <p><i class="fas fa-heart"></i>Hipcamper since {this.getTime()}</p>

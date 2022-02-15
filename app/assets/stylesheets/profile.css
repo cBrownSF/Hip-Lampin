@@ -77,7 +77,7 @@ padding:20px
 .prof-name{
   font-size:22px;
   overflow-wrap: break-word;
-  font-weight:600px;
+  font-weight:700;
   font-style:inherit
 }
 .link-prof{
@@ -85,6 +85,8 @@ padding:20px
   text-decoration: none;
   font-style:inherit;
   color:black;
+  cursor:pointer;
+  font-weight:500;
 }
 .button-prof-pic {
   background-color: white;
