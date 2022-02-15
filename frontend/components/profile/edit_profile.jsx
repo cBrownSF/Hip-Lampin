@@ -4,7 +4,7 @@ class EditProfile extends React.Component {
     super(props);
     const currentUser = this.props
     
-    debugger;
+  
     this.state={
     // intro= '',
     photoFile: currentUser.photoFile ||null,
@@ -12,9 +12,21 @@ class EditProfile extends React.Component {
     introduction: ''
    
     };
+    this.imageInput = React.createRef()
+    this.clickImageInput=this.clickImageInput.bind(this)
     this.handleFile=this.handleFile.bind(this)
   }
+  componentDidMount(){
+    
+    console.log(this.imageInput)
+  }
+  clickImageInput(e) {
+    e.preventDefault()
+    if (currentUser.id !== user.id) return false
+    this.imageInput.current.click()
+  }
   handleFile(e) {
+    if (currentUser.id !== user.id) return false 
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -23,6 +35,7 @@ class EditProfile extends React.Component {
 
     if (file) {
       fileReader.readAsDataURL(file);
+      debugger;
     }
   }
 
@@ -32,13 +45,14 @@ class EditProfile extends React.Component {
     }
   }
   render() { 
-    if (!this.props.listings){
-      return null
-    }
+    // if (!this.props.listings){
+    //   debugger;
+    //   return null
+    // }
     return ( 
       <div>
       <form >
-        
+        {console.log('in form')}
         <div>
          Add an Intro to your profile
           <input 
@@ -48,11 +62,21 @@ class EditProfile extends React.Component {
           onChange={this.handleInput}
           />
         </div>
-        <div className="uploadphoto">
-          Upload Photo
+        <div className="upload-prof-div">
+            {this.state.photoURL ? <img src={this.state.photoURL} />
+          :(
+          <button 
+            className= "button-prof-pic"
+            onClick={(e)=>{
+              this.clickImageInput(e)
+            }}
+          >Add Profile Picture</button>)}
           <input type="file" 
-          className="uploadphoto" 
-          onChange={this.handleFile}
+            className="upload-prof-pic" 
+            accept="image/*"
+            onChange={this.handleFile}
+            ref={this.imageInput}
+            style={({display:"none"})}
           />
         </div>
       </form>
