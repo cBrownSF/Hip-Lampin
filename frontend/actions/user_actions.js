@@ -8,12 +8,6 @@ export const receiveUser = user => ({
 
 export const updateUserInfo = user => dispatch => {
   return APIUtil.updateUser(user)
-    .then(user => dispatch(receiveUser(user)),
-      (errors) => dispatch(receiveUserErrors(errors.responseJSON)))
-}
-
-export const updateUserInfo = user => dispatch => {
-  return APIUtil.fetchUser(user)
-    .then(user => dispatch(receiveUser(user)),
+    .then(user => dispatch(receiveCurrentUser(user)),
       (errors) => dispatch(receiveUserErrors(errors.responseJSON)))
 }

@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
-def create
+before_action :require_logged_in, only: [:update]
+  def create
     @user = User.new(user_params)
     
     if @user.save
@@ -20,10 +21,6 @@ def update
     end
   end
 
-def show
-  @user= User.find_by(id: params[:id])
-  render :show
-end
 
   private
   
