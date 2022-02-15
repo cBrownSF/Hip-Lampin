@@ -5,7 +5,7 @@ import ListingIndexItem from '../search/listing_index_item';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    const user=this.props
+    const user=this.props.user
     this.state={
       intro: this.props.user.intro || '',
       photoFile: user.photoFile || null,
@@ -17,9 +17,11 @@ class Profile extends React.Component {
     this.clickImageInput = this.clickImageInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.flipEdit=this.flipEdit.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
     }
   
   componentDidMount() {
+    debugger;
     this.props.receiveListings()
   }
   componentDidUpdate(){
@@ -59,6 +61,7 @@ class Profile extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('user[intro]', this.state.intro)
+    formData.append('user[id]', this.props.user.id)
     if (this.state.photoFile) {
       formData.append('user[photo]', this.state.photoFile);
     }
@@ -77,7 +80,6 @@ class Profile extends React.Component {
 
     if (file) {
       fileReader.readAsDataURL(file);
-      debugger;
     }
   }
 
@@ -87,7 +89,10 @@ class Profile extends React.Component {
    if (!user){
      return null
    }
-
+    console.log(this.state.photoURL)
+    console.log(user)
+    console.log(user.photoFile)
+    console.log(user.photo)
     return (
  
       <div className="profile-div">
@@ -95,7 +100,8 @@ class Profile extends React.Component {
           <div className="header">
             <div className="photo-and-name">
               <div className="upload-prof-div">
-                {this.state.photoURL ? <img 
+                {this.state.photoURL ? 
+                <img 
                 src={this.state.photoURL} 
                 className="prof-img"
                 />
@@ -127,7 +133,7 @@ class Profile extends React.Component {
             <div>
               <div className='intro-div'>
                 {this.state.editable?(
-               <form >
+               <form onSubmit={this.handleSubmit} >
                  <textarea 
                     type="textarea"
                     className='text-box-intro'
@@ -135,6 +141,7 @@ class Profile extends React.Component {
                     value={intro}
                     onChange={this.handleInput('intro')}
                  ></textarea>
+                 <button type="submit"> Submit</button>
                  </form>)
                   // </div>)
                 :(

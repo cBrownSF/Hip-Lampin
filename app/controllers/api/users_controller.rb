@@ -12,8 +12,7 @@ before_action :require_logged_in, only: [:update]
   end
 
 def update
- @user = User.with_attached_photos.find_by(id: params[:id])
-
+ @user = User.with_attached_photo.find_by(id: params[:id])
     if @user.update(user_params)
       render "api/users/show"
     else

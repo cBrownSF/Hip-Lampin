@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :email,length: { minimum:3}
   validates :fname,length: {minimum: 1}
   validates :lname,length: {minimum: 1}
+  validates :intro,length: {minimum:20,maximum:500}
   after_initialize :ensure_session_token
 
   has_many :listings,

@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./profile";
 import { receiveAllListings } from "../../actions/listings_actions";
+import { updateUserInfo } from "../../actions/session_actions";
 const mSTP = (state,ownProps)=>{
-  debugger;
   return {
     user: state.entities.users[ownProps.match.params.profileId],
     listings:Object.values(state.entities.listings),
@@ -11,7 +11,8 @@ const mSTP = (state,ownProps)=>{
 }
 }
 const mDTP = dispatch => ({
-  receiveListings: () => dispatch(receiveAllListings())
+  receiveListings: () => dispatch(receiveAllListings()),
+  updateUser: (user) => dispatch(updateUserInfo(user))
 })
 
 
