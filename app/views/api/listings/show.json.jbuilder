@@ -16,3 +16,7 @@ json.authors do
     end
   end
 end
+
+@listing.host do
+ json.partial! '/api/users/user', user: @listing.host_id
+end

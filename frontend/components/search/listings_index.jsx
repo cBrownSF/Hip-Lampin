@@ -6,7 +6,7 @@ const ListingIndex = (props) => {
     if (Object.keys(props.listings).length === 0) {
       return null;
     }else{
-      console.log(props.listings.id)
+ 
     
       return(
         <div className="index-item">

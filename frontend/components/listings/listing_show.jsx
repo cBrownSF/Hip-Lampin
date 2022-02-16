@@ -18,18 +18,20 @@ class ListingShow extends React.Component {
     this.findHostAuthor=this.findHostAuthor.bind(this)
   }
   componentDidMount() {
-    //SET ALL STATE IN HERE in find author
+
+   debugger
     this.props.receiveListing(this.props.match.params.listingId).then(()=>{
+      debugger;
       this.findHostAuthor()
     })
 
-    console.log(this.state)
+
     window.scrollTo(0, 0);
   }
   
   componentDidUpdate(prevState,nextState) {
     if (prevState !== nextState){
-      console.log(this.state)
+     
     }
   }
   addToCount(){
@@ -67,12 +69,13 @@ class ListingShow extends React.Component {
    return (this.state.count / reviewIdArray.length) * 100
   }
   findHostAuthor(){
+    debugger;
     const authorArray=this.props.authors
+    console.log(authorArray)
     const hostId = this.props.listing.host_id
     authorArray.map((author)=>{
       if (author.id === hostId){
-  
-        console.log(author)
+
         return this.setState({
           hostFname:author.fname,
           hostLname:author.lname,
@@ -83,12 +86,12 @@ class ListingShow extends React.Component {
   }
 render() {
 
- console.log(this.state)
+ 
   if (!this.props.listing){
     return null;
   }
   const listing = this.props.listing
-  console.log(this.props)
+
   const descript = {
     pathname: `/listings/${this.props.listing.id}/edit`,
     state: 2

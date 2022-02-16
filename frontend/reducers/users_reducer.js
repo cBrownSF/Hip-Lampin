@@ -8,8 +8,10 @@ const usersReducer = (oldState = {}, action) => {
     case RECEIVE_CURRENT_USER:
      return Object.assign({}, oldState, { [action.user.id]: action.user })
     case RECEIVE_REVIEW:
+      debugger;
       return Object.assign({}, oldState, { [action.author.id]: action.author });
     case RECEIVE_LISTING:
+      debugger;
       return Object.assign({}, oldState, action.authors);
     default:
       return oldState

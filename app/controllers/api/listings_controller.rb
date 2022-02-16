@@ -15,6 +15,7 @@ before_action :require_logged_in, only: [:create]
 
   def show
     @listing= Listing.with_attached_photos.find(params[:id])
+    render :show
   end
 
   def update

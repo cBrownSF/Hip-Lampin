@@ -68,6 +68,7 @@
   margin-right:10px;
 }
 .show-container #activities-show{
+  width:30%;
   border: solid lightgray;
   border-width:thin;
   margin:20px;
@@ -170,6 +171,7 @@ color: grey;
  }
  .box-show-page{
   display:flex;
+  width:70%
  }
  .list-show-page{
    line-height:1.5;

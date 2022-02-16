@@ -3,7 +3,7 @@ const SecondPhotos = (props) => {
   if (props.currentPage !== 10) {
     return null
   }
-  console.log(`2:${props.photoFile[1]}`)
+ 
   return(
   <div className='name-box'>
     <br />

@@ -18,7 +18,7 @@ class ReviewIndexItem extends React.Component{
   
    let helpedArray=[...this.state.helpful_authors]
    helpedArray.filter(Number)
-   console.log(helpedArray.filter(Number))
+ 
    return this.setState({
     helpful_authors:helpedArray
    })
@@ -51,7 +51,7 @@ class ReviewIndexItem extends React.Component{
     }
     if (this.state.helpful_authors.includes(this.props.currentUser.id)){
      let arrDoub = [...this.state.helpful_authors]
-     console.log(arrDoub)
+  
      let index=arrDoub.indexOf(this.props.currentUser.id) 
      arrDoub.splice(index,1)
     
@@ -148,7 +148,7 @@ class ReviewIndexItem extends React.Component{
           {!currentUser || currentUser.id !== this.props.author.id ?(
             <button 
             onClick={() => this.helpfulFunc()}
-              className={helped && helpful_authors.includes(currentUser.id) ?"greyed-out-button":"green-helpful-button"}>
+              className={currentUser && helped && helpful_authors.includes(currentUser.id) ?"greyed-out-button":"green-helpful-button"}>
             <span className="thumbs-up"><i className="far fa-thumbs-up"></i></span>
             <span className='helpful-word'>Helpful</span>
             <span className="number-of-votes">{this.state.helpful}</span>

@@ -3,7 +3,7 @@ import { RECEIVE_REVIEW,RECEIVE_LISTING,REMOVE_REVIEW } from "../actions/listing
 
 const reviewsReducer = (oldState={},action) => {
   Object.freeze(oldState)
-  console.log(action)
+ 
     switch (action.type) {
     
       case RECEIVE_REVIEW:

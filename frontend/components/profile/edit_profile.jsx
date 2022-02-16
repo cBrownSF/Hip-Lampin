@@ -18,7 +18,7 @@ class EditProfile extends React.Component {
   }
   componentDidMount(){
     debugger
-    console.log(this.imageInput)
+  
   }
   clickImageInput(e) {
     e.preventDefault()
@@ -52,7 +52,7 @@ class EditProfile extends React.Component {
     return ( 
       <div>
       <form >
-        {console.log('in form')}
+
         <div>
          Add an Intro to your profile
           <input 
