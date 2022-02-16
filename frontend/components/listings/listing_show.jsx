@@ -384,6 +384,13 @@ render() {
                 />)}
             </div>
           ):(
+          <div>
+              {this.props.currentUser && this.props.currentUser.id === listing.host_id ? (
+               <div className="review-form-listing-show-div" >
+            <div className='div-holding-not-signed-in'>
+                    <div className='signed-out-review-must'>You cannot review your own listing</div>
+                </div>
+                </div>):(
           <div className="review-form-listing-show-div" >
             <div className='div-holding-not-signed-in'>
               <div className='signed-out-review-must'>You must be signed in to add a review</div>
@@ -396,6 +403,7 @@ render() {
                 onClick={() => this.props.openModal('signup')}>Sign up</button>
               </div>
             </div>
+            </div>)}
             </div>
           )}
       </div>
