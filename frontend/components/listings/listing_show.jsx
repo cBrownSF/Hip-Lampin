@@ -22,7 +22,7 @@ class ListingShow extends React.Component {
     this.props.receiveListing(this.props.match.params.listingId).then(()=>{
       this.findHostAuthor()
     })
-    debugger;
+
     console.log(this.state)
     window.scrollTo(0, 0);
   }
@@ -71,7 +71,7 @@ class ListingShow extends React.Component {
     const hostId = this.props.listing.host_id
     authorArray.map((author)=>{
       if (author.id === hostId){
-        debugger;
+  
         console.log(author)
         return this.setState({
           hostFname:author.fname,
@@ -132,7 +132,7 @@ render() {
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   // this.findHostAuthor()
-  debugger;
+ 
   return(
    
     <div className='show-container'>

@@ -34,7 +34,7 @@ class ReviewIndexItem extends React.Component{
 
  }
  helpfulFunc(){
-   debugger;
+ 
    if (!this.props.currentUser){
      this.props.openModal('login')
    }
@@ -45,7 +45,7 @@ class ReviewIndexItem extends React.Component{
       helpful: this.state.helpful - 1,
       helped:false
      }, () => {
-       debugger
+     
        this.props.updateReview(this.state)
      })
     }
@@ -54,13 +54,13 @@ class ReviewIndexItem extends React.Component{
      console.log(arrDoub)
      let index=arrDoub.indexOf(this.props.currentUser.id) 
      arrDoub.splice(index,1)
-     debugger;
+    
     return this.setState({
        helpful: this.state.helpful - 1,
        helpful_authors: arrDoub,
        helped:false
     }, () => {
-     debugger;
+    
         this.props.updateReview(this.state)
     
      

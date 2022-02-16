@@ -119,6 +119,10 @@ padding:20px
   border:none;
 padding:5px;
 resize:none;
+font-size:16px;
+font-family: "Calibre", Helvetica, Arial, sans-serif;
+
+color:black;
 /* width:100%; */
 overflow-wrap: break-word;
 border:solid black 1px

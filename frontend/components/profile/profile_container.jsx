@@ -4,7 +4,7 @@ import Profile from "./profile";
 import { receiveAllListings } from "../../actions/listings_actions";
 import { updateUserInfo } from "../../actions/session_actions";
 const mSTP = (state,ownProps)=>{
-  debugger;
+ 
   return {
     user: state.entities.users[ownProps.match.params.profileId],
     listings:Object.values(state.entities.listings),

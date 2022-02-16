@@ -22,13 +22,13 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
-    debugger
+ 
 
     this.props.receiveListings()
   }
   componentDidUpdate(prevState){
     if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
-      debugger
+   
       const formData = new FormData();
       formData.append('user[id]', this.props.user.id)
       formData.append('user[photo]', this.state.photoFile);
@@ -101,7 +101,7 @@ class Profile extends React.Component {
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
    if (!user){
-     debugger
+
      return null
    }
 

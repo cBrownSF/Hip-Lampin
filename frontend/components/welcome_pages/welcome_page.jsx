@@ -20,7 +20,7 @@ class Greeting extends React.Component {
         {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
         <ul className="nav-bar">
           <li><Link className="nav-li" to='/listings'>Listings</Link></li>
-          <li className="nav-li" onClick={logout}>Logout</li>
+              <li className="nav-li" onClick={logout}>Logout</li>
           <li ><Link className="nav-li" to={`/profile/${currentUser.id}`}>Profile</Link></li>
         </ul>
         </nav>

@@ -55,7 +55,6 @@ export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdListing => {
     dispatch(receiveOneListing(createdListing))
-    debugger;
     hashHistory.push(`/listings/${Object.values(createdListing)[0].id}`)
    
   }),
@@ -77,8 +76,6 @@ export const updateReview = review => (dispatch) => {
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
-      debugger;
-
       dispatch(receiveOneListing(listing))
       hashHistory.push(`/listings/${Object.values(listing)[0].id}`)
     })
