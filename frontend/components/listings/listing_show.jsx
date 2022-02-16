@@ -19,9 +19,8 @@ class ListingShow extends React.Component {
   }
   componentDidMount() {
 
-   debugger
+
     this.props.receiveListing(this.props.match.params.listingId).then(()=>{
-      debugger;
       this.findHostAuthor()
     })
 
@@ -69,7 +68,7 @@ class ListingShow extends React.Component {
    return (this.state.count / reviewIdArray.length) * 100
   }
   findHostAuthor(){
-    debugger;
+
     const authorArray=this.props.authors
     console.log(authorArray)
     const hostId = this.props.listing.host_id

@@ -17,7 +17,7 @@ class EditProfile extends React.Component {
     this.handleFile=this.handleFile.bind(this)
   }
   componentDidMount(){
-    debugger
+
   
   }
   clickImageInput(e) {

@@ -94,7 +94,6 @@ export const deleteListing = listingId => dispatch =>{
 export const deleteReview = reviewId=> (dispatch)=>{
   return ListingAPIUtil.deleteReview(reviewId)
   .then(()=>{
-    debugger;
     dispatch(removeReview(reviewId))
   })
 }
