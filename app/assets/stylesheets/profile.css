@@ -31,6 +31,7 @@ padding:20px
 .user-listing-item{
       display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .profile-div{
   background-color:white;
@@ -136,4 +137,8 @@ border:solid black 1px
   display:flex;
   flex-direction: column;
 
+}
+.check-box-email{
+  display: flex;
+  align-items: center;
 }

@@ -52,9 +52,9 @@ class ReviewForm extends React.Component {
       <div className="review-form-div">
         <form className="review-form-form" onSubmit={this.handleSubmit}>
           <div className='add-review'>
-            Add your own
+            Add your own 
           </div >
-          {/* <div className='review-title-text'>Give your review a title</div> */}
+          <div className='review-prompt'> Add a title</div>
           <input className='review-title-input' type="text" 
             value={this.state.title}
             onChange={this.update("title")}

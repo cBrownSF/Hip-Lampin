@@ -11,7 +11,8 @@ class Profile extends React.Component {
       photoFile: user.photoFile || null,
       photoURL: user.photoURL || null,
       created_at:this.props.user.created_at || null,
-      editable:false
+      editable:false,
+      newPic:false
      }
     this.imageInput = React.createRef()
     this.clickImageInput = this.clickImageInput.bind(this)
@@ -21,11 +22,24 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
-    debugger;
+    debugger
+
     this.props.receiveListings()
   }
-  componentDidUpdate(){
-    console.log(`update${this.state.editable}`)
+  componentDidUpdate(prevState){
+    if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
+      debugger
+      const formData = new FormData();
+      formData.append('user[id]', this.props.user.id)
+      formData.append('user[photo]', this.state.photoFile);
+      this.props.updateUser(formData).then(()=>{
+        return (
+          this.setState({
+            newPic: false
+          })
+      )
+    })
+  }
   }
   handleInput(type) {
     return e => {
@@ -50,11 +64,11 @@ class Profile extends React.Component {
     const { currentUser, user } = this.props
     e.preventDefault()
     if (currentUser.id === user.id){
-    return (
-      this.setState({
-        editable:true
-      })
-    )}
+      return (
+        this.setState((prevState) => ({
+          editable:!prevState.editable
+        })))
+    }
   }
   handleSubmit(e){
 
@@ -66,7 +80,7 @@ class Profile extends React.Component {
       formData.append('user[photo]', this.state.photoFile);
     }
 
-    this.props.updateUser(formData)
+    this.props.updateUser(formData).then(() => this.flipEdit(e))
   }
   handleFile(e) {
     const { currentUser, user } = this.props
@@ -75,7 +89,7 @@ class Profile extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoURL: fileReader.result });
+      this.setState({ photoFile: file, photoURL: fileReader.result,newPic:true });
     };
 
     if (file) {
@@ -87,12 +101,10 @@ class Profile extends React.Component {
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
    if (!user){
+     debugger
      return null
    }
-    console.log(this.state.photoURL)
-    console.log(user)
-    console.log(user.photoFile)
-    console.log(user.photo)
+
     return (
  
       <div className="profile-div">
@@ -104,6 +116,9 @@ class Profile extends React.Component {
                 <img 
                 src={this.state.photoURL} 
                 className="prof-img"
+                onClick={(e) => {
+                      this.clickImageInput(e)
+                    }}
                 />
                   : (
                     <button
@@ -125,7 +140,7 @@ class Profile extends React.Component {
                   <div className="prof-name">Welcome {user.fname}!
                 <p className="link-prof" onClick={(e)=>{
                   this.flipEdit(e)
-                }}>Edit Intro {console.log('re-rendered')}</p>
+                }}>Edit Intro</p>
               </div>
                   : <div className="prof-name">{user.fname} {user.lname[0]}</div>}
               </div>
@@ -142,6 +157,9 @@ class Profile extends React.Component {
                     onChange={this.handleInput('intro')}
                  ></textarea>
                  <button type="submit"> Submit</button>
+                    <button type="button" onClick={(e) => {
+                      this.flipEdit(e)
+                    }}> Cancel</button>
                  </form>)
                   // </div>)
                 :(
@@ -157,7 +175,7 @@ class Profile extends React.Component {
           </div>
           <div className="email-div">
             <p className="greyed-trust">Trusted Hipcamper</p>
-            <span><i class="far fa-check-square"></i><p className="email">Email Address</p></span>
+            <span className="check-box-email"><i class="far fa-check-square"></i><p className="email">Email Address</p></span>
         </div>
         </div>
       <div className='users-listings'> 

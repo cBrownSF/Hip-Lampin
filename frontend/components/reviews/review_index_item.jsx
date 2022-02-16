@@ -156,7 +156,7 @@ class ReviewIndexItem extends React.Component{
           ):''}
           </div>
         </div>
-      <div className="line-break">
+      <div className="review-line-break">
         <hr className="review-break" />
       </div>
     </div>

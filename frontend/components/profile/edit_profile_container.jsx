@@ -4,7 +4,7 @@ import EditProfile from "./edit_profile";
 import { updateUserInfo } from "../../actions/session_actions";
 
 const mSTP = (state) => {
-  debugger;
+
   return {
     currentUser: state.entities.users[state.sessions.currentUser]
   }

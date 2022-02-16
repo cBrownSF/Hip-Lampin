@@ -10,12 +10,15 @@ class ListingShow extends React.Component {
     this.state={
       count:0,
       hostFname:null,
-      hostLname:null || ''}
+      hostLname:null || '',
+      photoURL:null
+    }
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
     this.findHostAuthor=this.findHostAuthor.bind(this)
   }
   componentDidMount() {
+    //SET ALL STATE IN HERE in find author
     this.props.receiveListing(this.props.match.params.listingId).then(()=>{
       this.findHostAuthor()
     })
@@ -69,9 +72,11 @@ class ListingShow extends React.Component {
     authorArray.map((author)=>{
       if (author.id === hostId){
         debugger;
+        console.log(author)
         return this.setState({
           hostFname:author.fname,
-          hostLname:author.lname
+          hostLname:author.lname,
+          photoURL:author.photoURL
         })
       } 
     })
@@ -127,10 +132,16 @@ render() {
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   // this.findHostAuthor()
+  debugger;
   return(
    
     <div className='show-container'>
-      <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p>
+      <div>
+        {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
+          <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
+        ) : ''}
+      </div>
+      {/* <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p> */}
       <div className="photo-container">
         <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
         <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
@@ -166,10 +177,14 @@ render() {
      
       <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
-        <span><Link to ={`/profile/${this.props.listing.host_id}`} >Host Pic</Link></span>
-      
-        <p>Hosted By: {this.state.hostFname} {this.state.hostLname[0]}</p>
-        <p>descript:{listing.description}</p>
+        <img className="show-prof-img" src={this.state.photoURL}/>   
+        <div className='host-div'>
+        <span className="host-by"> Hosted by</span>
+        <div className="host-prof-show-div">
+        <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link>
+          </div>
+        </div>     
+        <p className='description'>{listing.description}</p>
        
       </div>
       
@@ -345,9 +360,6 @@ render() {
         <br />
         <br />
         <br />
-        {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id?(
-        <button id='show-delete-button' onClick={()=>this.onDelete()}>delete listing</button>
-        ) :''}
       </div>
       <div className="line-break">
         <hr id="solid" />
@@ -363,7 +375,7 @@ render() {
                 )}
         </div>
       <div className="review-form-listing-show-div-not-sign-in" >
-          {this.props.currentUser?(
+          {this.props.currentUser && this.props.currentUser.id !== listing.host_id?(
             <div className='div-holding-review-form'>
             {reviews.some((review) => this.props.currentUser.id === review.author_id) ? <div className="review-already-added">You have already added a review</div> : (
                 <CreateReviewContainer

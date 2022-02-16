@@ -17,7 +17,7 @@ class EditProfile extends React.Component {
     this.handleFile=this.handleFile.bind(this)
   }
   componentDidMount(){
-    
+    debugger
     console.log(this.imageInput)
   }
   clickImageInput(e) {
@@ -35,7 +35,7 @@ class EditProfile extends React.Component {
 
     if (file) {
       fileReader.readAsDataURL(file);
-      debugger;
+      
     }
   }
 
