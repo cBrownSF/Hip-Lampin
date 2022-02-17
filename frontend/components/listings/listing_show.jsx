@@ -18,11 +18,20 @@ class ListingShow extends React.Component {
     this.findHostAuthor=this.findHostAuthor.bind(this)
   }
   componentDidMount() {
-
-
-    this.props.receiveListing(this.props.match.params.listingId).then(()=>{
-      this.findHostAuthor()
+   
+debugger;
+    this.props.receiveListing(this.props.match.params.listingId).then((listing)=>{
+      debugger;
+      this.props.receiveUser(listing.listing.host_id).then((user)=>{
+        debugger;
+        return this.setState({
+          hostFname: user.user.fname,
+          hostLname: user.user.lname,
+          photoURL: user.user.photoURL
+        })
+      })
     })
+    // this.findHostAuthor()
 
 
     window.scrollTo(0, 0);

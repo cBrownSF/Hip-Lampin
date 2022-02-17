@@ -1,5 +1,6 @@
 import { receiveListing,deleteListing } from "../../actions/listings_actions"
 // import {selectReviewsForListing} from "../../reducers/selectors"
+import { receiveOneUser } from "../../actions/user_actions"
 import { connect } from "react-redux"
 import { openModal } from "../../actions/modal_actions"
 import ListingShow from './listing_show'
@@ -20,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   receiveListing: id => dispatch(receiveListing(id)),
   deleteListing: (id) =>dispatch(deleteListing(id)),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  receiveUser: (user) => dispatch(receiveOneUser(user))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(ListingShow)
