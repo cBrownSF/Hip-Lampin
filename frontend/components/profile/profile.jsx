@@ -6,14 +6,8 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     const user=this.props.user
-    this.state={
-      intro: this.props.user.intro || '',
-      photoFile: user.photoFile || null,
-      photoURL: user.photoURL || null,
-      created_at:this.props.user.created_at || null,
-      editable:false,
-      newPic:false
-     }
+   
+    this.state={}
     this.imageInput = React.createRef()
     this.clickImageInput = this.clickImageInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
@@ -22,9 +16,20 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
- 
-
-    this.props.receiveListings()
+    const user = this.props.user
+   
+    this.props.receiveUser(this.props.match.params.profileId).then((user)=>
+    {
+      debugger;
+      return this.setState({
+        intro: user.user.intro || '',
+        photoFile: user.user.photoFile || null,
+        photoURL: user.user.photoURL || null,
+        created_at: user.user.created_at || null,
+        editable: false,
+        newPic: false
+      })
+    }).then(() => this.props.receiveListings())
   }
   componentDidUpdate(prevState){
     if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
@@ -57,13 +62,13 @@ class Profile extends React.Component {
   clickImageInput(e) {
     e.preventDefault()
     const { currentUser, user} = this.props
-    if (currentUser.id !== user.id) return false
+    if (currentUser && currentUser.id !== user.id) return false
     this.imageInput.current.click()
   }
   flipEdit(e){
     const { currentUser, user } = this.props
     e.preventDefault()
-    if (currentUser.id === user.id){
+    if (currentUser && currentUser.id === user.id){
       return (
         this.setState((prevState) => ({
           editable:!prevState.editable
@@ -85,7 +90,7 @@ class Profile extends React.Component {
   handleFile(e) {
     const { currentUser, user } = this.props
 
-    if (currentUser.id !== user.id) return false
+    if (currentUser && currentUser.id !== user.id) return false
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -100,11 +105,16 @@ class Profile extends React.Component {
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
-   if (!user){
-
+   if (listings.length===0){
+      debugger;
      return null
    }
-
+    if(!this.state){
+      debugger;
+      return null
+    }
+    console.log(this.state)
+    debugger
     return (
  
       <div className="profile-div">
@@ -136,7 +146,7 @@ class Profile extends React.Component {
                 />
               </div>
               <div>
-            {currentUser.id === user.id? 
+            {currentUser && currentUser.id === user.id? 
                   <div className="prof-name">Welcome {user.fname}!
                 <p className="link-prof" onClick={(e)=>{
                   this.flipEdit(e)
@@ -180,7 +190,7 @@ class Profile extends React.Component {
         </div>
       <div className='users-listings'> 
           <div className="trip-listing-header">
-            {currentUser.id === user.id ?
+            {currentUser && currentUser.id === user.id ?
               <div className="trip-listing-profile-title">Your Listings</div>
               : <div className="trip-listing-profile-title">{user.fname}'s Listings</div>}
         </div>
@@ -197,7 +207,7 @@ class Profile extends React.Component {
         </div>  
         <div className="prof-trips">
         <div className="trip-listing-header">
-          {currentUser.id === user.id ?
+          {currentUser && currentUser.id === user.id ?
             <div className="trip-listing-profile-title">Your Trips</div>
             : <div className="trip-listing-profile-title">{user.fname}'s Trips</div>}
         </div>

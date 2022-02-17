@@ -40,9 +40,13 @@ export const logout = () => dispatch => {
     .then(user => dispatch(logoutCurrentUser()));
 }
 
-export const updateUserInfo = user => dispatch => {
-  return UserUtil.updateUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
-      (errors) => dispatch(receiveUserErrors(errors.responseJSON)))
-}
+// export const updateUserInfo = user => dispatch => {
+//   return UserUtil.updateUser(user)
+//     .then(user => dispatch(receiveCurrentUser(user)),
+//       (errors) => dispatch(receiveUserErrors(errors.responseJSON)))
+// }
 
+// export const receiveUser = id => dispatch => {
+//   return UserUtil.fetchUser(id)
+//     .then(user => dispatch(receiveCurrentUser(user)))
+// }

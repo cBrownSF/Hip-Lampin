@@ -7,7 +7,12 @@ export const receiveUser = user => ({
 })
 
 export const updateUserInfo = user => dispatch => {
-  return APIUtil.updateUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
+  return UserUtil.updateUser(user)
+    .then(user => dispatch(receiveUser(user)),
       (errors) => dispatch(receiveUserErrors(errors.responseJSON)))
+}
+
+export const receiveOneUser = id => dispatch => {
+  return UserUtil.fetchUser(id)
+    .then(user => dispatch(receiveUser(user)))
 }

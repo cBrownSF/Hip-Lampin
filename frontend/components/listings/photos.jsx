@@ -1,9 +1,12 @@
 import React from 'react'
 
 const PhotoForm = (props) => {
+  
   if (props.currentPage !== 9) {
     return null
   }
+  debugger;
+  console.log(props.handleFile)
 return(
   <div className='name-box'>
     <br/>
@@ -18,7 +21,7 @@ return(
           type="file"
           multiple
           accept=".png, .jpeg"
-          onChange={props.handleFile} />
+          onChange={()=>(props.handleFile(e,0))} />
       </div>
     )
       : (

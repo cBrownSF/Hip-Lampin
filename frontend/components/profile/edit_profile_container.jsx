@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import EditProfile from "./edit_profile";
-import { updateUserInfo } from "../../actions/session_actions";
+import { updateUserInfo } from "../../actions/user_actions";
 
 const mSTP = (state) => {
 

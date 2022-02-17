@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 class Greeting extends React.Component {
   constructor(props) {
     super(props)
+    this.logoutRedirect=this.logoutRedirect.bind(this)
+  
   }
- 
+ logoutRedirect(){
+  
+   this.props.logout
+ }
   render() {
     const { currentUser, logout,login,openModal } = this.props
     if (currentUser) {
@@ -12,7 +17,7 @@ class Greeting extends React.Component {
         pathname: "/listings/new",
         state: 1
       };
-
+     
       return (
       <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>

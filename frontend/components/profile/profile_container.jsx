@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./profile";
 import { receiveAllListings } from "../../actions/listings_actions";
-import { updateUserInfo } from "../../actions/session_actions";
+import { updateUserInfo, receiveOneUser} from "../../actions/user_actions";
+
 const mSTP = (state,ownProps)=>{
  
   return {
@@ -13,7 +14,8 @@ const mSTP = (state,ownProps)=>{
 }
 const mDTP = dispatch => ({
   receiveListings: () => dispatch(receiveAllListings()),
-  updateUser: (user) => dispatch(updateUserInfo(user))
+  updateUser: (user) => dispatch(updateUserInfo(user)),
+  receiveUser:(user)=> dispatch(receiveOneUser(user))
 })
 
 

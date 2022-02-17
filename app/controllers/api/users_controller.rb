@@ -20,6 +20,10 @@ def update
     end
   end
 
+  def show
+    @user = User.with_attached_photo.find_by(id: params[:id])
+    render "api/users/show"
+  end
 
   private
   
