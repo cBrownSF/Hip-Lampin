@@ -6,15 +6,15 @@ class Search extends React.Component{
     super(props)
   }
   componentDidMount() {
-    this.props.receiveListings()
+    // this.props.receiveListings()
    
   }
 
 render(){
-  if (Object.keys(this.props.listings).length ===0){
+  // if (Object.keys(this.props.listings).length ===0){
     
-    return null;
-  }
+  //   return null;
+  // }
   return(
 <div className="index-container">
   <div className="map-item-container">
@@ -27,7 +27,7 @@ render(){
     <ListingMap 
       listings={this.props.listings}
       receiveListings={this.props.receiveListings}
-      updateBounds={this.props.updateBounds}
+      updateFilter={this.props.updateFilter}
     />
     </div>
   </div>

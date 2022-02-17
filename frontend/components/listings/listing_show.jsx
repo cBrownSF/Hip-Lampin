@@ -18,12 +18,8 @@ class ListingShow extends React.Component {
     this.findHostAuthor=this.findHostAuthor.bind(this)
   }
   componentDidMount() {
-   
-debugger;
     this.props.receiveListing(this.props.match.params.listingId).then((listing)=>{
-      debugger;
       this.props.receiveUser(listing.listing.host_id).then((user)=>{
-        debugger;
         return this.setState({
           hostFname: user.user.fname,
           hostLname: user.user.lname,

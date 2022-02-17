@@ -14,6 +14,7 @@ class ListingMap extends React.Component {
  
 componentDidMount(){
   this.map = new google.maps.Map(this.mapNode, mapOptions);
+  this.eventListeners()
   this.MarkerManager= new MarkerManager(this.map)
   this.MarkerManager.updateMarkers(this.props.listings);
   let service = new google.maps.places.PlacesService(this.map)
@@ -31,12 +32,13 @@ eventListeners(){
       southWest: { lat: south, lng: west },
       northEast: { lat: north, lng: east }
     };
-    this.props.updateBounds(bounds);
+    debugger;
+    this.props.updateFilter('bounds',bounds);
   })
-google.maps.event.addListener(this.map,'click',(event)=>{
-  const coordinates = getCoordinates(event.latLng)
-
-})
+// google.maps.event.addListener(this.map,'click',(event)=>{
+//   const coordinates = getCoordinates(event.latLng)
+//   console.log('clicked')
+// })
 }
 
 render(){

@@ -41,8 +41,8 @@ export const receiveOneReview = ({review,author})=> ({
   author
 })
 
-export const receiveAllListings = () =>dispatch =>{
-  return ListingAPIUtil.fetchListings()
+export const receiveAllListings = bounds =>dispatch =>{
+  return ListingAPIUtil.fetchListings(bounds)
   .then(listings => dispatch(receiveListings(listings)))
 }
 

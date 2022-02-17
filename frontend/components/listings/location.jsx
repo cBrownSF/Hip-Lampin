@@ -19,7 +19,7 @@ const locationForm = (props) => {
         onKeyPress={props.keyDown}
         value={props.address}
         //BE CLEAR THAT YOU CAN SKIP THE PAGE IF YOU'D LIKE TO KEEP THE SAME ADDRESS OR PUT ADDRESS AS VALUE AND let user skip it
-        // onChange={props.handleInput('street_address')}
+        onChange={props.handleInput('street_address')}
       onSelect={props.auto}
       />
       ) :(

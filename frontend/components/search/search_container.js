@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Search from './search'
-import { updateBounds } from '../../actions/filter_actions';
+import { updateFilter } from '../../actions/filter_actions';
 import { receiveAllListings } from '../../actions/listings_actions'
 const mapStatetoProps = state => {
  
@@ -13,6 +13,6 @@ const mapStatetoProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   receiveListings: () => dispatch(receiveAllListings()),
-  updateBounds: (bounds)=>dispatch(updateBounds(bounds))
+  updateFilter: (bounds,value) => dispatch(updateFilter(bounds,value))
 })
 export default connect(mapStatetoProps,mapDispatchToProps)(Search)

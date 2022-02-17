@@ -150,7 +150,6 @@ class ListingForm extends React.Component {
     // let page =step-9
    
     if (step ===9){
-      debugger;
     fileReader.onloadend = () => {
       let photos=[...this.state.photoFile]
       let url=[...this.state.photoURL]
