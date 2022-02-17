@@ -1,5 +1,5 @@
 export const fetchListings = bounds => {
-  debugger
+  // debugger
   return $.ajax({
     url: '/api/listings',
     method: 'GET',

@@ -5,8 +5,6 @@ const PhotoForm = (props) => {
   if (props.currentPage !== 9) {
     return null
   }
-  debugger;
-  console.log(props.handleFile)
 return(
   <div className='name-box'>
     <br/>

@@ -32,7 +32,6 @@ eventListeners(){
       southWest: { lat: south, lng: west },
       northEast: { lat: north, lng: east }
     };
-    debugger;
     this.props.updateFilter('bounds',bounds);
   })
 // google.maps.event.addListener(this.map,'click',(event)=>{
