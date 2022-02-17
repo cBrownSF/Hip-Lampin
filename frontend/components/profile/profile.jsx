@@ -20,7 +20,7 @@ class Profile extends React.Component {
    
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
-      debugger;
+
       return this.setState({
         intro: user.user.intro || '',
         photoFile: user.user.photoFile || null,
@@ -105,16 +105,10 @@ class Profile extends React.Component {
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
-   if (listings.length===0){
-      debugger;
-     return null
-   }
-    if(!this.state){
-      debugger;
-      return null
-    }
-    console.log(this.state)
-    debugger
+   if (listings.length===0)return null
+   
+  if (!user) return null
+    
     return (
  
       <div className="profile-div">
