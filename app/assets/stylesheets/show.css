@@ -73,7 +73,7 @@
   border: solid lightgray;
   border-width:thin;
   margin:20px;
-  box-shadow: 0 1px 5px 0 rgb(0 0 0 / 8%)
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 8%)
 }
 .show-container #text{
   font-family:inherit;
