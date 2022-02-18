@@ -16,7 +16,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 body{
   font-family: "Calibre", Helvetica, Arial, sans-serif;
-  background-color: rgba(234, 232, 228);
+  background-color: rgba(234, 232, 228,255);
   margin:0;
   padding:0;
 }
