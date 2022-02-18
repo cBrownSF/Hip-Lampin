@@ -16,7 +16,6 @@ componentDidMount(){
  
   if (this.props.bounds){
     const { lat, lng,type } = this.props.bounds
- 
   localStorage.setItem('lat',lat)
   localStorage.setItem('lng',lng)
   localStorage.setItem('type',type)

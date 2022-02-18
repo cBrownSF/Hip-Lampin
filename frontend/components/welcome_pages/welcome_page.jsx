@@ -4,12 +4,12 @@ import { withRouter } from "react-router";
 class Greeting extends React.Component {
   constructor(props) {
     super(props)
-  debugger
+    console.log(props)
   }
-
+  componentDidMount(){
+  }
   render() {
-    console.log(this.props)
-    debugger;
+  
     const { currentUser, logout,login,openModal } = this.props
     if (currentUser) {
       const newTo = {

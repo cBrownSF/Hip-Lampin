@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import HomePageContainer from "./welcome_pages/home_page_container";
 import GreetingContainer from './welcome_pages/welcome_page_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
@@ -12,11 +13,15 @@ import HomePage from './welcome_pages/home_page'
 import EditProfileContainer from "./profile/edit_profile_container";
 import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
+import { useLocation } from "react-router-dom";
+const App = () => {
 
-const App = () => (
+return(
   <div>
     <Modal />
-    <header>
+    <header style={{
+      background: useLocation().pathname === "/" ? "rgb(234, 232, 228)" : "white"
+    }}>
     <GreetingContainer/>
   </header>
   <Switch>
@@ -28,10 +33,11 @@ const App = () => (
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={HomePageContainer} />
 
   </Switch>
   </div>
-);
+)
+};
 
 export default App;
