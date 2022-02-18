@@ -14,7 +14,7 @@ const listingsReducer = (oldState = {},action) =>{
       return nextState;
     case RECEIVE_REVIEW:
       const { review} = action;
-      //cleaning it up a bit
+      //cleaning it up a bit 
       const newState = Object.assign({}, oldState);
       //creating new state
       newState[review.listing_id].reviewIds.push(review.id);
