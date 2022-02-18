@@ -37,6 +37,7 @@ padding:20px
   background-color:white;
   display:flex;
    padding:30px 10%;
+  border-top: solid 1px lightgrey;
 }
 .trip-listing-header{
       display: flex;

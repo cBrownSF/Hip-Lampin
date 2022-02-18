@@ -6,6 +6,7 @@
   font-style:"Calibre", Helvetica, Arial, sans-serif;
   background-color: white;
   padding:30px 10%;
+  border-top:1px solid lightgrey
 }
 .show-container #side-pic{
   width:20%;

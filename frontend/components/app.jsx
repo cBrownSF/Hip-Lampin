@@ -13,11 +13,16 @@ import HomePage from './welcome_pages/home_page'
 import EditProfileContainer from "./profile/edit_profile_container";
 import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
-
-const App = () => (
+import { useLocation } from "react-router-dom";
+const App = () => {
+  let location = useLocation();
+console.log(location.pathname);
+return(
   <div>
     <Modal />
-    <header>
+    <header style={{
+      background: useLocation().pathname === "/" ? "rgb(234, 232, 228)" : "white"
+    }}>
     <GreetingContainer/>
   </header>
   <Switch>
@@ -33,6 +38,7 @@ const App = () => (
 
   </Switch>
   </div>
-);
+)
+};
 
 export default App;
