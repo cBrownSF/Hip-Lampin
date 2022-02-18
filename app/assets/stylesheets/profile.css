@@ -7,14 +7,14 @@
 .header{
 border: solid lightgray;
 border-width: thin;
-box-shadow: 0 1px 5px 0 rgba(0 0 0 / 8%);
+box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 8%);
 margin:20px;
 padding:20px
 }
 .email-div{
 border: solid lightgray;
 border-width: thin;
-box-shadow: 0 1px 5px 0 rgba(0 0 0 / 8%);
+box-shadow: 0 1px 5px 0 rgba(0, 0, 0,  8%);
 margin:20px;
 padding:20px
 }
@@ -24,7 +24,7 @@ padding:20px
     flex-direction:column;
     border: solid lightgray;
 border-width: thin;
-box-shadow: 0 1px 5px 0 rgba(0 0 0 /8%);
+box-shadow: 0 1px 5px 0 rgba(0, 0, 0,8%);
 margin:20px;
 padding:20px
 }
@@ -57,7 +57,7 @@ padding:20px
     flex-direction:column;
     border: solid lightgray;
 border-width: thin;
-box-shadow: 0 1px 5px 0 rgba(0 0 0 / 8%);
+box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 8%);
 margin:20px;
 padding:20px
 
