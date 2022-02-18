@@ -15,8 +15,7 @@ import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 import { useLocation } from "react-router-dom";
 const App = () => {
-  let location = useLocation();
-console.log(location.pathname);
+
 return(
   <div>
     <Modal />

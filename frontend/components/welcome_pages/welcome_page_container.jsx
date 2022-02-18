@@ -6,7 +6,6 @@ import { openModal } from '../../actions/modal_actions';
 import Welcome from './welcome_page';
 
 const mapStateToProps = (state) => {
-  debugger
   return{
   listings:Object.values(state.entities.listings),
   currentUser: state.entities.users[state.sessions.currentUser]

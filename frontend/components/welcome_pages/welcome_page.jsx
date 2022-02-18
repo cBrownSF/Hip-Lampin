@@ -5,10 +5,8 @@ class Greeting extends React.Component {
   constructor(props) {
     super(props)
     console.log(props)
-    debugger;
   }
   componentDidMount(){
-    debugger;
   }
   render() {
   
