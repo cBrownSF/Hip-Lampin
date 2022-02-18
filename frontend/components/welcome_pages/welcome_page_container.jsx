@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import {logout} from '../../actions/session_actions'
 import {login} from '../../actions/session_actions'
 import { openModal } from '../../actions/modal_actions';
 import Welcome from './welcome_page';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state,ownProps) => {
+ debugger;
+  return{
   currentUser: state.entities.users[state.sessions.currentUser]
-})
+  }
+}
 
 const mapDispatchToProps = dispatch => (
   
@@ -20,7 +24,7 @@ const mapDispatchToProps = dispatch => (
 }
 )
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Welcome);
+)(Welcome));

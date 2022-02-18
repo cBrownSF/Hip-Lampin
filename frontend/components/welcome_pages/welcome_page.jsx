@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 class Greeting extends React.Component {
   constructor(props) {
     super(props)
-    this.logoutRedirect=this.logoutRedirect.bind(this)
-  
+  debugger
   }
- logoutRedirect(){
-  
-   this.props.logout
- }
+
   render() {
+    console.log(this.props)
+    debugger;
     const { currentUser, logout,login,openModal } = this.props
     if (currentUser) {
       const newTo = {
@@ -50,5 +49,5 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default withRouter(Greeting);
 
