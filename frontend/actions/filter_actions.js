@@ -10,6 +10,6 @@ export const updateBounds= (bounds,value)=>({
 
 export const updateFilter = (bounds,value) => (dispatch, getState) => {
   dispatch(updateBounds(bounds,value));
-  // debugger;
+  debugger;
   return receiveAllListings(getState().ui.filters)(dispatch);
 };
