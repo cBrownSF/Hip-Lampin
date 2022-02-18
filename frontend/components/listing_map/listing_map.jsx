@@ -31,7 +31,7 @@ componentDidMount(){
     degree=12
   } else if (type === 'country') {
 
-    degree=3
+    degree=4
   }else{
     degree=6
   }

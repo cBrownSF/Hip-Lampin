@@ -9,8 +9,7 @@
   flex-direction: column;
   display: flex;
   background:white;
-  /* flex: 2 1 0%; */
-  min-width: 0px;
+  flex:2;
 }
 .map-item-container{
   display: flex;
@@ -30,15 +29,15 @@
     top: 0;
 }
 .map {
-   width: 600px;
-   height: 100vh;
+   width: 650px;
+   height: 90vh;
    float: left;
    position: relative;
  }
  .index-item-li{
    list-style:none;
    text-decoration:none;
-   width:45%;
+  /* flex:1 */
  }
  .index-link{
   text-decoration:none;
@@ -62,7 +61,8 @@
     object-fit:cover
  }
  .listing-map-index-page{
-   box-shadow:0 2px 5px rgb(0 0 0 / 10%)
+   box-shadow:0 2px 5px rgb(0 0 0 / 10%);
+   flex:1;
  }
  .text-index-box:hover{
    background:whitesmoke;
