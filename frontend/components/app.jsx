@@ -20,7 +20,7 @@ return(
   <div>
     <Modal />
     <header style={{
-      background: useLocation().pathname === "/" ? "rgb(234, 232, 228)" : "white"
+      background: useLocation().pathname === "/" || useLocation().pathname === "/listings/new" ? "rgb(234, 232, 228)" : "white"
     }}>
     <GreetingContainer/>
   </header>
