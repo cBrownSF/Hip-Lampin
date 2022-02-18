@@ -143,7 +143,7 @@ class ListingForm extends React.Component {
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
 
-  handleFile(e,i) {
+  handleFile(e) {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     const {photoFile,step,photoURL}=this.state;
@@ -153,8 +153,8 @@ class ListingForm extends React.Component {
     fileReader.onloadend = () => {
       let photos=[...this.state.photoFile]
       let url=[...this.state.photoURL]
-      photos[i]=file
-      url[i]=fileReader.result
+      photos[0]=file
+      url[0]=fileReader.result
       this.setState({
         photoFile: photos,
         photoURL: url

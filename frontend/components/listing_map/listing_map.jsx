@@ -2,17 +2,44 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/markers';
 
-const getCoordinates = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
-const mapOptions = {
-  center: { lat: 37.7758, lng: -122.435 }, 
-  zoom: 13
-};
+// const getCoordinates = latLng => ({
+//   lat: latLng.lat(),
+//   lng: latLng.lng()
+// });
+// const mapOptions = {
+//   center: { lat: 37.7758, lng: -122.435 }, 
+//   zoom: 13
+// };
 class ListingMap extends React.Component {
  
 componentDidMount(){
+ 
+  if (this.props.bounds){
+    const { lat, lng,type } = this.props.bounds
+ 
+  localStorage.setItem('lat',lat)
+  localStorage.setItem('lng',lng)
+  localStorage.setItem('type',type)
+  }else{
+
+  }
+  let degree;
+  let latitude = parseFloat(localStorage.getItem('lat'))
+  let longitude = parseFloat(localStorage.getItem('lng'))
+  let type = localStorage.getItem('type')
+  if (type === 'locality'){
+    degree=12
+  } else if (type === 'country') {
+
+    degree=3
+  }else{
+    degree=6
+  }
+  const mapOptions = {
+    
+    center: { lat: latitude, lng: longitude },
+    zoom: degree
+  };
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.eventListeners()
   this.MarkerManager= new MarkerManager(this.map)

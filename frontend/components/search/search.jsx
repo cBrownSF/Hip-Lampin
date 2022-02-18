@@ -28,6 +28,8 @@ render(){
       listings={this.props.listings}
       receiveListings={this.props.receiveListings}
       updateFilter={this.props.updateFilter}
+      bounds={this.props.searchInfo}
+
     />
     </div>
   </div>

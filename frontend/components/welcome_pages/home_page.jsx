@@ -1,5 +1,6 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 class HomePage extends React.Component {
   constructor(props){
     super(props)
@@ -19,13 +20,11 @@ class HomePage extends React.Component {
       types: ['(regions)']
     }
     let searchBar = document.getElementById("city-search")
-    console.log(searchBar)
+
     this.search=new google.maps.places.Autocomplete(searchBar, options)
-    console.log(this.search)
+  
     let auto = this.search;
     this.search.addListener('place_changed', () => {
-      debugger;
-      console.log('in it')
       let result = auto.getPlace()
       return this.setState({
         lat: result.geometry.location.lat(),
@@ -33,10 +32,10 @@ class HomePage extends React.Component {
         type:result.types[0]
       })
     })
-console.log(this.state)
+
   }
   render() { 
-    const newTo = {
+    const searchProps = {
       pathname: "/listings",
       state: {lng:this.state.lng,lat:this.state.lat,type:this.state.type}
     };
@@ -75,7 +74,7 @@ console.log(this.state)
           id="date"
           />
         </div>
-        <button className="search-button" type="submit">Search</button>
+        <Link to={searchProps}><button className="search-button" type="submit">Search</button></Link>
         </form>
       </div>
      
@@ -92,4 +91,4 @@ console.log(this.state)
   }
 }
  
-export default HomePage;
+export default withRouter(HomePage);

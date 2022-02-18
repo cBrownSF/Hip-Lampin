@@ -19,7 +19,7 @@ return(
           type="file"
           multiple
           accept=".png, .jpeg"
-          onChange={()=>(props.handleFile(e,0))} />
+          onChange={props.handleFile} />
       </div>
     )
       : (

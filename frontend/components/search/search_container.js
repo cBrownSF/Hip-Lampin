@@ -2,11 +2,9 @@ import {connect} from 'react-redux';
 import Search from './search'
 import { updateFilter } from '../../actions/filter_actions';
 import { receiveAllListings } from '../../actions/listings_actions'
-const mapStatetoProps = state => {
- 
- 
+const mapStatetoProps = (state,ownProps) => {
   return({
-   
+    searchInfo: ownProps.location.state,
     listings: Object.values(state.entities.listings)
   })
 }
