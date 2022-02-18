@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 import { openModal } from "../../actions/modal_actions"
 import ListingShow from './listing_show'
 const mapStateToProps = (state, ownProps) => {
-debugger
   const listingId = Number(ownProps.match.params.listingId)
   // const listing = state.entities.listings[listingId]
   // const reviews =  selectReviewsForListing(state.entities,listing)

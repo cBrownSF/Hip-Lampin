@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import HomePageContainer from "./welcome_pages/home_page_container";
 import GreetingContainer from './welcome_pages/welcome_page_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
@@ -28,7 +29,7 @@ const App = () => (
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={HomePageContainer} />
 
   </Switch>
   </div>
