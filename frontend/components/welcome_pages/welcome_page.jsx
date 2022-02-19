@@ -1,16 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
+import SearchBar from "./search_bar";
 import { withRouter } from "react-router";
-class Greeting extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log(props)
-  }
-  componentDidMount(){
-  }
-  render() {
-  
-    const { currentUser, logout,login,openModal } = this.props
+const NavBar = (props) => {
+
+    const { currentUser, logout,login,openModal } = props
     if (currentUser) {
       const newTo = {
         pathname: "/listings/new",
@@ -20,8 +14,16 @@ class Greeting extends React.Component {
       return (
       <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+        {useLocation().pathname === "/"?(
+          console.log(useLocation().pathname)
+        ):(
+          <div>
+            <SearchBar 
+            className='small-search-wrapper'
+            />
+          </div>
+        )}
         <nav>
-        {/* <h2 className ="greeting">Welcome {currentUser.fname}!</h2> */}
         <ul className="nav-bar">
           <li><Link className="nav-li" to='/listings'>Listings</Link></li>
               <li className="nav-li" onClick={logout}>Logout</li>
@@ -47,7 +49,7 @@ class Greeting extends React.Component {
       )
     }
   }
-}
 
-export default withRouter(Greeting);
+
+export default withRouter(NavBar);
 

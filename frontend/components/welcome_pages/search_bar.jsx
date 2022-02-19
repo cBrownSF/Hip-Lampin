@@ -41,7 +41,7 @@ render() {
   };
 
   return(
-    <div className="search-wrapper">
+    <div className={this.props.className}>
       <form className="search-form">
         <div className="search-bar">
           <label htmlFor="search">Where to?</label>
@@ -52,7 +52,7 @@ render() {
             onSelect={this.autoComplete}
             placeholder='Try Yosemite,Moss Beach,Joshua Tree' />
         </div>
-        <div className="search-bar">
+        {/* <div className="search-bar">
           <label htmlFor="dates">Dates</label>
           <input
             type="date"
@@ -68,7 +68,7 @@ render() {
             type="Select"
             id="date"
           />
-        </div>
+        </div> */}
         <Link to={searchProps}><button className="search-button" type="submit">Search</button></Link>
       </form>
     </div>

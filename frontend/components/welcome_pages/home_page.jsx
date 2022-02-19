@@ -49,7 +49,9 @@ class HomePage extends React.Component {
         </div>
         </div>
       <div>
-        <SearchBar />
+        <SearchBar 
+        className='search-wrapper'
+        />
       </div>
         </section>
 

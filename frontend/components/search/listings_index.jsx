@@ -21,19 +21,7 @@ const ListingIndex = (props) => {
       )
     }
   }
-  //   const Array = Object.values(this.props.listings)
-  //   return (
-  //     <div>
-  //       <h1>Listing: </h1>
-  //         {Array.map(listing =>(
-  //           <ListingIndexItem
-  //           listings={listing}
-  //           key={listing.id}
-  //           />
-  //         ))}
-  //     </div>
-  //   )
-  // }
+ 
 
 
 export default ListingIndex;
