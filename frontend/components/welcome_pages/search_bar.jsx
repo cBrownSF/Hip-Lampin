@@ -37,7 +37,7 @@ autoComplete() {
 render() {
   const searchProps = {
     pathname: "/listings",
-    state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type }
+    state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
   };
 
   return(
@@ -69,7 +69,7 @@ render() {
             id="date"
           />
         </div> */}
-        <Link to={searchProps}><button className="search-button" type="submit">Search</button></Link>
+        <Link to={searchProps} key={Math.random()} ><button className="search-button" type="submit">Search</button></Link>
       </form>
     </div>
 

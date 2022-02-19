@@ -13,14 +13,11 @@ import MarkerManager from '../../util/markers';
 class ListingMap extends React.Component {
  
 componentDidMount(){
- 
   if (this.props.bounds){
     const { lat, lng,type } = this.props.bounds
-  localStorage.setItem('lat',lat)
-  localStorage.setItem('lng',lng)
-  localStorage.setItem('type',type)
-  }else{
-
+    localStorage.setItem('lat',lat)
+    localStorage.setItem('lng',lng)
+    localStorage.setItem('type',type)
   }
   let degree;
   let latitude = parseFloat(localStorage.getItem('lat'))
@@ -47,8 +44,12 @@ componentDidMount(){
   // console.log(service)
   // console.log(new google.maps.places.AutocompleteService())
 }
+componentWillUnmount(){
+console.log('unmounted')
+}
 componentDidUpdate(){
- 
+  debugger;
+  //Put something in here if the refresh is on the listings page so that it will create new map and re render.
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 eventListeners(){
