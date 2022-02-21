@@ -11,7 +11,7 @@ const NameForm = (props) =>{
 
   const letterCount = () => {
     let charLeft = (10 - props.name.length);
-    return charLeft <= 0 ? '' : `${charLeft} more characters needed` ;
+    return charLeft <= 0 ? <div className='hidden'>no more characters required </div> : <div>{charLeft} more characters needed</div> ;
   }
   
 

@@ -8,7 +8,7 @@ if (props.currentPage !== 2){
 
 const letterCount = () => {
     let charLeft = (10 - props.description.length);
-    return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
+  return charLeft <= 0 ? <div className='hidden'>no more characters required </div> : <div>{charLeft} more characters needed</div>;
   }
     return(
     <div className="name-box">
@@ -29,7 +29,8 @@ const letterCount = () => {
           <li>Any relevant historical information</li>
           <li>Nearby attractions</li>
         </ul>
-        
+        <br />
+        <br />
         <div className='descript-buttons'>
           <button type="button" className = 'previous-button' onClick={props.prevPage}>Previous</button>
           {props.formType==='create' ?(

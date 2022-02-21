@@ -69,7 +69,7 @@
   margin-right:10px;
 }
 .show-container #activities-show{
-  width:30%;
+  flex:1;
   border: solid lightgray;
   border-width:thin;
   margin:20px;
@@ -588,6 +588,7 @@ font-size: 2.4rem;
 }
 .description{
 width:66%;
+overflow-wrap: break-word;
 }
 .review-index-item-array-show{
   width:70%

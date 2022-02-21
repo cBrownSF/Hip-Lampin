@@ -447,7 +447,7 @@ transform: scale(1.04);
    
  }
  .descript-buttons{
-   margin-top:15px;
+   margin-top:7px
  }
  .cost-buttons{
    margin-top:78px;
@@ -741,4 +741,55 @@ input[type="file"] {
 }
 .first-name-last-name{
   display:flex;
+}
+.picture-row{
+  display:flex
+}
+
+.button-add-pic {
+  background-color: white;
+  font-weight:500px;
+  font-family:inherit;
+  color: darkgray;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: dashed lightgray 2px;
+   width: 125px;
+  height: 125px;
+  cursor: pointer;
+}
+.form-img-prev{
+
+  width: 125px;
+  height: 125px;
+  cursor: pointer;
+  object-fit: cover;
+
+}
+.photo-list-item{
+    font-family: inherit;
+    font-size: 16px;
+    color: grey;
+}
+.photo-list{
+  font-family: inherit;
+    font-size: 13px;
+    color: grey;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.photos-div{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.button-photo{
+  margin-top:100px;
+}
+.hidden{
+  color:white;
+  font-size:10px;
+   margin-left: 30px;
+   margin-top: 5px;
 }
