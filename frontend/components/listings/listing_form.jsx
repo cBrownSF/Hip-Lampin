@@ -144,7 +144,7 @@ class ListingForm extends React.Component {
   }
 
   handleFileChange(url,file) {
-    debugger;
+ 
     return (
       this.setState({
         photoURL:url,
@@ -257,7 +257,7 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let formType=this.props.formType
     if (step === 8 && formType === 'edit') {
-      debugger;
+
       return (
         this.setState({
           step: step + 2
@@ -272,7 +272,7 @@ class ListingForm extends React.Component {
     }
   }
   nextStepPhoto(e) {
-    debugger;
+  
     e.preventDefault()
     let step = this.state.step
     if (this.state.photoFile.length>=3){
@@ -304,7 +304,7 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let formType = this.props.formType
     if (step === 10 && formType === 'edit') {
-      debugger;
+  
       return (
         this.setState({
           step: step - 2
@@ -366,7 +366,7 @@ class ListingForm extends React.Component {
   locNextStep() {
 
     if (!this.state.city.length && !this.state.street_address.length) {
-      debugger;
+  
       return this.setState(
         {
           step: this.state.step

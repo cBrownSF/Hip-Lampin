@@ -15,7 +15,7 @@ class PhotoForm extends React.Component {
   }
   componentDidUpdate(){
     if (this.state.edit === true){
-      debugger;
+
       this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
       return this.setState({
         edit: false
@@ -23,7 +23,7 @@ class PhotoForm extends React.Component {
     }
   }
   handleImage(e,i) {
-    debugger;
+
  
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();

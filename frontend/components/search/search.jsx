@@ -7,16 +7,18 @@ class Search extends React.Component{
     super(props)
   }
   componentDidMount() {
-    // this.props.receiveListings()
+    if(this.props.allListings === '?all'){
+      this.props.receiveListings()
+    }
    
   }
 
 render(){
-  debugger;
-  // if (Object.keys(this.props.listings).length ===0){
+
+  if (Object.keys(this.props.listings).length === 0 && this.props.allListings === '?all'){
     
-  //   return null;
-  // }
+    return null;
+  }
   return(
 <div className="index-container">
   <div className="map-item-container">
@@ -37,7 +39,7 @@ render(){
         bounds={this.props.searchInfo}
 
       />
-    </div>):<div>{console.log('not-map')}</div>
+    </div>):<div></div>
     }
       </div>
   </div>

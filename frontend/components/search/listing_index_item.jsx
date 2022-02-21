@@ -12,7 +12,7 @@ class ListingIndexItem extends React.Component {
     this.prevImage=this.prevImage.bind(this)
   }
    nextImage(){
-  debugger;
+
      const photos = this.props.listings;
      const slide = this.state.slide;
      if(slide !==3){
@@ -27,7 +27,7 @@ class ListingIndexItem extends React.Component {
       }
     }
     prevImage(){
-    debugger;
+
       const photos = this.props.listings
       const slide = this.state.slide
       if(slide!==1){
@@ -35,7 +35,7 @@ class ListingIndexItem extends React.Component {
           slide: prevState.slide - 1
         }))
       }else{
-        debugger
+
         return this.setState(() => ({
           slide: 3
         }))
