@@ -48,7 +48,7 @@ componentWillUnmount(){
 console.log('unmounted')
 }
 componentDidUpdate(){
-  debugger;
+
   //Put something in here if the refresh is on the listings page so that it will create new map and re render.
   this.MarkerManager.updateMarkers(this.props.listings);
 }

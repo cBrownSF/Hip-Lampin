@@ -3,9 +3,6 @@ import { compose } from 'redux';
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.photoFile)
-    console.log(props.photoURL)
-    debugger;
     this.state = { 
       photoURL:[],
       photoFile: [],
@@ -16,9 +13,7 @@ class PhotoForm extends React.Component {
     this.secondInput=React.createRef()
     this.thirdInput=React.createRef()
   }
-  componentDidUpdate(prevState){
-    console.log(prevState.edit)
-    console.log(this.state.edit)
+  componentDidUpdate(){
     if (this.state.edit === true){
       debugger;
       this.props.handleFileChange(this.state.photoURL, this.state.photoFile)

@@ -7,34 +7,37 @@ class ListingIndexItem extends React.Component {
     this.state={
       slide:1
     }
+    console.log('constructor')
     this.nextImage=this.nextImage.bind(this)
     this.prevImage=this.prevImage.bind(this)
   }
    nextImage(){
-  
+  debugger;
      const photos = this.props.listings;
-     const slide = this.state;
-     if(slide !==photos.length){
+     const slide = this.state.slide;
+     if(slide !==3){
       return this.setState((prevState) => ({
         slide: prevState.slide + 1
       }))
     }else{
+      console.log(`lastone${this.state.slide}`)
        return this.setState(() => ({
          slide: 1
        }))
       }
     }
     prevImage(){
-    
+    debugger;
       const photos = this.props.listings
-      const slide = this.state
+      const slide = this.state.slide
       if(slide!==1){
         return this.setState((prevState) => ({
           slide: prevState.slide - 1
         }))
       }else{
+        debugger
         return this.setState(() => ({
-          slide: photos.length
+          slide: 3
         }))
       }
     }
@@ -47,7 +50,7 @@ class ListingIndexItem extends React.Component {
     <div className="listing-index-item-box">
       <div className="slider-container">
           <div className='slider-div'>
-             <img className="index-photo"src={photos[this.state.slide]} height="200px" width="200px"/> 
+             <img className="index-photo"src={photos[this.state.slide-1]} height="200px" width="200px"/> 
 
               <div className="buttons-class">
                 <button className="carousel-button" onClick={this.prevImage}><i class="fas fa-chevron-left" style={{ color: 'white' }}></i></button>

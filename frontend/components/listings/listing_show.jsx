@@ -251,7 +251,7 @@ render() {
 }
 
             <div className='activities-list-div'>
-              {!listing.is_hiking ? (
+              {listing.is_hiking ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Hiking</li>
                   <i className="fas fa-hiking"></i>
@@ -264,7 +264,7 @@ render() {
               )}
             </div >
             <div className='activities-list-div'>
-              {!listing.is_swimming ? (
+              {listing.is_swimming ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Swimming</li>
                   <i className="fas fa-swimmer"></i>
@@ -277,7 +277,7 @@ render() {
               )}
             </div >
             <div className='activities-list-div'>
-              {!listing.is_paddling ? (
+              {listing.is_paddling ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Paddling</li>
                   <i className="fas fa-water"></i>
@@ -298,7 +298,7 @@ render() {
                 ):(
               <div className="inner-div-act">
                 <li id='text-icons'>Urban Setting</li>
-                <i class="fas fa-building"></i>
+                <i className="fas fa-building"></i>
               </div>
                 )}
             </div>
