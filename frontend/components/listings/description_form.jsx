@@ -23,7 +23,7 @@ const letterCount = () => {
           onChange={props.handleInput('description')}
         />
         <div>
-        <p id='required'>{letterCount()}</p>
+        <div id='required'>{letterCount()}</div>
         </div>
         <p id ='tips-descript'>THINGS TO CONSIDER MENTIONING</p>
         <ul id ='tips-list'>

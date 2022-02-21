@@ -15,12 +15,13 @@ import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 import { useLocation } from "react-router-dom";
 const App = () => {
-
+const path=useLocation().pathname
+console.log(path)
 return(
   <div>
     <Modal />
     <header style={{
-      background: useLocation().pathname === "/" || useLocation().pathname === "/listings/new" ? "rgb(234, 232, 228)" : "white"
+      background: path === "/" || path === "/listings/new" || path.includes('edit')? "rgb(234, 232, 228)" : "white"
     }}>
     <GreetingContainer/>
   </header>

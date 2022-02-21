@@ -29,9 +29,9 @@ const NameForm = (props) =>{
             value={props.name}
             onChange={props.handleInput('name')}
           />
-            <div>
-            <p id='required'>{letterCount()}</p>
-        </div>
+          <div>
+            <div id='required'>{letterCount()}</div>
+         </div>
          
           <p id='tips'>TIPS FOR NAMING YOUR LISTING</p>
           <ul id='tips-list'>
@@ -43,7 +43,7 @@ const NameForm = (props) =>{
           <br/>
           <br/>
           <div id="name-button">
-      <button  className='next-button-single' onClick={props.nextPage}>Next</button>
+      <button type="button" className='next-button-single' onClick={props.nextPage}>Next</button>
         </div>
         </div>
         )

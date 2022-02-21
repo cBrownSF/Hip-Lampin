@@ -1,24 +1,35 @@
 import React from 'react'
+import { compose } from 'redux';
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.photoFile)
+    console.log(props.photoURL)
+    debugger;
     this.state = { 
       photoURL:[],
-      photoFile:[],
+      photoFile: [],
+      edit:false
      }
     this.handleImage=this.handleImage.bind(this)
     this.mainInput = React.createRef()
     this.secondInput=React.createRef()
     this.thirdInput=React.createRef()
   }
-  // componentDidUpdate(prevState){
-  //   if (prevState !== this.state){
-  //     debugger;
-  //     this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
-  //   }
-  // }
+  componentDidUpdate(prevState){
+    console.log(prevState.edit)
+    console.log(this.state.edit)
+    if (this.state.edit === true){
+      debugger;
+      this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
+      return this.setState({
+        edit: false
+      })
+    }
+  }
   handleImage(e,i) {
     debugger;
+ 
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     const { photoFile, photoURL } = this.state;
@@ -30,17 +41,20 @@ class PhotoForm extends React.Component {
         url[i] = fileReader.result
         this.setState({
           photoFile: photos,
-          photoURL: url
+          photoURL: url,
+          edit:true
         })
       }
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-      fileReader.readAsDataURL(file);
+      fileReader.readAsDataURL(file)
+
     }
   }
   render() { 
     if (this.props.currentPage !== 9) {
     return null
   }
+ 
     return ( 
       <div className='name-box'>
     <br/>
@@ -133,8 +147,8 @@ class PhotoForm extends React.Component {
           </ul>
         </div>
         <div className='photos-buttons'>
-      <button type="button-photo" className='previous-button' onClick={this.props.prevPage}>Previous</button>
-      <button type="button-photo" className='next-button-with-prev' onClick={this.props.nextPage}>Next</button>
+      <button type="button" className='previous-button' onClick={this.props.prevPage}>Previous</button>
+      <button type="button" className='next-button-with-prev' onClick={this.props.nextPage}>Next</button>
      </div>
       </div>
      );
@@ -142,49 +156,3 @@ class PhotoForm extends React.Component {
 }
  
 export default PhotoForm;
-// const PhotoForm = (props) => {
-  
-//   if (props.currentPage !== 9) {
-//     return null
-//   }
-// return(
-//   <div className='name-box'>
-//     <br/>
-//       <h1 id='name-title'>Show Hipcampers where they'll be staying </h1>
-//     {props.photoURL.length? (
-//       <div>
-//         <img className="uploaded-photo" height="200px" width="200px" src={props.photoURL[0]} />
-//         <label for="form-file-upload" id="button-photo-added-upload">
-//           Replace Photo
-//         </label>
-//         <input id="form-file-upload"
-//           type="file"
-//           multiple
-//           accept=".png, .jpeg"
-//           onChange={props.handleFile} />
-//       </div>
-//     )
-//       : (
-//         <div>
-//           <label for="form-file-upload" id="button-photo-upload">
-//             Upload Photo
-//           </label>
-//           <input id="form-file-upload"
-//             type="file"
-//             multiple
-//             accept=".png, .jpeg"
-//             onChange={props.handleFile} />
-//         </div>
-//       )
-//     }
-  
-      
-//     <div className='photos-buttons'>
-//       <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
-//       <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
-//     </div>
-// </div>
-// )
-// }
-
-// export default PhotoForm;

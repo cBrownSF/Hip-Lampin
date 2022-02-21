@@ -123,7 +123,7 @@ class ListingForm extends React.Component {
       // formData.append("listing[photos][]", this.state.photoFile[i]);
     
       // formData.delete("listing[photos][]")
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 2; i++) {
       
         // this.props.listing.slice(0,2)
         if (this.state.photoFile[i] instanceof File){
@@ -255,21 +255,33 @@ class ListingForm extends React.Component {
   nextStep(e) {
     e.preventDefault()
     let step = this.state.step
+    let formType=this.props.formType
+    if (step === 8 && formType === 'edit') {
+      debugger;
+      return (
+        this.setState({
+          step: step + 2
+        })
+      )
+  }else{
+    return (
+      this.setState({
+        step: step + 1
+      })
+    )
+    }
+  }
+  nextStepPhoto(e) {
+    debugger;
+    e.preventDefault()
+    let step = this.state.step
+    if (this.state.photoFile.length>=3){
     return (
       this.setState({
         step: step + 1
       })
     )
   }
-  nextStepPhoto(e) {
-    e.preventDefault()
-    let step = this.state.step
-    if (this.state.photoFile.length>=3)
-    return (
-      this.setState({
-        step: step + 1
-      })
-    )
   }
   costNextStep() {
     let step = this.state.step
@@ -290,9 +302,18 @@ class ListingForm extends React.Component {
   previousStep(e) {
     e.preventDefault()
     let step = this.state.step
+    let formType = this.props.formType
+    if (step === 10 && formType === 'edit') {
+      debugger;
+      return (
+        this.setState({
+          step: step - 2
+        })
+      )}else{
     return this.setState({
       step: step - 1
     })
+  }
   }
   autoCompleteNextStep() {
     const options = {
@@ -469,7 +490,7 @@ class ListingForm extends React.Component {
               currentPage={this.state.step}
               prevPage={this.previousStep}
               handleFileChange={this.handleFileChange}
-              nextStep={this.nextStepPhoto}
+              nextPage={this.nextStepPhoto}
               photoURL={this.state.photoURL}
               photoFile={this.state.photoFile}
             />
