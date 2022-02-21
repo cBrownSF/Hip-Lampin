@@ -27,9 +27,11 @@ class MarkerManager {
     });
    
     const contentString =
-    `<a href="/#/listings/${listing.id}">` +
-    `<div><h1>${listing.name}<h1></div>` +
-    `<div><img src="${listing.photo}` +
+    `<a class='info-link' href="/#/listings/${listing.id}">` +
+    `<div class='info-div'>` +
+    `<div class="info-header">${listing.name}</div>` +
+    `<div class="info-second-header"> $${listing.cost}/per night</div>` +
+   `</div>`+
     "</a>";
     
     let info = new google.maps.InfoWindow({

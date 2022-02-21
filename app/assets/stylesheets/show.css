@@ -114,7 +114,6 @@ color: grey;
   background-color:#39C39A;
   color:white;
   font-size: 12px;
-  margin-left:40px;
   cursor:pointer;
   border-radius: 40px;
   border-color:#39C39A;
@@ -122,14 +121,20 @@ color: grey;
   border-width:thin;
 } 
  .photo-container{
-   display:flex;
-   flex-direction: row;
-   margin-bottom: 15px;
+  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* margin-bottom: 15px; */
+    /* width: 100%; */
+    border-top: 1px solid lightgrey;
  }
  .show-images{
-   padding:10px;
-   height:40vh;
-   width:30vw;
+     padding: 10px;
+    height: 50vh;
+    width: 32vw;
+    object-fit: cover;
+    background-color: white;
+    margin-bottom: 0px;
  }
  .listing-title{
    font-size:60px;
@@ -596,4 +601,7 @@ overflow-wrap: break-word;
 .review-line-break{
   color: black;
   width:100%
+}
+.main-div-show{
+  background-color: white;
 }

@@ -141,7 +141,12 @@ render() {
   // this.findHostAuthor()
  
   return(
-   
+    <div className='main-div-show'>
+     <div className="photo-container">
+        <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
+        <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
+        <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
+      </div>
     <div className='show-container'>
       <div>
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
@@ -149,10 +154,11 @@ render() {
         ) : ''}
       </div>
       {/* <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p> */}
-      <div className="photo-container">
+      {/* <div className="photo-container">
         <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
         <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
-      </div>
+        <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
+      </div> */}
  
       <div className="booking-box">
         <div className='cost-show'>
@@ -432,7 +438,7 @@ render() {
                   })
                   }
             </div>
-    
+    </div>
   </div>
   )}
 }

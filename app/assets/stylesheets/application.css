@@ -827,3 +827,23 @@ input[type="file"] {
 #name-button{
   margin-top:8px
 }
+.info-header{
+  color:black;
+  font-weight:600;
+  text-decoration: none;
+  font-size:16px;
+  margin-bottom: 5px;
+  padding: 0px;
+}
+.info-second-header{
+color:black;
+font-size:10px;
+font-weight: 500;
+}
+.info-div{
+  display:flex; 
+  flex-direction:column;
+}
+.info-link{
+  text-decoration:none
+}
