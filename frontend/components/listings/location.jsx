@@ -11,11 +11,12 @@ const locationForm = (props) => {
     <div className="name-box">
       <br/>
       <h1 id="name-title">Where is the property located?</h1>
+      <div className="location-input-div">
       {props.formType==='edit' ? (
       <input id="autocomplete"
         className='text-bubble'
         type="text"
-        placeholder="enter new address"
+        placeholder="Enter new address"
         onKeyPress={props.keyDown}
         value={props.address}
         //BE CLEAR THAT YOU CAN SKIP THE PAGE IF YOU'D LIKE TO KEEP THE SAME ADDRESS OR PUT ADDRESS AS VALUE AND let user skip it
@@ -26,7 +27,7 @@ const locationForm = (props) => {
           <input id="autocomplete"
             className='text-bubble'
             type="text"
-            placeholder="enter new address"
+            placeholder="Enter new address"
             onKeyPress={props.keyDown}
             // value={props.address}
             //BE CLEAR THAT YOU CAN SKIP THE PAGE IF YOU'D LIKE TO KEEP THE SAME ADDRESS OR PUT ADDRESS AS VALUE AND let user skip it
@@ -34,7 +35,10 @@ const locationForm = (props) => {
             onSelect={props.auto}
           /> 
       )}
-      
+      </div>
+      <div className='location-instruction'>
+        <p>You must select a valid address to continue</p>
+      </div>
       
       <div className='location-button'>
         <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>

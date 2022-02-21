@@ -22,14 +22,14 @@ const NameForm = (props) =>{
           <div>
           <p id ='name-title'>Name your listing</p>
           <p id='blurb'>This should be a short title describing your site and landcscape</p>
-          </div>
+         
           <input className ='text-bubble'
             type="text"
             placeholder='e.g. cozy cottage'
             value={props.name}
             onChange={props.handleInput('name')}
           />
-          <div>
+          
         <p id='required'>{letterCount()}</p>
             </div>
           <p id='tips'>TIPS FOR NAMING YOUR LISTING</p>
