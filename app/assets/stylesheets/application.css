@@ -447,7 +447,7 @@ transform: scale(1.04);
    
  }
  .descript-buttons{
-   margin-top:7px
+   margin-top:10px
  }
  .cost-buttons{
    margin-top:78px;
@@ -457,17 +457,18 @@ transform: scale(1.04);
    font-size:20px;
    color: black;
    margin-left:10px;
-   margin-top:20px;
+   margin-top:30px;
   list-style-type: none;
  }
  .name-box #amenities-list li{
    margin:10px;
+   line-height:1.5
  }
  .amenities-button{
    margin-top:80px;
  }
 .activities-button{
-   margin-top:115px;
+   margin-top:128px;
 }
  .name-box #booking-title{
    margin-left: 25px;
@@ -502,12 +503,11 @@ transform: scale(1.04);
    border-color:lightgrey;
    border-radius: 30px;
    border-width: thin;
-   margin-left:30px;
    margin-top: 15px;
    margin-bottom:12px;
  }
  .booking-detail-button{
-   margin-top:30px;
+   margin-top:61px;
  }
  .check-in-button{
    margin-top:38px;
@@ -792,4 +792,12 @@ input[type="file"] {
   font-size:10px;
    margin-left: 30px;
    margin-top: 5px;
+}
+.night-stay-div{
+  margin-bottom:90px;
+  margin-top:15px
+}
+.name-box{
+  display:flex;
+  flex-direction:column;
 }

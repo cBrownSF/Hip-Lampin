@@ -22,7 +22,9 @@ const letterCount = () => {
           value={props.description}
           onChange={props.handleInput('description')}
         />
+        <div>
         <p id='required'>{letterCount()}</p>
+        </div>
         <p id ='tips-descript'>THINGS TO CONSIDER MENTIONING</p>
         <ul id ='tips-list'>
           <li>Information on scenery</li>

@@ -21,6 +21,7 @@ const CostForm = (props) => {
       
       <br/>
         <h1 id='name-title'>How much do you want to charge per night?</h1>
+        <div>
         <input className = "text-bubble"
           type="text"
           placeholder='e.g. 80'
@@ -29,8 +30,9 @@ const CostForm = (props) => {
           onKeyDown={props.keyPress}
         />
       <p id='required'>This is a required field</p>
+      </div>
       <br/>
-        <div>
+        <div className='night-stay-div'>
      <h1 id='act-amen-title'>Minimum nights stay</h1>
         <select className = "select-bubble" value={props.minNight} onChange={props.handleInput('minimum_night')}>
           <option value="1">1 Night</option>
