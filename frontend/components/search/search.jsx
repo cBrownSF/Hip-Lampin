@@ -1,6 +1,7 @@
 import React from 'react'
 import ListingIndex from './listings_index'
 import ListingMap from './../listing_map/listing_map'
+
 class Search extends React.Component{
   constructor(props) {
     super(props)
@@ -11,6 +12,7 @@ class Search extends React.Component{
   }
 
 render(){
+  debugger;
   // if (Object.keys(this.props.listings).length ===0){
     
   //   return null;
@@ -20,18 +22,24 @@ render(){
   <div className="map-item-container">
     <div className="listing-index-container">
     <ListingIndex 
-      listings={this.props.listings}  
-    />
-    </div>
-    <div className="listing-map-index-page">
-    <ListingMap 
-      listings={this.props.listings}
+      listings={this.props.listings} 
       receiveListings={this.props.receiveListings}
-      updateFilter={this.props.updateFilter}
-      bounds={this.props.searchInfo}
 
     />
     </div>
+    <div>
+      {this.props.allListings !== '?all' ? (
+    <div className="listing-map-index-page">
+      <ListingMap 
+        listings={this.props.listings}
+        receiveListings={this.props.receiveListings}
+        updateFilter={this.props.updateFilter}
+        bounds={this.props.searchInfo}
+
+      />
+    </div>):<div>{console.log('not-map')}</div>
+    }
+      </div>
   </div>
 </div>
 )

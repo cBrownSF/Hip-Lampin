@@ -3,8 +3,9 @@ import Search from './search'
 import { updateFilter } from '../../actions/filter_actions';
 import { receiveAllListings } from '../../actions/listings_actions'
 const mapStatetoProps = (state,ownProps) => {
-
+  debugger;
   return({
+    allListings:ownProps.location.search,
     searchInfo: ownProps.location.state,
     listings: Object.values(state.entities.listings)
   })

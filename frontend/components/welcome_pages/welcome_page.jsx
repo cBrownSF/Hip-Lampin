@@ -5,6 +5,10 @@ import { withRouter } from "react-router";
 const NavBar = (props) => {
 
     const { currentUser, logout,login,openModal } = props
+  const allListings = {
+    pathname: "/listings",
+    search: 'all',
+  };
     if (currentUser) {
       const newTo = {
         pathname: "/listings/new",
@@ -25,7 +29,7 @@ const NavBar = (props) => {
         )}
         <nav>
         <ul className="nav-bar">
-          <li><Link className="nav-li" to='/listings'>Listings</Link></li>
+              <li><Link className="nav-li" to={allListings}>Listings</Link></li>
               <li className="nav-li" onClick={logout}>Logout</li>
           <li ><Link className="nav-li" to={`/profile/${currentUser.id}`}>Profile</Link></li>
         </ul>
@@ -39,7 +43,7 @@ const NavBar = (props) => {
           <span className='mainLogo'><Link className='mainLogo' to= '/'>HipLampin</Link></span>
         <nav >
           <ul className="nav-bar">
-            <li className = 'nav-li'><Link className = "nav-li" to= '/listings'>Listings</Link></li>
+            <li className = 'nav-li'><Link className = "nav-li" to={allListings}>Listings</Link></li>
               <li className='nav-li'> <button className="nav-li-button" onClick={() => openModal('login')}>Login</button></li>
             <li className='nav-li'onClick = {login} >DemoLogin</li>
           </ul>
