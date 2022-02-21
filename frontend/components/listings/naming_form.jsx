@@ -19,19 +19,20 @@ const NameForm = (props) =>{
   return (
     <div className="name-box">
       <br/>
-          <div>
-          <p id ='name-title'>Name your listing</p>
+ 
+          <h1 id ='name-title'>Name your listing</h1>
           <p id='blurb'>This should be a short title describing your site and landcscape</p>
-         
+   
           <input className ='text-bubble'
             type="text"
             placeholder='e.g. cozy cottage'
             value={props.name}
             onChange={props.handleInput('name')}
           />
-          
-        <p id='required'>{letterCount()}</p>
-            </div>
+            <div>
+            <p id='required'>{letterCount()}</p>
+        </div>
+         
           <p id='tips'>TIPS FOR NAMING YOUR LISTING</p>
           <ul id='tips-list'>
             <li>Keep it short! 3-5 words are recommended</li>

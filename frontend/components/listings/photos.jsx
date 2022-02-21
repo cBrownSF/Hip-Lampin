@@ -6,12 +6,17 @@ class PhotoForm extends React.Component {
       photoURL:[],
       photoFile:[],
      }
-     this.handleImage=this.handleImage.bind(this)
+    this.handleImage=this.handleImage.bind(this)
     this.mainInput = React.createRef()
     this.secondInput=React.createRef()
     this.thirdInput=React.createRef()
   }
-
+  // componentDidUpdate(prevState){
+  //   if (prevState !== this.state){
+  //     debugger;
+  //     this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
+  //   }
+  // }
   handleImage(e,i) {
     debugger;
     let file = e.currentTarget.files[0];
@@ -28,13 +33,9 @@ class PhotoForm extends React.Component {
           photoURL: url
         })
       }
-    
-
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-
       fileReader.readAsDataURL(file);
     }
-
   }
   render() { 
     if (this.props.currentPage !== 9) {
@@ -133,7 +134,7 @@ class PhotoForm extends React.Component {
         </div>
         <div className='photos-buttons'>
       <button type="button-photo" className='previous-button' onClick={this.props.prevPage}>Previous</button>
-       <button type="button-photo" className='next-button-with-prev' onClick={this.props.nextPage}>Next</button>
+      <button type="button-photo" className='next-button-with-prev' onClick={this.props.nextPage}>Next</button>
      </div>
       </div>
      );

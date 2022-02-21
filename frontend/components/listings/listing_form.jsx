@@ -67,7 +67,6 @@ class ListingForm extends React.Component {
     this.nextStep = this.nextStep.bind(this)
     this.toggleBoolean = this.toggleBoolean.bind(this)
     this.numberInput = this.numberInput.bind(this)
-    this.handleFile = this.handleFile.bind(this)
     this.descriptNextStep = this.descriptNextStep.bind(this)
     this.letterCount = this.letterCount.bind(this)
     this.costNextStep = this.costNextStep.bind(this)
@@ -75,6 +74,8 @@ class ListingForm extends React.Component {
     this.hideButton = this.hideButton.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.nextStepPhoto = this.nextStepPhoto.bind(this)
+    this.handleFileChange=this.handleFileChange.bind(this)
     // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
     // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep = this.autoCompleteNextStep.bind(this)
@@ -122,7 +123,7 @@ class ListingForm extends React.Component {
       // formData.append("listing[photos][]", this.state.photoFile[i]);
     
       // formData.delete("listing[photos][]")
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 3; i++) {
       
         // this.props.listing.slice(0,2)
         if (this.state.photoFile[i] instanceof File){
@@ -142,44 +143,14 @@ class ListingForm extends React.Component {
     return charLeft <= 0 ? '' : `${charLeft} more characters needed`;
   }
 
-  handleFile(e) {
-    let file = e.currentTarget.files[0];
-    let fileReader = new FileReader();
-    const {photoFile,step,photoURL}=this.state;
-    // let page =step-9
-   
-    if (step ===9){
-    fileReader.onloadend = () => {
-      let photos=[...this.state.photoFile]
-      let url=[...this.state.photoURL]
-      photos[0]=file
-      url[0]=fileReader.result
+  handleFileChange(url,file) {
+    debugger;
+    return (
       this.setState({
-        photoFile: photos,
-        photoURL: url
-      })
-      }
-    }else if(step ===10){
-
-        fileReader.onloadend = () => {
-          let photos2=[...this.state.photoFile]
-
-        let url2 = [...this.state.photoURL]
-        photos2[1]=file
-        url2[1]=(fileReader.result)
-    
-        this.setState({
-          photoFile: photos2,
-          photoURL: url2
-        })
-      }
-    }
-
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-    
-      fileReader.readAsDataURL(file);
-    }
-  
+        photoURL:url,
+        photoFile:file
+    })
+    )
   }
 
   handleInput(type) {
@@ -290,7 +261,16 @@ class ListingForm extends React.Component {
       })
     )
   }
-
+  nextStepPhoto(e) {
+    e.preventDefault()
+    let step = this.state.step
+    if (this.state.photoFile.length>=3)
+    return (
+      this.setState({
+        step: step + 1
+      })
+    )
+  }
   costNextStep() {
     let step = this.state.step
     let cost = this.state.cost
@@ -363,7 +343,9 @@ class ListingForm extends React.Component {
   }
 
   locNextStep() {
-    if (this.state.city === undefined && this.state.street_address === undefined) {
+
+    if (!this.state.city.length && !this.state.street_address.length) {
+      debugger;
       return this.setState(
         {
           step: this.state.step
@@ -486,11 +468,10 @@ class ListingForm extends React.Component {
             <PhotoForm
               currentPage={this.state.step}
               prevPage={this.previousStep}
-              handlePhoto={this.handleFile}
-              nextPage={this.nextStep}
+              handleFileChange={this.handleFileChange}
+              nextStep={this.nextStepPhoto}
               photoURL={this.state.photoURL}
               photoFile={this.state.photoFile}
-              handleFile={this.handleFile}
             />
             <CheckInForm
               currentPage={this.state.step}
