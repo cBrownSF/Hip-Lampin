@@ -11,7 +11,6 @@ import CheckInForm from "./check_in_form";
 import PhotoForm from "./photos";
 import LocationForm from "./location"
 import MiniMap from "./minimap";
-import SecondPhotos from "./second_photos";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -485,15 +484,6 @@ class ListingForm extends React.Component {
               nextPage={this.nextStep}
             />
             <PhotoForm
-              currentPage={this.state.step}
-              prevPage={this.previousStep}
-              handlePhoto={this.handleFile}
-              nextPage={this.nextStep}
-              photoURL={this.state.photoURL}
-              photoFile={this.state.photoFile}
-              handleFile={this.handleFile}
-            />
-            <SecondPhotos
               currentPage={this.state.step}
               prevPage={this.previousStep}
               handlePhoto={this.handleFile}

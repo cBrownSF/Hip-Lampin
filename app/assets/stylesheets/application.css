@@ -450,14 +450,13 @@ transform: scale(1.04);
    margin-top:10px
  }
  .cost-buttons{
-   margin-top:78px;
+   margin-top:50px;
  }
  .name-box #amenities-list{
    font-family:inherit;
    font-size:20px;
    color: black;
    margin-left:10px;
-   margin-top:30px;
   list-style-type: none;
  }
  .name-box #amenities-list li{
@@ -465,10 +464,10 @@ transform: scale(1.04);
    line-height:1.5
  }
  .amenities-button{
-   margin-top:80px;
+   margin-top:62px;
  }
 .activities-button{
-   margin-top:128px;
+   margin-top:110px;
 }
  .name-box #booking-title{
    margin-left: 25px;
@@ -507,10 +506,10 @@ transform: scale(1.04);
    margin-bottom:12px;
  }
  .booking-detail-button{
-   margin-top:61px;
+   margin-top:33px;
  }
  .check-in-button{
-   margin-top:38px;
+   margin-top: 53px;
  }
  .start-hosting{
    padding: 9px 25px;
@@ -540,7 +539,7 @@ transform: scale(1.04);
    font-size:28px;
    text-align:left;
    font-weight: bold;
-   margin-bottom: 15px;
+   margin-bottom: 43px;
  }
  
  .hide-button{
@@ -600,7 +599,7 @@ input[type="file"] {
   color:#39C39A;
  }
  .photos-buttons{
-   margin-top:175px;
+   margin-top:90px;
  }
  .index-item{
    text-decoration: none;
@@ -745,7 +744,9 @@ input[type="file"] {
   display:flex;
 }
 .picture-row{
-  display:flex
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
 }
 
 .button-add-pic {
@@ -774,6 +775,8 @@ input[type="file"] {
     font-family: inherit;
     font-size: 16px;
     color: grey;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .photo-list{
   font-family: inherit;
