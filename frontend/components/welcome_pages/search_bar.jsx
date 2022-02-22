@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 class SearchBar extends React.Component {
   constructor(props){
@@ -11,8 +11,26 @@ class SearchBar extends React.Component {
     }
 this.search = null;
 this.autoComplete = this.autoComplete.bind(this)
+this.handleSubmit=this.handleSubmit.bind(this)
   }
-
+  componentDidUpdate(){
+    debugger;
+    if (this.lat){
+      console.log('hello')
+    }
+  }
+handleSubmit(e){
+  // const searchProps = {
+  //   pathname: "/listings",
+  //   state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
+  // };
+  e.preventDefault()
+  debugger
+  // if (this.state.lat && this.state.lng && this.state.type){
+  //   debugger;
+  //   <Redirect to={searchProps} key={Math.random()} />
+  // }
+}
 autoComplete() {
   const options = {
     componentRestrictions: { country: ["us"] },
@@ -35,6 +53,7 @@ autoComplete() {
 
 }
 render() {
+  debugger;
   const searchProps = {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
@@ -68,9 +87,17 @@ render() {
             type="Select"
             id="date"
           />
+          <Link to={searchProps} key={Math.random()} ><button className="search-button" type="submit"><i class="fas fa-search"></i></button></Link> )
         </div> */}
-        <Link to={searchProps} key={Math.random()} ><button className="search-button" type="submit">Search</button></Link>
-      </form>
+        <div>
+        {this.state.lng?(
+            <Link to={searchProps} key={Math.random()} ><button className="search-button" type="submit"><i class="fas fa-search"></i></button></Link>
+
+        ):(
+          
+        <button className="search-button" type="button" onClick={this.handleSubmit}><i class="fas fa-search"></i></button>)
+          }</div> 
+     </form>
     </div>
 
   )
