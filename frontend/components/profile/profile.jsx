@@ -16,6 +16,7 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
+    this.props.clearErrors()
     const user = this.props.user
    
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
@@ -101,7 +102,15 @@ class Profile extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-
+  renderErrors() {
+    return (
+      <ul className="list-name">
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
@@ -172,6 +181,7 @@ class Profile extends React.Component {
                 }
                 {/* <p className="intro">{intro}</p> */}
               </div>
+              <div>{this.renderErrors()}</div>
               <div>
                 <p><i class="fas fa-heart"></i>Hipcamper since {this.getTime()}</p>
               </div>

@@ -76,7 +76,6 @@ export const createListing = listing => (dispatch) =>{
 }
 
 export const createReview = review => (dispatch) => {
-  debugger;
   return ListingAPIUtil.createReview(review)
     .then(createdReview => dispatch(receiveOneReview(createdReview)),
     (errors) => dispatch(receiveReviewErrors(errors.responseJSON)))

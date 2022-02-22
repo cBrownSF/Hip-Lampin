@@ -13,6 +13,9 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.numberInput = this.numberInput.bind(this)
   }
+  componentDidMount(){
+    this.props.clearErrors()
+  }
   handleSubmit(e) {
     e.preventDefault();
     const listing_id =this.props.listingId 

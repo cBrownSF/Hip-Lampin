@@ -7,7 +7,6 @@ before_action :require_logged_in, only: [:update]
       login!(@user)
       render "api/users/show"
     else
-      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end
@@ -17,7 +16,7 @@ def update
     if @user.update(user_params)
       render "api/users/show"
     else
-      render json: @user.errors_full_messages
+       render json: @user.errors.full_messages, status: 422
     end
   end
 
