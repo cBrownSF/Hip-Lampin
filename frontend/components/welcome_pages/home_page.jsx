@@ -53,6 +53,9 @@ class HomePage extends React.Component {
         className='search-wrapper'
         />
       </div>
+      <div className="main-photo-div">
+
+      </div>
         </section>
 
 
