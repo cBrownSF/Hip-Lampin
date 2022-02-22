@@ -5,6 +5,8 @@ const mSTP = (state,ownProps) => {
   return{
   listingId: ownProps.listingId,
   listing: ownProps.listing,
+  errors: state.errors.review,
+
 }
 }
 

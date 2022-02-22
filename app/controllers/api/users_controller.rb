@@ -7,6 +7,7 @@ before_action :require_logged_in, only: [:update]
       login!(@user)
       render "api/users/show"
     else
+      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end

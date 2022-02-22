@@ -21,14 +21,6 @@ class ReviewForm extends React.Component {
     });  
     this.props
       .submitReview(review)
-      .then(
-        this.setState({
-          title: '',
-          description: '',
-          helpful: 0,
-          recommends: false,
-        })
-      )
   }
   update(field) {
 
@@ -46,6 +38,15 @@ class ReviewForm extends React.Component {
       }
     }
   } 
+  renderErrors() {
+    return (
+      <ul className="list-name">
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
   render() { 
     return (  
   
@@ -75,6 +76,7 @@ class ReviewForm extends React.Component {
            <option value={false}>No</option>
           </select>
           </div>
+          <div>{this.renderErrors()}</div>
           <div className="submit-review-div">
             <button
             className="submit-review-button"

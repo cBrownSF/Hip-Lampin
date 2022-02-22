@@ -2,11 +2,14 @@ import * as ListingAPIUtil from '../util/listing_api_util'
 import { hashHistory } from 'react-router';
 export const RECEIVE_ALL_LISTINGS = 'RECEIVE_ALL_LISTINGS'
 export const RECEIVE_LISTING = 'RECEIVE_LISTING'
+export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS'
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
 export const REMOVE_LISTING = 'REMOVE_LISTING'
 export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW'
 export const REMOVE_REVIEW = 'REMOVE_REVIEW'
+export const REMOVE_REVIEW_ERRORS='REMOVE_REVIEW_ERRORS'
+
 const receiveListings = listings => ({
   type: RECEIVE_ALL_LISTINGS,
   listings
@@ -33,6 +36,17 @@ const receiveListingErrors = errors => ({
 export const removeListingErrors = () => ({
   type: REMOVE_LISTING_ERRORS
 })
+
+export const removeReviewErrors = () => ({
+  type: REMOVE_REVIEW_ERRORS
+})
+
+ const receiveReviewErrors = errors => {
+return{
+  type: RECEIVE_REVIEW_ERRORS,
+  errors
+}
+}
 
 export const receiveOneReview = ({review,author})=> ({
   
@@ -62,10 +76,10 @@ export const createListing = listing => (dispatch) =>{
 }
 
 export const createReview = review => (dispatch) => {
+  debugger;
   return ListingAPIUtil.createReview(review)
-    .then(createdReview => {
-      dispatch(receiveOneReview(createdReview))
-    })
+    .then(createdReview => dispatch(receiveOneReview(createdReview)),
+    (errors) => dispatch(receiveReviewErrors(errors.responseJSON)))
 }
 export const updateReview = review => (dispatch) => {
   return ListingAPIUtil.updateReview(review)

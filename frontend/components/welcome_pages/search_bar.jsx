@@ -14,7 +14,6 @@ this.autoComplete = this.autoComplete.bind(this)
 this.handleSubmit=this.handleSubmit.bind(this)
   }
   componentDidUpdate(){
-    debugger;
     if (this.lat){
       console.log('hello')
     }
@@ -25,7 +24,7 @@ handleSubmit(e){
   //   state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
   // };
   e.preventDefault()
-  debugger
+
   // if (this.state.lat && this.state.lng && this.state.type){
   //   debugger;
   //   <Redirect to={searchProps} key={Math.random()} />
@@ -53,7 +52,7 @@ autoComplete() {
 
 }
 render() {
-  debugger;
+
   const searchProps = {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
