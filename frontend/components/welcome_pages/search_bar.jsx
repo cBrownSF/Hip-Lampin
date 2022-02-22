@@ -69,7 +69,7 @@ render() {
             type="text"
             id="city-search"
             onSelect={this.autoComplete}
-            placeholder='Try Yosemite,Moss Beach,Joshua Tree' />
+            placeholder='Try Montara,Colorado,United States...' />
         </div>
         {/* <div className="search-bar">
           <label htmlFor="dates">Dates</label>
