@@ -703,20 +703,20 @@ input[type="file"] {
     padding:10px 35%;
  }
  .search-wrapper{
- display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 30px 15px;
     margin-left: 5px;
     margin-right: 5px;
  }
- .search-bar{
+ .search-wrapper-search-bar{
   display: flex;
   flex-direction: column;
   padding: 20px 24px 20px 48px
 
  }
- .search-form{
+ .search-wrapper-search-form{
   display: flex;
     border-radius: 60px;
     /* padding: 20px; */
@@ -729,7 +729,7 @@ input[type="file"] {
     border-color: rgb(229, 234, 223);
 }
  
- .home-boxes{
+ .search-wrapper-home-boxes{
   border-radius: 24px;
     border-width: 1px;
     border-style: solid;
@@ -864,7 +864,7 @@ font-weight: 500;
 .info-link{
   text-decoration:none
 }
-.search-button{
+.search-wrapper-search-button{
     margin-right: 10px;
     margin-top: 13px;
     border-radius: 50%;
@@ -878,7 +878,7 @@ font-weight: 500;
     text-decoration: none;
   transition:0.45s
 }
-.search-button:hover{
+.search-wrapper-search-button:hover{
   background-color: white;
   color:#39C39A;
 }
@@ -951,4 +951,52 @@ font-weight: 500;
 }
 .photo-inside-div-home{
   height:70%
+}
+.small-search-wrapper{
+
+}
+.small-search-wrapper-search-form{
+  border:black;
+      display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.small-search-wrapper-search-bar{
+  border:black
+}
+.small-search-wrapper-where{
+  font-size:0;
+}
+.small-search-wrapper-home-boxes{
+border-radius: 50px;
+border: solid lightgray 1px;
+padding: 12px;
+width: 20vw;
+outline: none;
+font-size: 16px;
+font-size: .7;
+font-family: inherit;
+}
+.nav-search-bar-div{
+margin-left:auto;
+margin-right:auto
+}
+
+.small-search-wrapper-search-button{
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border-style: none;
+    color: white;
+    background-color: #39C39A;
+    border: solid 2px #39C39A;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.45s;
+    transform:translateX(-40px)
+}
+.small-search-wrapper-search-button:hover{
+  background-color: white;
+  color:#39C39A;
 }

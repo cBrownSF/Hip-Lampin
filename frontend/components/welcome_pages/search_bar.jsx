@@ -60,11 +60,11 @@ render() {
 
   return(
     <div className={this.props.className}>
-      <form className="search-form">
-        <div className="search-bar">
-          <label htmlFor="search">Where to?</label>
+      <form className={`${this.props.className}-search-form`}>
+        <div className={`${this.props.className}-search-bar`}>
+          <label htmlFor="search" className={`${this.props.className}-where`}>Where to?</label>
           <input
-            className="home-boxes"
+            className={`${this.props.className}-home-boxes`}
             type="text"
             id="city-search"
             onSelect={this.autoComplete}
@@ -90,11 +90,11 @@ render() {
         </div> */}
         <div>
         {this.state.lng?(
-            <Link to={searchProps} key={Math.random()} ><button className="search-button" type="submit"><i class="fas fa-search"></i></button></Link>
+            <Link to={searchProps} key={Math.random()} ><button className={`${this.props.className}-search-button`} type="submit"><i class="fas fa-search"></i></button></Link>
 
         ):(
           
-        <button className="search-button" type="button" onClick={this.handleSubmit}><i class="fas fa-search"></i></button>)
+              <button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i class="fas fa-search"></i></button>)
           }</div> 
      </form>
     </div>

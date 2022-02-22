@@ -21,7 +21,7 @@ const NavBar = (props) => {
         {useLocation().pathname === "/"?(
           console.log(useLocation().pathname)
         ):(
-          <div>
+          <div className='nav-search-bar-div'>
             <SearchBar 
             className='small-search-wrapper'
             />
