@@ -21,7 +21,7 @@ return(
   <div>
     <Modal />
     <header style={{
-      background: path === "/" || path === "/listings/new" || path.includes('edit')? "rgb(234, 232, 228)" : "white"
+      background: path === "/" || path === "/listings/new" || path.includes('edit') ? "rgb(243, 242, 239)" : "white"
     }}>
     <GreetingContainer/>
   </header>
