@@ -47,14 +47,12 @@ newMap(){
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 componentWillUnmount(){
-  debugger;
   if (location.hash ==="#/listings?all"){
     this.props.receiveListings()
   }
 }
 componentDidUpdate(prevProps,){
   if (prevProps.bounds !==this.props.bounds){
-    debugger;
     this.newMap()
   }
   this.MarkerManager.updateMarkers(this.props.listings);
@@ -76,7 +74,6 @@ eventListeners(){
 }
 
 render(){
-  debugger;
   // console.log(this.state)
   // if (this.state.loaded=false){
   //   debugger;

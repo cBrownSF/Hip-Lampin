@@ -167,13 +167,17 @@ render() {
       <div className="booking-box">
         <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
+          <div className='cost-per-night'>
           <span id="price">{`$${listing.cost}`}</span>
           <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
+          </div>
           <div className='check-in'>
           <button>Check In</button><button>Check Out</button>
           
           </div>
-          <button>Request to Book</button>
+          <div className='request-div'>
+          <button className='request-to-book'>Request to Book</button>
+          </div>
         </div>
       </div>
     

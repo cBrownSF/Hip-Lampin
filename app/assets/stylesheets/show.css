@@ -48,7 +48,10 @@
 .show-container #per-night{
   font-family: inherit;
   font-size:20px;
-  color:grey
+  color:grey;
+      margin: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 .show-container #left{
   width:20%
@@ -168,6 +171,7 @@ color: grey;
  .check-in{
    display:flex;
    flex-direction:row;
+   justify-content: space-between;
  }
  .descript-show{
    display:flex;
@@ -606,4 +610,28 @@ overflow-wrap: break-word;
 }
 .main-div-show{
   background-color: white;
+}
+.request-to-book{
+margin:5px;
+font-family:inherit;
+font-size:20px;
+background-color: #39C39A;
+border:2px solid  #39C39A;
+color:white;
+ transition: 0.45s;
+}
+.request-to-book:hover{
+background-color: white;
+color: #39C39A;
+border:2px solid  #39C39A;
+}
+.cost-per-night{
+display:flex;
+flex-direction: column;
+}
+.request-div{
+  display:flex;
+  border-top:1px solid lightgrey;
+  margin-top: 5px;
+  justify-content:center;
 }
