@@ -158,10 +158,12 @@ color: grey;
   border-width: thin;
  }
  .booking-box{
-   right:20px;
-   position:fixed;
-   margin-top:-20px;
-   display:flex;
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    margin-top: -80px;
+    display: flex;
+    justify-content: flex-end;
  }
  .check-in{
    display:flex;
