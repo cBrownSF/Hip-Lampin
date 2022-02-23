@@ -13,46 +13,50 @@ import MarkerManager from '../../util/markers';
 class ListingMap extends React.Component {
  
 componentDidMount(){
-  if (this.props.bounds){
-    const { lat, lng,type } = this.props.bounds
-    localStorage.setItem('lat',lat)
-    localStorage.setItem('lng',lng)
-    localStorage.setItem('type',type)
+  this.newMap()
+  // console.log(service)
+  // console.log(new google.maps.places.AutocompleteService())
+}
+newMap(){
+  if (this.props.bounds) {
+    const { lat, lng, type } = this.props.bounds
+    localStorage.setItem('lat', lat)
+    localStorage.setItem('lng', lng)
+    localStorage.setItem('type', type)
   }
   let degree;
   let latitude = parseFloat(localStorage.getItem('lat'))
   let longitude = parseFloat(localStorage.getItem('lng'))
   let type = localStorage.getItem('type')
-  if (type === 'locality'){
-    degree=12
+  if (type === 'locality') {
+    degree = 12
   } else if (type === 'country') {
 
-    degree=4
-  }else{
-    degree=6
+    degree = 4
+  } else {
+    degree = 6
   }
   const mapOptions = {
-    
+
     center: { lat: latitude, lng: longitude },
     zoom: degree
   };
   this.map = new google.maps.Map(this.mapNode, mapOptions);
   this.eventListeners()
-  this.MarkerManager= new MarkerManager(this.map)
+  this.MarkerManager = new MarkerManager(this.map)
   this.MarkerManager.updateMarkers(this.props.listings);
-  let service = new google.maps.places.PlacesService(this.map)
-  // console.log(service)
-  // console.log(new google.maps.places.AutocompleteService())
 }
 componentWillUnmount(){
-debugger;
+  debugger;
   if (location.hash ==="#/listings?all"){
     this.props.receiveListings()
   }
 }
-componentDidUpdate(){
-console.log('updated map')
-  //Put something in here if the refresh is on the listings page so that it will create new map and re render.
+componentDidUpdate(prevProps,){
+  if (prevProps.bounds !==this.props.bounds){
+    debugger;
+    this.newMap()
+  }
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 eventListeners(){
@@ -72,6 +76,12 @@ eventListeners(){
 }
 
 render(){
+  debugger;
+  // console.log(this.state)
+  // if (this.state.loaded=false){
+  //   debugger;
+  //   return null;
+  // }
   return(
     <div className="map-container">
     <div className='map' ref={ map => this.mapNode = map }>

@@ -13,6 +13,9 @@ this.search = null;
 this.autoComplete = this.autoComplete.bind(this)
 this.handleSubmit=this.handleSubmit.bind(this)
   }
+  componentDidMount(){
+    console.log('search mount')
+  }
   componentDidUpdate(){
     if (this.lat){
       console.log('hello')
