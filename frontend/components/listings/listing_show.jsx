@@ -38,6 +38,11 @@ class ListingShow extends React.Component {
      
     }
   }
+  componentWillUnmount(){
+    debugger;
+    console.log('unmount')
+    this.props.clearReviews()
+  }
   addToCount(){
     return this.setState((prevState)=>({
       count: prevState.count +1
@@ -75,7 +80,6 @@ class ListingShow extends React.Component {
   findHostAuthor(){
 
     const authorArray=this.props.authors
-    console.log(authorArray)
     const hostId = this.props.listing.host_id
     authorArray.map((author)=>{
       if (author.id === hostId){
@@ -88,6 +92,7 @@ class ListingShow extends React.Component {
       } 
     })
   }
+
 render() {
 
  

@@ -7,7 +7,6 @@ class ListingIndexItem extends React.Component {
     this.state={
       slide:1
     }
-    console.log('constructor')
     this.nextImage=this.nextImage.bind(this)
     this.prevImage=this.prevImage.bind(this)
   }

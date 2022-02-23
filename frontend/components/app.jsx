@@ -16,7 +16,6 @@ import { AuthRoute,ProtectedRoute } from "../util/routes";
 import { useLocation } from "react-router-dom";
 const App = () => {
 const path=useLocation().pathname
-console.log(path)
 return(
   <div>
     <Modal />

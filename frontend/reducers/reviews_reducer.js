@@ -1,5 +1,5 @@
 import { RECEIVE_REVIEW,RECEIVE_LISTING,REMOVE_REVIEW } from "../actions/listings_actions";
-
+import { REMOVE_ALL_REVIEWS } from "../actions/filter_actions";
 
 const reviewsReducer = (oldState={},action) => {
   Object.freeze(oldState)
@@ -15,6 +15,9 @@ const reviewsReducer = (oldState={},action) => {
         let nextState = Object.assign({}, oldState)
         delete nextState[action.reviewId]
         return nextState
+      case REMOVE_ALL_REVIEWS:
+        debugger
+        return action.reviews
       default:
         return oldState;
     }
