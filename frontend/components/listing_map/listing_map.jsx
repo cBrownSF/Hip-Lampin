@@ -48,12 +48,13 @@ componentWillUnmount(){
 console.log('unmounted')
 }
 componentDidUpdate(){
-
+console.log('updated map')
   //Put something in here if the refresh is on the listings page so that it will create new map and re render.
   this.MarkerManager.updateMarkers(this.props.listings);
 }
 eventListeners(){
   google.maps.event.addListener(this.map,"idle",()=>{
+    console.log('event listener map')
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       southWest: { lat: south, lng: west },

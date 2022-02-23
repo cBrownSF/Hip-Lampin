@@ -16,7 +16,6 @@ const reviewsReducer = (oldState={},action) => {
         delete nextState[action.reviewId]
         return nextState
       case REMOVE_ALL_REVIEWS:
-        debugger
         return action.reviews
       default:
         return oldState;

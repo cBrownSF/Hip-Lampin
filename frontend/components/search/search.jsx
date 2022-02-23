@@ -12,7 +12,9 @@ class Search extends React.Component{
     }
    
   }
-
+componentWillUnmount(){
+  console.log('unmounted')
+}
 render(){
 
   if (Object.keys(this.props.listings).length === 0 && this.props.allListings === '?all'){
@@ -26,7 +28,7 @@ render(){
     <ListingIndex 
       listings={this.props.listings} 
       receiveListings={this.props.receiveListings}
-      bounds={this.props.bounds}
+      total={this.props.total}
     />
     </div>
     <div>

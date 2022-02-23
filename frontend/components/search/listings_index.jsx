@@ -4,14 +4,14 @@ import { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { receiveAllListings } from "../../actions/listings_actions";
 const ListingIndex = (props) => {
- 
-  if (Object.keys(props.listings).length === 0 && Object.keys(props.bounds).length === 0) {
-    debugger;
+  if (props.total===undefined) {
     return null
-  } else if (Object.keys(props.listings).length === 0 && Object.keys(props.bounds).length === 2){
+  } else if (Object.keys(props.listings).length === 0 && props.total ===0){
+    console.log('does it hit')
     return(
       <div className='no-listings'>Sorry, there are no current listings which match the search criteria. Try zooming the map out to find nearby listings. </div>
     )}else{
+      console.log('at listings')
       return(
         <div className="index-item">
 

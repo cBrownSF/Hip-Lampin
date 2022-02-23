@@ -7,7 +7,7 @@ const mapStatetoProps = (state,ownProps) => {
     allListings:ownProps.location.search,
     searchInfo: ownProps.location.state,
     listings: Object.values(state.entities.listings),
-    bounds:state.ui.filters.bounds
+    total:state.ui.filters.total
   })
 }
 

@@ -23,6 +23,7 @@ handleSubmit(e){
   //   pathname: "/listings",
   //   state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
   // };
+
   e.preventDefault()
 
   // if (this.state.lat && this.state.lng && this.state.type){
@@ -90,11 +91,11 @@ render() {
         </div> */}
         <div>
         {this.state.lng?(
-            <Link to={searchProps} key={Math.random()} ><button className={`${this.props.className}-search-button`} type="submit"><i class="fas fa-search"></i></button></Link>
+            <Link to={searchProps} key={Math.random()} ><button className={`${this.props.className}-search-button`} type="submit"><i className="fas fa-search"></i></button></Link>
 
         ):(
           
-              <button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i class="fas fa-search"></i></button>)
+              <button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button>)
           }</div> 
      </form>
     </div>
