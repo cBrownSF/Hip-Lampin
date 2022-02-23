@@ -8,12 +8,16 @@ class Search extends React.Component{
   }
   componentDidMount() {
     if(this.props.allListings === '?all'){
-      this.props.receiveListings()
+        this.props.receiveListings()
     }
-   
+   console.log('did-mount')
+  }
+  componentWillMount(){
+    debugger;
+    console.log('will-mount')
   }
 componentWillUnmount(){
-  console.log('unmounted')
+  console.log('unmounted search')
 }
 render(){
 

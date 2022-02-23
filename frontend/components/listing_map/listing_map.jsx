@@ -45,7 +45,10 @@ componentDidMount(){
   // console.log(new google.maps.places.AutocompleteService())
 }
 componentWillUnmount(){
-console.log('unmounted')
+debugger;
+  if (location.hash ==="#/listings?all"){
+    this.props.receiveListings()
+  }
 }
 componentDidUpdate(){
 console.log('updated map')

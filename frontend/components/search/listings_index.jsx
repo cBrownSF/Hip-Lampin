@@ -4,6 +4,7 @@ import { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { receiveAllListings } from "../../actions/listings_actions";
 const ListingIndex = (props) => {
+  debugger;
   if (props.total===undefined) {
     return null
   } else if (Object.keys(props.listings).length === 0 && props.total ===0){

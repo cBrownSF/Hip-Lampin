@@ -41,7 +41,9 @@ class ListingIndexItem extends React.Component {
       }
     }
   
-
+    componentWillUnmount(){
+      console.log('unmount item')
+    }
   render(){
     const {photos,cost,city,state,name,id}=this.props.listings
     return (
