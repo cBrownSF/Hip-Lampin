@@ -952,8 +952,10 @@ font-weight: 500;
 .photo-inside-div-home{
   height:70%
 }
-.small-search-wrapper{
-
+.no-listings{
+  margin: 10px;
+  color: red;
+  font-size:18px;
 }
 .small-search-wrapper-search-form{
   border:black;

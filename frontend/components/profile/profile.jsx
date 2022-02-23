@@ -169,10 +169,12 @@ class Profile extends React.Component {
                     value={intro}
                     onChange={this.handleInput('intro')}
                  ></textarea>
-                 <button type="submit"> Submit</button>
-                    <button type="button" onClick={(e) => {
+                 <div className="button-prof-div">
+                 <button type="submit" className='submit-prof-button'> Submit</button>
+                    <button type="button" className='cancel-prof-button' onClick={(e) => {
                       this.flipEdit(e)
                     }}> Cancel</button>
+                    </div>
                  </form>)
                   // </div>)
                 :(

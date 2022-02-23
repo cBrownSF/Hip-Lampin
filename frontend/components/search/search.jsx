@@ -26,7 +26,7 @@ render(){
     <ListingIndex 
       listings={this.props.listings} 
       receiveListings={this.props.receiveListings}
-
+      bounds={this.props.bounds}
     />
     </div>
     <div>

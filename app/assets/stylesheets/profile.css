@@ -26,7 +26,8 @@ padding:20px
 border-width: thin;
 box-shadow: 0 1px 5px 0 rgba(0, 0, 0,8%);
 margin:20px;
-padding:20px
+padding:20px;
+flex: 2;
 }
 .user-listing-item{
       display: flex;
@@ -59,7 +60,8 @@ padding:20px
 border-width: thin;
 box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 8%);
 margin:20px;
-padding:20px
+padding:20px;
+flex:1
 
 }
 .photo-and-name{
@@ -146,4 +148,33 @@ border:solid black 1px
 .check-box-email{
   display: flex;
   align-items: center;
+}
+.cancel-prof-button{
+  margin-right: 90px;
+    /* margin-left: 20px; */
+    background-color: rgba(57,195,154,1);
+    color: white;
+    border-style: none;
+    font-style: inherit;
+    font-size: 12px;
+    padding: 3px 10px 3px 10px;
+    border: solid 1px transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+}
+.submit-prof-button{
+   margin-right: 50px;
+    margin-left: 10px;
+    border-style: none;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: inherit;
+   background-color: rgba(57,195,154,1);
+}
+.button-prof-div{
+  display:flex;
+  justify-content: space-between;
 }
