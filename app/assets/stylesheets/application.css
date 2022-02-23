@@ -742,7 +742,7 @@ input[type="file"] {
     font-size: 16px;
     font-family: inherit;
  }
-.home-boxes:hover{
+.search-wrapper-home-boxes:hover{
  box-shadow:0 2px 5px rgba(0, 0, 0, 12%);
 }
  .background-modal {

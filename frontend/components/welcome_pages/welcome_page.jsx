@@ -18,7 +18,7 @@ const NavBar = (props) => {
       return (
       <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
-        {useLocation().pathname === "/"?(
+          {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"?(
           console.log(useLocation().pathname)
         ):(
           <div className='nav-search-bar-div'>
@@ -40,7 +40,16 @@ const NavBar = (props) => {
     } else {
       return (
         <div className="nav-bar-container">
-          <span className='mainLogo'><Link className='mainLogo' to= '/'>HipLampin</Link></span>
+          <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+          {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"? (
+            console.log(useLocation().pathname)
+          ) : (
+            <div className='nav-search-bar-div'>
+              <SearchBar
+                className='small-search-wrapper'
+              />
+            </div>
+          )}
         <nav >
           <ul className="nav-bar">
             <li className = 'nav-li'><Link className = "nav-li" to={allListings}>Listings</Link></li>
