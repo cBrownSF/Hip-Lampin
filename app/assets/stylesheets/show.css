@@ -172,6 +172,7 @@ color: grey;
    display:flex;
    flex-direction:row;
    justify-content: space-between;
+   border-top:1px solid lightgrey
  }
  .descript-show{
    display:flex;

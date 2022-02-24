@@ -4,6 +4,7 @@ import { hashHistory } from 'react-router';
 import CreateMap from './newmap';
 import CreateReviewContainer from '../reviews/review_container'
 import ReviewIndexItem from '../reviews/review_index_item_container'
+import ReservationForm from '../reservations/create_reservation';
 class ListingShow extends React.Component {
   constructor(props){
     super(props)
@@ -11,8 +12,11 @@ class ListingShow extends React.Component {
       count:0,
       hostFname:null,
       hostLname:null || '',
-      photoURL:null
+      photoURL:null,
+      // startDate: new Date()
     }
+    debugger;
+    console.log(new Date())
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
     this.findHostAuthor=this.findHostAuthor.bind(this)
@@ -165,20 +169,30 @@ render() {
       </div> */}
  
       <div className="booking-box">
-        <div className='cost-show'>
+        <ReservationForm
+          cost={listing.cost}
+          guestsAllowed={listing.guests_allowed}
+        />
+        {/* <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
           <div className='cost-per-night'>
           <span id="price">{`$${listing.cost}`}</span>
           <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
           </div>
           <div className='check-in'>
-          <button>Check In</button><button>Check Out</button>
+          <button>Check In</button>
+          <input type="date"
           
+
+          />
+          <div>
+          <button>Check Out</button>
+              </div>
           </div>
           <div className='request-div'>
           <button className='request-to-book'>Request to Book</button>
           </div>
-        </div>
+        </div> */}
       </div>
     
       <div className = 'name-show'>
