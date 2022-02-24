@@ -15,8 +15,6 @@ class ListingShow extends React.Component {
       photoURL:null,
       // startDate: new Date()
     }
-    debugger;
-    console.log(new Date())
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
     this.findHostAuthor=this.findHostAuthor.bind(this)
