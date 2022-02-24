@@ -34,7 +34,7 @@ class ReviewIndexItem extends React.Component{
 
  }
  helpfulFunc(){
- 
+   
    if (!this.props.currentUser){
      this.props.openModal('login')
    }

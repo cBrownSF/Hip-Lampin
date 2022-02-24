@@ -169,7 +169,7 @@ render() {
  
       <div className="booking-box">
         <ReservationForm
-          cost={listing.cost}
+          cost={Number(listing.cost)}
           guestsAllowed={listing.guests_allowed}
           currentUser={listing.currentUser}
           listingId={listingId}

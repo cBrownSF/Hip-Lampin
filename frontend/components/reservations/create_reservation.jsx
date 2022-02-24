@@ -37,8 +37,9 @@ class ReservationForm extends React.Component {
   }
 
   render() { 
+    const { check_in, check_out,guestsAllowed,guest_id,listing_id,total_price} = this.state
+    const { cost} = this.props
     debugger;
-    const { check_in, cost, guestsAllowed,guest_id,listing_id,total_price} = this.state
     return ( 
       <div>
         <div className='cost-show'>
@@ -47,27 +48,26 @@ class ReservationForm extends React.Component {
             <span id="price">{`$${cost}`}</span>
           <div>
             {this.props.guestsAllowed ===1 ?(
-                <p id='per-night'> {guestsAllowed} guest</p>):(
-                  <p id='per-night'> {guestsAllowed} guests</p>
-                )
+              <p id='per-night'> {guestsAllowed} guest</p>):(
+              <p id='per-night'> {guestsAllowed} guests</p>
+            )
             }</div>
           </div>
           <div className='check-in'>
             <button>Check In</button>
             <input 
-            type="date"
-            value={check_in}
-            min={this.dateToday}
+              type="date"
+              value={check_in}
+              min={this.dateToday}
               onChange={(e)=>this.dateSelect(e,'in')}
             />
-         
           </div>
           <div className='check-in'>
             <button>Check Out</button>
             <input 
-            type="date"
-            value={check_in}
-            min={this.dateToday}
+              type="date"
+              value={check_in}
+              min={this.dateToday}
               onChange={(e)=>this.dateSelect(e,'out')}
             />
           </div>
