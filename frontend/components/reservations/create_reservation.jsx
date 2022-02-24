@@ -9,6 +9,10 @@ class ReservationForm extends React.Component {
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
     let dateToday = `${year}-${month}-${day}`
+    let maxInDate = `${year}-12-30`
+    let maxDate = `${year}-12-31`
+    let minOut = `${year}-${month}-${day+1}`
+
   const {guestsAllowed,cost,currentUser,listingId}=props
     this.state={
       check_in: dateToday,
@@ -16,10 +20,14 @@ class ReservationForm extends React.Component {
       listing_id: listingId,
       guest_id: currentUser || null,
       guests: guestsAllowed,
-      total_price: 0
+      total_price: 0,
+      nights:0
     }
     this.dateSelect=this.dateSelect.bind(this)
     this.dateToday=dateToday
+    this.minOut=minOut
+    this.maxInDate=maxInDate
+    this.maxDate=maxDate
     this.submitForm=this.submitForm.bind(this)
   }
  
@@ -37,7 +45,6 @@ class ReservationForm extends React.Component {
     }
   }
   submitForm(){
-debugger
     if (!this.props.currentUser) {
       this.props.openModal('login')
     }
@@ -49,12 +56,11 @@ debugger
     let diffBetweenDates = new Date(check_in).getTime() - new Date(check_out).getTime()
     let numberOfDays=diffBetweenDates/ (1000*3600*24)
     let finalPrice = this.state.total_price * numberOfDays
-    return this.setState({total_price:finalPrice})
+    return this.setState({total_price:finalPrice,nights:numberOfDays})
   }
   render() { 
     const { check_in, check_out,guestsAllowed,guest_id,listing_id,total_price} = this.state
     const { cost} = this.props
-    debugger;
     return ( 
       <div>
         <div className='cost-show'>
@@ -74,6 +80,7 @@ debugger
               type="date"
               value={check_in}
               min={this.dateToday}
+              max={this.maxInDate}
               onChange={(e)=>this.dateSelect(e,'in')}
             />
           </div>
@@ -82,7 +89,8 @@ debugger
             <input 
               type="date"
               value={check_out}
-              min={this.dateToday}
+              min={this.minOut}
+              max={this.maxDate}
               onChange={(e)=>this.dateSelect(e,'out')}
             />
           </div>

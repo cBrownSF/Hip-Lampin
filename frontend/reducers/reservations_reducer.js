@@ -5,8 +5,9 @@ const ReservationReducer = (oldState={},action)=>{
   oldState=Object.freeze(oldState)
   switch (action.type) {
     case RECEIVE_RESERVATION_INFO:
-      return Object.assign({},state,{reservation:action.info})
+      return Object.assign({},state,{reservationInfo:action.info})
     default:
+      return oldState
       break;
   }
 }
