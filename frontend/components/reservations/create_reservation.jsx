@@ -2,7 +2,6 @@ import React from "react";
 class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.state)
     debugger
     let d =new Date()
     let year= d.getFullYear();
@@ -12,24 +11,23 @@ class ReservationForm extends React.Component {
     if (day < 10) day = "0" + day;
     let dateToday = `${year}-${month}-${day}`
     console.log(this.state)
-    // day < 10? day=`0`
-    //change date when it is submitted
-    
+  
     this.state={
-      startDate: "2018-07-22"
+      startDate: dateToday
     }
-    console.log(this.state)
     this.dateSelect=this.dateSelect.bind(this)
+    this.dateToday=dateToday
   }
  
   dateSelect(e){
+    console.log(this.state.startDate)
     e.preventDefault()
     return this.setState({
       startDate:e.target.value
     })
   }
+
   render() { 
-    debugger
     const {startDate} = this.state
    const {cost,guestsAllowed}=this.props
     return ( 
@@ -50,19 +48,10 @@ class ReservationForm extends React.Component {
             <input 
             type="date"
             value={startDate}
-            min={startDate}
-              spellCheck="false"
-              autoComplete="false"
-              // value={this.state.start_date}
+            min={this.dateToday}
               onChange={this.dateSelect}
             />
-            <div>
-              <button>Check Out</button>
-              <input type="date"
-
-
-              />
-            </div>
+         
           </div>
           <div className='request-div'>
             <button className='request-to-book'>Request to Book</button>
