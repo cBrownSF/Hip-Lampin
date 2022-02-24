@@ -159,6 +159,7 @@ color: grey;
    font-family: inherit;
   border: solid lightgrey;
   border-width: thin;
+  background-color: white;
  }
  .booking-box{
     position: sticky;
@@ -170,7 +171,7 @@ color: grey;
  }
  .check-in{
    display:flex;
-   flex-direction:row;
+   flex-direction:column;
    justify-content: space-between;
    border-top:1px solid lightgrey
  }
@@ -635,4 +636,8 @@ flex-direction: column;
   border-top:1px solid lightgrey;
   margin-top: 5px;
   justify-content:center;
+}
+
+.div-check-in-out{
+  display:flex
 }

@@ -1,5 +1,6 @@
 import React from "react";
 class ReservationForm extends React.Component {
+  
   constructor(props) {
     super(props);
     let d =new Date()
@@ -13,22 +14,22 @@ class ReservationForm extends React.Component {
     let maxDate = `${year}-12-31`
     let minOut = `${year}-${month}-${day+1}`
 
-  const {guestsAllowed,cost,currentUser,listingId}=props
+  const {guestsAllowed,cost,listingId}=props
     this.state={
       check_in: dateToday,
       check_out: '',
       listing_id: listingId,
-      guest_id: currentUser || null,
       guests: guestsAllowed,
-      total_price: 0,
+      total_price: cost,
       nights:0
     }
-    this.dateSelect=this.dateSelect.bind(this)
     this.dateToday=dateToday
     this.minOut=minOut
     this.maxInDate=maxInDate
     this.maxDate=maxDate
+    this.dateSelect=this.dateSelect.bind(this)
     this.submitForm=this.submitForm.bind(this)
+    this.calculateTotalPrice=this.calculateTotalPrice.bind(this)
   }
  
   dateSelect(e,field){
@@ -41,39 +42,61 @@ class ReservationForm extends React.Component {
   }else{
       return this.setState({
         check_out: e.target.value
+      }, () => {
+debugger;
+console.log(this.state)
+        this.calculateTotalPrice()
       })
     }
   }
-  submitForm(){
-    if (!this.props.currentUser) {
+  
+  submitForm(e){
+    const {currentUser,sendResInfo,openModal} = this.props
+    
+    
+    e.preventDefault()
+    if (!currentUser) {
       this.props.openModal('login')
+    }else if(this.state.check_out.length){
+      let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id })
+
+
+    sendResInfo(updatedInfo)
+    // .then(()=>openModal('confirm'))
+    }else{
+    //render Errors here
     }
-    //add a modal after submit to confirm Booking
   }
   calculateTotalPrice(){
+
     const {check_in,check_out}=this.state
     const{cost}=this.props
-    let diffBetweenDates = new Date(check_in).getTime() - new Date(check_out).getTime()
-    let numberOfDays=diffBetweenDates/ (1000*3600*24)
+    let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
+    let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
+   console.log(numberOfDays)
+    
     let finalPrice = this.state.total_price * numberOfDays
-    return this.setState({total_price:finalPrice,nights:numberOfDays})
+    if (check_out.length){
+      return this.setState({total_price:finalPrice,nights:numberOfDays})
+    }
   }
   render() { 
-    const { check_in, check_out,guestsAllowed,guest_id,listing_id,total_price} = this.state
+    const { check_in, check_out,guests,guest_id,listing_id,total_price} = this.state
     const { cost} = this.props
     return ( 
-      <div>
+      // <div className="div-check-in-out">
         <div className='cost-show'>
           {/* <p id="link-location">{isHost(cost)}</p> */}
           <div className='cost-per-night'>
             <span id="price">{`$${cost}`}</span>
           <div>
-            {this.props.guestsAllowed ===1 ?(
-              <p id='per-night'> {guestsAllowed} guest</p>):(
-              <p id='per-night'> {guestsAllowed} guests</p>
+            {guests ===1 ?(
+              <p id='per-night'> per night({guests} guest)</p>):(
+              <p id='per-night'> per night({guests} guests)</p>
             )
             }</div>
           </div>
+          <div className="div-check-in-out">
           <div className='check-in'>
             <button>Check In</button>
             <input 
@@ -94,11 +117,15 @@ class ReservationForm extends React.Component {
               onChange={(e)=>this.dateSelect(e,'out')}
             />
           </div>
+          </div>
           <div className='request-div'>
-            <button className='request-to-book'>Request to Book</button>
+            <button 
+            className='request-to-book'
+            onClick={this.submitForm}
+            >Request to Book</button>
           </div>
         </div>
-        </div>
+        // </div>
      );
   }
 }

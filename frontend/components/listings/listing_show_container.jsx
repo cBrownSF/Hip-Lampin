@@ -3,6 +3,7 @@ import { clearReviews } from "../../actions/filter_actions"
 import { receiveOneUser } from "../../actions/user_actions"
 import { connect } from "react-redux"
 import { openModal } from "../../actions/modal_actions"
+import { sendResInfo } from "../../actions/reservation_actions"
 import ListingShow from './listing_show'
 const mapStateToProps = (state, ownProps) => {
   // const listing = state.entities.listings[listingId]
@@ -20,6 +21,9 @@ const mapDispatchToProps = dispatch => ({
   deleteListing: (id) =>dispatch(deleteListing(id)),
   openModal: modal => dispatch(openModal(modal)),
   receiveUser: (user) => dispatch(receiveOneUser(user)),
-  clearReviews: () => dispatch(clearReviews())})
+  sendReservation:(info)=> dispatch(sendResInfo(info)),
+  clearReviews: () => dispatch(clearReviews())
+})
+ 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ListingShow)

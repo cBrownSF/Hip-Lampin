@@ -168,12 +168,14 @@ render() {
       </div> */}
  
       <div className="booking-box">
+          {console.log(this.props.currentUser)}
         <ReservationForm
           cost={Number(listing.cost)}
           guestsAllowed={listing.guests_allowed}
-          currentUser={listing.currentUser}
+          currentUser={this.props.currentUser}
           listingId={listingId}
           openModal={this.props.openModal}
+          sendResInfo={this.props.sendReservation}
         />
         {/* <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
