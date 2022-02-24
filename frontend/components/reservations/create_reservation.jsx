@@ -9,7 +9,7 @@ class ReservationForm extends React.Component {
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
     let dateToday = `${year}-${month}-${day}`
-  const {guestsAllowed,currentUser,listingId}=props
+  const {guestsAllowed,cost,currentUser,listingId}=props
     this.state={
       check_in: dateToday,
       check_out: '',
@@ -20,6 +20,7 @@ class ReservationForm extends React.Component {
     }
     this.dateSelect=this.dateSelect.bind(this)
     this.dateToday=dateToday
+    this.submitForm=this.submitForm.bind(this)
   }
  
   dateSelect(e,field){
@@ -33,9 +34,23 @@ class ReservationForm extends React.Component {
       return this.setState({
         check_out: e.target.value
       })
+    }
   }
+  submitForm(){
+debugger
+    if (!this.props.currentUser) {
+      this.props.openModal('login')
+    }
+    //add a modal after submit to confirm Booking
   }
-
+  calculateTotalPrice(){
+    const {check_in,check_out}=this.state
+    const{cost}=this.props
+    let diffBetweenDates = new Date(check_in).getTime() - new Date(check_out).getTime()
+    let numberOfDays=diffBetweenDates/ (1000*3600*24)
+    let finalPrice = this.state.total_price * numberOfDays
+    return this.setState({total_price:finalPrice})
+  }
   render() { 
     const { check_in, check_out,guestsAllowed,guest_id,listing_id,total_price} = this.state
     const { cost} = this.props
@@ -66,7 +81,7 @@ class ReservationForm extends React.Component {
             <button>Check Out</button>
             <input 
               type="date"
-              value={check_in}
+              value={check_out}
               min={this.dateToday}
               onChange={(e)=>this.dateSelect(e,'out')}
             />

@@ -15,6 +15,8 @@ function Modal({ modal, closeModal }) {
       break;
     case 'login':
       component = <LoginFormContainer />;
+    case 'confirm':
+      component=<ConfirmBookingContainer/>
       break;
     default:
       return null;

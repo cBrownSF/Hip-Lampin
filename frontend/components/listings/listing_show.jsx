@@ -173,6 +173,7 @@ render() {
           guestsAllowed={listing.guests_allowed}
           currentUser={listing.currentUser}
           listingId={listingId}
+          openModal={this.props.openModal}
         />
         {/* <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
