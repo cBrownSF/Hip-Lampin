@@ -627,7 +627,8 @@ background-color: #39C39A;
 border:2px solid  #39C39A;
 color:white;
 text-decoration: none;
- transition:0.45s
+ transition:0.45s;
+ cursor:pointer;
 }
 .request-to-book:hover{
 background-color: white;

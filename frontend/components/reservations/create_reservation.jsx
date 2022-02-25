@@ -16,13 +16,15 @@ class ReservationForm extends React.Component {
     let minOut = `${year}-${month}-${day+1}`
 
   const {guestsAllowed,cost,listingId}=props
+  let totalGuestValue= 
     this.state={
       check_in: dateToday,
       check_out: '',
       listing_id: listingId,
       guests: guestsAllowed,
       total_price: cost,
-      nights:0
+      nights:0,
+      total_guests: guestsAllowed === 1 ? `${guestsAllowed} guest` : `${guestsAllowed} guests`
     }
     this.dateToday=dateToday
     this.minOut=minOut
@@ -31,6 +33,7 @@ class ReservationForm extends React.Component {
     this.dateSelect=this.dateSelect.bind(this)
     this.submitForm=this.submitForm.bind(this)
     this.calculateTotalPrice=this.calculateTotalPrice.bind(this)
+    this.handleInput=this.handleInput.bind(this)
   }
  
   dateSelect(e,field){
@@ -75,6 +78,37 @@ class ReservationForm extends React.Component {
     if (check_out.length){
       return this.setState({total_price:finalPrice,nights:numberOfDays})
     }
+  }
+  handleInput(type) {
+    debugger;
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
+    }
+  }
+  renderGuestList(){
+    const {guests,total_guests}=this.state
+    let totalGuest=[]
+      for (let i=1; i<=guests;i++){
+        totalGuest.push(i)
+      }
+      console.log(totalGuest)
+      debugger;
+    return (
+      <select className="list-name" value={total_guests} onChange={this.handleInput('total_guests')}>
+        {totalGuest.map((number, i) => (
+          <option key={`guest-${i}`}>{i ===0 ?`${number} guest`:`${number} guests`}</option>
+        ))}
+      </select>
+    );
+  }
+  renderErrors() {
+    return (
+      <ul className="list-name">
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
   }
   render() { 
     const { check_in, check_out,guests,guest_id,listing_id,total_price} = this.state
@@ -147,6 +181,7 @@ class ReservationForm extends React.Component {
                 >Log in or Sign Up</button>
               </div>
             )}
+            <div>{this.renderGuestList()}</div>
           </div>
         </div>
         // </div>
