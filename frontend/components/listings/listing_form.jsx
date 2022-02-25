@@ -422,6 +422,7 @@ class ListingForm extends React.Component {
               handleNumInput={this.numberInput}
               cost={this.state.cost}
               minNight={this.state.minimum_night}
+              maxGuest={this.state.guests_allowed}
               handleInput={this.handleInput}
               listing={this.props.listing}
               keyPress={this.handleKeyPress}

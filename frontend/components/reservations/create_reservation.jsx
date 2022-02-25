@@ -80,7 +80,6 @@ class ReservationForm extends React.Component {
     }
   }
   handleInput(type) {
-    debugger;
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }
@@ -92,7 +91,6 @@ class ReservationForm extends React.Component {
         totalGuest.push(i)
       }
       console.log(totalGuest)
-      debugger;
     return (
       <select className="list-name" value={total_guests} onChange={this.handleInput('total_guests')}>
         {totalGuest.map((number, i) => (

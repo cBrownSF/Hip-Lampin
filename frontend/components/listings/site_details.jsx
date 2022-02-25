@@ -6,7 +6,7 @@ const SiteDetails = (props) => {
   return(
     <div className ='name-box'>
       <br/>
-      <h1 id='act-amen-title'>What are your booking policies?</h1>
+      <h1 id='check-det-title'>What are your booking policies?</h1>
       <p id='blurb'>Adjust these settings to determine how Hipcampers will book with you</p>
      <br/>
       <label id='booking-title'>Cancellation Policy

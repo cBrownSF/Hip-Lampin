@@ -10,19 +10,8 @@ class Search extends React.Component{
     if(this.props.allListings === '?all'){
         this.props.receiveListings()
     }
-   console.log('did-mount')
   }
-componentDidUpdate(prevState,nextState,prevProps){
-  debugger;
-  console.log('update')
-}
-componentWillUnmount(){
-  console.log('unmounted search')
-}
-  // static getDerivedStateFromProps(){
-  //   debugger;
-  //   this.props.clearListings()
-  // }
+
 render(){
   console.log(this.props.location)
   console.log(this.props.history)
@@ -30,10 +19,7 @@ render(){
     
     return null;
   }
-  // if (this.props.location.state && this.props.history.action !=='PUSH'){
-  //   debugger;
-  //   this.props.clearListings()
-  // }
+  
   return(
 <div className="index-container">
   <div className="map-item-container">

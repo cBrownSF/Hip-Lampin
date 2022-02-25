@@ -6,6 +6,7 @@ const Activities = (props) => {
   }
   return (
     <div className="name-box">
+      <br/>
       <p id='act-amen-title'>What activities are accessible on or near your property?</p>
       <ul id='amenities-list'>
         <li><label><input type="checkbox" checked={props.fishing} onChange={props.toggleCheck('is_fishing')} />Fishing</label></li>

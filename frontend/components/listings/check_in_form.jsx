@@ -8,7 +8,7 @@ const CheckInForm = (props) => {
     <div className='name-box'>
   
       <br />
-      <h1 id='act-amen-title'>What are your check in preferences?</h1>
+      <h1 id='check-det-title'>What are your check in preferences?</h1>
     <label id='booking-title'>Check in process
       <select className="select-bubble-booking" value={props.arrival} onChange={props.handleInput('on_arrival')}>
         <option value="Meet and Greet">Meet and Greet</option>
