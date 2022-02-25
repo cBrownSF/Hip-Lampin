@@ -96,6 +96,10 @@ class ReservationForm extends React.Component {
             )
             }</div>
           </div>
+          <div>
+            {currentUser && currentUser.id === hostId ?(
+              <div></div>
+            ):(
           <div className="div-check-in-out">
           <div className='check-in'>
             <button>Check In</button>
@@ -117,7 +121,8 @@ class ReservationForm extends React.Component {
               onChange={(e)=>this.dateSelect(e,'out')}
             />
           </div>
-          </div>
+          </div>)}
+        </div>
           <div className='request-div'>
             {currentUser?(
             <div>

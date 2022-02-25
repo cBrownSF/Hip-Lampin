@@ -620,7 +620,8 @@ font-size:20px;
 background-color: #39C39A;
 border:2px solid  #39C39A;
 color:white;
- transition: 0.45s;
+text-decoration: none;
+ transition:0.45s
 }
 .request-to-book:hover{
 background-color: white;
