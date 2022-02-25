@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import { sendResInfo } from "../../actions/reservation_actions";
 import ConfirmReservation from "./confirm_reservation";
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
+  debugger;
   return {
     errors: state.errors.reservation,
-    info:state.entities.reservationInfo,
+    info:state.entities.reservations.reservationInfo,
   }
 }
 

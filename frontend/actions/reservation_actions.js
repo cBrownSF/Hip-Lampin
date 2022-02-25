@@ -10,5 +10,5 @@ export const reservationInfo = (info)=>{
 
 
 export const sendResInfo= (info) => (dispatch) => {
-  dispatch(reservationInfo(info));
+ return dispatch(reservationInfo(info))
 }

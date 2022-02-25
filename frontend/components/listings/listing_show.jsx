@@ -146,7 +146,6 @@ render() {
   const reviewIdArray=this.props.listing.reviewIds
   const listingId = this.props.match.params.listingId
   // this.findHostAuthor()
- debugger;
   return(
     <div className='main-div-show'>
      <div className="photo-container">
@@ -168,7 +167,6 @@ render() {
       </div> */}
  
       <div className="booking-box">
-          {console.log(this.props.currentUser)}
         <ReservationForm
           cost={Number(listing.cost)}
           guestsAllowed={listing.guests_allowed}

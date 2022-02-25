@@ -43,8 +43,6 @@ class ReservationForm extends React.Component {
       return this.setState({
         check_out: e.target.value
       }, () => {
-debugger;
-console.log(this.state)
         this.calculateTotalPrice()
       })
     }
@@ -59,11 +57,10 @@ console.log(this.state)
       this.props.openModal('login')
     }else if(this.state.check_out.length){
       let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id })
-
-
-    sendResInfo(updatedInfo)
-    // .then(()=>openModal('confirm'))
-    }else{
+      sendResInfo(updatedInfo)
+      this.props.openModal('confirm')
+    }
+    else{
     //render Errors here
     }
   }
@@ -73,7 +70,6 @@ console.log(this.state)
     const{cost}=this.props
     let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
     let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
-   console.log(numberOfDays)
     
     let finalPrice = this.state.total_price * numberOfDays
     if (check_out.length){
