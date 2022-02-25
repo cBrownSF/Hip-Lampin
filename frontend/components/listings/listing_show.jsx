@@ -166,16 +166,7 @@ render() {
         <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
       </div> */}
  
-      <div className="booking-box">
-        <ReservationForm
-          cost={Number(listing.cost)}
-          guestsAllowed={listing.guests_allowed}
-          currentUser={this.props.currentUser}
-          listingId={listingId}
-          openModal={this.props.openModal}
-          sendResInfo={this.props.sendReservation}
-          hostId={listing.host_id}
-        />
+   
         {/* <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>
           <div className='cost-per-night'>
@@ -196,15 +187,24 @@ render() {
           <button className='request-to-book'>Request to Book</button>
           </div>
         </div> */}
-      </div>
+   
     
       <div className = 'name-show'>
         <p id="link-location">{isHost(nameEdit)}</p>
         <h1 className="listing-title">{listing.name}</h1>
         <p id='nearby-show'>{`${listing.city}, ${listing.zip_code}`}</p>
-
-         
       </div>
+        <div className="booking-box">
+          <ReservationForm
+            cost={Number(listing.cost)}
+            guestsAllowed={listing.guests_allowed}
+            currentUser={this.props.currentUser}
+            listingId={listingId}
+            openModal={this.props.openModal}
+            sendResInfo={this.props.sendReservation}
+            hostId={listing.host_id}
+          />
+        </div>
       <div className="recommended-show">
         <p>{reviewIdArray.length? `${this.percentRecommend()} % Recommended`: 'No reviews yet'}</p>
       </div>

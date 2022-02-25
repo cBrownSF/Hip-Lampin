@@ -92,7 +92,7 @@ class ReservationForm extends React.Component {
       }
       console.log(totalGuest)
     return (
-      <select className="list-name" value={total_guests} onChange={this.handleInput('total_guests')}>
+      <select className="list-guest" value={total_guests} onChange={this.handleInput('total_guests')}>
         {totalGuest.map((number, i) => (
           <option key={`guest-${i}`}>{i ===0 ?`${number} guest`:`${number} guests`}</option>
         ))}
@@ -157,9 +157,17 @@ class ReservationForm extends React.Component {
           </div>
           </div>)}
         </div>
+        <div className='guest-div'>
+          {currentUser && currentUser.id === hostId ? <div></div>:(
+          <div>
+            <p className="check-word">Guests</p>
+            <p>{this.renderGuestList()}</p>
+          </div>
+              )}
+        </div>
           <div className='request-div'>
             {currentUser?(
-            <div>
+            <div className="booking-button">
             {currentUser.id ===hostId ? (
            <Link to={costLink}> <button
               className='request-to-book'
@@ -172,14 +180,14 @@ class ReservationForm extends React.Component {
             )}
             </div>
             ):(
-              <div>
+              <div className="booking-button">
                 <button
                   className='request-to-book'
                   onClick={this.submitForm}
                 >Log in or Sign Up</button>
               </div>
+
             )}
-            <div>{this.renderGuestList()}</div>
           </div>
         </div>
         // </div>
