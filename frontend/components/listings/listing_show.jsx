@@ -174,6 +174,7 @@ render() {
           listingId={listingId}
           openModal={this.props.openModal}
           sendResInfo={this.props.sendReservation}
+          hostId={listing.host_id}
         />
         {/* <div className='cost-show'>
           <p id="link-location">{isHost(cost)}</p>

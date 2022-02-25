@@ -5,6 +5,7 @@ class ConfirmReservation extends React.Component {
     super(props);
     this.state={...props.info}
     debugger;
+    this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
   e.preventDefault()
@@ -26,19 +27,40 @@ formatDate(field){
   }
 }
   render() { 
-    debugger;
+   const {guests,nights,total_price}=this.state
     return (
       <div className='sign-up-form-container'>
         <form onSubmit={this.handleSubmit}></form>
         <div>
-        <div>Check in
-            <p>{this.formatDate('in')}</p>
-        </div>
-        <div>Check out
-            <p>{this.formatDate('out')}</p>
-        </div>
+          <div>Check in
+              <p>{this.formatDate('in')}</p>
           </div>
-      </div>
+          <div>Check out
+              <p>{this.formatDate('out')}</p>
+          </div>
+        </div>
+        <div>
+          <p>Guests</p>
+          <div>
+          {guests === 1 ? (
+            <p id='per-night'> {guests} guest</p>) : (
+              <p id='per-night'> guests {guests}</p>
+            )
+          }
+          </div>
+          <div>
+            Average price * {nights} = ${total_price}
+          </div>
+          <div>
+            Subtotal= ${total_price}
+          </div>
+          <button
+            type="submit"
+            className='request-to-book'
+            onClick={this.submitForm}
+          >Confirm Booking</button>
+        </div>
+        </div>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 class ReservationForm extends React.Component {
   
   constructor(props) {
@@ -49,7 +50,7 @@ class ReservationForm extends React.Component {
   }
   
   submitForm(e){
-    const {currentUser,sendResInfo,openModal} = this.props
+    let {currentUser,sendResInfo,openModal} = this.props
     
     
     e.preventDefault()
@@ -58,7 +59,7 @@ class ReservationForm extends React.Component {
     }else if(this.state.check_out.length){
       let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id })
       sendResInfo(updatedInfo)
-      this.props.openModal('confirm')
+      openModal('confirm')
     }
     else{
     //render Errors here
@@ -67,7 +68,6 @@ class ReservationForm extends React.Component {
   calculateTotalPrice(){
 
     const {check_in,check_out}=this.state
-    const{cost}=this.props
     let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
     let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
     
@@ -78,7 +78,11 @@ class ReservationForm extends React.Component {
   }
   render() { 
     const { check_in, check_out,guests,guest_id,listing_id,total_price} = this.state
-    const { cost} = this.props
+    let { cost, currentUser,hostId} = this.props
+    const costLink = {
+      pathname: `/listings/${listing_id}/edit`,
+      state: 3,
+    }
     return ( 
       // <div className="div-check-in-out">
         <div className='cost-show'>
@@ -115,10 +119,27 @@ class ReservationForm extends React.Component {
           </div>
           </div>
           <div className='request-div'>
+            {currentUser?(
+            <div>
+            {currentUser.id ===hostId ? (
+           <Link to={costLink}> <button
+              className='request-to-book'
+            >Change the rate</button></Link>
+              ):(
             <button 
             className='request-to-book'
             onClick={this.submitForm}
             >Request to Book</button>
+            )}
+            </div>
+            ):(
+              <div>
+                <button
+                  className='request-to-book'
+                  onClick={this.submitForm}
+                >Log in or Sign Up</button>
+              </div>
+            )}
           </div>
         </div>
         // </div>
