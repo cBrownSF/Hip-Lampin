@@ -51,7 +51,7 @@
   color:grey;
       margin: 0px;
     margin-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .show-container #left{
   width:20%
@@ -160,6 +160,7 @@ color: grey;
   border: solid lightgrey;
   border-width: thin;
   background-color: white;
+  
  }
  .booking-box{
     position: sticky;
@@ -173,8 +174,13 @@ color: grey;
    display:flex;
    flex-direction:column;
    justify-content: space-between;
-   border-top:1px solid lightgrey
- }
+     }
+      .check-out{
+   display:flex;
+   flex-direction:column;
+   justify-content: space-between;
+   border-left:1px solid lightgrey;
+   }
  .descript-show{
    display:flex;
    flex-direction:row;
@@ -629,16 +635,39 @@ color: #39C39A;
 border:2px solid  #39C39A;
 }
 .cost-per-night{
-display:flex;
+display: flex;
 flex-direction: column;
+border-bottom: 1px solid lightgray;
 }
 .request-div{
   display:flex;
   border-top:1px solid lightgrey;
-  margin-top: 5px;
   justify-content:center;
 }
 
 .div-check-in-out{
   display:flex
+}
+.calendar{
+  padding: 2px;
+  border: solid 1px black;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  margin: 0px 5px 5px 5px;
+      padding-inline-start: 0px;
+    padding-inline-end: 0px;
+}
+.check-word{
+    margin-left: 6px;
+    font-size: 16px;
+    font-weight: 550;
+    margin-bottom: 6px;
+    padding: 0px;
+    margin-top: 8px;
+    
+}
+::-webkit-calendar-picker-indicator{
+    margin-left: 2px;
+    cursor:pointer;
 }

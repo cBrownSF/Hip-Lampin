@@ -102,8 +102,9 @@ class ReservationForm extends React.Component {
             ):(
           <div className="div-check-in-out">
           <div className='check-in'>
-            <button>Check In</button>
+            <p className="check-word">Check In</p>
             <input 
+              className='calendar'
               type="date"
               value={check_in}
               min={this.dateToday}
@@ -111,9 +112,10 @@ class ReservationForm extends React.Component {
               onChange={(e)=>this.dateSelect(e,'in')}
             />
           </div>
-          <div className='check-in'>
-            <button>Check Out</button>
+          <div className='check-out'>
+            <p className="check-word">Check Out</p>
             <input 
+              className='calendar'
               type="date"
               value={check_out}
               min={this.minOut}
