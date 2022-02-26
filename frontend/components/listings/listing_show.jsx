@@ -388,7 +388,7 @@ render() {
           city={this.props.listing.city}
           state={this.props.listing.state}
           address={this.props.listing.street_address}
-          styling='show-map'
+          styling='show-map-prop'
         />
       </div>
       <div>

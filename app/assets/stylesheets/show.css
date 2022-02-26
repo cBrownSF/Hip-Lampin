@@ -152,6 +152,7 @@ color: grey;
    display:flex;
    flex-direction: row;
    justify-content: space-between;
+   margin-top:40px
  }
  .cost-show{
    display:flex;
@@ -193,6 +194,7 @@ color: grey;
  }
  .box-show-page{
   display:flex;
+  flex-wrap:wrap;
   width:70%
  }
  .list-show-page{
@@ -218,14 +220,19 @@ color: grey;
   width:70%
  }
  .show-map{
-   width:800px;
+   width: 100%;
    height:400px;
    position:relative;
  }
+ .show-map-prop{
+ height:400px;
+   width:70%;
+   position:relative;
+ }
  .location{
-   text-align:center;
+  margin-left:25.5%;
    font-family:inherit;
-   font-size:40px;
+   font-size:32px;
  }
  .review-index-item-show{
    display:flex;
@@ -623,7 +630,7 @@ overflow-wrap: break-word;
   background-color: white;
 }
 .request-to-book{
-    margin: 5px;
+   margin: 7px 5px 7px 5px;
     font-family: inherit;
     position: relative;
     font-size: 16px;
@@ -634,7 +641,7 @@ overflow-wrap: break-word;
     text-decoration: none;
     transition: 0.45s;
     cursor: pointer;
-    padding: 10px 40px;
+    padding: 10px 60px;
 }
 .request-to-book:hover{
 background-color: white;
@@ -675,7 +682,7 @@ border-bottom: 1px solid lightgray;
     
 }
 ::-webkit-calendar-picker-indicator{
-    margin-left: 2px;
+    /* margin-left: 2px; */
     cursor:pointer;
 }
 
@@ -695,4 +702,9 @@ border-bottom: 1px solid lightgray;
       border-top: solid 1px lightgray;
     display: flex;
     flex-direction: column;
+}
+.own-listing{
+  font-size: 16px;
+  font-family: inherit;
+  margin: 10px;
 }

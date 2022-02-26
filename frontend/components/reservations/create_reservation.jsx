@@ -157,9 +157,9 @@ class ReservationForm extends React.Component {
           </div>
           </div>)}
         </div>
-        <div className='guest-div'>
-          {currentUser && currentUser.id === hostId ? <div></div>:(
-          <div>
+        <div>
+          {currentUser && currentUser.id === hostId ? <div className='own-listing'>You cannot check in or out to your own Listing :)</div>:(
+          <div className='guest-div'>
             <p className="check-word">Guests</p>
             <p>{this.renderGuestList()}</p>
           </div>
