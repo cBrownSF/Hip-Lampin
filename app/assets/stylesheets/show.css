@@ -41,8 +41,9 @@
 }
 .show-container #price{
   font-family: inherit;
-  font-size:28px;
-  font-weight:bold;
+    font-size: 28px;
+    margin: 8px 8px 4px;
+    font-weight: bold;
   
 }
 .show-container #per-night{
@@ -50,7 +51,7 @@
   font-size:20px;
   color:grey;
       margin: 0px;
-    margin-left: 5px;
+    margin-left: 8px;
     margin-bottom: 10px;
 }
 .show-container #left{
@@ -152,7 +153,7 @@ color: grey;
    display:flex;
    flex-direction: row;
    justify-content: space-between;
-   margin-top:40px
+   margin-top:0px
  }
  .cost-show{
    display:flex;
@@ -168,7 +169,7 @@ color: grey;
         position: sticky;
     top: 0;
     background-color: transparent;
-    margin-top: -225px;
+    margin-top: -255px;
     display: flex;
     justify-content: flex-end;
     margin-left: 75%;
@@ -188,9 +189,8 @@ color: grey;
  .descript-show{
    display:flex;
    flex-direction:row;
-   justify-content:space-around;
-   width:70%
-   
+   width:70%;
+   margin-top: 15px;
  }
  .box-show-page{
   display:flex;
@@ -591,6 +591,8 @@ font-size: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 10px;
+  margin-right: 20px;
 }
 .host-link-show{
   font-style:inherit;
@@ -616,7 +618,7 @@ font-size: 2.4rem;
     object-fit: cover;
 }
 .description{
-width:66%;
+width:55%;
 overflow-wrap: break-word;
 }
 .review-index-item-array-show{
@@ -667,8 +669,8 @@ border-bottom: 1px solid lightgray;
   border: solid 1px black;
   border: none;
   font-family: inherit;
-  font-size: 14px;
-  margin: 0px 5px 5px 5px;
+  font-size: 16px;
+  margin: 0px 6px 6px 6px;
       padding-inline-start: 0px;
     padding-inline-end: 0px;
 }
@@ -685,16 +687,15 @@ border-bottom: 1px solid lightgray;
     /* margin-left: 2px; */
     cursor:pointer;
 }
-
 .list-guest{
       list-style: none;
     margin: 0px;
     /* margin-top: 5px; */
-    font-size: 14px;
+    font-size: 16px;
     font-family: inherit;
-    margin-left: 5px;
     width: 95%;
     border: none;
+    cursor:pointer;
 }
 
 
@@ -707,4 +708,10 @@ border-bottom: 1px solid lightgray;
   font-size: 16px;
   font-family: inherit;
   margin: 10px;
+}
+.guest-select-div{
+      margin: 0px 0px 5px 3px;
+}
+.review-number-logged-in{
+  margin-bottom:40px;
 }

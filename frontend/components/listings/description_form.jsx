@@ -38,7 +38,7 @@ const letterCount = () => {
           {props.formType==='create' ?(
           <button type="button" className = 'next-button-with-prev' onClick={props.nextPage}>Next</button>
           ) :(
-              <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Edit</button>
+              <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>
           )
           }
           </div>

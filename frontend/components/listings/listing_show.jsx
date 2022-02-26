@@ -154,11 +154,11 @@ render() {
         <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
       </div>
     <div className='show-container'>
-      <div>
+      {/* <div>
         {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
           <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
         ) : ''}
-      </div>
+      </div> */}
       {/* <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p> */}
       {/* <div className="photo-container">
         <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
@@ -187,12 +187,19 @@ render() {
           <button className='request-to-book'>Request to Book</button>
           </div>
         </div> */}
-   
+   {console.log(listing.minimum_night)}
     
       <div className = 'name-show'>
-        <p id="link-location">{isHost(nameEdit)}</p>
+          <div>
+            {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
+              <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
+            ) : <p id="link-location">{isHost(nameEdit)}</p>}
+          </div>
+        {/* <p id="link-location">{isHost(nameEdit)}</p> */}
         <h1 className="listing-title">{listing.name}</h1>
         <p id='nearby-show'>{`${listing.city}, ${listing.zip_code}`}</p>
+            <p className={this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? "review-number-logged-in":''}
+              >{reviewIdArray.length ? `${this.percentRecommend()} % Recommended` : 'No reviews yet'}</p>
       </div>
         <div className="booking-box">
           <ReservationForm
@@ -203,18 +210,21 @@ render() {
             openModal={this.props.openModal}
             sendResInfo={this.props.sendReservation}
             hostId={listing.host_id}
+            minNight={listing.minimum_night}
           />
         </div>
-      <div className="recommended-show">
+      {/* <div className="recommended-show">
         <p>{reviewIdArray.length? `${this.percentRecommend()} % Recommended`: 'No reviews yet'}</p>
-      </div>
+      </div> */}
       <div className="line-break">
         <hr id="solid" />
       </div>
 
-     
-      <div className= 'descript-show'>
         <p id="link-location">{isHost(descript)}</p>
+      <div className= 'descript-show'>
+        {/* <div>
+        <p id="link-location">{isHost(descript)}</p>
+        </div> */}
         <img className="show-prof-img" src={this.state.photoURL}/>   
         <div className='host-div'>
         <span className="host-by"> Hosted by</span>

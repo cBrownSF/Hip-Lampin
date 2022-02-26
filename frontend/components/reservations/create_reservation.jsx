@@ -10,10 +10,12 @@ class ReservationForm extends React.Component {
     let month = d.getMonth()+1;
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
+    console.log(props.minNight)
+    console.log(props)
     let dateToday = `${year}-${month}-${day}`
     let maxInDate = `${year}-12-30`
     let maxDate = `${year}-12-31`
-    let minOut = `${year}-${month}-${day+1}`
+    let minOut = `${year}-${month}-${day+props.minNight}`
 
   const {guestsAllowed,cost,listingId}=props
   let totalGuestValue= 
@@ -161,7 +163,7 @@ class ReservationForm extends React.Component {
           {currentUser && currentUser.id === hostId ? <div className='own-listing'>You cannot check in or out to your own Listing :)</div>:(
           <div className='guest-div'>
             <p className="check-word">Guests</p>
-            <p>{this.renderGuestList()}</p>
+            <p className='guest-select-div'>{this.renderGuestList()}</p>
           </div>
               )}
         </div>

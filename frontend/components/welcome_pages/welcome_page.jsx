@@ -18,7 +18,7 @@ const NavBar = (props) => {
       return (
       <div className="nav-bar-container">
           <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
-          {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"?(
+          {useLocation().pathname === "/" || useLocation().pathname.includes('edit')|| useLocation().pathname === "/listings/new"?(
           console.log(useLocation().pathname)
         ):(
           <div className='nav-search-bar-div'>
