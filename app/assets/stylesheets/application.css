@@ -1041,5 +1041,20 @@ margin-right:auto
 .confirm-price-div{
   display: flex;
   flex-direction:column;
+
+}
+.confirm-price-div-line{
+  display: flex;
+  flex-direction:column;
   border-top:1px solid lightgray;
+  border-bottom:1px solid lightgray;
+}
+.reservation-dets-confirm{
+  display:flex;
+  font-weight:600;
+  justify-content: center;
+}
+.confirm-button-div{
+  display:flex;
+  justify-content:center;
 }

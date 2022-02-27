@@ -31,15 +31,20 @@ formatDate(field){
     return (
       <div className='sign-up-form-container'>
         <form onSubmit={this.handleSubmit}></form>
-        <div>
-          <div>Check in
-              <p>{this.formatDate('in')}</p>
-          </div>
-          <div>Check out
-              <p>{this.formatDate('out')}</p>
-          </div>
+        <div className='reservation-dets-confirm'>
+          <p>Reservation Details</p>
         </div>
-        <div>
+        <div className='confirm-price-div'>
+          <div className="sub-total-div">
+            <p className='total-price-confirm'>Check in</p>
+            <p className='total-price-confirm'>{this.formatDate('in')}</p>
+          </div>
+          <div className="sub-total-div">
+            <p className='total-price-confirm'>Check out</p>
+            <p className='total-price-confirm'>{this.formatDate('out')}</p>
+          </div>
+     
+        <div className="sub-total-div">
           <p>Guests</p>
           <div>
           {guests === 1 ? (
@@ -48,16 +53,19 @@ formatDate(field){
             )
           }
           </div>
-          <div className='confirm-price-div'>
+          </div>
+          </div>
+          <div className='confirm-price-div-line'>
           <div className="sub-total-div">
-            <p className='sub-total-word'> Average price * {nights}</p>
+            <p className='total-price-confirm'> Average price * {nights}</p>
             <p className="total-price-confirm"> ${total_price}</p>
           </div>
           <div className="sub-total-div">
             <p className='sub-total-word'> Subtotal</p>
             <p className="total-price-confirm"> ${total_price}</p>
           </div>
-          </div>
+        </div>
+        <div className='confirm-button-div'>
           <button
             type="submit"
             className='request-to-book'
