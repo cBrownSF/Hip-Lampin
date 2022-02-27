@@ -48,11 +48,15 @@ formatDate(field){
             )
           }
           </div>
-          <div>
-            Average price * {nights} = ${total_price}
+          <div className='confirm-price-div'>
+          <div className="sub-total-div">
+            <p className='sub-total-word'> Average price * {nights}</p>
+            <p className="total-price-confirm"> ${total_price}</p>
           </div>
-          <div>
-            Subtotal= ${total_price}
+          <div className="sub-total-div">
+            <p className='sub-total-word'> Subtotal</p>
+            <p className="total-price-confirm"> ${total_price}</p>
+          </div>
           </div>
           <button
             type="submit"

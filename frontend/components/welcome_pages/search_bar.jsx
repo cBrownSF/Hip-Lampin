@@ -7,12 +7,14 @@ class SearchBar extends React.Component {
     this.state = {
       lat: null,
       lng: null,
-      type: null
+      type: null,
+      address: '',
     }
 this.search = null;
 this.autoComplete = this.autoComplete.bind(this)
 this.handleSubmit=this.handleSubmit.bind(this)
-  }
+this.handleInput=this.handleInput.bind(this)
+}
   componentDidMount(){
     console.log('search mount')
   }
@@ -21,19 +23,49 @@ this.handleSubmit=this.handleSubmit.bind(this)
       console.log('hello')
     }
   }
-handleSubmit(e){
-  // const searchProps = {
-  //   pathname: "/listings",
-  //   state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
-  // };
-
-  e.preventDefault()
-
-  // if (this.state.lat && this.state.lng && this.state.type){
-  //   debugger;
-  //   <Redirect to={searchProps} key={Math.random()} />
-  // }
+handleInput(type) {
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
+    }
 }
+handleSubmit(e){
+
+debugger
+  e.preventDefault()
+  let geocoder = new google.maps.Geocoder()
+  console.log(this.state.address)
+  let geocodeAdd=this.state.address
+  console.log(this.state)
+  geocoder.geocode(
+    {address:geocodeAdd},
+    (results, status) => {
+      if (status == google.maps.GeocoderStatus.OK) {
+        debugger
+        let gCodesearchProps = {
+          pathname: "/listings",
+          state: { lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0] },
+        };
+        return this.setState({
+          lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
+        })
+        // <Link to={gCodesearchProps} />
+        // console.log(results)
+        // console.log(gCodesearchProps)
+          }
+      else{
+        return null;
+      }
+    }).then(() => this.props.history.push({
+      pathname: '/listings',
+      state: {
+        lng: this.state.lng,
+        lat: this.state.lat,
+       type: this.state.type
+      }
+    }
+    ))
+}
+
 autoComplete() {
   const options = {
     componentRestrictions: { country: ["us"] },
@@ -72,6 +104,7 @@ render() {
             type="text"
             id="city-search"
             onSelect={this.autoComplete}
+            onChange={this.handleInput('address')}
             placeholder='Try Montara,Colorado,United States...' />
         </div>
         {/* <div className="search-bar">
@@ -98,7 +131,7 @@ render() {
 
         ):(
           
-              <button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button>)
+             <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)
           }</div> 
      </form>
     </div>

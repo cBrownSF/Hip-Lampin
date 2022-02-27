@@ -942,11 +942,11 @@ font-weight: 500;
     transition:transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s
 }
 .home-page-link-photo-left:hover{
-  box-shadow: -1px 4px 5px  rgba(0,0,0,.25);
+  box-shadow: 0px 4px 5px  rgba(0,0,0,.25);
   transform: translateY(-5px);
 }
 .home-page-link-photos:hover{
-  box-shadow: 1px 4px 5px  rgba(0,0,0,.25);
+  box-shadow: 0px 4px 5px  rgba(0,0,0,.25);
   transform: translateY(-5px);
 }
 .home-page-link-photo-right:hover{
@@ -1022,4 +1022,24 @@ margin-right:auto
 .small-search-wrapper-search-button:hover{
   background-color: white;
   color:#39C39A;
+}
+.sub-total-div{
+ display: flex;
+  margin: 0 10% 0 10%;
+  justify-content: space-between;
+}
+.sub-total-word{
+  font-size:16px;
+  font-family:inherit;
+  font-weight:600;
+}
+.total-price-confirm{
+    font-size:16px;
+  font-family:inherit;
+  font-weight:500;
+}
+.confirm-price-div{
+  display: flex;
+  flex-direction:column;
+  border-top:1px solid lightgray;
 }

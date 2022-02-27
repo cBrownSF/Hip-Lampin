@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 class HomePage extends React.Component {
   constructor(props){
     super(props)
+    debugger;
     // this.state={
     //   lat:null,
     //   lng:null,
@@ -51,6 +52,7 @@ class HomePage extends React.Component {
       <div>
         <SearchBar 
         className='search-wrapper'
+        history={this.props.history}
         />
       </div>
       <div className="main-photo-div">
