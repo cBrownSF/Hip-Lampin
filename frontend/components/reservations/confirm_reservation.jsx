@@ -4,25 +4,24 @@ class ConfirmReservation extends React.Component {
   constructor(props) {
     super(props);
     let dets=props.info
+    
     this.state={
-      listing_id:dets.listing_id,
+      listing_id:Number(dets.listing_id),
       total_price:dets.total_price,
       nights:dets.nights,
       total_guests: dets.total_guests,
       check_in:dets.check_in,
-      check_out:dets.check_out
+      check_out:dets.check_out,
+      guest_id:dets.guest_id
     }
     debugger;
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
   debugger
-  const {listing_id,total_price,nights,total_guests,check_in,check_out}=this.state
+
   e.preventDefault()
-  console.log(this.props.info)
-  console.log(this.state)
-  let reservation = Object.assign({}, listing_id, total_price, nights, total_guests, check_in, check_out)
-  console.log(reservation)
+  this.props.createReservation(this.state)
 }
 formatDate(field){
   const {check_in,check_out}=this.state
