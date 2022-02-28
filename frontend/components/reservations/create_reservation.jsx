@@ -10,8 +10,6 @@ class ReservationForm extends React.Component {
     let month = d.getMonth()+1;
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
-    console.log(props.minNight)
-    console.log(props)
     let dateToday = `${year}-${month}-${day}`
     let maxInDate = `${year}-12-30`
     let maxDate = `${year}-12-31`
@@ -39,7 +37,6 @@ class ReservationForm extends React.Component {
   }
  
   dateSelect(e,field){
-    console.log(this.state.check_in)
     e.preventDefault()
     if (field === 'in'){
     return this.setState({
@@ -82,6 +79,7 @@ class ReservationForm extends React.Component {
     }
   }
   handleInput(type) {
+    console.log(this.state.total_guests)
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }
@@ -92,7 +90,6 @@ class ReservationForm extends React.Component {
       for (let i=1; i<=guests;i++){
         totalGuest.push(i)
       }
-      console.log(totalGuest)
     return (
       <select className="list-guest" value={total_guests} onChange={this.handleInput('total_guests')}>
         {totalGuest.map((number, i) => (

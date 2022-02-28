@@ -3,12 +3,26 @@ import React from "react";
 class ConfirmReservation extends React.Component {
   constructor(props) {
     super(props);
-    this.state={...props.info}
+    let dets=props.info
+    this.state={
+      listing_id:dets.listing_id,
+      total_price:dets.total_price,
+      nights:dets.nights,
+      total_guests: dets.total_guests,
+      check_in:dets.check_in,
+      check_out:dets.check_out
+    }
     debugger;
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
+  debugger
+  const {listing_id,total_price,nights,total_guests,check_in,check_out}=this.state
   e.preventDefault()
+  console.log(this.props.info)
+  console.log(this.state)
+  let reservation = Object.assign({}, listing_id, total_price, nights, total_guests, check_in, check_out)
+  console.log(reservation)
 }
 formatDate(field){
   const {check_in,check_out}=this.state
@@ -27,10 +41,10 @@ formatDate(field){
   }
 }
   render() { 
-   const {guests,nights,total_price}=this.state
+   const {total_guests,nights,total_price}=this.state
     return (
       <div className='sign-up-form-container'>
-        <form onSubmit={this.handleSubmit}></form>
+        <form onSubmit={this.handleSubmit}>
         <div className='reservation-dets-confirm'>
           <p>Reservation Details</p>
         </div>
@@ -47,11 +61,12 @@ formatDate(field){
         <div className="sub-total-div">
           <p>Guests</p>
           <div>
-          {guests === 1 ? (
+          {/* {guests === 1 ? (
             <p id='per-night'> {guests} guest</p>) : (
               <p id='per-night'> guests {guests}</p>
             )
-          }
+          } */}
+                <p id='per-night'>{total_guests}</p>
           </div>
           </div>
           </div>
@@ -69,9 +84,10 @@ formatDate(field){
           <button
             type="submit"
             className='request-to-book'
-            onClick={this.submitForm}
           >Confirm Booking</button>
+          
         </div>
+        </form>
         </div>
     );
   }

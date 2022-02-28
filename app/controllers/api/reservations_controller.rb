@@ -19,17 +19,18 @@ def update
       render json: @review.errors_full_messages
     end
 end
-  def show
-    @reservation= Reservation.find(params[:id])
-    render :show
-  end
 
-  def destroy
-   @reservation = Reservation.find_by(id: params[:id])
-   if @reservation
+def show
+  @reservation= Reservation.find(params[:id])
+  render :show
+end
+
+def destroy
+  @reservation = Reservation.find_by(id: params[:id])
+  if @reservation
     @reservation.destroy
     render :show
-   else
+  else
     render json: {message: "Not found in my list"}, status: 422
    end
 end
