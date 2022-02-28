@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_190538) do
   create_table "reservations", force: :cascade do |t|
     t.integer "listing_id", null: false
     t.integer "total_price", null: false
-    t.integer "total_guests", null: false
+    t.integer "total_price", null: false
     t.integer "guest_id", null: false
     t.string "nights", null: false
     t.date "check_in", null: false
