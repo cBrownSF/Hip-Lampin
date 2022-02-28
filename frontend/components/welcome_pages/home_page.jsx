@@ -40,7 +40,10 @@ class HomePage extends React.Component {
 
   // }
   render() { 
-   
+    const yosemiteProps = {
+      pathname: "/listings",
+      state: { lng: -119.538330, lat: 37.865101, type: "locality"},
+    };
     return (  
       <section>
       <div className='splash-container'>
@@ -56,23 +59,23 @@ class HomePage extends React.Component {
         />
       </div>
       <div className="main-photo-div">
-
+          {/* <img src="https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/beufort-harbor-main-photo.jpeg"/> */}
       </div>
       <div className='home-page-link-div' >
           <div className="home-page-link-photo-left">
             <div className="photo-inside-div-home">
-              photo
             </div>
             <div className='card-cover'>
-              Carolina Hideaways
+              <p className="font-main-page-photo">Carolina Hideaways</p>
             </div>
           </div>
           <div className="home-page-link-photos">
             <div className="photo-inside-div-home">
-              photo
+              
             </div>
-            <div className='card-cover'>
-              Yosemite Getaways
+            <div className='card-cover-right'>
+              <Link className="link-yos-carolina"to={yosemiteProps}><p className="font-main-page-photo">Yosemite Getaways</p></Link>
+              
             </div>
           </div>
           {/* <div className="home-page-link-photo-right">

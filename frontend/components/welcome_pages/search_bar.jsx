@@ -79,11 +79,13 @@ autoComplete() {
   let auto = this.search;
   this.search.addListener('place_changed', () => {
     let result = auto.getPlace()
+    console.log(result.types[0])
     return this.setState({
       lat: result.geometry.location.lat(),
       lng: result.geometry.location.lng(),
       type: result.types[0]
     })
+    
   })
 
 }
