@@ -21,7 +21,7 @@ handleSubmit(e){
   debugger
 
   e.preventDefault()
-  this.props.createReservation(this.state)
+  this.props.createReservation(this.state).then(this.props.closeModal);
 }
 formatDate(field){
   const {check_in,check_out}=this.state

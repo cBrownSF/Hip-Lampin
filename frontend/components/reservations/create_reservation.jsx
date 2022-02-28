@@ -79,7 +79,6 @@ class ReservationForm extends React.Component {
     }
   }
   handleInput(type) {
-    console.log(this.state.total_guests)
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }

@@ -187,7 +187,7 @@ render() {
           <button className='request-to-book'>Request to Book</button>
           </div>
         </div> */}
-   {console.log(listing.minimum_night)}
+   
     
       <div className = 'name-show'>
           <div>

@@ -2,11 +2,13 @@ class Api::ReservationsController < ApplicationController
   before_action :require_logged_in,only: [:create,:destroy,:update]
 
 def create
-  @reservation = current_user.reservation.new(reservation_params)
-    # @review.author_id=@author.id
+  @reservation = current_user.reservations.new(reservation_params)
+    debugger
     if @reservation.save
+      debugger;
       render :show
     else
+      debugger
       render json: @reservation.errors.full_messages, status: 422
     end
 end

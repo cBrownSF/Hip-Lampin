@@ -5,10 +5,14 @@ export const RECEIVE_RESERVATION_ERRORS='RECEIVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION_ERRORS='REMOVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION='REMOVE_RESERVATION'
 
-export const receiveOneReservation=(reservation)=>({
+export const receiveOneReservation=(reservation)=>{
+  debugger;
+  console.log('hitting receiveOneRes')
+return {
   type:RECEIVE_RESERVATION,
   reservation
-})
+}
+}
 
 export const reservationInfo = (info)=>{
   return{
@@ -31,8 +35,11 @@ export const removeReservationErrors = () => ({
 })
 
 export const createReservation= reservation =>(dispatch)=>{
+  console.log('hitting action func')
   return ReservationAPIUtil.createReservation(reservation)
   .then(createdReservation=>{
+    debugger;
+    console.log(createdReservation)
     dispatch(receiveOneReservation(createdReservation))
   }),
   (errors)=>dispatch(receiveReservationErrors(errors.responseJSON))
