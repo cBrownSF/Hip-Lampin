@@ -2,20 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/markers';
 
-// const getCoordinates = latLng => ({
-//   lat: latLng.lat(),
-//   lng: latLng.lng()
-// });
-// const mapOptions = {
-//   center: { lat: 37.7758, lng: -122.435 }, 
-//   zoom: 13
-// };
 class ListingMap extends React.Component {
  
 componentDidMount(){
   this.newMap()
-  // console.log(service)
-  // console.log(new google.maps.places.AutocompleteService())
 }
 newMap(){
   if (this.props.bounds) {
@@ -59,7 +49,6 @@ componentDidUpdate(prevProps,){
 }
 eventListeners(){
   google.maps.event.addListener(this.map,"idle",()=>{
-    console.log('event listener map')
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       southWest: { lat: south, lng: west },
@@ -67,18 +56,11 @@ eventListeners(){
     };
     this.props.updateFilter('bounds',bounds);
   })
-// google.maps.event.addListener(this.map,'click',(event)=>{
-//   const coordinates = getCoordinates(event.latLng)
-//   console.log('clicked')
-// })
+
 }
 
 render(){
-  // console.log(this.state)
-  // if (this.state.loaded=false){
-  //   debugger;
-  //   return null;
-  // }
+
   return(
     <div className="map-container">
     <div className='map' ref={ map => this.mapNode = map }>

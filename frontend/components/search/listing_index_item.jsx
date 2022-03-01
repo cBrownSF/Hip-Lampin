@@ -19,7 +19,6 @@ class ListingIndexItem extends React.Component {
         slide: prevState.slide + 1
       }))
     }else{
-      console.log(`lastone${this.state.slide}`)
        return this.setState(() => ({
          slide: 1
        }))
@@ -42,7 +41,6 @@ class ListingIndexItem extends React.Component {
     }
   
     componentWillUnmount(){
-      console.log('unmount item')
     }
   render(){
     const {photos,cost,city,state,name,id}=this.props.listings

@@ -3,7 +3,6 @@ import { RECEIVE_RESERVATION_INFO,REMOVE_RESERVATION,RECEIVE_RESERVATION } from 
 
 const ReservationReducer = (oldState={},action)=>{
   oldState=Object.freeze(oldState)
-  console.log(action.type)
   switch (action.type) {
     case RECEIVE_RESERVATION_INFO:
       return Object.assign({},oldState,{reservationInfo:action.info})

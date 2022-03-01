@@ -16,7 +16,6 @@ this.handleSubmit=this.handleSubmit.bind(this)
 this.handleInput=this.handleInput.bind(this)
 }
   componentDidMount(){
-    console.log('search mount')
   }
   componentDidUpdate(){
     if (this.lat){
@@ -33,9 +32,7 @@ handleSubmit(e){
 debugger
   e.preventDefault()
   let geocoder = new google.maps.Geocoder()
-  console.log(this.state.address)
   let geocodeAdd=this.state.address
-  console.log(this.state)
   geocoder.geocode(
     {address:geocodeAdd},
     (results, status) => {
@@ -48,9 +45,7 @@ debugger
         return this.setState({
           lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
         })
-        // <Link to={gCodesearchProps} />
-        // console.log(results)
-        // console.log(gCodesearchProps)
+       
           }
       else{
         return null;
@@ -79,7 +74,6 @@ autoComplete() {
   let auto = this.search;
   this.search.addListener('place_changed', () => {
     let result = auto.getPlace()
-    console.log(result.types[0])
     return this.setState({
       lat: result.geometry.location.lat(),
       lng: result.geometry.location.lng(),

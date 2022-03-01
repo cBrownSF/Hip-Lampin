@@ -6,7 +6,6 @@ export const deleteReservation = (reservationId) => {
 }
 
 export const createReservation = (reservation) => {
-  console.log('hitting ajax')
   return $.ajax({
     method: 'POST',
     url: `/api/reservations`,

@@ -12,18 +12,20 @@ class Profile extends React.Component {
     this.clickImageInput = this.clickImageInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.flipEdit=this.flipEdit.bind(this)
+    this.revertIntro=this.revertIntro.bind(this)
     this.handleSubmit=this.handleSubmit.bind(this)
     }
   
   componentDidMount() {
     this.props.clearErrors()
     const user = this.props.user
-   
+    debugger;
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
 
       return this.setState({
         intro: user.user.intro || '',
+        originalIntro:user.user.intro,
         photoFile: user.user.photoFile || null,
         photoURL: user.user.photoURL || null,
         created_at: user.user.created_at || null,
@@ -68,13 +70,22 @@ class Profile extends React.Component {
   }
   flipEdit(e){
     const { currentUser, user } = this.props
+    const { intro, originalIntro,editable}=this.state
+    console.log(this.state)
     e.preventDefault()
-    if (currentUser && currentUser.id === user.id){
       return (
         this.setState((prevState) => ({
-          editable:!prevState.editable
+          editable:!prevState.editable,
         })))
-    }
+  }
+  revertIntro(e){
+    const { intro, originalIntro, editable } = this.state
+    e.preventDefault()
+    return (
+      this.setState((prevState) => ({
+        intro:originalIntro,
+        editable: !prevState.editable,
+      })))
   }
   handleSubmit(e){
 
@@ -103,6 +114,7 @@ class Profile extends React.Component {
     }
   }
   renderErrors() {
+    if (this.props.errors){
     return (
       <ul className="list-name">
         {this.props.errors.map((error, i) => (
@@ -111,9 +123,11 @@ class Profile extends React.Component {
       </ul>
     );
   }
+  }
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
+    console.log(listings.length)
    if (listings.length===0)return null
    
   if (!user) return null
@@ -171,9 +185,11 @@ class Profile extends React.Component {
                  ></textarea>
                  <div className="button-prof-div">
                  <button type="submit" className='submit-prof-button'> Submit</button>
-                    <button type="button" className='cancel-prof-button' onClick={(e) => {
-                      this.flipEdit(e)
-                    }}> Cancel</button>
+                    <button type="button" className='cancel-prof-button' 
+                    onClick={(e) => {
+                      this.revertIntro(e)
+                    }}
+                    > Cancel</button>
                     </div>
                  </form>)
                   // </div>)

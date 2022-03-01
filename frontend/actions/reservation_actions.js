@@ -6,8 +6,6 @@ export const REMOVE_RESERVATION_ERRORS='REMOVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION='REMOVE_RESERVATION'
 
 export const receiveOneReservation=(reservation)=>{
-  debugger;
-  console.log('hitting receiveOneRes')
 return {
   type:RECEIVE_RESERVATION,
   reservation

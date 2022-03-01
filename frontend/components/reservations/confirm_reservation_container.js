@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import {  createReservation, removeReservationErrors } from "../../actions/reservation_actions";
+import { clearListings } from "../../actions/filter_actions";
 import ConfirmReservation from "./confirm_reservation";
 const mSTP = (state) => {
   debugger;
@@ -14,6 +15,7 @@ const mDTP = dispatch => ({
   createReservation: (reservation) => dispatch(createReservation(reservation)),
   clearErrors: () => dispatch(removeReservationErrors()),
   closeModal: () => dispatch(closeModal()),
+  clearListings: () => dispatch(clearListings())
 })
 
 export default connect(mSTP, mDTP)(ConfirmReservation)

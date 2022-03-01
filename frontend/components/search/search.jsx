@@ -13,8 +13,7 @@ class Search extends React.Component{
   }
 
 render(){
-  console.log(this.props.location)
-  console.log(this.props.history)
+
   if (Object.keys(this.props.listings).length === 0 && this.props.allListings === '?all'){
     
     return null;
