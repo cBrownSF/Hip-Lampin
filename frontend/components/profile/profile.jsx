@@ -70,8 +70,6 @@ class Profile extends React.Component {
   }
   flipEdit(e){
     const { currentUser, user } = this.props
-    const { intro, originalIntro,editable}=this.state
-    console.log(this.state)
     e.preventDefault()
       return (
         this.setState((prevState) => ({
@@ -81,11 +79,13 @@ class Profile extends React.Component {
   revertIntro(e){
     const { intro, originalIntro, editable } = this.state
     e.preventDefault()
-    return (
-      this.setState((prevState) => ({
+    return this.setState((prevState) => ({
         intro:originalIntro,
         editable: !prevState.editable,
-      })))
+    }), () => {
+
+      this.props.clearErrors()
+    })
   }
   handleSubmit(e){
 
