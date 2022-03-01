@@ -1,6 +1,6 @@
 import * as ReservationAPIUtil from '../util/reservation_api_util'
 export const RECEIVE_RESERVATION_INFO='RECEIVE_RESERVATION_INFO'
-export const RECEIVE_RESERVATION='RECEIVE_RESERVATION'
+export const RECEIVE_RESERVATION ='RECEIVE_RESERVATION'
 export const RECEIVE_RESERVATION_ERRORS='RECEIVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION_ERRORS='REMOVE_RESERVATION_ERRORS'
 export const REMOVE_RESERVATION='REMOVE_RESERVATION'
@@ -20,7 +20,7 @@ export const reservationInfo = (info)=>{
     info
   }
 }
-export const removeReview = reservationId => ({
+export const removeReservation = reservationId => ({
   type: REMOVE_RESERVATION,
   reservationId
 })
@@ -31,23 +31,18 @@ const receiveReservationErrors = errors => {
   }
 }
 export const removeReservationErrors = () => ({
-  type: REMOVE_REVIEW_ERRORS
+  type: REMOVE_RESERVATION_ERRORS
 })
 
-export const createReservation= reservation =>(dispatch)=>{
-  console.log('hitting action func')
+export const createReservation= reservation => dispatch =>{
   return ReservationAPIUtil.createReservation(reservation)
-  .then(createdReservation=>{
-    debugger;
-    console.log(createdReservation)
-    dispatch(receiveOneReservation(createdReservation))
-  }),
-  (errors)=>dispatch(receiveReservationErrors(errors.responseJSON))
+  .then(createdReservation=> dispatch(receiveOneReservation(createdReservation)),
+  (errors)=>dispatch(receiveReservationErrors(errors.responseJSON)))
 }
-export const updateReview = reservation => (dispatch) => {
+export const updateReservation = reservation => (dispatch) => {
   return ReservationAPIUtil.updateReservation(reservation)
     .then(updatedReservation => {
-      dispatch(receiveOneReview(updatedReservation))
+      dispatch(receiveOneReservation(updatedReservation))
     }),
     (errors) => dispatch(receiveReservationErrors(errors.responseJSON))
 

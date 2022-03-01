@@ -3,12 +3,11 @@ class Api::ReservationsController < ApplicationController
 
 def create
   @reservation = current_user.reservations.new(reservation_params)
-    debugger
+    
     if @reservation.save
-      debugger;
       render :show
     else
-      debugger
+      
       render json: @reservation.errors.full_messages, status: 422
     end
 end

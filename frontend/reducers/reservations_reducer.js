@@ -3,7 +3,7 @@ import { RECEIVE_RESERVATION_INFO,REMOVE_RESERVATION,RECEIVE_RESERVATION } from 
 
 const ReservationReducer = (oldState={},action)=>{
   oldState=Object.freeze(oldState)
-  console.log(action)
+  console.log(action.type)
   switch (action.type) {
     case RECEIVE_RESERVATION_INFO:
       return Object.assign({},oldState,{reservationInfo:action.info})
@@ -13,7 +13,7 @@ const ReservationReducer = (oldState={},action)=>{
       return nextState;
     case RECEIVE_RESERVATION:
       debugger;
-      return Object.assign({}, oldState, { [action.reservation.id]: action.reservation })
+      return Object.assign({}, oldState, { [action.reservation.reservation.id]: action.reservation })
     default:
       return oldState
    

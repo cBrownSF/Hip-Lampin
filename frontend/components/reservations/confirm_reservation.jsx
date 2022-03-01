@@ -14,14 +14,14 @@ class ConfirmReservation extends React.Component {
       check_out:dets.check_out,
       guest_id:dets.guest_id
     }
-    debugger;
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
-  debugger
 
   e.preventDefault()
-  this.props.createReservation(this.state).then(this.props.closeModal);
+  // this.props.closeModal()
+  this.props.createReservation(this.state).then(this.props.closeModal)
+  // this.props.createReservation(this.state).then(this.props.closeModal);
 }
 formatDate(field){
   const {check_in,check_out}=this.state
@@ -43,7 +43,7 @@ formatDate(field){
    const {total_guests,nights,total_price}=this.state
     return (
       <div className='sign-up-form-container'>
-        <form onSubmit={this.handleSubmit}>
+        <form className='form-confirm' onSubmit={this.handleSubmit}>
         <div className='reservation-dets-confirm'>
           <p>Reservation Details</p>
         </div>
@@ -80,10 +80,10 @@ formatDate(field){
           </div>
         </div>
         <div className='confirm-button-div'>
-          <button
+          <input
             type="submit"
             className='request-to-book'
-          >Confirm Booking</button>
+            value="Confirm Booking" />
           
         </div>
         </form>
