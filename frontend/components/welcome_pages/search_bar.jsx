@@ -16,6 +16,8 @@ this.handleSubmit=this.handleSubmit.bind(this)
 this.handleInput=this.handleInput.bind(this)
 }
   componentDidMount(){
+    debugger;
+    // this.props.clearListings()
   }
   componentDidUpdate(){
     if (this.lat){

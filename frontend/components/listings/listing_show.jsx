@@ -17,7 +17,7 @@ class ListingShow extends React.Component {
     }
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
-    this.findHostAuthor=this.findHostAuthor.bind(this)
+    this.onProfileClick=this.onProfileClick.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId).then((listing)=>{
@@ -29,7 +29,6 @@ class ListingShow extends React.Component {
         })
       })
     })
-    // this.findHostAuthor()
 
 
     window.scrollTo(0, 0);
@@ -55,6 +54,12 @@ class ListingShow extends React.Component {
       count: prevState.count -1
     }))   
   }
+  onProfileClick(){
+    debugger;
+    this.props.clearListings().then(this.props.history.push({
+      pathname: `/profile/${this.props.listing.host_id}`
+    }))
+  }
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
@@ -77,21 +82,6 @@ class ListingShow extends React.Component {
   percentRecommend(){
     const reviewIdArray = this.props.listing.reviewIds
    return (this.state.count / reviewIdArray.length) * 100
-  }
-  findHostAuthor(){
-
-    const authorArray=this.props.authors
-    const hostId = this.props.listing.host_id
-    authorArray.map((author)=>{
-      if (author.id === hostId){
-
-        return this.setState({
-          hostFname:author.fname,
-          hostLname:author.lname,
-          photoURL:author.photoURL
-        })
-      } 
-    })
   }
 
 render() {
@@ -229,7 +219,8 @@ render() {
         <div className='host-div'>
         <span className="host-by"> Hosted by</span>
         <div className="host-prof-show-div">
-        <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link>
+        {/* <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link> */}
+              <button className="host-link-show" type="button" onClick={() =>this.onProfileClick()}>{this.state.hostFname} {this.state.hostLname[0]}.</button>
           </div>
         </div>     
         <p className='description'>{listing.description}</p>

@@ -7,38 +7,11 @@ class HomePage extends React.Component {
   constructor(props){
     super(props)
     debugger;
-    // this.state={
-    //   lat:null,
-    //   lng:null,
-    //   type:null
-    // }
-    // this.search = null;
-    // this.autoComplete=this.autoComplete.bind(this)
   }
   componentDidMount(){
     this.props.clearListings()
   }
-  // autoComplete() {
-  //   const options = {
-  //     componentRestrictions: { country: ["us"] },
-  //     fields: ["geometry", "type", "adr_address", "name"],
-  //     types: ['(regions)']
-  //   }
-  //   let searchBar = document.getElementById("city-search")
-
-  //   this.search=new google.maps.places.Autocomplete(searchBar, options)
   
-  //   let auto = this.search;
-  //   this.search.addListener('place_changed', () => {
-  //     let result = auto.getPlace()
-  //     return this.setState({
-  //       lat: result.geometry.location.lat(),
-  //       lng: result.geometry.location.lng(),
-  //       type:result.types[0]
-  //     })
-  //   })
-
-  // }
   render() { 
     const yosemiteProps = {
       pathname: "/listings",
@@ -60,6 +33,7 @@ class HomePage extends React.Component {
         <SearchBar 
         className='search-wrapper'
         history={this.props.history}
+        clearListings={this.props.clearListings()}
         />
       </div>
       <div className="main-photo-div">
