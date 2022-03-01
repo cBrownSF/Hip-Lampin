@@ -33,7 +33,7 @@ class HomePage extends React.Component {
         <SearchBar 
         className='search-wrapper'
         history={this.props.history}
-        clearListings={this.props.clearListings()}
+        clearListings={this.props.clearListings}
         />
       </div>
       <div className="main-photo-div">

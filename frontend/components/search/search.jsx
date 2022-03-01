@@ -11,7 +11,7 @@ class Search extends React.Component{
         this.props.receiveListings()
     }
   }
-
+  
 render(){
 
   if (Object.keys(this.props.listings).length === 0 && this.props.allListings === '?all'){
