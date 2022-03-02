@@ -6,7 +6,6 @@ import { withRouter } from "react-router";
 class HomePage extends React.Component {
   constructor(props){
     super(props)
-    debugger;
   }
   componentDidMount(){
     this.props.clearListings()

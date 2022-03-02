@@ -19,7 +19,6 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.clearErrors()
     const user = this.props.user
-    debugger;
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
 
@@ -114,7 +113,7 @@ class Profile extends React.Component {
     }
   }
   renderErrors() {
-    if (this.props.errors){
+    if (Object.values(this.props.errors).length >0){
     return (
       <ul className="list-name">
         {this.props.errors.map((error, i) => (
@@ -127,11 +126,10 @@ class Profile extends React.Component {
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
-    console.log(listings.length)
    if (listings.length===0)return null
    
   if (!user) return null
-    
+    console.log('da return')
     return (
  
       <div className="profile-div">

@@ -140,7 +140,8 @@ render() {
 
         ):(
           
-              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }</div> 
+              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }
+              </div> 
      </form>
     </div>
 
