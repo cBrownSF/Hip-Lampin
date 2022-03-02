@@ -85,7 +85,7 @@ class ListingShow extends React.Component {
   percentRecommend(){
     const reviewIdArray = this.props.listing.reviewIds
     let uniqueReview = [...new Set(reviewIdArray)]
-   return (this.state.count / uniqueReview.length) * 100
+   return Math.floor((this.state.count / uniqueReview.length) * 100)
   }
 
 render() {
