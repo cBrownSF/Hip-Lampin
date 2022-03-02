@@ -46,8 +46,8 @@
   text-decoration:none;
   color:black;
   font-style:inherit;
-  font-size:clamp(1rem, 2.0vw, 2.0rem);
-  height:3vh;
+  font-size: clamp(1rem, 1.5vw, 1.8rem);;
+  height:5vh;
   overflow-wrap:break-word
  }
  .listing-index-item-box{
