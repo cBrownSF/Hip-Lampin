@@ -47,7 +47,7 @@
   color:black;
   font-style:inherit;
   font-size:clamp(1rem, 2.0vw, 2.0rem);
-  height:5vh;
+  height:3vh;
   overflow-wrap:break-word
  }
  .listing-index-item-box{

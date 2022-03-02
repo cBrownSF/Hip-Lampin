@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ReservationIndexItem from '../reservations/reservation_index_item';
 import ListingIndexItem from '../search/listing_index_item';
 
 class Profile extends React.Component {
@@ -234,7 +235,13 @@ class Profile extends React.Component {
             <div className="trip-div">
             <p className="trip-listing-profile-title">Your Trips</p>
             {resArray.map(reserv=>{
-             console.log(reserv)
+              return(
+             <ReservationIndexItem
+              listing={reserv.listing}
+              reservation={reserv}
+              photos={reserv.photos}
+             />
+              )
             })}
             </div>
             : <div className="trip-listing-profile-title">{user.fname}'s Trips</div>}

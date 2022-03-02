@@ -1084,3 +1084,33 @@ margin-right:auto
 padding:10px;
 color:white
 }
+.check-in-out-item{
+  display: flex;
+}
+.night-out-item{
+  display:flex;
+    justify-content: space-between;
+    margin-left: 2px;
+    margin-right: 8px;
+}
+.link-over-text-box-reserv{
+  text-decoration:none;
+  margin-top:-4px
+}
+ .link-over-text-box-reserv:hover{
+  background:whitesmoke
+ }
+ .reserv-p{
+   font-size: 16px;
+    color: grey;
+    font-style: inherit;
+    margin-top:5px;
+ }
+ .reserv-p-end{
+   font-size: 16px;
+    color: grey;
+    font-style: inherit;
+    margin-top:5px;
+    margin-left:auto;
+    margin-right:auto
+ }
