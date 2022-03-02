@@ -40,7 +40,7 @@ class ListingShow extends React.Component {
     }
   }
   componentWillUnmount(){
-  
+    this.props.clearListings()
     this.props.clearReviews()
   }
   addToCount(){
