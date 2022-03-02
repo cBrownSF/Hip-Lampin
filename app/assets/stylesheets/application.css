@@ -117,6 +117,7 @@ transform: scale(1.04);
  .nav-bar{
    list-style:none;
    display:flex;
+   /* padding:0px; */
  }
  /* .nav-li:hover{
    border-bottom:1px solid turquoise;

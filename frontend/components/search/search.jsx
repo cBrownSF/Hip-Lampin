@@ -42,7 +42,7 @@ render(){
         bounds={this.props.searchInfo}
 
       />
-    </div>):<div></div>
+      </div>) : <div></div>
     }
       </div>
   </div>
