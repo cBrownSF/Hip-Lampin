@@ -26,6 +26,7 @@ const NavBar = (props) => {
             <SearchBar 
             className='small-search-wrapper'
             history={hist}
+            bounds={props.bounds}
             />
           </div>
         )}

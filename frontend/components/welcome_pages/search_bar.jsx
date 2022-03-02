@@ -18,19 +18,17 @@ this.handleInput=this.handleInput.bind(this)
 this.handleSubmitAuto=this.handleSubmitAuto.bind(this)
 }
   componentDidMount(){
-    console.log(this.props)
+    
     // this.props.clearListings()
   }
   componentDidUpdate(prevProps,prevState){
-  if(this.state.clean===false){
-    // console.log('unclean')
-    //   return this.setState({
-    //     lat: null,
-    //     lng: null,
-    //     type: null,
-    //     address: '',
-    //     clean: true
-    //   })
+    if (this.props.bounds && !prevProps.bounds || prevProps.bounds !== this.props.bounds){
+      return this.setState({
+        lat: null,
+        lng: null,
+        type: null,
+        address: ''
+      })
    }
   }
 handleInput(type) {
@@ -40,6 +38,7 @@ handleInput(type) {
 }
 handleSubmitAuto(e){
   console.log('submit')
+  debugger;
   return this.setState({
     clean:false
   })
@@ -52,9 +51,7 @@ componentWillUnmount(){
     debugger
     e.preventDefault()
     let geocoder = new google.maps.Geocoder()
-    console.log(this.state.address)
     let geocodeAdd = this.state.address
-    console.log(this.state)
     geocoder.geocode(
       { address: geocodeAdd },
       (results, status) => {
@@ -79,7 +76,12 @@ componentWillUnmount(){
           type: this.state.type
         }
       }
-      ))
+      )).then(this.setState({
+      lat: null,
+      lng: null,
+      type: null,
+      address: '',
+      clean: false}))
     }
     // .then(this.setState({
     //   lat: null,
