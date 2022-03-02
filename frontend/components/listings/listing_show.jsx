@@ -36,7 +36,7 @@ class ListingShow extends React.Component {
   
   componentDidUpdate(prevState,nextState) {
     if (prevState !== nextState){
-     
+     console.log('updated-review')
     }
   }
   componentWillUnmount(){
@@ -44,18 +44,21 @@ class ListingShow extends React.Component {
     this.props.clearReviews()
   }
   addToCount(){
+    debugger;
+    console.log('in addcount')
     return this.setState((prevState)=>({
       count: prevState.count +1
     }))
 
   }
   subtractCount(){
+    debugger;
+    console.log('in subcount')
     this.setState((prevState) => ({
       count: prevState.count -1
     }))   
   }
   onProfileClick(){
-    debugger;
     this.props.clearListings().then(this.props.history.push({
       pathname: `/profile/${this.props.listing.host_id}`
     }))
@@ -81,7 +84,8 @@ class ListingShow extends React.Component {
   }
   percentRecommend(){
     const reviewIdArray = this.props.listing.reviewIds
-   return (this.state.count / reviewIdArray.length) * 100
+    let uniqueReview = [...new Set(reviewIdArray)]
+   return (this.state.count / uniqueReview.length) * 100
   }
 
 render() {
@@ -144,40 +148,7 @@ render() {
         <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
       </div>
     <div className='show-container'>
-      {/* <div>
-        {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
-          <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
-        ) : ''}
-      </div> */}
-      {/* <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p> */}
-      {/* <div className="photo-container">
-        <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
-        <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
-        <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
-      </div> */}
- 
-   
-        {/* <div className='cost-show'>
-          <p id="link-location">{isHost(cost)}</p>
-          <div className='cost-per-night'>
-          <span id="price">{`$${listing.cost}`}</span>
-          <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
-          </div>
-          <div className='check-in'>
-          <button>Check In</button>
-          <input type="date"
-          
-
-          />
-          <div>
-          <button>Check Out</button>
-              </div>
-          </div>
-          <div className='request-div'>
-          <button className='request-to-book'>Request to Book</button>
-          </div>
-        </div> */}
-   
+      
     
       <div className = 'name-show'>
           <div>

@@ -17,8 +17,9 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
-    this.props.clearErrors()
+   
     const user = this.props.user
+    this.props.receiveListings()
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
 
@@ -31,7 +32,7 @@ class Profile extends React.Component {
         editable: false,
         newPic: false
       })
-    }).then(() => this.props.receiveListings())
+    }).then(() => this.props.clearErrors())
   }
   componentDidUpdate(prevState){
     if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
@@ -126,10 +127,12 @@ class Profile extends React.Component {
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
-   if (listings.length===0)return null
-   
-  if (!user) return null
-    console.log('da return')
+    let resArray = currentUser && currentUser.reservations ? Object.values(this.props.currentUser.reservations) : []
+    console.log('render')
+  //  if (listings.length===0)return null
+   if (!Object.values(this.state).length){
+      return null
+   }
     return (
  
       <div className="profile-div">
@@ -228,7 +231,12 @@ class Profile extends React.Component {
         <div className="prof-trips">
         <div className="trip-listing-header">
           {currentUser && currentUser.id === user.id ?
-            <div className="trip-listing-profile-title">Your Trips</div>
+            <div className="trip-div">
+            <p className="trip-listing-profile-title">Your Trips</p>
+            {resArray.map(reserv=>{
+             console.log(reserv)
+            })}
+            </div>
             : <div className="trip-listing-profile-title">{user.fname}'s Trips</div>}
         </div>
 

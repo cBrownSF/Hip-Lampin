@@ -37,14 +37,12 @@ handleInput(type) {
     }
 }
 handleSubmitAuto(e){
-  console.log('submit')
   debugger;
   return this.setState({
     clean:false
   })
 }
 componentWillUnmount(){
-  console.log('unmount')
 }
   handleSubmit(e) {
 

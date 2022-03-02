@@ -11,7 +11,10 @@ class ReviewIndexItem extends React.Component{
   this.getTime=this.getTime.bind(this)
  }
  componentDidMount(){
+   debugger;
+   console.log(this.state.recommends)
    if(this.state.recommends){ 
+     debugger;
      this.props.count()
    }
   

@@ -12,7 +12,6 @@ class Search extends React.Component{
     }
   }
   componentWillUnmount(){
-    debugger;
     this.props.clearListings()
   }
 render(){
