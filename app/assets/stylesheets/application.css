@@ -1120,7 +1120,7 @@ color:white
   align-items: center;
   background-color: white;
   border-top:solid 1px lightgrey;
-  height:90vh;
+  
  }
  .reservation-form{
    border:solid black 2px;
@@ -1129,14 +1129,15 @@ color:white
   border-width: thin;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 8%);
   margin:20px;
-  padding:20px;
-  width: 40vw;
+  padding:40px;
  }
 
  .title-res-show{
    text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 0;
  }
  .bolded-nights{
    margin-right:5px;
@@ -1146,8 +1147,31 @@ color:white
  .details-div{
    display:flex;
    flex-direction: column;
+   margin: 20px;
+    margin-right: 50px;
+    margin-left: 0px;
    
  }
  .details-info{
   margin: 5px 0px 5px 0px;
  }
+.res-name-div{
+ margin-bottom: 15px;
+    text-align: center;
+}
+.res-show-name{
+  font-size:20px;
+  font-family:inherit;
+}
+.res-form-and-dets{
+  display:flex;
+
+}
+.res-show-images{
+      padding: 10px;
+    height: 50vh;
+    /* width: 32vw; */
+    object-fit: cover;
+    background-color: white;
+    margin-bottom: 0px;
+}
