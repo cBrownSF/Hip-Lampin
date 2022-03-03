@@ -15,15 +15,17 @@ class ReservationForm extends React.Component {
     let maxDate = `${year}-12-31`
     let minOut = `${year}-${month}-${day+props.minNight}`
 
-  const {guestsAllowed,cost,listingId,formType}=props
+  const {guestsAllowed,cost,listingId,formType,nights,checkInDate,checkOutDate}=props
+  console.log(checkInDate)
+  console.log(checkOutDate)
       debugger;
     this.state={
-      check_in: formType==='edit' ? props.checkInDate: dateToday,
-      check_out: formType === 'edit' ? props.checkOutDate: '',
+      check_in: formType==='edit' ? checkInDate: dateToday,
+      check_out: formType === 'edit' ? checkOutDate: '',
       listing_id: listingId,
       guests: guestsAllowed,
       total_price: cost,
-      nights:0,
+      nights: formType === 'edit' ? nights:0,
       total_guests: guestsAllowed === 1 ? `${guestsAllowed} guest` : `${guestsAllowed} guests`
     }
     this.dateToday=dateToday
@@ -37,12 +39,23 @@ class ReservationForm extends React.Component {
   }
  
   dateSelect(e,field){
+    const {check_in,check_out}=this.state
+    console.log(!check_out.length)
+    console.log(check_out.length)
     e.preventDefault()
-    if (field === 'in'){
-    return this.setState({
-      check_in:e.target.value
-    })
-  }else{
+    if (field === 'in' && !check_out.length){
+      return this.setState({
+        check_in:e.target.value
+      })
+    } else if (field === 'in' && check_out.length){
+      console.log('in field')
+      return this.setState({
+        check_in: e.target.value
+      }, () => {
+        this.calculateTotalPrice()
+      })
+    }
+  else{
       return this.setState({
         check_out: e.target.value
       }, () => {
@@ -73,7 +86,7 @@ class ReservationForm extends React.Component {
     let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
     let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
     
-    let finalPrice = this.state.total_price * numberOfDays
+    let finalPrice = this.props.cost * numberOfDays
     if (check_out.length){
       return this.setState({total_price:finalPrice,nights:numberOfDays})
     }

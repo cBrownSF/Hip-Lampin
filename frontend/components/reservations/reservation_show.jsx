@@ -30,17 +30,22 @@ class ReservationShow extends React.Component {
   render() { 
 
     const{reservation,formatDate}=this.props
+    console.log(reservation)
     return (
       <div className='reservation-show'>
       <div className='reservation-form'>
-        <p> Your existing reservation at {reservation.listing.name} in {reservation.listing.city},{reservation.listing.state}</p>
         <div>
-          Details
-          <p>Nights:{reservation.nights}</p>
-          <p>Check in:{formatDate && formatDate.checkIn || localStorage.getItem('checkIn')}</p>
-          <p>Check out:{formatDate && formatDate.checkOut || localStorage.getItem('checkOut')}</p>
-          <p>Cost per night:{reservation.cost}</p>
-          <p>total Cost:{reservation.total_cost}</p>
+            <p className='title-res-show'>Booking Details</p>
+          </div>
+          <div>
+            <span className='res-show-name'>{reservation.listing.name} in {reservation.listing.city},{reservation.listing.state}</span>
+          </div>
+        <div className="details-div">
+            <span className='details-info'><span className='bolded-nights'>Nights:</span>{reservation.nights}</span>
+            <span className='details-info'><span className='bolded-nights'>Check in:</span>{formatDate && formatDate.checkIn || localStorage.getItem('checkIn')}</span>
+            <span className='details-info'><span className='bolded-nights'>Check out:</span>{formatDate && formatDate.checkOut || localStorage.getItem('checkOut')}</span>
+            <span className='details-info'><span className='bolded-nights'>Cost per night:</span>${reservation.listing.cost}</span>
+            <span className='details-info'><span className='bolded-nights'>total Cost:</span>${reservation.total_price}</span>
         </div>
         <div>
           Delete
@@ -55,7 +60,7 @@ class ReservationShow extends React.Component {
           <ReservationForm
             content='Update Your Booking'
             formType='edit'
-            cost={reservation.total_price}
+            cost={reservation.listing.cost}
             guestsAllowed={reservation.listing.guests_allowed}
             currentUser={this.props.currentUser}
             listingId={reservation.listing.id}
@@ -63,6 +68,7 @@ class ReservationShow extends React.Component {
             sendResInfo={this.props.sendReservation}
             hostId={reservation.listing.host_id}
             minNight={reservation.listing.minimum_night}
+            nights={reservation.nights}
             checkInDate={reservation.check_in}
             checkOutDate={reservation.check_out}
             location={this.props.location}
