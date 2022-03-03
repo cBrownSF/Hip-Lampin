@@ -1,5 +1,6 @@
 import React from "react";
 import { hashHistory } from "react-router";
+import { withRouter } from "react-router";
 class ConfirmReservation extends React.Component {
   constructor(props) {
     super(props);
@@ -12,20 +13,28 @@ class ConfirmReservation extends React.Component {
       total_guests: dets.total_guests,
       check_in:dets.check_in,
       check_out:dets.check_out,
-      guest_id:dets.guest_id
+      guest_id:dets.guest_id,
     }
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
-
+const location=this.props.info.location
+const reserveId=this.props.info.reserveId
   e.preventDefault()
-  // this.props.closeModal()
-  //.then(this.props.clearListings).
+
+  if (location.pathname.includes('reservations')){
+    debugger;
+    let updateObject = Object.assign({}, this.state, { id: reserveId })
+    this.props.updateReservation(updateObject).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(() => {
+      debugger;
+      this.props.closeModal()
+    })
+  }else{
   this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
     debugger;
     this.props.closeModal()
     })
-
+  }
   // this.props.createReservation(this.state).then(this.props.closeModal);
 }
 formatDate(field){
@@ -98,4 +107,4 @@ formatDate(field){
   }
 }
  
-export default ConfirmReservation;
+export default withRouter(ConfirmReservation);

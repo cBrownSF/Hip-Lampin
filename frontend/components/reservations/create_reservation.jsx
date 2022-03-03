@@ -59,7 +59,7 @@ class ReservationForm extends React.Component {
     if (!currentUser) {
       this.props.openModal('login')
     }else if(this.state.check_out.length){
-      let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id })
+      let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id },{location:this.props.location},{reserveId:this.props.reserveId})
       sendResInfo(updatedInfo)
       openModal('confirm')
     }

@@ -15,11 +15,11 @@ class ReservationIndexItem extends React.Component {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let d = new Date(reservation.check_in)
     let monthInName = months[d.getMonth()]
-    let dayIn = d.getDate()
+    let dayIn = d.getDate() +1
     let yearIn = d.getFullYear()
     let d2 = new Date(reservation.check_out)
     let monthOutName = months[d2.getMonth()]
-    let dayOut = d2.getDate()
+    let dayOut = d2.getDate() +1
     let yearOut = d2.getFullYear()
     return this.setState({
       checkIn:`${monthInName} ${dayIn}, ${yearOut}`,

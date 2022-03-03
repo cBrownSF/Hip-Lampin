@@ -30,10 +30,6 @@ class ReservationShow extends React.Component {
   render() { 
 
     const{reservation,formatDate}=this.props
-    const {listing}=this.props.reservation.listing
-    console.log(this.props.reservation.check_in)
-    console.log(this.props.reservation.check_out)
-    debugger;
     return (
       <div className='reservation-show'>
       <div className='reservation-form'>
@@ -69,6 +65,8 @@ class ReservationShow extends React.Component {
             minNight={reservation.listing.minimum_night}
             checkInDate={reservation.check_in}
             checkOutDate={reservation.check_out}
+            location={this.props.location}
+            reserveId={this.props.match.params.reserveId}
           />
           </div>
        

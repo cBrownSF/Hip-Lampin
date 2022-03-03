@@ -3,11 +3,12 @@ import { closeModal } from "../../actions/modal_actions";
 import {  createReservation, updateReservation,removeReservationErrors } from "../../actions/reservation_actions";
 import { clearListings } from "../../actions/filter_actions";
 import ConfirmReservation from "./confirm_reservation";
-const mSTP = (state) => {
+const mSTP = (state,ownProps) => {
   debugger;
   return {
     errors: state.errors.reservation,
     info:state.entities.reservations.reservationInfo,
+    location:ownProps.location
   }
 }
 
