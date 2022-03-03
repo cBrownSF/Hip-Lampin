@@ -15,11 +15,11 @@ class ReservationForm extends React.Component {
     let maxDate = `${year}-12-31`
     let minOut = `${year}-${month}-${day+props.minNight}`
 
-  const {guestsAllowed,cost,listingId}=props
+  const {guestsAllowed,cost,listingId,formType}=props
   let totalGuestValue= 
     this.state={
-      check_in: dateToday,
-      check_out: '',
+      check_in: formType==='edit' ? props.checkInDate: dateToday,
+      check_out: formType === 'edit' ? props.checkOutDate: '',
       listing_id: listingId,
       guests: guestsAllowed,
       total_price: cost,
@@ -108,7 +108,7 @@ class ReservationForm extends React.Component {
   }
   render() { 
     const { check_in, check_out,guests,guest_id,listing_id,total_price} = this.state
-    let { cost, currentUser,hostId} = this.props
+    let { cost, formType,currentUser,hostId,content} = this.props
     const costLink = {
       pathname: `/listings/${listing_id}/edit`,
       state: 3,
@@ -137,7 +137,7 @@ class ReservationForm extends React.Component {
               className='calendar'
               type="date"
               value={check_in}
-              min={this.dateToday}
+              min={check_in}
               max={this.maxInDate}
               onChange={(e)=>this.dateSelect(e,'in')}
             />
@@ -148,7 +148,7 @@ class ReservationForm extends React.Component {
               className='calendar'
               type="date"
               value={check_out}
-              min={this.minOut}
+              min={check_in}
               max={this.maxDate}
               onChange={(e)=>this.dateSelect(e,'out')}
             />
@@ -174,7 +174,7 @@ class ReservationForm extends React.Component {
             <button 
             className='request-to-book'
             onClick={this.submitForm}
-            >Request to Book</button>
+            >{content}</button>
             )}
             </div>
             ):(

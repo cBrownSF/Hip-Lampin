@@ -164,6 +164,8 @@ render() {
       </div>
         <div className="booking-box">
           <ReservationForm
+            formType='create'
+            content='Request to Book'
             cost={Number(listing.cost)}
             guestsAllowed={listing.guests_allowed}
             currentUser={this.props.currentUser}

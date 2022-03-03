@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 class ReservationIndexItem extends React.Component {
   constructor(props) {
-    debugger;
     super(props);
     this.state={}
     this.updateDate=this.updateDate.bind(this)
@@ -31,9 +30,15 @@ class ReservationIndexItem extends React.Component {
     if (!Object.values(this.state).length){
       return null;
     }
+   
     debugger;
     const {listing,photos,reservation}=this.props
     const {checkIn,checkOut}=this.state
+    const resShow = {
+      pathname: `/reservations/${reservation.id}`,
+      state: { checkIn: this.state.checkIn, checkOut: this.state.checkOut }
+    }
+
     return(
     <div>
       <li className='index-item-li'>
@@ -45,7 +50,7 @@ class ReservationIndexItem extends React.Component {
           </div>
           {/* <img className="index-photo"src={photos[0]} height="200px" width="200px"/> */}
 
-          <Link className='link-over-text-box-reserv' to={`/reservations/${reservation.id}`}> <div className='text-index-box'>
+          <Link className='link-over-text-box-reserv' to={resShow}> <div className='text-index-box'>
             {/* <Link className ="index-link" to={`/listings/${this.props.listings.id}`}>{this.props.listings.name}</Link> */}
             <p className="index-link" >{listing.name}</p>
             <div className='check-in-out-item'>

@@ -234,12 +234,13 @@ class Profile extends React.Component {
           {currentUser && currentUser.id === user.id ?
             <div className="trip-div">
             <p className="trip-listing-profile-title">Your Trips</p>
-            {resArray.map(reserv=>{
+            {resArray.map((reserv,i)=>{
               return(
              <ReservationIndexItem
               listing={reserv.listing}
               reservation={reserv}
               photos={reserv.photos}
+              key={reserv.id+i}
              />
               )
             })}
