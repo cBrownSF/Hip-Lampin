@@ -18,6 +18,8 @@ const mapDispatchtoProps = (dispatch) => {
   return {
     updateReservation: (reservation) => dispatch(updateReservation(reservation)),
     openModal: modal => dispatch(openModal(modal)),
+    sendReservation: (info) => dispatch(sendResInfo(info)),
+
   }
 }
 

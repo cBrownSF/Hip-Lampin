@@ -32,15 +32,16 @@ formatDate(field){
   const {check_in,check_out}=this.state
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   let d;
+  debugger;
   if (field === 'in'){
     d = new Date(check_in)
     let monthName = months[d.getMonth()].slice(0,3)
-    let day = d.getDate()
+    let day = d.getDate() + 1
     return `${monthName} ${day} `
   }else{
     d = new Date(check_out)
     let monthName = months[d.getMonth()].slice(0, 3)
-    let day = d.getDate()
+    let day = d.getDate() + 1 
     return `${monthName} ${day} `
   }
 }

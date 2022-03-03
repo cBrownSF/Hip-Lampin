@@ -16,7 +16,7 @@ class ReservationForm extends React.Component {
     let minOut = `${year}-${month}-${day+props.minNight}`
 
   const {guestsAllowed,cost,listingId,formType}=props
-  let totalGuestValue= 
+      debugger;
     this.state={
       check_in: formType==='edit' ? props.checkInDate: dateToday,
       check_out: formType === 'edit' ? props.checkOutDate: '',
