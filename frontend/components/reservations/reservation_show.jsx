@@ -1,5 +1,6 @@
 import React from "react";
 import ReservationForm from "./create_reservation";
+import { hashHistory } from "react-router";
 class ReservationShow extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,14 @@ class ReservationShow extends React.Component {
       guest_id: res.guest_id,
       id:res.id
     }
-  
+    this.handleDelete=this.handleDelete.bind(this)
+  }
+  handleDelete(e){
+    const {deleteReservation,currentUser}=this.props
+    e.preventDefault()
+    deleteReservation(this.state.id).then(()=>{
+      hashHistory.push(`/profile/${currentUser.id}`)
+    })
   }
  componentDidMount(){
    if (this.props.formatDate) {
@@ -35,6 +43,7 @@ class ReservationShow extends React.Component {
       <div className='reservation-show'>
       <div className='reservation-form'>
         <div>
+          <button className="delete-button-res-show" onClick={this.handleDelete}>Cancel Reservation</button>
             <p className='title-res-show'>{reservation.listing.name}</p>
           </div>
           <div className='res-show-photos-div'>

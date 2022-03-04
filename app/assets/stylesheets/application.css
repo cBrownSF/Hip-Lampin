@@ -1175,3 +1175,24 @@ color:white
     background-color: white;
     margin-bottom: 0px;
 }
+
+
+.delete-button-res-show{
+    background-color: rgba(57,195,154,.9);
+    color: white;
+    border-style: none;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight:500;
+    padding: 3px 10px 3px 10px;
+    border: solid 1px transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+}
+.delete-button-res-show:hover{
+  transform: scale(1.02);
+  background-color:rgba(57,195,154,1);
+  font-weight:550
+}

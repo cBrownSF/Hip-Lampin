@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateReservation,sendResInfo } from "../../actions/reservation_actions";
+import { updateReservation,deleteReservation,sendResInfo } from "../../actions/reservation_actions";
 import ReservationShow from "./reservation_show";
 import { openModal } from "../../actions/modal_actions";
 
@@ -19,7 +19,7 @@ const mapDispatchtoProps = (dispatch) => {
     updateReservation: (reservation) => dispatch(updateReservation(reservation)),
     openModal: modal => dispatch(openModal(modal)),
     sendReservation: (info) => dispatch(sendResInfo(info)),
-
+    deleteReservation: (id) => dispatch(deleteReservation(id))
   }
 }
 

@@ -302,8 +302,8 @@ display: flex;
 
 }
 .green-helpful-button:hover{
-      transform: scale(1.02);
-        background-color:rgba(57,195,154,1);
+  transform: scale(1.02);
+  background-color:rgba(57,195,154,1);
 
 }
 .greyed-out-button{

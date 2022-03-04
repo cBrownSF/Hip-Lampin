@@ -22,7 +22,7 @@ const location=this.props.info.location
 const reserveId=this.props.info.reserveId
   e.preventDefault()
 
-  if (location.pathname.includes('reservations')){
+  if (location && location.pathname.includes('reservations')){
     debugger;
     let updateObject = Object.assign({}, this.state, { id: reserveId })
     this.props.updateReservation(updateObject).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(() => {

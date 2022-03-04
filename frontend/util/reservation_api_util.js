@@ -1,4 +1,5 @@
 export const deleteReservation = (reservationId) => {
+  debugger;
   return $.ajax({
     url: `/api/reservations/${reservationId}`,
     method: "DELETE"
