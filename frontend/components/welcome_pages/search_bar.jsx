@@ -37,7 +37,6 @@ handleInput(type) {
     }
 }
 handleSubmitAuto(e){
-  debugger;
   return this.setState({
     clean:false
   })
@@ -46,7 +45,6 @@ componentWillUnmount(){
 }
   handleSubmit(e) {
 
-    debugger
     e.preventDefault()
     let geocoder = new google.maps.Geocoder()
     let geocodeAdd = this.state.address
@@ -54,7 +52,7 @@ componentWillUnmount(){
       { address: geocodeAdd },
       (results, status) => {
         if (status == google.maps.GeocoderStatus.OK) {
-          debugger
+          
           let gCodesearchProps = {
             pathname: "/listings",
             state: { lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0] },

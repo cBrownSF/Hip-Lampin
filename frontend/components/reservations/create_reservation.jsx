@@ -16,9 +16,7 @@ class ReservationForm extends React.Component {
     let minOut = `${year}-${month}-${day+props.minNight}`
 
   const {guestsAllowed,cost,listingId,formType,nights,checkInDate,checkOutDate}=props
-  console.log(checkInDate)
-  console.log(checkOutDate)
-      debugger;
+ 
     this.state={
       check_in: formType==='edit' ? checkInDate: dateToday,
       check_out: formType === 'edit' ? checkOutDate: '',
@@ -40,15 +38,13 @@ class ReservationForm extends React.Component {
  
   dateSelect(e,field){
     const {check_in,check_out}=this.state
-    console.log(!check_out.length)
-    console.log(check_out.length)
+   
     e.preventDefault()
     if (field === 'in' && !check_out.length){
       return this.setState({
         check_in:e.target.value
       })
     } else if (field === 'in' && check_out.length){
-      console.log('in field')
       return this.setState({
         check_in: e.target.value
       }, () => {

@@ -38,7 +38,6 @@ export const createReservation= reservation => dispatch =>{
   (errors)=>dispatch(receiveReservationErrors(errors.responseJSON)))
 }
 export const updateReservation = reservation => (dispatch) => {
-  console.log('update')
   return ReservationAPIUtil.updateReservation(reservation)
     .then(updatedReservation => {
       dispatch(receiveOneReservation(updatedReservation))

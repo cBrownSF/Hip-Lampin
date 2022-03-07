@@ -11,7 +11,6 @@ const ReservationReducer = (oldState={},action)=>{
       delete nextState[action.reservationsId]
       return nextState;
     case RECEIVE_RESERVATION:
-      debugger;
       return Object.assign({}, oldState, { [action.reservation.reservation.id]: action.reservation })
     default:
       return oldState

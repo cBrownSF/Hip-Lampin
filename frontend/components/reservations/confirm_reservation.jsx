@@ -23,15 +23,12 @@ const reserveId=this.props.info.reserveId
   e.preventDefault()
 
   if (location && location.pathname.includes('reservations')){
-    debugger;
     let updateObject = Object.assign({}, this.state, { id: reserveId })
     this.props.updateReservation(updateObject).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(() => {
-      debugger;
       this.props.closeModal()
     })
   }else{
   this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
-    debugger;
     this.props.closeModal()
     })
   }
@@ -41,7 +38,6 @@ formatDate(field){
   const {check_in,check_out}=this.state
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   let d;
-  debugger;
   if (field === 'in'){
     d = new Date(check_in)
     let monthName = months[d.getMonth()].slice(0,3)

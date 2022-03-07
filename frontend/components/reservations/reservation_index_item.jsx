@@ -31,7 +31,6 @@ class ReservationIndexItem extends React.Component {
       return null;
     }
    
-    debugger;
     const {listing,photos,reservation}=this.props
     const {checkIn,checkOut}=this.state
     const resShow = {

@@ -4,7 +4,6 @@ import {  createReservation, updateReservation,removeReservationErrors } from ".
 import { clearListings } from "../../actions/filter_actions";
 import ConfirmReservation from "./confirm_reservation";
 const mSTP = (state,ownProps) => {
-  debugger;
   return {
     errors: state.errors.reservation,
     info:state.entities.reservations.reservationInfo,

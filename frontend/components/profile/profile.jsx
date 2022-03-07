@@ -129,7 +129,7 @@ class Profile extends React.Component {
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
     let resArray = currentUser && currentUser.reservations ? Object.values(this.props.currentUser.reservations) : []
-    console.log('render')
+  
   //  if (listings.length===0)return null
    if (!Object.values(this.state).length){
       return null

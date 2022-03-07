@@ -36,7 +36,6 @@ class ListingShow extends React.Component {
   
   componentDidUpdate(prevState,nextState) {
     if (prevState !== nextState){
-     console.log('updated-review')
     }
   }
   componentWillUnmount(){
@@ -44,16 +43,12 @@ class ListingShow extends React.Component {
     this.props.clearReviews()
   }
   addToCount(){
-    debugger;
-    console.log('in addcount')
     return this.setState((prevState)=>({
       count: prevState.count +1
     }))
 
   }
   subtractCount(){
-    debugger;
-    console.log('in subcount')
     this.setState((prevState) => ({
       count: prevState.count -1
     }))   

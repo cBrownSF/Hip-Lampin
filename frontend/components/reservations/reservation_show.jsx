@@ -4,9 +4,7 @@ import { hashHistory } from "react-router";
 class ReservationShow extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
     const res=props.reservation
-    console.log(res.listing_id)
     this.state={
       listing_id: res.listing_id,
       total_price: res.total_price,
@@ -38,7 +36,6 @@ class ReservationShow extends React.Component {
   render() { 
 
     const{reservation,formatDate}=this.props
-    console.log(reservation)
     return (
       <div className='reservation-show'>
       <div className='reservation-form'>
@@ -65,9 +62,7 @@ class ReservationShow extends React.Component {
             <span className='details-info'><span className='bolded-nights'>Add link</span>Show page</span>
         </div>
           <div>
-            {/* {console.log(listing)}
-            {console.log(reservation)} */}
-          {console.log(reservation.listing.guests_allowed)}
+          
           <ReservationForm
             content='Update Your Booking'
             formType='edit'

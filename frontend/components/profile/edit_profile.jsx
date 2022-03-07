@@ -45,10 +45,7 @@ class EditProfile extends React.Component {
     }
   }
   render() { 
-    // if (!this.props.listings){
-    //   debugger;
-    //   return null
-    // }
+   
     return ( 
       <div>
       <form >
