@@ -29,8 +29,6 @@ class ListingShow extends React.Component {
         })
       })
     })
-
-
     window.scrollTo(0, 0);
   }
   

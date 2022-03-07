@@ -25,7 +25,7 @@ class HomePage extends React.Component {
       <div className='splash-container'>
         <div className='title-container'>
           <h1 className="header-home">Find yourself outside</h1>
-          <p className="sub-header-home">Discover and book camping, glamping, parks, and cabins</p>
+          <p className="sub-header-home">Discover and book camping, glamping, and cabins in the U.S.</p>
         </div>
         </div>
       <div>
