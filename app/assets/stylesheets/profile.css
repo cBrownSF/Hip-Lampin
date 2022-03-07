@@ -166,13 +166,16 @@ border:solid black 1px
 .submit-prof-button{
    margin-right: 50px;
     margin-left: 10px;
-    border-style: none;
+    background-color: rgba(57,195,154,1);
     color: white;
-    padding: 3px 10px 3px 10px;
-    border-radius: 10px;
+    border-style: none;
+    font-style: inherit;
     font-size: 12px;
+    padding: 3px 10px 3px 10px;
+    border: solid 1px transparent;
+    cursor: pointer;
     font-family: inherit;
-   background-color: rgba(57,195,154,1);
+    text-decoration: none;
 }
 .button-prof-div{
   display:flex;

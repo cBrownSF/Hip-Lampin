@@ -1,36 +1,64 @@
 import React from "react";
-
+import { hashHistory } from "react-router";
+import { withRouter } from "react-router";
 class ConfirmReservation extends React.Component {
   constructor(props) {
     super(props);
-    this.state={...props.info}
-    debugger;
+    let dets=props.info
+    
+    this.state={
+      listing_id:Number(dets.listing_id),
+      total_price:dets.total_price,
+      nights:dets.nights,
+      total_guests: dets.total_guests,
+      check_in:dets.check_in,
+      check_out:dets.check_out,
+      guest_id:dets.guest_id,
+    }
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
+const location=this.props.info.location
+const reserveId=this.props.info.reserveId
   e.preventDefault()
+
+  if (location && location.pathname.includes('reservations')){
+    debugger;
+    let updateObject = Object.assign({}, this.state, { id: reserveId })
+    this.props.updateReservation(updateObject).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(() => {
+      debugger;
+      this.props.closeModal()
+    })
+  }else{
+  this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
+    debugger;
+    this.props.closeModal()
+    })
+  }
+  // this.props.createReservation(this.state).then(this.props.closeModal);
 }
 formatDate(field){
   const {check_in,check_out}=this.state
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   let d;
+  debugger;
   if (field === 'in'){
     d = new Date(check_in)
     let monthName = months[d.getMonth()].slice(0,3)
-    let day = d.getDate()
+    let day = d.getDate() + 1
     return `${monthName} ${day} `
   }else{
     d = new Date(check_out)
     let monthName = months[d.getMonth()].slice(0, 3)
-    let day = d.getDate()
+    let day = d.getDate() + 1 
     return `${monthName} ${day} `
   }
 }
   render() { 
-   const {guests,nights,total_price}=this.state
+   const {total_guests,nights,total_price}=this.state
     return (
       <div className='sign-up-form-container'>
-        <form onSubmit={this.handleSubmit}></form>
+        <form className='form-confirm' onSubmit={this.handleSubmit}>
         <div className='reservation-dets-confirm'>
           <p>Reservation Details</p>
         </div>
@@ -47,11 +75,12 @@ formatDate(field){
         <div className="sub-total-div">
           <p>Guests</p>
           <div>
-          {guests === 1 ? (
+          {/* {guests === 1 ? (
             <p id='per-night'> {guests} guest</p>) : (
               <p id='per-night'> guests {guests}</p>
             )
-          }
+          } */}
+                <p id='per-night'>{total_guests}</p>
           </div>
           </div>
           </div>
@@ -66,15 +95,16 @@ formatDate(field){
           </div>
         </div>
         <div className='confirm-button-div'>
-          <button
+          <input
             type="submit"
             className='request-to-book'
-            onClick={this.submitForm}
-          >Confirm Booking</button>
+            value="Confirm Booking" />
+          
         </div>
+        </form>
         </div>
     );
   }
 }
  
-export default ConfirmReservation;
+export default withRouter(ConfirmReservation);

@@ -1,0 +1,24 @@
+export const deleteReservation = (reservationId) => {
+  debugger;
+  return $.ajax({
+    url: `/api/reservations/${reservationId}`,
+    method: "DELETE"
+  })
+}
+
+export const createReservation = (reservation) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/reservations`,
+    data: { reservation }
+  })
+}
+
+export const updateReservation = (reservation) => {
+  debugger;
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/reservations/${reservation.id}`,
+    data: { reservation },
+  })
+}

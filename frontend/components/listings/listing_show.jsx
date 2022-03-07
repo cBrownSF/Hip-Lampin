@@ -17,7 +17,7 @@ class ListingShow extends React.Component {
     }
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
-    this.findHostAuthor=this.findHostAuthor.bind(this)
+    this.onProfileClick=this.onProfileClick.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId).then((listing)=>{
@@ -29,7 +29,6 @@ class ListingShow extends React.Component {
         })
       })
     })
-    // this.findHostAuthor()
 
 
     window.scrollTo(0, 0);
@@ -37,23 +36,32 @@ class ListingShow extends React.Component {
   
   componentDidUpdate(prevState,nextState) {
     if (prevState !== nextState){
-     
+     console.log('updated-review')
     }
   }
   componentWillUnmount(){
-  
+    this.props.clearListings()
     this.props.clearReviews()
   }
   addToCount(){
+    debugger;
+    console.log('in addcount')
     return this.setState((prevState)=>({
       count: prevState.count +1
     }))
 
   }
   subtractCount(){
+    debugger;
+    console.log('in subcount')
     this.setState((prevState) => ({
       count: prevState.count -1
     }))   
+  }
+  onProfileClick(){
+    this.props.clearListings().then(this.props.history.push({
+      pathname: `/profile/${this.props.listing.host_id}`
+    }))
   }
   onDelete(){
     if (this.props.currentUser.id === this.props.listing.host_id){
@@ -76,22 +84,8 @@ class ListingShow extends React.Component {
   }
   percentRecommend(){
     const reviewIdArray = this.props.listing.reviewIds
-   return (this.state.count / reviewIdArray.length) * 100
-  }
-  findHostAuthor(){
-
-    const authorArray=this.props.authors
-    const hostId = this.props.listing.host_id
-    authorArray.map((author)=>{
-      if (author.id === hostId){
-
-        return this.setState({
-          hostFname:author.fname,
-          hostLname:author.lname,
-          photoURL:author.photoURL
-        })
-      } 
-    })
+    let uniqueReview = [...new Set(reviewIdArray)]
+   return Math.floor((this.state.count / uniqueReview.length) * 100)
   }
 
 render() {
@@ -154,40 +148,7 @@ render() {
         <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
       </div>
     <div className='show-container'>
-      {/* <div>
-        {this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? (
-          <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
-        ) : ''}
-      </div> */}
-      {/* <p id="link-location"><Link id='show-link' to={photo}>Upload</Link></p> */}
-      {/* <div className="photo-container">
-        <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
-        <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
-        <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
-      </div> */}
- 
-   
-        {/* <div className='cost-show'>
-          <p id="link-location">{isHost(cost)}</p>
-          <div className='cost-per-night'>
-          <span id="price">{`$${listing.cost}`}</span>
-          <p id='per-night'>{`per night(${listing.guests_allowed} guests)`}</p>
-          </div>
-          <div className='check-in'>
-          <button>Check In</button>
-          <input type="date"
-          
-
-          />
-          <div>
-          <button>Check Out</button>
-              </div>
-          </div>
-          <div className='request-div'>
-          <button className='request-to-book'>Request to Book</button>
-          </div>
-        </div> */}
-   {console.log(listing.minimum_night)}
+      
     
       <div className = 'name-show'>
           <div>
@@ -203,6 +164,8 @@ render() {
       </div>
         <div className="booking-box">
           <ReservationForm
+            formType='create'
+            content='Request to Book'
             cost={Number(listing.cost)}
             guestsAllowed={listing.guests_allowed}
             currentUser={this.props.currentUser}
@@ -229,7 +192,8 @@ render() {
         <div className='host-div'>
         <span className="host-by"> Hosted by</span>
         <div className="host-prof-show-div">
-        <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link>
+        {/* <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link> */}
+              <button className="host-link-show" type="button" onClick={() =>this.onProfileClick()}>{this.state.hostFname} {this.state.hostLname[0]}.</button>
           </div>
         </div>     
         <p className='description'>{listing.description}</p>

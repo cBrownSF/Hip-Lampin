@@ -10,22 +10,22 @@ class ReservationForm extends React.Component {
     let month = d.getMonth()+1;
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
-    console.log(props.minNight)
-    console.log(props)
     let dateToday = `${year}-${month}-${day}`
     let maxInDate = `${year}-12-30`
     let maxDate = `${year}-12-31`
     let minOut = `${year}-${month}-${day+props.minNight}`
 
-  const {guestsAllowed,cost,listingId}=props
-  let totalGuestValue= 
+  const {guestsAllowed,cost,listingId,formType,nights,checkInDate,checkOutDate}=props
+  console.log(checkInDate)
+  console.log(checkOutDate)
+      debugger;
     this.state={
-      check_in: dateToday,
-      check_out: '',
+      check_in: formType==='edit' ? checkInDate: dateToday,
+      check_out: formType === 'edit' ? checkOutDate: '',
       listing_id: listingId,
       guests: guestsAllowed,
       total_price: cost,
-      nights:0,
+      nights: formType === 'edit' ? nights:0,
       total_guests: guestsAllowed === 1 ? `${guestsAllowed} guest` : `${guestsAllowed} guests`
     }
     this.dateToday=dateToday
@@ -39,13 +39,23 @@ class ReservationForm extends React.Component {
   }
  
   dateSelect(e,field){
-    console.log(this.state.check_in)
+    const {check_in,check_out}=this.state
+    console.log(!check_out.length)
+    console.log(check_out.length)
     e.preventDefault()
-    if (field === 'in'){
-    return this.setState({
-      check_in:e.target.value
-    })
-  }else{
+    if (field === 'in' && !check_out.length){
+      return this.setState({
+        check_in:e.target.value
+      })
+    } else if (field === 'in' && check_out.length){
+      console.log('in field')
+      return this.setState({
+        check_in: e.target.value
+      }, () => {
+        this.calculateTotalPrice()
+      })
+    }
+  else{
       return this.setState({
         check_out: e.target.value
       }, () => {
@@ -62,7 +72,7 @@ class ReservationForm extends React.Component {
     if (!currentUser) {
       this.props.openModal('login')
     }else if(this.state.check_out.length){
-      let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id })
+      let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id },{location:this.props.location},{reserveId:this.props.reserveId})
       sendResInfo(updatedInfo)
       openModal('confirm')
     }
@@ -76,7 +86,7 @@ class ReservationForm extends React.Component {
     let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
     let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
     
-    let finalPrice = this.state.total_price * numberOfDays
+    let finalPrice = this.props.cost * numberOfDays
     if (check_out.length){
       return this.setState({total_price:finalPrice,nights:numberOfDays})
     }
@@ -92,7 +102,6 @@ class ReservationForm extends React.Component {
       for (let i=1; i<=guests;i++){
         totalGuest.push(i)
       }
-      console.log(totalGuest)
     return (
       <select className="list-guest" value={total_guests} onChange={this.handleInput('total_guests')}>
         {totalGuest.map((number, i) => (
@@ -112,7 +121,7 @@ class ReservationForm extends React.Component {
   }
   render() { 
     const { check_in, check_out,guests,guest_id,listing_id,total_price} = this.state
-    let { cost, currentUser,hostId} = this.props
+    let { cost, formType,currentUser,hostId,content} = this.props
     const costLink = {
       pathname: `/listings/${listing_id}/edit`,
       state: 3,
@@ -141,7 +150,7 @@ class ReservationForm extends React.Component {
               className='calendar'
               type="date"
               value={check_in}
-              min={this.dateToday}
+              min={check_in}
               max={this.maxInDate}
               onChange={(e)=>this.dateSelect(e,'in')}
             />
@@ -152,7 +161,7 @@ class ReservationForm extends React.Component {
               className='calendar'
               type="date"
               value={check_out}
-              min={this.minOut}
+              min={check_in}
               max={this.maxDate}
               onChange={(e)=>this.dateSelect(e,'out')}
             />
@@ -178,7 +187,7 @@ class ReservationForm extends React.Component {
             <button 
             className='request-to-book'
             onClick={this.submitForm}
-            >Request to Book</button>
+            >{content}</button>
             )}
             </div>
             ):(

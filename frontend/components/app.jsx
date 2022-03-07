@@ -5,6 +5,7 @@ import GreetingContainer from './welcome_pages/welcome_page_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
 import ListingFormContainer from './listings/listing_form_container'
+import ReservationShowContainer from "./reservations/reservation_show_container";
 import ListingShowContainer from "./listings/listing_show_container";
 import EditFormContainer from "./listings/edit_form_container";
 import ProfileContainer from "./profile/profile_container";
@@ -32,6 +33,7 @@ return(
     <Route exact path="/profile/:profileId" component = {ProfileContainer}/>
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
+    <Route exact path="/reservations/:reserveId" component={ReservationShowContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
       <Route exact path="/" component={HomePageContainer} />
 

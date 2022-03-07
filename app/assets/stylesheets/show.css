@@ -302,8 +302,8 @@ display: flex;
 
 }
 .green-helpful-button:hover{
-      transform: scale(1.02);
-        background-color:rgba(57,195,154,1);
+  transform: scale(1.02);
+  background-color:rgba(57,195,154,1);
 
 }
 .greyed-out-button{
@@ -595,12 +595,15 @@ font-size: 2.4rem;
   margin-right: 20px;
 }
 .host-link-show{
-  font-style:inherit;
-  font-size:16px;
-  text-decoration: none;
-  color:black;
-  cursor:pointer;
-  border-bottom: 1px solid lightgray
+font-style: inherit;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    border-style: none;
+    background-color: transparent;
+    padding: 2px 0px 0px 0px;
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
 }
 .host-link-show:hover{
   border-bottom: 1px solid black

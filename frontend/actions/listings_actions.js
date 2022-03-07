@@ -68,6 +68,7 @@ export const receiveListing = id => dispatch =>{
 export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdListing => {
+    
     dispatch(receiveOneListing(createdListing))
     hashHistory.push(`/listings/${Object.values(createdListing)[0].id}`)
    

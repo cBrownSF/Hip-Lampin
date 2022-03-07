@@ -138,7 +138,7 @@ class PhotoForm extends React.Component {
           <ul className="photo-list">
             <li className="photo-list-item">All three pictures are required</li>
             <li className="photo-list-item">Must be a PNG or JPEG</li>
-            <li className="photo-list-item">Recommended size is</li>
+            <li className="photo-list-item">Recommended size is 800px X 600px</li>
           </ul>
         </div>
         <div className='photos-buttons'>

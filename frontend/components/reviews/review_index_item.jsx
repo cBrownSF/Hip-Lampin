@@ -6,13 +6,15 @@ import React from 'react';
 class ReviewIndexItem extends React.Component{
  constructor(props){
   super(props)
-  // console.log(this.props.review.helpful_authors)
   this.state={...this.props.review}
   this.helpfulFunc=this.helpfulFunc.bind(this)
   this.getTime=this.getTime.bind(this)
  }
  componentDidMount(){
+   debugger;
+   console.log(this.state.recommends)
    if(this.state.recommends){ 
+     debugger;
      this.props.count()
    }
   

@@ -11,10 +11,11 @@ class Search extends React.Component{
         this.props.receiveListings()
     }
   }
-
+  componentWillUnmount(){
+    this.props.clearListings()
+  }
 render(){
-  console.log(this.props.location)
-  console.log(this.props.history)
+
   if (Object.keys(this.props.listings).length === 0 && this.props.allListings === '?all'){
     
     return null;

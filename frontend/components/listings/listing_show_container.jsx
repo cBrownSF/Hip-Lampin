@@ -1,5 +1,5 @@
 import { receiveListing,deleteListing} from "../../actions/listings_actions"
-import { clearReviews } from "../../actions/filter_actions"
+import { clearReviews,clearListings } from "../../actions/filter_actions"
 import { receiveOneUser } from "../../actions/user_actions"
 import { connect } from "react-redux"
 import { openModal } from "../../actions/modal_actions"
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   receiveUser: (user) => dispatch(receiveOneUser(user)),
   sendReservation:(info)=> dispatch(sendResInfo(info)),
-  clearReviews: () => dispatch(clearReviews())
+  clearReviews: () => dispatch(clearReviews()),
+  clearListings: () => dispatch(clearListings())
 })
  
 

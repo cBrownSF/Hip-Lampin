@@ -46,7 +46,7 @@
   text-decoration:none;
   color:black;
   font-style:inherit;
-  font-size:30px;
+  font-size: clamp(1rem, 1.5vw, 1.8rem);;
   height:5vh;
   overflow-wrap:break-word
  }

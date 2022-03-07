@@ -1,9 +1,10 @@
 import React from "react";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import SearchBar from "./search_bar";
+
 import { withRouter } from "react-router";
 const NavBar = (props) => {
-
+  const hist=useHistory()
     const { currentUser, logout,login,openModal } = props
   const allListings = {
     pathname: "/listings",
@@ -24,6 +25,8 @@ const NavBar = (props) => {
           <div className='nav-search-bar-div'>
             <SearchBar 
             className='small-search-wrapper'
+            history={hist}
+            bounds={props.bounds}
             />
           </div>
         )}
@@ -47,6 +50,7 @@ const NavBar = (props) => {
             <div className='nav-search-bar-div'>
               <SearchBar
                 className='small-search-wrapper'
+                history={props.history}
               />
             </div>
           )}

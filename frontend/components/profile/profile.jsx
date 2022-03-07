@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ReservationIndexItem from '../reservations/reservation_index_item';
 import ListingIndexItem from '../search/listing_index_item';
 
 class Profile extends React.Component {
@@ -12,25 +13,27 @@ class Profile extends React.Component {
     this.clickImageInput = this.clickImageInput.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.flipEdit=this.flipEdit.bind(this)
+    this.revertIntro=this.revertIntro.bind(this)
     this.handleSubmit=this.handleSubmit.bind(this)
     }
   
   componentDidMount() {
-    this.props.clearErrors()
-    const user = this.props.user
    
+    const user = this.props.user
+    this.props.receiveListings()
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
 
       return this.setState({
         intro: user.user.intro || '',
+        originalIntro:user.user.intro,
         photoFile: user.user.photoFile || null,
         photoURL: user.user.photoURL || null,
         created_at: user.user.created_at || null,
         editable: false,
         newPic: false
       })
-    }).then(() => this.props.receiveListings())
+    }).then(() => this.props.clearErrors())
   }
   componentDidUpdate(prevState){
     if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
@@ -69,12 +72,21 @@ class Profile extends React.Component {
   flipEdit(e){
     const { currentUser, user } = this.props
     e.preventDefault()
-    if (currentUser && currentUser.id === user.id){
       return (
         this.setState((prevState) => ({
-          editable:!prevState.editable
+          editable:!prevState.editable,
         })))
-    }
+  }
+  revertIntro(e){
+    const { intro, originalIntro, editable } = this.state
+    e.preventDefault()
+    return this.setState((prevState) => ({
+        intro:originalIntro,
+        editable: !prevState.editable,
+    }), () => {
+
+      this.props.clearErrors()
+    })
   }
   handleSubmit(e){
 
@@ -103,6 +115,7 @@ class Profile extends React.Component {
     }
   }
   renderErrors() {
+    if (Object.values(this.props.errors).length >0){
     return (
       <ul className="list-name">
         {this.props.errors.map((error, i) => (
@@ -111,13 +124,16 @@ class Profile extends React.Component {
       </ul>
     );
   }
+  }
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
-   if (listings.length===0)return null
-   
-  if (!user) return null
-    
+    let resArray = currentUser && currentUser.reservations ? Object.values(this.props.currentUser.reservations) : []
+    console.log('render')
+  //  if (listings.length===0)return null
+   if (!Object.values(this.state).length){
+      return null
+   }
     return (
  
       <div className="profile-div">
@@ -171,9 +187,11 @@ class Profile extends React.Component {
                  ></textarea>
                  <div className="button-prof-div">
                  <button type="submit" className='submit-prof-button'> Submit</button>
-                    <button type="button" className='cancel-prof-button' onClick={(e) => {
-                      this.flipEdit(e)
-                    }}> Cancel</button>
+                    <button type="button" className='cancel-prof-button' 
+                    onClick={(e) => {
+                      this.revertIntro(e)
+                    }}
+                    > Cancel</button>
                     </div>
                  </form>)
                   // </div>)
@@ -214,7 +232,19 @@ class Profile extends React.Component {
         <div className="prof-trips">
         <div className="trip-listing-header">
           {currentUser && currentUser.id === user.id ?
-            <div className="trip-listing-profile-title">Your Trips</div>
+            <div className="trip-div">
+            <p className="trip-listing-profile-title">Your Trips</p>
+            {resArray.map((reserv,i)=>{
+              return(
+             <ReservationIndexItem
+              listing={reserv.listing}
+              reservation={reserv}
+              photos={reserv.photos}
+              key={reserv.id+i}
+             />
+              )
+            })}
+            </div>
             : <div className="trip-listing-profile-title">{user.fname}'s Trips</div>}
         </div>
 
