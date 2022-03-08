@@ -1,6 +1,6 @@
 # HipLampin
-
-<p><a href="https://hip-lampin.herokuapp.com/#/">Live Link</a></p>
+<h3>Heroku Link</h3>  
+<p><a href="https://hip-lampin.herokuapp.com/#/">HipLampin Live Link</a></p>
 
 Ruby version--2.7.2
 
@@ -12,8 +12,10 @@ Run the following commands
   <li>bundle exec rails db:setup</li>
 </ol>
 <h2>About</h2>
-<span><img src="./app/assets/images/hip_lampin_main_page.png" alt="main-page"></span><span><img src="./app/assets/images/hip_lampin_main_page.png"></span>
+<span><a href="https://hip-lampin.herokuapp.com/#/"><img src="./app/assets/images/hip_lampin_main_page.png" alt="main-page"/></a></span>
+</br>
 <p>There's nothing like being under the stars, surrounded by awe-inspiring nature,embracing the call of the wild...in a nice,cozy bed. On HipLampin users can use a dynamic search bar to discover camping AND glamping spots by location. Hosts can create their own listing with a user friendly,clean,stylish multi-step-form. Soft mattress? Write that negative review. Thankful to have been warned of the soft mattress? Deem the review helpful. HipLampin has it all.</p>
+
 <h2>Features</h2> 
 <ul> 
  <li> A multi-step form which allows the host to name their listing, describe their listing, add details, choose preferences, add photos, and set the location dynamically</li>
