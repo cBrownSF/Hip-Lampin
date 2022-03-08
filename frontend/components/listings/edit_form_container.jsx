@@ -2,6 +2,7 @@ import ListingForm from './listing_form';
 import { connect } from "react-redux"
 import { deleteListing, updateListing,removeListingErrors,receiveListing} from "../../actions/listings_actions";
 const mapStateToProps = (state, ownProps) => {
+  console.log('hello')
   return {
     errors: state.errors.listing,
     currentUser: state.entities.users[state.sessions.currentUser],

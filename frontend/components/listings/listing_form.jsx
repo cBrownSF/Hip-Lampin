@@ -14,8 +14,9 @@ import MiniMap from "./minimap";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-
+debugger;
     if (!this.props.listing && this.props.formType === 'edit') {
+      console.log('in conditional')
       hashHistory.push(`listings/${props.match.params.listingId}`)
       return undefined;
     }
@@ -202,6 +203,7 @@ class ListingForm extends React.Component {
     }
   }
   componentDidMount() {
+    console.log(this.state)
     this.props.clearErrors()
 
   }

@@ -64,6 +64,7 @@ class Profile extends React.Component {
   }
 
   clickImageInput(e) {
+    console.log('file input')
     e.preventDefault()
     const { currentUser, user} = this.props
     if (currentUser && currentUser.id !== user.id) return false
@@ -145,9 +146,9 @@ class Profile extends React.Component {
                 <img 
                 src={this.state.photoURL} 
                 className="prof-img"
-                onClick={(e) => {
+                    onClick={currentUser && currentUser.id === user.id ?(e) => {
                       this.clickImageInput(e)
-                    }}
+                    }:null}
                 />
                   : (
                     <button
