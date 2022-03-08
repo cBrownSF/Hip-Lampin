@@ -153,9 +153,9 @@ class Profile extends React.Component {
                   : (
                     <button
                       className="button-prof-pic"
-                      onClick={(e) => {
+                      onClick={currentUser && currentUser.id === user.id ?(e) => {
                         this.clickImageInput(e)
-                      }}
+                      }:null}
                     >Add Profile Picture</button>)}
                 <input type="file"
                   className="upload-prof-pic"
