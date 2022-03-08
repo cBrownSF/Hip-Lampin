@@ -285,7 +285,7 @@ render() {
               {listing.is_wildlife ? (
                 <div className="inner-div-act">
                   <li id='text-icons'>Wildlife</li>
-                  <i className="fas- fa-binoculars"></i>
+                  <i className="fas fa-crow"></i>
                 </div>
                 ):(
               <div className="inner-div-act">
