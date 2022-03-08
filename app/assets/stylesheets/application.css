@@ -49,6 +49,9 @@ body{
 .nav-li:hover{
 transform: scale(1.04);
 }
+.nav-li-button:hover{
+transform: scale(1.04);
+}
 .mainLogo{
   margin: 4px;
   margin-right: auto;
