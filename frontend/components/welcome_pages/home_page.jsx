@@ -14,7 +14,7 @@ class HomePage extends React.Component {
   render() { 
     const yosemiteProps = {
       pathname: "/listings",
-      state: { lng: -119.538330, lat: 37.865101, type: "locality"},
+      state: { lng: -122.516089, lat: 37.542162, type: "locality"},
     };
     const southCarolinaProps={
       pathname: "/listings",
@@ -51,7 +51,7 @@ class HomePage extends React.Component {
               
             </div>
             <div className='card-cover-right'>
-              <Link className="link-yos-carolina"to={yosemiteProps}><p className="font-main-page-photo">Yosemite Getaways</p></Link>
+              <Link className="link-yos-carolina"to={yosemiteProps}><p className="font-main-page-photo">Montara Getaways</p></Link>
               
             </div>
           </div>

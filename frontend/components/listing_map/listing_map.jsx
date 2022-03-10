@@ -24,7 +24,7 @@ newMap(){
 
     degree = 4
   } else {
-    degree = 6
+    degree = 7
   }
   const mapOptions = {
 
