@@ -23,6 +23,5 @@ const mapDispatchToProps = dispatch => ({
   clearReviews: () => dispatch(clearReviews()),
   clearListings: () => dispatch(clearListings())
 })
- 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ListingShow)

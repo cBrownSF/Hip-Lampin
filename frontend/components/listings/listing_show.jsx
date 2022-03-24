@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { hashHistory } from 'react-router';
 import CreateMap from './newmap';
 import CreateReviewContainer from '../reviews/review_container'
 import ReviewIndexItem from '../reviews/review_index_item_container'

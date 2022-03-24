@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-
 
 const NameForm = (props) =>{
  if (props.currentPage !== 1){
@@ -14,7 +12,6 @@ const NameForm = (props) =>{
   return (
     <div className="name-box">
       <br/>
- 
           <h1 id ='name-title'>Name your listing</h1>
           <p id='blurb'>This should be a short title describing your site and landcscape</p>
    
@@ -43,6 +40,4 @@ const NameForm = (props) =>{
         </div>
         )
       }
-    
-
    export default NameForm

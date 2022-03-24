@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-import { deleteReview,updateReview } from "../../actions/listings_actions";
 import React from 'react';
 
 class ReviewIndexItem extends React.Component{
@@ -58,10 +56,7 @@ class ReviewIndexItem extends React.Component{
        helpful_authors: arrDoub,
        helped:false
     }, () => {
-    
-        this.props.updateReview(this.state)
-    
-     
+        this.props.updateReview(this.state)  
    })
    }else{
    return this.setState({
@@ -90,7 +85,6 @@ class ReviewIndexItem extends React.Component{
             <div className="delete-review-button-div">
               <button className="delete-review-button" onClick={
                 this.state.recommends ? (
-
                     () => this.props.deleteReview(id).then(this.props.subCount())
                   ) : () => this.props.deleteReview(id)
               }>
@@ -103,9 +97,6 @@ class ReviewIndexItem extends React.Component{
       </div>
       </div>
         <div className="review-title-body-div">
-          {/* <div className="title-review-div" >
-            <p className="title-review">{title}</p>
-          </div> */}
           <div className="review-recommends-div">
           {this.state.recommends? (
             <div className='div-for-recommends'>

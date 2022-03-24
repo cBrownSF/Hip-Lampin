@@ -62,8 +62,6 @@ class ReservationForm extends React.Component {
   
   submitForm(e){
     let {currentUser,sendResInfo,openModal} = this.props
-    
-    
     e.preventDefault()
     if (!currentUser) {
       this.props.openModal('login')
@@ -71,8 +69,6 @@ class ReservationForm extends React.Component {
       let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id },{location:this.props.location},{reserveId:this.props.reserveId})
       sendResInfo(updatedInfo)
       openModal('confirm')
-    }
-    else{
     }
   }
   calculateTotalPrice(){

@@ -168,8 +168,7 @@ class ListingForm extends React.Component {
       }
     }
   }
-
-
+  
   toggleBoolean(type) {
     return e => {
       if (this.state[type] === false) {

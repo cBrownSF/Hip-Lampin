@@ -1,8 +1,5 @@
 import React from "react";
 import ListingIndexItem from "./listing_index_item";
-import { useState,useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { receiveAllListings } from "../../actions/listings_actions";
 const ListingIndex = (props) => {
   if (props.total===undefined) {
     return null

@@ -3,7 +3,7 @@ import { updateReservation,deleteReservation,sendResInfo } from "../../actions/r
 import ReservationShow from "./reservation_show";
 import { openModal } from "../../actions/modal_actions";
 
-import React from "react";
+
 
 const mapStateToProps = (state,ownProps) => {
   return {

@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 const CheckInForm = (props) => {
   if (props.currentPage !== 10) {
     return null
   }
   return (
     <div className='name-box'>
-  
       <br />
       <h1 id='check-det-title'>What are your check in preferences?</h1>
     <label id='booking-title'>Check in process

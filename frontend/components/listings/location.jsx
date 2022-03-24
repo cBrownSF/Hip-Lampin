@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const locationForm = (props) => {
   if (props.currentPage !== 7) {
     return null
