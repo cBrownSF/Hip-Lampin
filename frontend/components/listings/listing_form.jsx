@@ -14,9 +14,7 @@ import MiniMap from "./minimap";
 class ListingForm extends React.Component {
   constructor(props) {
     super(props)
-debugger;
     if (!this.props.listing && this.props.formType === 'edit') {
-      console.log('in conditional')
       hashHistory.push(`listings/${props.match.params.listingId}`)
       return undefined;
     }
@@ -77,16 +75,12 @@ debugger;
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.nextStepPhoto = this.nextStepPhoto.bind(this)
     this.handleFileChange=this.handleFileChange.bind(this)
-    // this.handleMultiplFiles=this.handleMultiplFiles.bind(this)
-    // this.extractAddressInfo=this.extractAddressInfo.bind(this)
     this.autoCompleteNextStep = this.autoCompleteNextStep.bind(this)
-    
   }
 
 
   handleSubmit(e) {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append('listing[id]', this.props.listing.id)
     formData.append('listing[host_id]', this.state.host_id)
@@ -121,21 +115,13 @@ debugger;
     formData.append('listing[zip_code]', this.state.zip_code)
     formData.append('listing[country]', this.state.country)
     if (this.state.photoFile) {
-      // formData.append("listing[photos][]", this.state.photoFile[i]);
-    
-      // formData.delete("listing[photos][]")
       for (let i = 0; i < 3; i++) {
-        // this.props.listing.slice(0,2)
         if (this.state.photoFile[i] instanceof File){
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
-        }
-      // 
+      }
     }
-    
     this.props.submitEvent(formData)
-
-    // this.props.history.push(`/listing/${this.props.listing.id}`)
   }
 
   letterCount() {
@@ -144,12 +130,11 @@ debugger;
   }
 
   handleFileChange(url,file) {
- 
     return (
       this.setState({
         photoURL:url,
         photoFile:file
-    })
+      })
     )
   }
 
@@ -160,7 +145,6 @@ debugger;
   }
   numberInput(type) {
     const regex = /^[0-9\b]+$/;
-
     return e => {
       if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
         this.setState({ [type]: e.currentTarget.value })
@@ -168,7 +152,6 @@ debugger;
     }
   }
   handleKeyDown(e) {
-
     if (e.key === "Enter") {
       e.preventDefault()
       this.setState({
@@ -178,16 +161,10 @@ debugger;
   }
   handleKeyPress(e) {
     if (e.key === "Enter") {
-
       if (this.state.cost.length > 0) {
-
-        this.setState({
-          step: this.state.step + 1
-        })
+        this.setState({step: this.state.step + 1})
       } else {
-        this.setState({
-          step: 3
-        })
+        this.setState({step: 3})
       }
     }
   }
@@ -203,19 +180,9 @@ debugger;
     }
   }
   componentDidMount() {
-    console.log(this.state)
     this.props.clearErrors()
-
   }
-  showErrors() {
-    let singleError = this.props.errors[0]
-    return singleError;
-  }
-  //WHY DIDNT WORKreturn e =>{
-  //   this.setState(prevState => ({
-  //     [type]: !prevState.type
-  //   }))
-  // }
+  
   descriptNextStep() {
     let step = this.state.step
     let description = this.state.description
@@ -236,8 +203,8 @@ debugger;
   }
 
   nameNextStep() {
-    let step = this.state.step
-    let name = this.state.name
+   const {step,name} = this.state
+   console.log(name)
     if (name.length >= 10) {
       return (
         this.setState({
@@ -293,7 +260,6 @@ debugger;
           step: step + 1
         })
       )
-
     } else {
       this.setState({
         step: step
@@ -340,7 +306,6 @@ debugger;
               city: section.long_name
             })
           case "administrative_area_level_1": {
-
             this.setState({
               state: section.short_name
             })
@@ -349,7 +314,6 @@ debugger;
           default:
             break;
         }
-
       }
       let splitFormat = address.formatted_address.split(',')
       let streetA = splitFormat[0]
@@ -365,9 +329,7 @@ debugger;
   }
 
   locNextStep() {
-
     if (!this.state.city.length && !this.state.street_address.length) {
-  
       return this.setState(
         {
           step: this.state.step
@@ -384,11 +346,8 @@ debugger;
 
     if (this.props.formType === 'edit') {
       return (
-        //has to be a button not a link
         <Link className='x-button' onClick={this.handleSubmit}>✖</Link>
       )
-      //`/listings/${this.props.listing.id}`
-      //  onClick = { this.handleSubmit }
     } else {
       return <span className='x-button'></span>
     }
