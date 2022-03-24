@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import CreateMap from './newmap';
 const miniMap =(props)=>{
   
-  
-
-  
   if (props.currentPage !== 8) {
     return null
   }

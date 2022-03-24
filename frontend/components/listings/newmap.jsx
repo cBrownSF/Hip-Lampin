@@ -10,7 +10,6 @@ class CreateMap extends React.Component {
    this.fullAddress = `${address}, ${city}, ${state}, ${zip}`
   }
   componentDidMount() {
-
    const {address,city,zip,state}=this.props
     this.map = new google.maps.Map(this.mapNode, {
       center: { lat: this.props.lat, lng: this.props.lng },
@@ -18,31 +17,23 @@ class CreateMap extends React.Component {
       fullscreenControl: false,
       zoom: 16
     });
-
     this.createMarker()
     this.createInfo()
-
   }
   createMarker(){
-  
     const position = new google.maps.LatLng(this.props.lat, this.props.lng);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
     });
     google.maps.event.addListener(this.map, 'tilesloaded',  () =>{
-  
- 
       this.info.open({
         anchor:marker,
         map:this.map,
         shouldFocus:false
-      })
-     
+      }) 
     });
-
     marker.addListener('click', () => {
-      
       this.info.open({
         anchor: marker,
         map: this.map,
@@ -60,13 +51,10 @@ class CreateMap extends React.Component {
       maxWidth: 130,
      disableAutoPan:true
     })
-   
   }
   render() { 
-    
     const { address, city, zip, state } = this.props
     const fullAddress = `${address}, ${city}, ${state}, ${zip}`
-  
     return (
       <div className="name-box">
         <br/>

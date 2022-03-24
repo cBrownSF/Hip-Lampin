@@ -64,7 +64,6 @@ class Profile extends React.Component {
   }
 
   clickImageInput(e) {
-    console.log('file input')
     e.preventDefault()
     const { currentUser, user} = this.props
     if (currentUser && currentUser.id !== user.id) return false

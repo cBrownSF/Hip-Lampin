@@ -204,7 +204,6 @@ class ListingForm extends React.Component {
 
   nameNextStep() {
    const {step,name} = this.state
-   console.log(name)
     if (name.length >= 10) {
       return (
         this.setState({

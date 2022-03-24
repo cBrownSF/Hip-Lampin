@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 
 
 const NameForm = (props) =>{
-
  if (props.currentPage !== 1){
    return null
  }
-
-
   const letterCount = () => {
     let charLeft = (10 - props.name.length);
     return charLeft <= 0 ? <div className='hidden'>no more characters required </div> : <div>{charLeft} more characters needed</div> ;
   }
-  
-
   
   return (
     <div className="name-box">

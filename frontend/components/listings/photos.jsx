@@ -15,7 +15,6 @@ class PhotoForm extends React.Component {
   }
   componentDidUpdate(){
     if (this.state.edit === true){
-
       this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
       return this.setState({
         edit: false
@@ -23,12 +22,9 @@ class PhotoForm extends React.Component {
     }
   }
   handleImage(e,i) {
-
- 
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     const { photoFile, photoURL } = this.state;
-
       fileReader.onloadend = () => {
         let photos = [...photoFile]
         let url = [...photoURL]
@@ -42,14 +38,12 @@ class PhotoForm extends React.Component {
       }
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
       fileReader.readAsDataURL(file)
-
     }
   }
   render() { 
     if (this.props.currentPage !== 9) {
     return null
   }
- 
     return ( 
       <div className='name-box'>
     <br/>
