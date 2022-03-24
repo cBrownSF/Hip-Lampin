@@ -14,8 +14,7 @@ class MarkerManager {
         this.markers[listing.id] = listing
         this.createMarkerForListing(listing)
     }
-    })
-
+  })
   }
   createMarkerForListing(listing){
     const position = new google.maps.LatLng(listing.lat, listing.lng);
@@ -37,7 +36,6 @@ class MarkerManager {
       content:contentString
     })
     marker.addListener('click', () =>{
-  
       if (this.info) {
         this.info.close();
       }
@@ -50,9 +48,6 @@ class MarkerManager {
     });
     this.markers[marker.listingId] = marker;
   }
-
-  
-  
 }
 
 

@@ -168,7 +168,6 @@ class ListingForm extends React.Component {
       }
     }
   }
-  
   toggleBoolean(type) {
     return e => {
       if (this.state[type] === false) {
@@ -223,7 +222,6 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let formType=this.props.formType
     if (step === 8 && formType === 'edit') {
-
       return (
         this.setState({
           step: step + 2

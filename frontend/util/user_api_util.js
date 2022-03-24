@@ -1,5 +1,4 @@
 export const fetchUser = id =>{
- 
   return $.ajax({
     method: 'GET',
     url: `api/users/${id}`
@@ -7,7 +6,6 @@ export const fetchUser = id =>{
 }
 
 export const updateUser = user => {
-
   return $.ajax({
     url: `/api/users/${user.get('user[id]')}`,
     method: 'PATCH',

@@ -2,9 +2,7 @@ import { RECEIVE_USER,RECEIVE_USER_ERRORS,REMOVE_USER_ERRORS } from '../actions/
 
 const userErrorsReducer = (oldState = {}, action) => {
   Object.freeze(oldState)
-
   switch (action.type) {
-    
     case RECEIVE_USER_ERRORS:
       return action.errors
     case RECEIVE_USER:

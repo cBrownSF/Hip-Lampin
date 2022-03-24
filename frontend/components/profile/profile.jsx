@@ -7,7 +7,6 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     const user=this.props.user
-   
     this.state={}
     this.imageInput = React.createRef()
     this.clickImageInput = this.clickImageInput.bind(this)
@@ -18,7 +17,6 @@ class Profile extends React.Component {
     }
   
   componentDidMount() {
-   
     const user = this.props.user
     this.props.receiveListings()
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
@@ -37,7 +35,6 @@ class Profile extends React.Component {
   }
   componentDidUpdate(prevState){
     if (prevState.photoFile !== this.state.photoFile && this.state.newPic===true){
-   
       const formData = new FormData();
       formData.append('user[id]', this.props.user.id)
       formData.append('user[photo]', this.state.photoFile);
@@ -84,12 +81,11 @@ class Profile extends React.Component {
         intro:originalIntro,
         editable: !prevState.editable,
     }), () => {
-
       this.props.clearErrors()
     })
   }
-  handleSubmit(e){
 
+  handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
     formData.append('user[intro]', this.state.intro)
@@ -97,7 +93,6 @@ class Profile extends React.Component {
     if (this.state.photoFile) {
       formData.append('user[photo]', this.state.photoFile);
     }
-
     this.props.updateUser(formData).then(() => this.flipEdit(e))
   }
   handleFile(e) {

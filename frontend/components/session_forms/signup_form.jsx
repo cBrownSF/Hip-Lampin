@@ -27,10 +27,7 @@ class SessionForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors()
   }
-  showErrors() {
-    let singleError = this.props.errors[0]
-    return singleError;
-  }
+  
   renderErrors() {
     return (
       <ul className="list-name">
