@@ -40,7 +40,6 @@
    list-style:none;
    text-decoration:none;
     width: 19vw;
-  /* flex:1 */
  }
  .index-link{
   text-decoration:none;
@@ -93,7 +92,6 @@
  .slider-div{
    opacity:1;
    transition: opacity ease-in-out 0.4s;
-  /* margin-top:-6%; */
  }
  .carousel-button{
    cursor:pointer;
@@ -129,4 +127,3 @@
   opacity: 1;
 }
 
- /* change opacity to 0 at some point */

@@ -55,10 +55,8 @@ class ListingIndexItem extends React.Component {
               </div>
       </div>
           </div>
-          {/* <img className="index-photo"src={photos[0]} height="200px" width="200px"/> */}
 
       <Link className='link-over-text-box' to={`/listings/${id}`}> <div className='text-index-box'>
-      {/* <Link className ="index-link" to={`/listings/${this.props.listings.id}`}>{this.props.listings.name}</Link> */}
         <p className="index-link" >{name}</p>
         <p className="index-location-cost">{city},{state}</p>
         <p className="index-location-cost">From ${cost}/per night</p>

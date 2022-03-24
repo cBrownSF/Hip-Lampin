@@ -144,7 +144,6 @@ render() {
               <button id='show-delete-button' onClick={() => this.onDelete()}>delete listing</button>
             ) : <p id="link-location">{isHost(nameEdit)}</p>}
           </div>
-        {/* <p id="link-location">{isHost(nameEdit)}</p> */}
         <h1 className="listing-title">{listing.name}</h1>
         <p id='nearby-show'>{`${listing.city}, ${listing.zip_code}`}</p>
             <p className={this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? "review-number-logged-in":''}
@@ -164,24 +163,17 @@ render() {
             minNight={listing.minimum_night}
           />
         </div>
-      {/* <div className="recommended-show">
-        <p>{reviewIdArray.length? `${this.percentRecommend()} % Recommended`: 'No reviews yet'}</p>
-      </div> */}
       <div className="line-break">
         <hr id="solid" />
       </div>
 
         <p id="link-location">{isHost(descript)}</p>
       <div className= 'descript-show'>
-        {/* <div>
-        <p id="link-location">{isHost(descript)}</p>
-        </div> */}
         <img className="show-prof-img" src={this.state.photoURL}/>   
         <div className='host-div'>
         <span className="host-by"> Hosted by</span>
         <div className="host-prof-show-div">
-        {/* <Link to={`/profile/${this.props.listing.host_id}`} className="host-link-show">{this.state.hostFname} {this.state.hostLname[0]}.</Link> */}
-              <button className="host-link-show" type="button" onClick={() =>this.onProfileClick()}>{this.state.hostFname} {this.state.hostLname[0]}.</button>
+          <button className="host-link-show" type="button" onClick={() =>this.onProfileClick()}>{this.state.hostFname} {this.state.hostLname[0]}.</button>
           </div>
         </div>     
         <p className='description'>{listing.description}</p>

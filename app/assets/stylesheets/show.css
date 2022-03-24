@@ -61,9 +61,6 @@
 .show-container #right{
   width:20%
 }
-/* .show-container #details-show{
-  width:100%
-} */
 
 .show-container#amenities-show{
   width:20%;
@@ -89,7 +86,6 @@
   display:flex;
   justify-content: center;
   font-family: inherit;
-  /* text-align:left; */
   margin-top:0px;
   font-weight: bold;
   font-size:28px;
@@ -127,8 +123,6 @@ color: grey;
   display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* margin-bottom: 15px; */
-    /* width: 100%; */
     border-top: 1px solid lightgrey;
  }
  .show-images{
@@ -298,8 +292,6 @@ display: flex;
   border:solid 1px transparent;
   cursor:pointer;
   text-decoration:none;
-  /* transition-delay: 0s; */
-
 }
 .green-helpful-button:hover{
   transform: scale(1.02);
@@ -471,7 +463,6 @@ font-size: 2.4rem;
   display:flex;
   justify-content:center;
   margin-bottom:50px;
-    /* border: solid 2px black; */
 }
 .submit-review-div{
   display:flex;
@@ -492,10 +483,6 @@ font-size: 2.4rem;
   font-family:inherit;
   color:black;
   text-align: left;
-  /* margin-left:5px;
-  
-  /* margin-left:18px;
-  padding-left:10px; */
   list-style: none;
   margin-right:5px;
 }
@@ -503,10 +490,6 @@ font-size: 2.4rem;
   font-family:inherit;
   color:gray;
   text-align: left;
-  /* margin-left:5px;
-  
-  /* margin-left:18px;
-  padding-left:10px; */
   list-style: none;
   margin-right:5px;
   
@@ -536,9 +519,6 @@ font-size: 2.4rem;
   flex-direction:column;
   margin-left: 40px;
  }
- /* .fa-fish{
-  color:green
- } */
 
  .essentials-list-div{
   display:flex;
@@ -578,8 +558,6 @@ font-size: 2.4rem;
   cursor:pointer;
   text-decoration:none;
   width:40%
-  /* transition-delay: 0s; */
-
 }
 .green-sign-up-button:hover{
       transform: scale(1.02);
@@ -687,13 +665,11 @@ border-bottom: 1px solid lightgray;
     
 }
 ::-webkit-calendar-picker-indicator{
-    /* margin-left: 2px; */
     cursor:pointer;
 }
 .list-guest{
       list-style: none;
     margin: 0px;
-    /* margin-top: 5px; */
     font-size: 16px;
     font-family: inherit;
     width: 95%;

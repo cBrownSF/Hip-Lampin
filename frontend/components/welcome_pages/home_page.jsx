@@ -47,18 +47,11 @@ class HomePage extends React.Component {
           </div>
           <div className="home-page-link-photos">
             <div className="photo-inside-div-home">
-              
             </div>
             <div className='card-cover-right'>
               <Link className="link-yos-carolina"to={yosemiteProps}><p className="font-main-page-photo">Montara Getaways</p></Link>
-              
             </div>
           </div>
-          {/* <div className="home-page-link-photo-right">
-            <div>
-
-            </div>
-          </div> */}
       </div>
         </section>
 

@@ -75,7 +75,6 @@ class SessionForm extends React.Component {
               onChange={this.handleInput('email')}
             />
           </label>
-          {/* <p className = "errors">{this.showErrors()}</p> */}
           <div>{this.renderErrors()}</div>
           <input className="sign-up-sign-in-button" type="submit" value="Sign up" />
           <hr className="line-break" />

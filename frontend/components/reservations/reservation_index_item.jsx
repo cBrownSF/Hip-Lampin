@@ -47,10 +47,8 @@ class ReservationIndexItem extends React.Component {
               <img className="index-photo" src={photos[0]} height="200px" width="200px" />
             </div>
           </div>
-          {/* <img className="index-photo"src={photos[0]} height="200px" width="200px"/> */}
 
           <Link className='link-over-text-box-reserv' to={resShow}> <div className='text-index-box'>
-            {/* <Link className ="index-link" to={`/listings/${this.props.listings.id}`}>{this.props.listings.name}</Link> */}
             <p className="index-link" >{listing.name}</p>
             <div className='check-in-out-item'>
                 <p className="reserv-p">{checkIn} - {checkOut}</p>

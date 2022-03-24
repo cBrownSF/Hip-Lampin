@@ -71,11 +71,7 @@ formatDate(field){
         <div className="sub-total-div">
           <p>Guests</p>
           <div>
-          {/* {guests === 1 ? (
-            <p id='per-night'> {guests} guest</p>) : (
-              <p id='per-night'> guests {guests}</p>
-            )
-          } */}
+        
                 <p id='per-night'>{total_guests}</p>
           </div>
           </div>
