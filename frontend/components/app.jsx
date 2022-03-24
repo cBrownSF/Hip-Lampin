@@ -11,7 +11,6 @@ import EditFormContainer from "./listings/edit_form_container";
 import ProfileContainer from "./profile/profile_container";
 import SearchContainer from './search/search_container';
 import HomePage from './welcome_pages/home_page'
-import EditProfileContainer from "./profile/edit_profile_container";
 import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 import { useLocation } from "react-router-dom";
@@ -26,17 +25,13 @@ return(
     <GreetingContainer/>
   </header>
   <Switch>
-    {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
-    <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
     <ProtectedRoute exact path="/listings/new" component ={ListingFormContainer} />
-    <ProtectedRoute exact path="/profile/:profileId/edit" component ={EditProfileContainer} />
     <Route exact path="/profile/:profileId" component = {ProfileContainer}/>
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path="/reservations/:reserveId" component={ReservationShowContainer}/>
     <Route exact path='/listings' component={SearchContainer} />
-      <Route exact path="/" component={HomePageContainer} />
-
+    <Route exact path="/" component={HomePageContainer} />
   </Switch>
   </div>
 )
