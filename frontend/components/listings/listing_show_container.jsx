@@ -6,8 +6,6 @@ import { openModal } from "../../actions/modal_actions"
 import { sendResInfo } from "../../actions/reservation_actions"
 import ListingShow from './listing_show'
 const mapStateToProps = (state, ownProps) => {
-  // const listing = state.entities.listings[listingId]
-  // const reviews =  selectReviewsForListing(state.entities,listing)
   return{
     currentUser: state.entities.users[state.sessions.currentUser],
     listing: state.entities.listings[ownProps.match.params.listingId],

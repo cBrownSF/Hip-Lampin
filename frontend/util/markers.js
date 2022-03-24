@@ -4,7 +4,6 @@ class MarkerManager {
   constructor(map){
     this.info;
     this.map = map;
-    // this.handleClick = handleClick;
     this.markers = {};
   }
 

@@ -12,7 +12,6 @@ class SessionForm extends React.Component {
       lname: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.renderErrors= this.renderErrors.bind(this)
   }
 
   handleSubmit(e) {
@@ -42,9 +41,6 @@ class SessionForm extends React.Component {
     );
   }
   render() {
-    // if (this.props.currentUser !== undefined) {
-    //   return <Redirect to='/' />
-    // }
     return (
       <div className='sign-up-form-container'>
         <h1 className="header-sign-forms">Join Hipcamp</h1>

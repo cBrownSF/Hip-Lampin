@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { deleteReview,updateReview } from "../../actions/listings_actions";
-// import "./review_ind_item.css"
 import React from 'react';
 
 class ReviewIndexItem extends React.Component{

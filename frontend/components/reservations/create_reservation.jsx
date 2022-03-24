@@ -73,7 +73,6 @@ class ReservationForm extends React.Component {
       openModal('confirm')
     }
     else{
-    //render Errors here
     }
   }
   calculateTotalPrice(){
@@ -123,9 +122,8 @@ class ReservationForm extends React.Component {
       state: 3,
     }
     return ( 
-      // <div className="div-check-in-out">
+
         <div className='cost-show'>
-          {/* <p id="link-location">{isHost(cost)}</p> */}
           <div className='cost-per-night'>
             <span id="price">{`$${cost}`}</span>
           <div>
@@ -197,7 +195,6 @@ class ReservationForm extends React.Component {
             )}
           </div>
         </div>
-        // </div>
      );
   }
 }

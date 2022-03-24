@@ -5,20 +5,9 @@ const CostForm = (props) => {
   if (props.currentPage !== 3) {
     return null
   }
-  // const hideButton = ()=>{  
-  //   if (props.listing !== ''){
-  //   return (
-  //     <Link className = 'x-button' to={`/listings/${props.listing.id}`}>✖</Link>
-  //   )
-  //   }else{
-  //     return ''
-  //   }
-  // }
 
   return(
-    <div className="name-box">
-      {/* <p id='hide-button'>{hideButton()}</p> */}
-      
+    <div className="name-box">      
       <br/>
       <h1 id='name-title'>What are your pricing preferences?</h1>
         <div>

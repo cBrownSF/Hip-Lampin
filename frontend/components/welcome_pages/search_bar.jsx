@@ -17,10 +17,7 @@ this.handleSubmit=this.handleSubmit.bind(this)
 this.handleInput=this.handleInput.bind(this)
 this.handleSubmitAuto=this.handleSubmitAuto.bind(this)
 }
-  componentDidMount(){
-    
-    // this.props.clearListings()
-  }
+  
   componentDidUpdate(prevProps,prevState){
     if (this.props.bounds && !prevProps.bounds || prevProps.bounds !== this.props.bounds){
       return this.setState({
@@ -52,11 +49,6 @@ componentWillUnmount(){
       { address: geocodeAdd },
       (results, status) => {
         if (status == google.maps.GeocoderStatus.OK) {
-          
-          let gCodesearchProps = {
-            pathname: "/listings",
-            state: { lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0] },
-          };
           return this.setState({
             lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
           })
@@ -79,12 +71,7 @@ componentWillUnmount(){
       address: '',
       clean: false}))
     }
-    // .then(this.setState({
-    //   lat: null,
-    //   lng: null,
-    //   type: null,
-    //   address: '',
-    //   clean: true}))
+  
 
 
 autoComplete() {

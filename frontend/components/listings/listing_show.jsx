@@ -13,7 +13,6 @@ class ListingShow extends React.Component {
       hostFname:null,
       hostLname:null || '',
       photoURL:null,
-      // startDate: new Date()
     }
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
@@ -37,7 +36,6 @@ class ListingShow extends React.Component {
     }
   }
   componentWillUnmount(){
-    // this.props.clearListings()
     this.props.clearReviews()
   }
   addToCount(){
@@ -62,7 +60,6 @@ class ListingShow extends React.Component {
       .then(()=>{
        this.props.history.push('/')
       })
-      //redirect here instead of dispatch
     }else{
       return ''
     }
@@ -132,7 +129,6 @@ render() {
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   const listingId = this.props.match.params.listingId
-  // this.findHostAuthor()
   return(
     <div className='main-div-show'>
      <div className="photo-container">
@@ -238,10 +234,6 @@ render() {
           <p id="link-location">{isHost(activities)}</p>
           <p id='headers'>Activities</p>
           <div className='flex-act-div'>
-          {/* <ul className='list-show-page-icons'> */}
-            {//fix this later and make sure ! is correct// 
-}
-
             <div className='activities-list-div'>
               {listing.is_hiking ? (
                 <div className="inner-div-act">

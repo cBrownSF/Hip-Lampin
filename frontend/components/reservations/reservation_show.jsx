@@ -30,7 +30,6 @@ class ReservationShow extends React.Component {
      localStorage.setItem('checkIn', checkIn)
      localStorage.setItem('checkOut', checkOut)
    }
-  //  this.props.receiveReservation(this.props.match.params.reserveId)
  }
  
   render() { 

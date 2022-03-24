@@ -32,7 +32,7 @@ const reserveId=this.props.info.reserveId
     this.props.closeModal()
     })
   }
-  // this.props.createReservation(this.state).then(this.props.closeModal);
+
 }
 formatDate(field){
   const {check_in,check_out}=this.state

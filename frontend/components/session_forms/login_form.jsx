@@ -38,9 +38,6 @@ class LoginForm extends React.Component {
     );
   }
   render() {
-    // if (this.props.currentUser !== undefined) {
-    //   return <Redirect to='/' />
-    // }
     return (
       <div className='login-mod-form-container'>
         <h1 className="header-sign-forms">Welcome Back!</h1>

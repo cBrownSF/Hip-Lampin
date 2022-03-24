@@ -3,7 +3,6 @@ export const UPDATE_BOUNDS= 'UPDATE_BOUNDS'
 export const UPDATE_SEARCH= 'UPDATE_SEARCH'
 export const REMOVE_ALL_LISTINGS='REMOVE_ALL_LISTINGS'
 export const REMOVE_ALL_REVIEWS='REMOVE_ALL_REVIEWS'
-export const REMOVE_ALL_T='REMOVE_ALL_REVIEWS'
 export const updateBounds= (bounds,value)=>({
   type:UPDATE_BOUNDS,
   bounds,
@@ -19,15 +18,9 @@ export const removeAllListings=(listings)=>({
   listings
 })
 export const removeAllReviews=(reviews)=>({
-  
   type:REMOVE_ALL_REVIEWS,
   reviews
 })
-// export const removeAllTotal=(total)=>({
-  
-//   type:REMOVE_ALL_TOTAL,
-//   total
-// })
 
 export const updateFilter = (bounds,value) => (dispatch, getState) => {
   dispatch(updateBounds(bounds,value));
@@ -40,13 +33,9 @@ export const getSearchResult = (search, value) => (dispatch) => {
 }
 
 export const clearListings = () => (dispatch)=>{
-  //getState().entities.listings
   return dispatch(removeAllListings({}));
 }
 
 export const clearReviews = () => (dispatch)=>{
   return dispatch(removeAllReviews({}));
 }
-// export const clearTotal = () => (dispatch)=>{
-//   return dispatch(removeAllTotal({}));
-// }

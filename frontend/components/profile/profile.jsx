@@ -129,8 +129,6 @@ class Profile extends React.Component {
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
     let resArray = currentUser && currentUser.reservations ? Object.values(this.props.currentUser.reservations) : []
-  
-  //  if (listings.length===0)return null
    if (!Object.values(this.state).length){
       return null
    }
@@ -194,12 +192,10 @@ class Profile extends React.Component {
                     > Cancel</button>
                     </div>
                  </form>)
-                  // </div>)
                 :(
                     <p className="intro">{intro}</p>
                 )
                 }
-                {/* <p className="intro">{intro}</p> */}
               </div>
               <div>{this.renderErrors()}</div>
               <div>
