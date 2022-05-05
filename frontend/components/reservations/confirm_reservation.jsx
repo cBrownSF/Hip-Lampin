@@ -71,7 +71,7 @@ formatDate(field){
         <div className="sub-total-div">
           <p>Guests</p>
           <div>
-        
+      
                 <p id='per-night'>{total_guests}</p>
           </div>
           </div>
