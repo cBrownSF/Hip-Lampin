@@ -58,7 +58,7 @@ class ReservationShow extends React.Component {
             <span className='details-info'><span className='bolded-nights'>Cost per night:</span>${reservation.listing.cost}</span>
             <span className='details-info'><span className='bolded-nights'>Total Cost:</span>${reservation.total_price}</span>
             <span className='details-info'><span className='bolded-nights'>Guests:</span>{reservation.total_guests}</span>
-            <span className='details-info'><span className='bolded-nights'>Add link</span>Show page</span>
+            {/* <span className='details-info'><span className='bolded-nights'>Add link</span>Show page</span> */}
         </div>
           <div>
           
