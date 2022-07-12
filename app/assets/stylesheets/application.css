@@ -1158,3 +1158,10 @@ color:white
   background-color:rgba(57,195,154,1);
   font-weight:550
 }
+
+
+.fab {
+  font-size: 3rem;
+  text-decoration: none;
+  color: black;
+}
