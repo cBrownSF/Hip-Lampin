@@ -7,21 +7,21 @@ import Welcome from './welcome_page';
 
 const mapStateToProps = (state) => {
   return{
-  listings:Object.values(state.entities.listings),
-  currentUser: state.entities.users[state.sessions.currentUser],
-  bounds:state.ui.filters.bounds
+    listings:Object.values(state.entities.listings),
+    currentUser: state.entities.users[state.sessions.currentUser],
+    bounds:state.ui.filters.bounds
   }
 }
 
 const mapDispatchToProps = dispatch => (
   {
-  logout: () => dispatch(logout()),
-  login: () => dispatch(login({
-    email: 'demo@email',
-    password: 123456
-  })),
+    logout: () => dispatch(logout()),
+    login: () => dispatch(login({
+      email: 'demo@email',
+      password: 123456
+    })),
     openModal: modal => dispatch(openModal(modal))
-}
+  }
 )
 
 export default withRouter(connect(

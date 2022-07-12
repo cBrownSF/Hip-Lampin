@@ -1165,3 +1165,9 @@ color:white
   text-decoration: none;
   color: black;
 }
+.footer-list {
+  display: flex;
+  padding-left: 0;
+  justify-content: space-around;
+  align-items: flex-end;
+}
