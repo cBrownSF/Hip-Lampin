@@ -16,10 +16,10 @@ export default function Footer() {
               </a>
             </li>
             <a href= "https://github.com/cBrownSF/Hip-Lampin" target= '_blank'>
-            <li className='nav-li' style={{ fontSize: "1.25rem" }}>Repository</li>
+            <li className='nav-li' style={{ fontSize: "1.1rem" }}>Repository</li>
             </a>
             <a href="https://cbrownsf.github.io/portfolio/" target='_blank'>
-            <li className='nav-li' style={{ fontSize: "1.25rem" }}>My Portfolio</li>
+            <li className='nav-li' style={{ fontSize: "1.1rem" }}>My Portfolio</li>
             </a>
         </ul>
       </nav>

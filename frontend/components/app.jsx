@@ -34,7 +34,9 @@ return(
     <Route exact path='/listings' component={SearchContainer} />
     <Route exact path="/" component={HomePageContainer} />
   </Switch>
-  <footer>
+    <footer style={{
+      background: path === "/" || path === "/listings/new" || path.includes('edit') ? "rgb(243, 242, 239)" : "white"
+    }}>
     <Footer />
   </footer>
   </div>

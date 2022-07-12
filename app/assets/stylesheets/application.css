@@ -1171,3 +1171,7 @@ color:white
   justify-content: space-around;
   align-items: flex-end;
 }
+
+footer{
+  padding: 2.5em 0;
+}
