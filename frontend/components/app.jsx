@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePageContainer from "./welcome_pages/home_page_container";
+import Footer from "./welcome_pages/footer"
 import GreetingContainer from './welcome_pages/welcome_page_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
@@ -33,6 +34,9 @@ return(
     <Route exact path='/listings' component={SearchContainer} />
     <Route exact path="/" component={HomePageContainer} />
   </Switch>
+  <footer>
+    <Footer />
+  </footer>
   </div>
 )
 };
