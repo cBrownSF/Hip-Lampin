@@ -194,7 +194,7 @@ class Profile extends React.Component {
               </div>
               <div>{this.renderErrors()}</div>
               <div>
-                <p><i class="fas fa-heart"></i>Hipcamper since {this.getTime()}</p>
+                <p><i className="fas fa-heart"></i>Hipcamper since {this.getTime()}</p>
               </div>
             </div>
           </div>

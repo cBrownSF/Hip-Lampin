@@ -19,6 +19,7 @@ const App = () => {
 const path=useLocation().pathname
 return(
   <div>
+    <div className='content'>
     <Modal />
     <header style={{
       background: path === "/" || path === "/listings/new" || path.includes('edit') ? "rgb(243, 242, 239)" : "white"
@@ -34,6 +35,7 @@ return(
     <Route exact path='/listings' component={SearchContainer} />
     <Route exact path="/" component={HomePageContainer} />
   </Switch>
+    </div>
     <footer style={{
       background: path === "/" || path === "/listings/new" || path.includes('edit') ? "rgb(243, 242, 239)" : "white"
     }}>

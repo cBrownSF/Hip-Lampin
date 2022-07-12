@@ -1171,7 +1171,10 @@ color:white
   justify-content: space-around;
   align-items: flex-end;
 }
+.content {
+  min-height: calc(100vh - 70px);
+}
 
 footer{
-  padding: 2.5em 0;
+  padding: 2em 0px
 }
