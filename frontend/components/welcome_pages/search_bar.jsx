@@ -11,29 +11,31 @@ class SearchBar extends React.Component {
       address: '',
       clean:true
     }
-this.search = null;
-this.autoComplete = this.autoComplete.bind(this)
-this.handleSubmit=this.handleSubmit.bind(this)
-this.handleInput=this.handleInput.bind(this)
-this.handleSubmitAuto=this.handleSubmitAuto.bind(this)
+    this.search = null;
+    this.autoComplete = this.autoComplete.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
+    this.handleInput=this.handleInput.bind(this)
+    this.handleSubmitAuto=this.handleSubmitAuto.bind(this)
+    this.keyDown = this.keyDown.bind(this)
 }
   
-  componentDidUpdate(prevProps,prevState){
-    if (this.props.bounds && !prevProps.bounds || prevProps.bounds !== this.props.bounds){
-      return this.setState({
-        lat: null,
-        lng: null,
-        type: null,
-        address: ''
-      })
-   }
+componentDidUpdate(prevProps,prevState) {
+  if (this.props.bounds && !prevProps.bounds || prevProps.bounds !== this.props.bounds){
+    return this.setState({
+      lat: null,
+      lng: null,
+      type: null,
+      address: ''
+    })
   }
+}
 handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value,listings:false })
     }
 }
-handleSubmitAuto(e){
+handleSubmitAuto(e) {
+  debugger;
   return this.setState({
     clean:false
   })
@@ -63,13 +65,23 @@ handleSubmit(e) {
       }
     }
     )).then(this.setState({
-    lat: null,
-    lng: null,
-    type: null,
-    address: '',
-    clean: false}))
+      lat: null,
+      lng: null,
+      type: null,
+      address: '',
+      clean: false
+    }))
 }
-  
+
+keyDown(e) {
+  e.preventDefault()
+  console.log(e)
+  if (e.keyCode === 13) {
+    debugger
+    this.handleSubmitAuto()
+  }
+  debugger
+}
 autoComplete() {
   const options = {
     componentRestrictions: { country: ["us"] },
@@ -83,15 +95,18 @@ autoComplete() {
   let auto = this.search;
   this.search.addListener('place_changed', () => {
     let result = auto.getPlace()
+    const {lat,lng,type} = this.state
+    console.log(lat, lng, type)
+    console.log(result.geometry)
     return this.setState({
-      lat: result.geometry.location.lat(),
-      lng: result.geometry.location.lng(),
-      type: result.types[0]
+      lat: result.geometry? result.geometry.location.lat() : lat,
+      lng: result.geometry? result.geometry.location.lng() : lng,
+      type: result.types ? result.types[0] : type
     })  
   })
 }
-render() {
 
+render() {
   const searchProps = {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
@@ -113,11 +128,11 @@ render() {
         
         <div>
         {this.state.lng?(
-           <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto}><i className="fas fa-search"></i></button></Link>
+           <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} ><i className="fas fa-search"></i></button></Link>
 
         ):(
           
-              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }
+              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit} onKeyDown={this.keyDown}><i className="fas fa-search"></i></button></Link>)          }
               </div> 
      </form>
     </div>
