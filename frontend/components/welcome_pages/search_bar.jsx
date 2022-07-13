@@ -38,42 +38,38 @@ handleSubmitAuto(e){
     clean:false
   })
 }
-componentWillUnmount(){
-}
-  handleSubmit(e) {
 
-    e.preventDefault()
-    let geocoder = new google.maps.Geocoder()
-    let geocodeAdd = this.state.address
-    geocoder.geocode(
-      { address: geocodeAdd },
-      (results, status) => {
-        if (status == google.maps.GeocoderStatus.OK) {
-          return this.setState({
-            lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
-          })
-        }
-        else {
-          return null;
-        }
-      }).then(() => this.props.history.replace({
-        pathname: '/listings',
-        state: {
-          lng: this.state.lng,
-          lat: this.state.lat,
-          type: this.state.type
-        }
+handleSubmit(e) {
+  e.preventDefault()
+  let geocoder = new google.maps.Geocoder()
+  let geocodeAdd = this.state.address
+  geocoder.geocode(
+    { address: geocodeAdd },
+    (results, status) => {
+      if (status == google.maps.GeocoderStatus.OK) {
+        return this.setState({
+          lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
+        })
       }
-      )).then(this.setState({
-      lat: null,
-      lng: null,
-      type: null,
-      address: '',
-      clean: false}))
+      else {
+        return null;
+      }
+    }).then(() => this.props.history.replace({
+      pathname: '/listings',
+      state: {
+        lng: this.state.lng,
+        lat: this.state.lat,
+        type: this.state.type
+      }
     }
+    )).then(this.setState({
+    lat: null,
+    lng: null,
+    type: null,
+    address: '',
+    clean: false}))
+}
   
-
-
 autoComplete() {
   const options = {
     componentRestrictions: { country: ["us"] },
@@ -91,10 +87,8 @@ autoComplete() {
       lat: result.geometry.location.lat(),
       lng: result.geometry.location.lng(),
       type: result.types[0]
-    })
-    
+    })  
   })
-
 }
 render() {
 
