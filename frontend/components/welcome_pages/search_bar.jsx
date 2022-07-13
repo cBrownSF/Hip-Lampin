@@ -1,6 +1,6 @@
 import React from "react";
 import { Link} from "react-router-dom";
-import { withRouter } from "react-router";
+import { withRouter,hashHistory } from "react-router";
 class SearchBar extends React.Component {
   constructor(props){
     super(props)
@@ -35,7 +35,7 @@ handleInput(type) {
     }
 }
 handleSubmitAuto(e) {
-  debugger;
+  
   return this.setState({
     clean:false
   })
@@ -74,13 +74,15 @@ handleSubmit(e) {
 }
 
 keyDown(e) {
-  e.preventDefault()
-  console.log(e)
-  if (e.keyCode === 13) {
-    debugger
-    this.handleSubmitAuto()
+  return e => {
+    
+     
   }
-  debugger
+  // e.preventDefault()
+  // if (e.keyCode === 13) {
+  //   console.log('mmk')
+  // }
+
 }
 autoComplete() {
   const options = {
@@ -111,7 +113,7 @@ render() {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
   };
-
+console.log(this.props)
   return(
     <div className={this.props.className}>
       <form className={`${this.props.className}-search-form`}>
@@ -123,12 +125,25 @@ render() {
             id="city-search"
             onSelect={this.autoComplete}
             onChange={this.handleInput('address')}
+            onKeyDown={(e)=> {
+              let state = this.state;
+              if (e.keyCode === 13 && this.state.lat){
+                console.log(state,this.props)
+                debugger;
+                console.log('in')
+                this.props.history.push({
+                  pathname: "/listings",
+                  state: {
+                    lng: state.lng, lat: state.lat, type: state.type
+                  }
+                })
+              }}}
             placeholder='Try Montara,Colorado,United States...' />
         </div>
         
         <div>
         {this.state.lng?(
-           <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} ><i className="fas fa-search"></i></button></Link>
+            <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} onKeyDown={this.keyDown}><i className="fas fa-search"></i></button></Link>
 
         ):(
           
