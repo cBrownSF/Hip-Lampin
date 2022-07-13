@@ -16,7 +16,6 @@ class SearchBar extends React.Component {
     this.handleSubmit=this.handleSubmit.bind(this)
     this.handleInput=this.handleInput.bind(this)
     this.handleSubmitAuto=this.handleSubmitAuto.bind(this)
-    this.keyDown = this.keyDown.bind(this)
 }
   
 componentDidUpdate(prevProps,prevState) {
@@ -73,17 +72,6 @@ handleSubmit(e) {
     }))
 }
 
-keyDown(e) {
-  return e => {
-    
-     
-  }
-  // e.preventDefault()
-  // if (e.keyCode === 13) {
-  //   console.log('mmk')
-  // }
-
-}
 autoComplete() {
   const options = {
     componentRestrictions: { country: ["us"] },
@@ -98,8 +86,6 @@ autoComplete() {
   this.search.addListener('place_changed', () => {
     let result = auto.getPlace()
     const {lat,lng,type} = this.state
-    console.log(lat, lng, type)
-    console.log(result.geometry)
     return this.setState({
       lat: result.geometry? result.geometry.location.lat() : lat,
       lng: result.geometry? result.geometry.location.lng() : lng,
@@ -129,9 +115,6 @@ console.log(this.props)
               let state = this.state;
               let submit = this.handleSubmit
               if (e.keyCode === 13 && this.state.lat && this.props.history.location.pathname !== '/listings'){
-                console.log(state,this.props)
-                debugger;
-                console.log('in')
                 this.props.history.push({
                   pathname: "/listings",
                   state: {
@@ -139,7 +122,6 @@ console.log(this.props)
                   }
                 })
               } else if (e.keyCode === 13){
-                  console.log(state)
                   submit(e)
               }}}
             placeholder='Try Montara,Colorado,United States...' />
@@ -147,11 +129,11 @@ console.log(this.props)
         
         <div>
         {this.state.lng?(
-            <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} onKeyDown={this.keyDown}><i className="fas fa-search"></i></button></Link>
+            <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} ><i className="fas fa-search"></i></button></Link>
 
         ):(
           
-              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit} onKeyDown={this.keyDown}><i className="fas fa-search"></i></button></Link>)          }
+              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }
               </div> 
      </form>
     </div>
