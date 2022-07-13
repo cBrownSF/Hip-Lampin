@@ -128,7 +128,7 @@ console.log(this.props)
             onKeyDown={(e)=> {
               let state = this.state;
               let submit = this.handleSubmit
-              if (e.keyCode === 13 && this.state.lat){
+              if (e.keyCode === 13 && this.state.lat && this.props.history.location.pathname !== '/listings'){
                 console.log(state,this.props)
                 debugger;
                 console.log('in')
