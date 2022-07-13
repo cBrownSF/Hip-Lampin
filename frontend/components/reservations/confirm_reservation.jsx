@@ -18,21 +18,20 @@ class ConfirmReservation extends React.Component {
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleSubmit(e){
-const location=this.props.info.location
-const reserveId=this.props.info.reserveId
+  const location=this.props.info.location
+  const reserveId=this.props.info.reserveId
   e.preventDefault()
 
-  if (location && location.pathname.includes('reservations')){
+  if (location && location.pathname.includes('reservations')) {
     let updateObject = Object.assign({}, this.state, { id: reserveId })
-    this.props.updateReservation(updateObject).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(() => {
+    this.props.updateReservation(updateObject)
+    hashHistory.push(`/profile/${this.state.guest_id}`)
+    this.props.closeModal()
+  } else {
+    this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
       this.props.closeModal()
     })
-  }else{
-  this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
-    this.props.closeModal()
-    })
   }
-
 }
 formatDate(field){
   const {check_in,check_out}=this.state

@@ -32,16 +32,14 @@ export const removeReservationErrors = () => ({
   type: REMOVE_RESERVATION_ERRORS
 })
 
-export const createReservation= reservation => dispatch =>{
+export const createReservation= reservation => dispatch => {
   return ReservationAPIUtil.createReservation(reservation)
-  .then(createdReservation=> dispatch(receiveOneReservation(createdReservation)),
+  .then(createdReservation => dispatch(receiveOneReservation(createdReservation)),
   (errors)=>dispatch(receiveReservationErrors(errors.responseJSON)))
 }
 export const updateReservation = reservation => (dispatch) => {
   return ReservationAPIUtil.updateReservation(reservation)
-    .then(updatedReservation => {
-      dispatch(receiveOneReservation(updatedReservation))
-    }),
+    .then(updatedReservation => dispatch(receiveOneReservation(updatedReservation))),
     (errors) => dispatch(receiveReservationErrors(errors.responseJSON))
 
 }
