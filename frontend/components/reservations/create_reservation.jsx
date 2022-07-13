@@ -4,7 +4,7 @@ class ReservationForm extends React.Component {
   
   constructor(props) {
     super(props);
-    let d =new Date()
+    let d = new Date()
     let year= d.getFullYear();
     let day = d.getDate()
     let month = d.getMonth()+1;
@@ -63,22 +63,25 @@ class ReservationForm extends React.Component {
   submitForm(e){
     let {currentUser,sendResInfo,openModal} = this.props
     e.preventDefault()
+
     if (!currentUser) {
       this.props.openModal('login')
-    }else if(this.state.check_out.length){
+    } else if (this.state.check_out.length) {
       let updatedInfo = Object.assign({}, this.state, { guest_id: currentUser.id },{location:this.props.location},{reserveId:this.props.reserveId})
       sendResInfo(updatedInfo)
       openModal('confirm')
+    } else if (!this.state.check_out.length) {
+      alert('Select a check out date' )
     }
   }
   calculateTotalPrice(){
 
-    const {check_in,check_out}=this.state
+    const {check_in,check_out} = this.state
     let diffBetweenDates = new Date(check_in).getTime() - (new Date(check_out).getTime())
     let numberOfDays = Math.abs(diffBetweenDates/ (1000*3600*24));
     
     let finalPrice = this.props.cost * numberOfDays
-    if (check_out.length){
+    if (check_out.length) {
       return this.setState({total_price:finalPrice,nights:numberOfDays})
     }
   }
