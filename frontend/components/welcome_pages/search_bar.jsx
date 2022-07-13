@@ -127,6 +127,7 @@ console.log(this.props)
             onChange={this.handleInput('address')}
             onKeyDown={(e)=> {
               let state = this.state;
+              let submit = this.handleSubmit
               if (e.keyCode === 13 && this.state.lat){
                 console.log(state,this.props)
                 debugger;
@@ -137,6 +138,9 @@ console.log(this.props)
                     lng: state.lng, lat: state.lat, type: state.type
                   }
                 })
+              } else if (e.keyCode === 13){
+                  console.log(state)
+                  submit(e)
               }}}
             placeholder='Try Montara,Colorado,United States...' />
         </div>
