@@ -49,7 +49,7 @@ handleSubmit(e) {
   geocoder.geocode(
     { address: geocodeAdd },
     (results, status) => {
-      console.log(results)
+      
       if (status == google.maps.GeocoderStatus.OK) {
         return this.setState({
           lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
