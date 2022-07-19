@@ -49,44 +49,58 @@ handleSubmit(e) {
   geocoder.geocode(
     { address: geocodeAdd },
     (results, status) => {
+      console.log(results)
       if (status == google.maps.GeocoderStatus.OK) {
         return this.setState({
           lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
         })
       }
       else {
-        return null;
+        return 'error';
       }
-    }).then((res) => {
-      console.log(res)
-      return (this.props.history.replace({
-        pathname: '/listings',
-        state: {
-          lng: this.state.lng,
-          lat: this.state.lat,
-          type: this.state.type
-        }
     })
-    )}).then(this.setState({
-          lat: null,
-          lng: null,
-          type: null,
-          address: '',
-          clean: false
-    }))
+    .then((res)=>{
+      this.navigateToListings()
+    })
+    
+    
+    // .then((res) => {
+    //   console.log(res)
+    //   return (this.props.history.replace({
+    //     pathname: '/listings',
+    //     state: {
+    //       lng: this.state.lng,
+    //       lat: this.state.lat,
+    //       type: this.state.type
+    //     }
+    // })
+    // )}).then(this.setState({
+    //       lat: null,
+    //       lng: null,
+    //       type: null,
+    //       address: '',
+    //       clean: false
+    // }))
 }
 navigateToListings() {
   const {history} = this.props
   if (this.state.lng && this.props.history){
-  history.replace({
-    pathname: '/listings',
-    state: {
-      lng: this.state.lng,
-      lat: this.state.lat,
-      type: this.state.type
-    }
-  })
-}
+    history.replace({
+      pathname: '/listings',
+      state: {
+        lng: this.state.lng,
+        lat: this.state.lat,
+        type: this.state.type
+      }
+    })
+    return this.setState({
+        lat: null,
+        lng: null,
+        type: null,
+        address: '',
+        clean: false
+      })
+  } 
 }
 autoComplete() {
   const options = {
