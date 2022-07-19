@@ -99,7 +99,6 @@ render() {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
   };
-console.log(this.props)
   return(
     <div className={this.props.className}>
       <form className={`${this.props.className}-search-form`}>
