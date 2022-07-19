@@ -104,7 +104,6 @@ autoComplete() {
       lat: result.geometry? result.geometry.location.lat() : lat,
       lng: result.geometry? result.geometry.location.lng() : lng,
       type: result.types ? result.types[0] : type,
-      address: ''
     }),
       this.navigate()
       
