@@ -41,6 +41,7 @@ handleSubmitAuto(e) {
 }
 
 handleSubmit(e) {
+  
   e.preventDefault()
   let geocoder = new google.maps.Geocoder()  
   let geocodeAdd = this.state.address
@@ -57,6 +58,7 @@ handleSubmit(e) {
         return null;
       }
     }).then((res) => {
+      console.log(res)
       return (this.props.history.replace({
         pathname: '/listings',
         state: {
