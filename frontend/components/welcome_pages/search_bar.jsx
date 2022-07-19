@@ -44,6 +44,8 @@ handleSubmit(e) {
   e.preventDefault()
   let geocoder = new google.maps.Geocoder()
   let geocodeAdd = this.state.address
+  debugger;
+  //problem is that the address has been cleared in the state, but not in the search bar situation where 
   geocoder.geocode(
     { address: geocodeAdd },
     (results, status) => {
@@ -55,15 +57,20 @@ handleSubmit(e) {
       else {
         return null;
       }
-    }).then(() => this.props.history.replace({
+    }).then((res) => {
+      console.log(res)
+      console.log(this.props.history)
+      debugger;
+
+      return (this.props.history.replace({
       pathname: '/listings',
       state: {
         lng: this.state.lng,
         lat: this.state.lat,
         type: this.state.type
       }
-    }
-    )).then(this.setState({
+    })
+    )}).then(this.setState({
       lat: null,
       lng: null,
       type: null,
@@ -95,6 +102,7 @@ autoComplete() {
 }
 
 render() {
+  console.log(this.props.history.location.pathname)
   const searchProps = {
     pathname: "/listings",
     state: { lng: this.state.lng, lat: this.state.lat, type: this.state.type },
@@ -107,6 +115,7 @@ render() {
           <input
             className={`${this.props.className}-home-boxes`}
             type="text"
+            value={this.state.address}
             id="city-search"
             onSelect={this.autoComplete}
             onChange={this.handleInput('address')}
@@ -121,7 +130,8 @@ render() {
                   }
                 })
               } else if (e.keyCode === 13){
-                  submit(e)
+                debugger;
+                  this.handleSubmit(e)
               }}}
             placeholder='Try Montara,Colorado,United States...' />
         </div>
