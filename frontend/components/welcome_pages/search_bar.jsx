@@ -35,27 +35,20 @@ handleInput(type) {
     }
 }
 handleSubmitAuto(e) {
-  console.log('submitAuto')
   return this.setState({
     clean:false
   })
 }
 
 handleSubmit(e) {
-  const {lng,lat,type} = this.state
   e.preventDefault()
-  
-  let geocoder = new google.maps.Geocoder()
-  
+  let geocoder = new google.maps.Geocoder()  
   let geocodeAdd = this.state.address
-  //problem is that the address has been cleared in the state, but not in the search bar situation where 
+
   geocoder.geocode(
     { address: geocodeAdd },
     (results, status) => {
-      console.log(this.state)
       if (status == google.maps.GeocoderStatus.OK) {
-        console.log(this.state)
-
         return this.setState({
           lng: results[0].geometry.location.lng(), lat: results[0].geometry.location.lat(), type: results[0].types[0]
         })
@@ -64,9 +57,6 @@ handleSubmit(e) {
         return null;
       }
     }).then((res) => {
-      console.log(res)
-      console.log(this.props.history)
-
       return (this.props.history.replace({
         pathname: '/listings',
         state: {
@@ -113,7 +103,8 @@ autoComplete() {
     return this.setState({
       lat: result.geometry? result.geometry.location.lat() : lat,
       lng: result.geometry? result.geometry.location.lng() : lng,
-      type: result.types ? result.types[0] : type
+      type: result.types ? result.types[0] : type,
+      address: ''
     }),
       this.navigate()
       
@@ -139,9 +130,7 @@ render() {
             onChange={this.handleInput('address')}
             onKeyDown={(e)=> {
               let state = this.state;
-              let submit = this.handleSubmit
               if (e.keyCode === 13 && this.state.lat && this.props.history.location.pathname !== '/listings'){
-                console.log('in here')
                 this.props.history.push({
                   pathname: "/listings",
                   state: {
@@ -149,7 +138,6 @@ render() {
                   }
                 })
               } else if (e.keyCode === 13){
-                console.log('in else if')
                   this.handleSubmit(e)
               }}}
             placeholder='Try Montara,Colorado,United States...' />

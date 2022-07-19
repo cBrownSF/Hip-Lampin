@@ -11,61 +11,61 @@ const NavBar = (props) => {
     pathname: "/listings",
     search: 'all',
   };
-    if (currentUser) {
-      const newTo = {
-        pathname: "/listings/new",
-        state: 1
-      };
-     
-      return (
+  if (currentUser) {
+    const newTo = {
+      pathname: "/listings/new",
+      state: 1
+    };
+    
+  return (
+    <div className="nav-bar-container">
+        <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+        {useLocation().pathname === "/" || useLocation().pathname.includes('edit')|| useLocation().pathname === "/listings/new"?(
+          <div className='nav-search-bar-div'></div>
+      ):(
+        <div className='nav-search-bar-div'>
+          <SearchBar 
+          className='small-search-wrapper'
+          history={hist}
+          bounds={props.bounds}
+          />
+        </div>
+      )}
+      <nav>
+      <ul className="nav-bar">
+            <li><Link className="nav-li" to={allListings}>Listings</Link></li>
+            <li className="nav-li" onClick={logout}>Logout</li>
+        <li ><Link className="nav-li" to={`/profile/${currentUser.id}`}>Profile</Link></li>
+      </ul>
+      </nav>
+        <Link to={newTo}><button className='start-hosting'>New Listing</button></Link>
+      </div>
+    )
+  } else {
+    return (
       <div className="nav-bar-container">
-          <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
-          {useLocation().pathname === "/" || useLocation().pathname.includes('edit')|| useLocation().pathname === "/listings/new"?(
-            <div className='nav-search-bar-div'></div>
-        ):(
+        <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+        {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"? (
+          <div className='nav-search-bar-div'></div>
+        ) : (
           <div className='nav-search-bar-div'>
-            <SearchBar 
-            className='small-search-wrapper'
-            history={hist}
-            bounds={props.bounds}
+            <SearchBar
+              className='small-search-wrapper'
+              history={hist}
             />
           </div>
         )}
-        <nav>
+      <nav >
         <ul className="nav-bar">
-              <li><Link className="nav-li" to={allListings}>Listings</Link></li>
-              <li className="nav-li" onClick={logout}>Logout</li>
-          <li ><Link className="nav-li" to={`/profile/${currentUser.id}`}>Profile</Link></li>
+          <li><Link className = "nav-li" to={allListings}>Listings</Link></li>
+            <li> <button className="nav-li-button" onClick={() => openModal('login')}>Login</button></li>
+          <li className='nav-li'onClick = {login} >DemoLogin</li>
         </ul>
-        </nav>
-          <Link to={newTo}><button className='start-hosting'>New Listing</button></Link>
-        </div>
-      )
-    } else {
-      return (
-        <div className="nav-bar-container">
-          <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
-          {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"? (
-            <div className='nav-search-bar-div'></div>
-          ) : (
-            <div className='nav-search-bar-div'>
-              <SearchBar
-                className='small-search-wrapper'
-                history={hist}
-              />
-            </div>
-          )}
-        <nav >
-          <ul className="nav-bar">
-            <li><Link className = "nav-li" to={allListings}>Listings</Link></li>
-              <li> <button className="nav-li-button" onClick={() => openModal('login')}>Login</button></li>
-            <li className='nav-li'onClick = {login} >DemoLogin</li>
-          </ul>
-        </nav>
-          <button onClick={() => openModal('signup')} className='start-hosting'>Sign Up</button>
-        </div>
-      )
-    }
+      </nav>
+        <button onClick={() => openModal('signup')} className='start-hosting'>Sign Up</button>
+      </div>
+    )
+  }
   }
 
 
