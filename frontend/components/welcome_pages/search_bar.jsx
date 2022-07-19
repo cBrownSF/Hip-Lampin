@@ -63,12 +63,12 @@ handleSubmit(e) {
       debugger;
 
       return (this.props.history.replace({
-      pathname: '/listings',
-      state: {
-        lng: this.state.lng,
-        lat: this.state.lat,
-        type: this.state.type
-      }
+        pathname: '/listings',
+        state: {
+          lng: this.state.lng,
+          lat: this.state.lat,
+          type: this.state.type
+        }
     })
     )}).then(this.setState({
       lat: null,
@@ -92,11 +92,20 @@ autoComplete() {
   let auto = this.search;
   this.search.addListener('place_changed', () => {
     let result = auto.getPlace()
+    console.log(result.adr_address)
     const {lat,lng,type} = this.state
     return this.setState({
       lat: result.geometry? result.geometry.location.lat() : lat,
       lng: result.geometry? result.geometry.location.lng() : lng,
       type: result.types ? result.types[0] : type
+    }),
+      this.props.history.replace({
+        pathname: '/listings',
+        state: {
+          lng: this.state.lng,
+          lat: this.state.lat,
+          type: this.state.type
+        }
     })  
   })
 }
