@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import SearchBar from "./search_bar";
 
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
+
 const NavBar = (props) => {
   const hist=useHistory()
     const { currentUser, logout,login,openModal } = props
@@ -50,7 +51,7 @@ const NavBar = (props) => {
             <div className='nav-search-bar-div'>
               <SearchBar
                 className='small-search-wrapper'
-                history={props.history}
+                history={hist}
               />
             </div>
           )}

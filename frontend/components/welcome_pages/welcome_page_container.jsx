@@ -5,7 +5,8 @@ import {login} from '../../actions/session_actions'
 import { openModal } from '../../actions/modal_actions';
 import Welcome from './welcome_page';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,ownProps) => {
+  console.log(ownProps)
   return{
     listings:Object.values(state.entities.listings),
     currentUser: state.entities.users[state.sessions.currentUser],
