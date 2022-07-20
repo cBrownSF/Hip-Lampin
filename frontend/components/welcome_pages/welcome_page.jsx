@@ -21,7 +21,7 @@ const NavBar = (props) => {
   return (
     <div className="nav-bar-container">
       <div className='logo-div'>
-        <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+        <span className='main-logo'><Link className='main-logo' to='/'>HipLampin</Link></span>
       </div>
         {useLocation().pathname === "/" || useLocation().pathname.includes('edit')|| useLocation().pathname === "/listings/new"?(
           <div className='nav-search-bar-div'></div>
@@ -49,7 +49,7 @@ const NavBar = (props) => {
     return (
       <div className="nav-bar-container">
         <div className = 'logo-div'>
-          <span className='mainLogo'><Link className='mainLogo' to='/'>HipLampin</Link></span>
+          <span className='main-logo'><Link className='main-logo' to='/'>HipLampin</Link></span>
         </div>
         {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"? (
           <div className='nav-search-bar-div'></div>
@@ -63,12 +63,12 @@ const NavBar = (props) => {
         )}
       <nav className = 'nav-bar-nav'>
         <ul className="nav-bar">
-          <li><Link className = "nav-li" to={allListings}>Listings</Link></li>
-          <li> <button className="nav-li-button" onClick={() => openModal('login')}>Login</button></li>
-          <li className='nav-li'onClick = {login} >DemoLogin</li>
+          <li className ='nav-li'><Link className = "nav-link" to={allListings}>Listings</Link></li>
+          <li className='nav-li' onClick={() => openModal('login')}>Login</li>
+          <li className='nav-li' onClick = {login} >DemoLogin</li>
+          <li className='nav-li'><button onClick={() => openModal('signup')} className='start-hosting'>Sign Up</button></li>
         </ul>
       </nav>
-        <button onClick={() => openModal('signup')} className='start-hosting'>Sign Up</button>
       </div>
     )
   }
