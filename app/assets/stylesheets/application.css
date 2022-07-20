@@ -1183,7 +1183,6 @@ footer{
   display:flex;
   justify-content: space-between;;
   margin: 0 auto;
-  border: solid 2px black;
   display: flex;
   /* justify-content: flex-end; */
   align-items: center;
@@ -1214,4 +1213,19 @@ footer{
   header{
     text-align:center;
   }
+  .home-page-link-div{
+    flex-direction: column;
+    margin-left:10%;
+    margin-right:10%
+  }
+  .home-page-link-photos{
+    margin-left:0;
+    margin-top:2em;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: lightgrey;
+  font-size: clamp(.4rem, 1.5vw, 1rem);
 }
