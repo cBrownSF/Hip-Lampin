@@ -32,8 +32,8 @@ return(
     <Route exact path="/listings/:listingId" component={ListingShowContainer} />
     <Route exact path="/listings/:listingId/edit" component={EditFormContainer}/>
     <Route exact path="/reservations/:reserveId" component={ReservationShowContainer}/>
-    <Route exact path="/" component={HomePageContainer} />
     <Route exact path='/listings' component={SearchContainer} />
+    <Route exact path="/" component={HomePageContainer} />
   </Switch>
     </div>
     <footer style={{
