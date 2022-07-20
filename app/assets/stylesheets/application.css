@@ -105,7 +105,8 @@ transform: scale(1.04);
     list-style:none;
     margin:0px;;
     padding:0px;
-  
+    display: flex;
+    align-items: center;
  }
  
 .navBar {
@@ -1194,4 +1195,23 @@ footer{
 }
 .nav-link {
   text-decoration:none;
+}
+
+@media (max-width:850px) {
+  .nav-bar-container{
+    flex-direction: column;
+  }
+  .nav-bar{
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+  .logo-div{
+    text-align: center;
+  }
+  .nav-li {
+    margin: .5em 0;
+  }
+  header{
+    text-align:center;
+  }
 }
