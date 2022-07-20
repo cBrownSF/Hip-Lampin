@@ -1178,7 +1178,7 @@ footer{
 
 .nav-bar-container {
   width:90%; 
-  max-width:900px; 
+  /* max-width:900px;  */
   display:flex;
   justify-content: space-between;;
   margin: 0 auto;
