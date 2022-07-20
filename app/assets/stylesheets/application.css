@@ -20,21 +20,17 @@ body{
   margin:0;
   padding:0;
 }
-/* .nav-bar-container{
-  display:flex;
-  justify-content: flex-end;
-  align-items:center;
-  padding:30px 5%
-} */
+
 .nav-li{
-   font-family: "Montserrat",sans-serif;
-   display:inline-block;
-   padding:0px 20px;
+  font-family: "Montserrat",sans-serif;
+  display:inline-block;
+  margin-left: 2em;
   text-decoration: none;
   cursor:pointer;
   font-size:16px;
   color:black;
 }
+
 .nav-li-button{
  font-family: "Montserrat",sans-serif;
    display:inline-block;
