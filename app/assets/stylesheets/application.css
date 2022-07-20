@@ -20,12 +20,12 @@ body{
   margin:0;
   padding:0;
 }
-.nav-bar-container{
+/* .nav-bar-container{
   display:flex;
   justify-content: flex-end;
   align-items:center;
   padding:30px 5%
-}
+} */
 .nav-li{
    font-family: "Montserrat",sans-serif;
    display:inline-block;
@@ -89,27 +89,29 @@ transform: scale(1.04);
 
  .sign-up-sign-in-button{
     font-family:"Calibre", Helvetica, Arial, sans-serif;
-   padding: 5%;
-   background-color:#39C39A;
-   color:white;
-   text-align: center;
-   outline:none;
-   border: .1px;
+    padding: 5%;
+    background-color:#39C39A;
+    color:white;
+    text-align: center;
+    outline:none;
+    border: .1px;
     border-radius: 3px;
     font-size: 16px;
     width: 90%;
     height: 57px;
     margin: 5%;
-     cursor:pointer;
+    cursor:pointer;
  }
+
  .sign-up-sign-in-button:hover{
-     transform: scale(1.02);
+    transform: scale(1.02);
  }
+
  .nav-bar{
-   list-style:none;
-   display:flex;
-  padding:0px;
-  align-items: center;
+    list-style:none;
+    margin:0px;;
+    padding:0px;
+  
  }
  
 .navBar {
@@ -1183,8 +1185,14 @@ footer{
 .nav-bar-container {
   width:90%; 
   max-width:900px; 
+  display:flex;
+  justify-content: space-between;;
   margin: 0 auto;
   border: solid 2px black;
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  padding: 30px 5%
 }
 .nav-bar-nav {
   display: flex; 

@@ -28,9 +28,9 @@ const NavBar = (props) => {
       ):(
         <div className='nav-search-bar-div'>
           <SearchBar 
-          className='small-search-wrapper'
-          history={hist}
-          bounds={props.bounds}
+            className='small-search-wrapper'
+            history={hist}
+            bounds={props.bounds}
           />
         </div>
       )}
