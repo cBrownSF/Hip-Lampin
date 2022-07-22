@@ -39,6 +39,9 @@ class HomePage extends React.Component {
       </div>
       <div className='home-page-link-div' >
           <div className="home-page-link-photo-left">
+            <div className ='div-image'>
+              <img className= "img-home-page" src = "https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/rhett-house+copy.jpg"></img>
+            </div>
             <div className='card-cover'>
               <Link className="link-yos-carolina" to={southCarolinaProps}><p className="font-main-page-photo">Carolina Hideaways</p></Link>
             </div>
