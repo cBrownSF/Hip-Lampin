@@ -36,6 +36,7 @@ class HomePage extends React.Component {
         />
       </div>
       <div className="main-photo-div">
+          <img className ="img-main" src="https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/beufort-harbor.jpeg" alt="Beaufort Harbor" />
       </div>
       <div className='home-page-link-div' >
           <div className="home-page-link-photo-left">
