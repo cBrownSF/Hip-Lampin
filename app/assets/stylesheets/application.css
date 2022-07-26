@@ -1256,8 +1256,15 @@ footer{
   .div-image{
     height: 30vh;
   }
+   .profile-div{
+   flex-direction: column;
+   }  
 }
-
+@media (max-width:370px) {
+  .photo-and-name{
+    flex-direction: column;
+  }
+}
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: lightgrey;
