@@ -4,9 +4,11 @@ import ListingMap from './../listing_map/listing_map'
 
 class Search extends React.Component{
   constructor(props) {
+    console.log(props)
     super(props)
   }
   componentDidMount() {
+
     if(this.props.allListings === '?all'){
         this.props.receiveListings()
     }

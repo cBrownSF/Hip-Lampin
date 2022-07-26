@@ -2,13 +2,12 @@ import React,{useEffect} from "react";
 import ListingIndexItem from "./listing_index_item";
 const ListingIndex = (props) => {
   useEffect(()=>{
-    console.log('use')
     window.scrollTo(0,0)
   },[])
   
-  if (props.total===undefined) {
+  if (props.total === undefined) {
     return null
-  } else if (Object.keys(props.listings).length === 0 && props.total ===0){
+  } else if (Object.keys(props.listings).length === 0 && props.total === 0){
     return(
       <div className='no-listings'>Sorry, there are no current listings which match the search criteria. Try zooming the map out to find nearby listings. </div>
     )}else{
