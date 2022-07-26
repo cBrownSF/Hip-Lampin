@@ -20,6 +20,7 @@ class HomePage extends React.Component {
       pathname: "/listings",
       state: { lng: - 81.163727, lat: 33.836082, type: "administrative_area_level_1" },
     }
+   
     return (  
       <section>
       <div className='splash-container'>

@@ -872,12 +872,14 @@ font-weight: 500;
   margin-left:20%;
   margin-right:20%;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   z-index: -1;
-    position: relative;
-    top: -70px;
-    overflow: hidden;
+  position: relative;
+  top: -70px;
+  overflow: hidden;
+  min-height: 29vh;
+  max-height: 50vh;
 }
 
 .img-main {
@@ -1248,7 +1250,8 @@ footer{
   }
   .main-photo-div {
     margin-left: 10%;
-    margin-right: 10%
+    margin-right: 10%;
+    min-height:0vh;
   }
   .div-image{
     height: 30vh;
