@@ -1226,16 +1226,11 @@ footer{
     flex-direction: column;
     padding-bottom:0;
   }
-  /* .nav-bar{
-    flex-direction: column;
-    /* justify-content: center; */
-  /* } */ */
+ 
   .logo-div{
     text-align: center;
   }
-  /* .nav-li {
-    margin: .5em 0;
-  } */
+ 
   header{
     text-align:center;
   }
