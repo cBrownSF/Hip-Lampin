@@ -38,13 +38,14 @@
  .index-item-li{
    list-style:none;
    text-decoration:none;
-    width: 19vw;
+  width: 14rem;
+  min-width: 14rem;
  }
  .index-link{
   text-decoration:none;
   color:black;
   font-style:inherit;
-  font-size: clamp(1rem, 1.5vw, 1.8rem);;
+  font-size: 1.4rem;;
   height:5vh;
   overflow-wrap:break-word
  }

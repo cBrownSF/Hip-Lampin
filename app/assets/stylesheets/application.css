@@ -1233,6 +1233,7 @@ footer{
  
   header{
     text-align:center;
+    padding-bottom:.5em;
   }
   .home-page-link-div{
     flex-direction: column;
@@ -1254,14 +1255,23 @@ footer{
    .profile-div{
    flex-direction: column;
    }  
+     .map {
+       width: 300px;
+     }
 }
 @media (max-width: 530px) {
   .nav-li {
     margin: .5em 0;
   }
+  header{
+    padding-bottom:0;
+  }
   .nav-bar {
     flex-direction: column;
     /* justify-content: center; */
+  }
+  .map-item-container{
+    flex-direction:column;
   }
 
 }
