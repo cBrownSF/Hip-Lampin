@@ -14,14 +14,13 @@ class Profile extends React.Component {
     this.flipEdit=this.flipEdit.bind(this)
     this.revertIntro=this.revertIntro.bind(this)
     this.handleSubmit=this.handleSubmit.bind(this)
-    }
+  }
   
   componentDidMount() {
     const user = this.props.user
     this.props.receiveListings()
     this.props.receiveUser(this.props.match.params.profileId).then((user)=>
     {
-
       return this.setState({
         intro: user.user.intro || '',
         originalIntro:user.user.intro,
@@ -43,15 +42,16 @@ class Profile extends React.Component {
           this.setState({
             newPic: false
           })
-      )
-    })
-  }
+        )
+      })
+    }
   }
   handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value })
     }
   }
+
   getTime() {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let d = new Date(this.state.created_at)
@@ -66,6 +66,7 @@ class Profile extends React.Component {
     if (currentUser && currentUser.id !== user.id) return false
     this.imageInput.current.click()
   }
+
   flipEdit(e){
     const { currentUser, user } = this.props
     e.preventDefault()
@@ -74,6 +75,7 @@ class Profile extends React.Component {
           editable:!prevState.editable,
         })))
   }
+
   revertIntro(e){
     const { intro, originalIntro, editable } = this.state
     e.preventDefault()
@@ -95,6 +97,7 @@ class Profile extends React.Component {
     }
     this.props.updateUser(formData).then(() => this.flipEdit(e))
   }
+
   handleFile(e) {
     const { currentUser, user } = this.props
 
@@ -104,11 +107,11 @@ class Profile extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoURL: fileReader.result,newPic:true });
     };
-
     if (file) {
       fileReader.readAsDataURL(file);
     }
   }
+
   renderErrors() {
     if (Object.values(this.props.errors).length >0){
     return (
@@ -117,9 +120,10 @@ class Profile extends React.Component {
           <li className='errors' key={`error-${i}`}>{error}</li>
         ))}
       </ul>
-    );
+      );
+    }
   }
-  }
+
   render() { 
     const {intro}=this.state
     const { currentUser, user, listings, editable}=this.props
@@ -128,7 +132,6 @@ class Profile extends React.Component {
       return null
    }
     return (
- 
       <div className="profile-div">
         <div className='left-side-prof'>
           <div className="header">

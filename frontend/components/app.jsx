@@ -13,7 +13,7 @@ import Modal from './modal/modal';
 import { AuthRoute,ProtectedRoute } from "../util/routes";
 import { useLocation } from "react-router-dom";
 const App = () => {
-const path=useLocation().pathname
+const path= useLocation().pathname
 return(
   <div>
     <div className='content'>
