@@ -4,6 +4,7 @@ const Activities = (props) => {
   if (props.currentPage !== 5) {
     return null
   }
+  
   return (
     <div className="name-box">
       <br/>

@@ -3,6 +3,7 @@ const SiteDetails = (props) => {
   if (props.currentPage !== 6) {
     return null
   }
+  
   return(
     <div className ='name-box'>
       <br/>
@@ -20,7 +21,6 @@ const SiteDetails = (props) => {
     </label>
       <br />
       <br />
-     
       <label id='booking-title'>Booking window
         <select className="select-bubble-booking"value ={props.bookingWindow} onChange ={props.handleInput('booking_time')}>
           <option value="3 months in advance">3 months in advance</option>
@@ -31,8 +31,6 @@ const SiteDetails = (props) => {
           <option value="18 months in advance">18 months in advance</option>
       </select>  
     </label>
-      
-    
      <div className='booking-detail-button'>
         <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
         <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>

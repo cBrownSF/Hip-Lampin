@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NameForm = (props) =>{
+const NameForm = (props) => {
  if (props.currentPage !== 1){
    return null
  }
@@ -14,7 +14,6 @@ const NameForm = (props) =>{
       <br/>
           <h1 id ='name-title'>Name your listing</h1>
           <p id='blurb'>This should be a short title describing your site and landcscape</p>
-   
           <input className ='text-bubble'
             type="text"
             placeholder='e.g. cozy cottage'
@@ -24,7 +23,6 @@ const NameForm = (props) =>{
           <div>
             <div id='required'>{letterCount()}</div>
          </div>
-         
           <p id='tips'>TIPS FOR NAMING YOUR LISTING</p>
           <ul id='tips-list'>
             <li>Keep it short! 3-5 words are recommended</li>
@@ -37,7 +35,7 @@ const NameForm = (props) =>{
           <div id="name-button">
       <button type="button" className='next-button-single' onClick={props.nextPage}>Next</button>
         </div>
-        </div>
-        )
-      }
+      </div>
+      )
+    }
    export default NameForm

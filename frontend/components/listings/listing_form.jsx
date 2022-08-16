@@ -245,7 +245,7 @@ class ListingForm extends React.Component {
         step: step + 1
       })
     )
-  }
+   }
   }
   costNextStep() {
     let step = this.state.step
@@ -267,16 +267,15 @@ class ListingForm extends React.Component {
     let step = this.state.step
     let formType = this.props.formType
     if (step === 10 && formType === 'edit') {
-  
       return (
         this.setState({
           step: step - 2
-        })
-      )}else{
-    return this.setState({
-      step: step - 1
-    })
-  }
+          })
+      )} else {
+        return this.setState({
+          step: step - 1
+      })
+    }
   }
   autoCompleteNextStep() {
     const options = {
@@ -321,25 +320,17 @@ class ListingForm extends React.Component {
         step: 8
       })
     })
-
   }
 
   locNextStep() {
     if (!this.state.city.length && !this.state.street_address.length) {
-      return this.setState(
-        {
-          step: this.state.step
-        })
-    } else {
-      return this.setState(
-        {
-          step: this.state.step + 1
-        })
+      return this.setState({ step: this.state.step})
+      } else {
+        return this.setState({ step: this.state.step + 1 })
     }
   }
 
   hideButton() {
-
     if (this.props.formType === 'edit') {
       return (
         <Link className='x-button' onClick={this.handleSubmit}>✖</Link>

@@ -14,7 +14,6 @@ const ReservationReducer = (oldState={},action)=>{
       return Object.assign({}, oldState, { [action.reservation.reservation.id]: action.reservation })
     default:
       return oldState
-   
   }
 }
 

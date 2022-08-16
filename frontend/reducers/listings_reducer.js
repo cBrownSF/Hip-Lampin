@@ -7,7 +7,6 @@ const listingsReducer = (oldState = {},action) =>{
     return action.listings
 
     case RECEIVE_LISTING:
-   
       return Object.assign({},oldState,{[action.listing.id]: action.listing})
     case REMOVE_LISTING:
       let nextState = Object.assign({},oldState)
@@ -15,12 +14,8 @@ const listingsReducer = (oldState = {},action) =>{
       return nextState;
     case RECEIVE_REVIEW:
       const { review} = action;
-      //cleaning it up a bit 
       const newState = Object.assign({}, oldState);
-      //creating new state
       newState[review.listing_id].reviewIds.push(review.id);
-      //updating newState
-      //pushing reviews into listing
       return newState;
     case REMOVE_ALL_LISTINGS:
       return action.listings

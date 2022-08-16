@@ -12,6 +12,7 @@ class PhotoForm extends React.Component {
     this.secondInput=React.createRef()
     this.thirdInput=React.createRef()
   }
+  
   componentDidUpdate(){
     if (this.state.edit === true){
       this.props.handleFileChange(this.state.photoURL, this.state.photoFile)
@@ -20,6 +21,7 @@ class PhotoForm extends React.Component {
       })
     }
   }
+
   handleImage(e,i) {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
@@ -41,8 +43,9 @@ class PhotoForm extends React.Component {
   }
   render() { 
     if (this.props.currentPage !== 9) {
-    return null
-  }
+      return null
+    }
+
     return ( 
       <div className='name-box'>
     <br/>

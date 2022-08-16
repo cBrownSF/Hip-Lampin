@@ -3,6 +3,7 @@ const CheckInForm = (props) => {
   if (props.currentPage !== 10) {
     return null
   }
+  
   return (
     <div className='name-box'>
       <br />

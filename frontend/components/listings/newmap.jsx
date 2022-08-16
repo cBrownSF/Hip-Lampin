@@ -1,13 +1,12 @@
 import React from 'react';
 class CreateMap extends React.Component {
   constructor(props) {
-
     super(props)
     this.createMarker=this.createMarker.bind(this)
     this.createInfo=this.createInfo.bind(this)
     this.info;
     const { address, city, zip, state } = this.props
-   this.fullAddress = `${address}, ${city}, ${state}, ${zip}`
+    this.fullAddress = `${address}, ${city}, ${state}, ${zip}`
   }
   componentDidMount() {
    const {address,city,zip,state}=this.props
@@ -41,7 +40,6 @@ class CreateMap extends React.Component {
       })
       this.info = info;
     });
-   
   }
   createInfo(){
     const contentString =
@@ -52,6 +50,7 @@ class CreateMap extends React.Component {
      disableAutoPan:true
     })
   }
+
   render() { 
     const { address, city, zip, state } = this.props
     const fullAddress = `${address}, ${city}, ${state}, ${zip}`
@@ -72,7 +71,7 @@ class CreateMap extends React.Component {
         Map
       </div>
       </div >
-      );
+    );
   }
 }
  

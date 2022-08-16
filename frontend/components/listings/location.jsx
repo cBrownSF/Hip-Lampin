@@ -4,6 +4,7 @@ const locationForm = (props) => {
   if (props.currentPage !== 7) {
     return null
   }
+  
   return (
     <div className="name-box">
       <br/>
@@ -32,7 +33,6 @@ const locationForm = (props) => {
       <div className='location-instruction'>
         <p>You must select a valid address to continue</p>
       </div>
-      
       <div className='location-button'>
         <button type="button" className='previous-button' onClick={props.prevPage}>Previous</button>
         <button type="button" className='next-button-with-prev' onClick={props.nextPage}>Next</button>

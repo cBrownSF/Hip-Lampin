@@ -4,6 +4,7 @@ const amenities = (props) =>{
   if (props.currentPage !== 4) {
     return null
   }
+  
   return(
     <div className="name-box">
       <br/>

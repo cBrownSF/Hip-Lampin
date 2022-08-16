@@ -395,24 +395,23 @@ render() {
             </div>
           )}
       </div>
-            <div className="review-index-item-array-show">
-                  {reviews.map((review) => {
-                    if (reviewIdArray.includes(review.id)) {
-                      
-                      return(
-                      <ReviewIndexItem
-                        review={review}
-                        authorId={review.author_id}
-                        key={review.id}
-                        currentUser={this.props.currentUser}
-                        count={this.addToCount}
-                        subCount={this.subtractCount}
-                      />
-                      )
-                    }
-                  })
+          <div className="review-index-item-array-show">
+                {reviews.map((review) => {
+                  if (reviewIdArray.includes(review.id)) {
+                    return(
+                    <ReviewIndexItem
+                      review={review}
+                      authorId={review.author_id}
+                      key={review.id}
+                      currentUser={this.props.currentUser}
+                      count={this.addToCount}
+                      subCount={this.subtractCount}
+                    />
+                    )
                   }
-            </div>
+                })
+              }
+          </div>
     </div>
   </div>
   )}

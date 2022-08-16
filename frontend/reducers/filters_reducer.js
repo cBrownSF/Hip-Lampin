@@ -11,12 +11,11 @@ const filterReducers= (state=filters,action) =>{
       return Object.assign({}, state, { total: Object.values(action.listings).length })
     case UPDATE_BOUNDS:
       return Object.assign({}, state, { [action.bounds]: action.value })
-  case UPDATE_SEARCH:
+    case UPDATE_SEARCH:
       return Object.assign({}, state, { [action.search]: action.value })
     case REMOVE_ALL_LISTINGS:
       return Object.assign({}, state, { total: undefined })
-
-      default:
+    default:
       return state;
   }
 
