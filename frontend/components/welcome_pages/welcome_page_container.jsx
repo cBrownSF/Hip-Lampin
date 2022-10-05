@@ -7,7 +7,7 @@ import Welcome from './welcome_page';
 
 const mapStateToProps = (state,ownProps) => {
   return{
-    listings:Object.values(state.entities.listings),
+    listings: Object.values(state.entities.listings),
     currentUser: state.entities.users[state.sessions.currentUser],
     bounds:state.ui.filters.bounds
   }
