@@ -1300,6 +1300,30 @@ footer{
   .map{
     width:500px;
   }
+  /* new and edit */
+  .name-box #description-text-area{
+    margin: 0 auto;
+    width:80%
+  }
+  .name-box #tips-descript{
+    margin-top: 0.3em;
+    margin-bottom: 0;
+  }
+
+    .name-box #tips-list{
+      margin-top:0;
+      margin-bottom: 0;
+    }
+  .descript-buttons {
+    margin-top:0;
+  }
+    .name-box #tips {
+      margin-top:0;
+    }
+    .text-bubble {
+      width: 80%;
+      margin-top:0;
+    }
 }
 @media (max-width:370px) {
   .photo-and-name{
