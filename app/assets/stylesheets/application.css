@@ -1277,6 +1277,9 @@ footer{
   .nav-li {
     margin: .5em 0;
   }
+  .small-search-wrapper-home-boxes {
+    width: 10em;
+  }
   header{
     padding-bottom:0;
   }
