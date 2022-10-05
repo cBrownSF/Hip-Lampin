@@ -1419,7 +1419,7 @@ footer{
       /* margin-bottom:0; */
     }
 }
-@media (max-width:370px) {
+@media (max-width:376px) {
   .photo-and-name{
     flex-direction: column;
   }
