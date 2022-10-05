@@ -1373,6 +1373,9 @@ footer{
     #act-amen-title {
       margin-top:0;
     }
+    #name-title {
+      margin-top: 0;
+    }
 }
 @media (max-width:370px) {
   .photo-and-name{
