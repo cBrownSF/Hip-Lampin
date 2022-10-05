@@ -1339,9 +1339,7 @@ footer{
       margin-bottom:0;
       margin-top:.5em;
     }
-    .booking-title{
-      margin-top:0;
-    }
+   
     .cost-buttons{
       margin-top:1em;
       display:flex;
@@ -1367,9 +1365,7 @@ footer{
       display: flex;
       justify-content: space-between;
     }
-    .booking-title-small{
-      margin-top:0;
-    }
+    
     #act-amen-title,#name-title {
       margin-top:0;
     }
@@ -1394,8 +1390,10 @@ footer{
     .next-button-single {
       margin-left:0;
     }
-    .name-box #blurb{
-      
+    .check-in-button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1em;
     }
     .location-instruction {
       margin-top: 0
@@ -1573,6 +1571,9 @@ footer{
   
     .name-box #name-title {
       margin-bottom: 0;
+    }
+    .create-listing-form{
+      line-height:1.1;
     }
 }
 ::-webkit-input-placeholder {
