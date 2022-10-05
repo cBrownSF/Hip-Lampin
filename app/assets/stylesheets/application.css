@@ -1330,11 +1330,33 @@ footer{
       margin-top:0;
     }
     .text-bubble-cost {
-      width:80%;
+      width:75%;
       margin-left:25px;
+      margin-top:0;
     }
     .select-bubble-booking{
       width:90%;
+      margin-bottom:0;
+      margin-top:.5em;
+    }
+    #booking-title{
+      margin-top:0;
+    }
+    .cost-buttons{
+      margin-top:1em;
+      display:flex;
+      justify-content: space-between;
+    }
+    .next-button-with-prev{
+      margin-left:0;
+    }
+    .name-box #act-amen-title{
+      margin-bottom:0;
+    }
+    .amenities-button{
+      margin-top:0;
+      display:flex;
+      justify-content: space-between;
     }
 }
 @media (max-width:370px) {
