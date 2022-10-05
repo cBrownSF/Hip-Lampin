@@ -1234,6 +1234,10 @@ footer{
   .small-search-wrapper-home-boxes {
     width:20em;
   }
+  .small-search-wrapper-search-form{
+    margin-bottom:0.5em;
+    margin-left:2em;
+  }
   .logo-div{
     text-align: center;
     margin-bottom:.6em;
