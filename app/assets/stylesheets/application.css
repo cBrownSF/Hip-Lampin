@@ -1012,8 +1012,7 @@ font-size: .7;
 font-family: inherit;
 }
 .nav-search-bar-div{
-margin-left:auto;
-margin-right:auto
+
 }
 
 .small-search-wrapper-search-button{
@@ -1226,7 +1225,7 @@ footer{
       
 }
 
-@media (max-width:990px) {
+@media (max-width:1004px) {
   .nav-bar-container{
     flex-direction: column;
     padding-bottom:0;
@@ -1309,4 +1308,11 @@ footer{
   color: lightgrey;
   font-size: clamp(.6rem, 1.5vw, 1rem);
   /* padding-right:1em; */
+}
+
+@media (max-width: 650px) {
+  /* This is for the page wit da listing */
+}
+#listing-nav,#listing-nav-2{
+  margin-left:0;
 }

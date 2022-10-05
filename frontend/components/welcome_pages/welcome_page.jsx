@@ -36,7 +36,7 @@ const NavBar = (props) => {
       )}
       <nav className ='nav-bar-nav'>
         <ul className="nav-bar">
-          <li className="nav-li"><Link className='nav-link' to={allListings}>Listings</Link></li>
+          <li className="nav-li" id="listing-nav"><Link className='nav-link' to={allListings}>Listings</Link></li>
           <li className="nav-li" onClick={logout}>Logout</li>
           <li className="nav-li" ><Link className='nav-link' to={`/profile/${currentUser.id}`}>Profile</Link></li>
           <li className="nav-li"><Link className='nav-link' to={newTo}><button className='start-hosting'>New Listing</button></Link></li>
@@ -63,7 +63,7 @@ const NavBar = (props) => {
         )}
       <nav className = 'nav-bar-nav'>
         <ul className="nav-bar">
-          <li className ='nav-li'><Link className = "nav-link" to={allListings}>Listings</Link></li>
+          <li className ='nav-li' id= 'listing-nav-2'><Link className = "nav-link" to={allListings}>Listings</Link></li>
           <li className='nav-li' onClick={() => openModal('login')}>Login</li>
           <li className='nav-li' onClick = {login} >DemoLogin</li>
           <li className='nav-li'><button onClick={() => openModal('signup')} className='start-hosting'>Sign Up</button></li>
