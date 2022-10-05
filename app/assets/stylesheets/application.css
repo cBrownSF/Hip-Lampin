@@ -1370,16 +1370,36 @@ footer{
     .booking-title-small{
       margin-top:0;
     }
-    #act-amen-title,#name-title, #check-det-title {
+    #act-amen-title,#name-title {
       margin-top:0;
     }
-    #check-det-title {
-      margin-bottom:0;
+    .name-box #check-det-title {
+      margin-bottom:0.3em;
+      margin-top: 0;
     }
     .booking-detail-button{
       margin-top: 0.2em;
       display: flex;
       justify-content: space-between;
+    }
+    .location-button {
+      margin-top: 6.5em;
+      display: flex;
+      justify-content: space-between;
+    }
+    #name-button{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .next-button-single {
+      margin-left:0;
+    }
+    .name-box #blurb{
+      font-size: 18px;
+      margin-bottom:0.5em
+    }
+    .location-instruction {
+      margin-top: 0
     }
 }
 @media (max-width:370px) {
