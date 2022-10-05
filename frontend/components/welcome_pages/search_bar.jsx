@@ -158,14 +158,12 @@ render() {
             placeholder='Try Montara,Colorado,United States...' />
         </div>
         
-        <div>
+        <div className={this.props.className === "small-search-wrapper" ? "div-holding-search-buttons" : ''} >
         {this.state.lng?(
             <Link to={searchProps}><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmitAuto} ><i className="fas fa-search"></i></button></Link>
-
         ):(
-          
-              <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }
-              </div> 
+          <Link to="/listings"><button className={`${this.props.className}-search-button`} type="button" onClick={this.handleSubmit}><i className="fas fa-search"></i></button></Link>)          }
+        </div> 
      </form>
     </div>
 

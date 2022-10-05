@@ -5,8 +5,8 @@ import SearchBar from "./search_bar";
 import { withRouter } from "react-router-dom";
 
 const NavBar = (props) => {
-  const hist=useHistory()
-    const { currentUser, logout,login,openModal } = props
+  const hist = useHistory()
+  const { currentUser, logout,login,openModal } = props
   const allListings = {
     pathname: "/listings",
     search: 'all',
@@ -24,7 +24,7 @@ const NavBar = (props) => {
         <span className='main-logo'><Link className='main-logo' to='/'>HipLampin</Link></span>
       </div>
         {useLocation().pathname === "/" || useLocation().pathname.includes('edit')|| useLocation().pathname === "/listings/new"?(
-          <div></div>
+        <div></div>
       ):(
         <div className='nav-search-bar-div'>
           <SearchBar 
@@ -52,7 +52,7 @@ const NavBar = (props) => {
           <span className='main-logo'><Link className='main-logo' to='/'>HipLampin</Link></span>
         </div>
         {useLocation().pathname === "/" || useLocation().pathname === "/listings/edit" || useLocation().pathname === "/listings/new"? (
-          <div className='nav-search-bar-div'></div>
+          <div></div>
         ) : (
           <div className='nav-search-bar-div'>
             <SearchBar

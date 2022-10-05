@@ -48,6 +48,10 @@ transform: scale(1.04);
 .nav-li-button:hover{
 transform: scale(1.04);
 }
+
+.div-holding-search-buttons{
+  transform:translateX(-40px)
+}
 .main-logo{
   background-color: transparent;
   color:red;
@@ -1022,7 +1026,7 @@ margin-right:auto
     cursor: pointer;
     text-decoration: none;
     transition: 0.45s;
-    transform:translateX(-40px)
+    
 }
 .small-search-wrapper-search-button:hover{
   background-color: white;
@@ -1229,6 +1233,7 @@ footer{
  
   .logo-div{
     text-align: center;
+    margin-bottom:.6em;
   }
  
   header{
