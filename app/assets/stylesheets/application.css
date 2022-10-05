@@ -989,10 +989,11 @@ background-color:rgb(143, 136, 70);
 }
 .small-search-wrapper-search-form{
   border:black;
-      display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
 }
 .small-search-wrapper-search-bar{
   border:black
@@ -1225,12 +1226,14 @@ footer{
       
 }
 
-@media (max-width:850px) {
+@media (max-width:990px) {
   .nav-bar-container{
     flex-direction: column;
     padding-bottom:0;
   }
- 
+  .small-search-wrapper-home-boxes {
+    width:20em;
+  }
   .logo-div{
     text-align: center;
     margin-bottom:.6em;
