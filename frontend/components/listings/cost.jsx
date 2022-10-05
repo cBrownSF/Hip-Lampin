@@ -10,7 +10,7 @@ const CostForm = (props) => {
       <br/>
       <h1 id='name-title'>What are your pricing preferences?</h1>
         <div>
-        <h1 id='booking-title'>How much do you want to charge per night?</h1>
+        <h1 className='booking-title'>How much do you want to charge per night?</h1>
         <input className = "text-bubble-cost"
           type="text"
           placeholder='e.g. 80'
@@ -20,7 +20,7 @@ const CostForm = (props) => {
         />
       <p id='required'>This is a required field</p>
       </div>
-     <label id='booking-title'>Minimum nights stay
+     <label className='booking-title'>Minimum nights stay
         <select className = "select-bubble-booking" value={props.minNight} onChange={props.handleInput('minimum_night')}>
           <option value="1">1 Night</option>
           <option value="2">2 Nights</option>
@@ -28,7 +28,7 @@ const CostForm = (props) => {
           <option value="4">4 Nights</option>
         </select>
       </label>
-        <label id='booking-title'>Maximum guests per night
+        <label className='booking-title'>Maximum guests per night
         <select className="select-bubble-booking" value={props.maxGuest} onChange={props.handleInput('guests_allowed')}>
           <option value="1">1 Guest</option>
           <option value="2">2 Guests</option>

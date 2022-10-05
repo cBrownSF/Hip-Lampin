@@ -10,7 +10,7 @@ const SiteDetails = (props) => {
       <h1 id='check-det-title'>What are your booking policies?</h1>
       <p id='blurb'>Adjust these settings to determine how Hipcampers will book with you</p>
      <br/>
-      <label id='booking-title'>Cancellation Policy
+      <label className='booking-title'>Cancellation Policy
         <select className="select-bubble-booking" value ={props.cancel} onChange ={props.handleInput('cancellation_policy')}>
         <option value="Super Flexible">Super Flexible</option>
         <option value="Flexible">Flexible</option>
@@ -21,7 +21,7 @@ const SiteDetails = (props) => {
     </label>
       <br />
       <br />
-      <label id='booking-title'>Booking window
+      <label className='booking-title'>Booking window
         <select className="select-bubble-booking"value ={props.bookingWindow} onChange ={props.handleInput('booking_time')}>
           <option value="3 months in advance">3 months in advance</option>
           <option value="6 months in advance">6 months in advance</option>
