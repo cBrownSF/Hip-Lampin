@@ -1370,11 +1370,16 @@ footer{
     .booking-title-small{
       margin-top:0;
     }
-    #act-amen-title {
+    #act-amen-title,#name-title, #check-det-title {
       margin-top:0;
     }
-    #name-title {
-      margin-top: 0;
+    #check-det-title {
+      margin-bottom:0;
+    }
+    .booking-detail-button{
+      margin-top: 0.2em;
+      display: flex;
+      justify-content: space-between;
     }
 }
 @media (max-width:370px) {
