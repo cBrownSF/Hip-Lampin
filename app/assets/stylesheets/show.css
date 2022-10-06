@@ -166,9 +166,10 @@ color: grey;
     margin-top: -255px;
     display: flex;
     justify-content: flex-end;
+    margin-left: 70%;
     /* margin-left: 75%;
     margin-right: 20%;
- } */
+ */}
  .check-in{
    display:flex;
    flex-direction:column;
