@@ -1612,7 +1612,7 @@ footer{
   }
   .booking-box {
     position: static;
-     margin-top:0;
+     margin-top:1em;
     justify-content: center;
     margin-left: 0;
     margin-right:0;
@@ -1654,4 +1654,18 @@ footer{
       width: auto;
       margin-right: 2em;
     }
+    .box-show-page{
+      flex-direction:column;
+      width:auto;
+    }
+    #headers{
+      font-size:2.2rem;
+      margin-bottom:0;
+    }
+    .flex-act-div{
+      padding: 2em;
+      padding-top: 1em;
+      font-size:1.3rem;
+      }
+    
 }

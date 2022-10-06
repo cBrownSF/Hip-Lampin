@@ -128,7 +128,7 @@ color: grey;
  .show-images{
      padding: 10px;
     height: 50vh;
-    width: 32vw;
+    width: 30vw;
     object-fit: cover;
     background-color: white;
     margin-bottom: 0px;
@@ -166,9 +166,9 @@ color: grey;
     margin-top: -255px;
     display: flex;
     justify-content: flex-end;
-    margin-left: 75%;
+    /* margin-left: 75%;
     margin-right: 20%;
- }
+ } */
  .check-in{
    display:flex;
    flex-direction:column;
