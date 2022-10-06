@@ -1605,4 +1605,19 @@ footer{
       margin-bottom: 1em;
       margin-top:1em
     }
+  .show-container{
+    flex-direction:column;
+    flex-wrap:nowrap;
+    padding:0;
+  }
+  .booking-box {
+    position: static;
+     margin-top:0;
+    justify-content: center;
+    margin-left: 0;
+    margin-right:0;
+  }
+  .cost-show{
+    width:45%
+  }
 }
