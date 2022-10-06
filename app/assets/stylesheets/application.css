@@ -1632,4 +1632,26 @@ footer{
   .review-number-logged-in {
     margin-bottom: 0em;
   }
+  .line-break{
+    opacity:0;
+  }
+    .descript-show {
+      flex-direction: row;
+      justify-content: center;
+      margin: 0;
+      width:100%
+    }
+    .show-prof-img {
+      margin-right: 2em;
+      width: 200px;
+      height: 200px;
+    }
+    .host-div {
+      margin-right: 2em;
+      margin-left: 0
+    }
+    .description {
+      width: auto;
+      margin-right: 2em;
+    }
 }
