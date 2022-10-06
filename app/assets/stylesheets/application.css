@@ -1602,13 +1602,13 @@ footer{
     .show-images {
       height: 40vh;
       width:80%;
-      margin-bottom: 1em;
       margin-top:1em
     }
   .show-container{
     flex-direction:column;
     flex-wrap:nowrap;
     padding:0;
+    margin-top:1em;
   }
   .booking-box {
     position: static;
@@ -1619,5 +1619,17 @@ footer{
   }
   .cost-show{
     width:45%
+  }
+  #nearby-show {
+    margin-bottom: 0;
+  }
+  .name-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .review-number-logged-in {
+    margin-bottom: 0em;
   }
 }
