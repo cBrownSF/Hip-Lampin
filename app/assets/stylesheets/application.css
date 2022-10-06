@@ -1589,3 +1589,20 @@ footer{
 #listing-nav,#listing-nav-2{
   margin-left:0;
 }
+
+@media (max-width:750px) {
+  .photo-container{
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+    .show-images {
+      height: 40vh;
+      width:80%;
+      margin-bottom: 1em;
+      margin-top:1em
+    }
+}
