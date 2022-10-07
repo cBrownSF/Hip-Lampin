@@ -128,6 +128,7 @@ render() {
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   const listingId = this.props.match.params.listingId
+  console.log(window.innerWidth)
   return(
     <div className='main-div-show'>
      <div className="photo-container">
@@ -149,6 +150,9 @@ render() {
             <p className={this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? "review-number-logged-in":''}
               >{reviewIdArray.length ? `${this.percentRecommend()} % Recommended` : 'No reviews yet'}</p>
       </div>
+        <div className="line-break">
+          <hr id="solid" />
+        </div>
         <div className="booking-box">
           <ReservationForm
             formType='create'
@@ -163,9 +167,7 @@ render() {
             minNight={listing.minimum_night}
           />
         </div>
-      <div className="line-break">
-        <hr id="solid" />
-      </div>
+      
 
         <p id="link-location">{isHost(descript)}</p>
       <div className= 'descript-show'>
