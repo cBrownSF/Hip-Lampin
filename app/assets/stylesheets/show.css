@@ -238,6 +238,7 @@ color: grey;
 .review-index-item-array-show-div{
   display:flex;
   flex-direction:column;
+  
   width:70%;
 }
 
@@ -543,7 +544,8 @@ font-size: 2.4rem;
  .review-form-listing-show-div-not-sign-in{
    display:flex;
    justify-content: center;
-   width:70%
+   width:70%;
+   margin-top:1em;
  }
 
  .green-sign-up-button{
@@ -603,7 +605,8 @@ width:55%;
 overflow-wrap: break-word;
 }
 .review-index-item-array-show{
-  width:70%
+  width:70%;
+  margin-top: 1em;
 }
 .review-line-break{
   color: black;
