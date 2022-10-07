@@ -1439,6 +1439,12 @@ footer{
     max-width:90%;
     overflow-wrap:break-word;
   }
+  .name-show {
+    width: auto;
+  }
+  .show-container #show-delete-button {
+    margin-bottom: 0.5em
+  }
   .photo-container {
     flex-direction: column;
     justify-content: center;

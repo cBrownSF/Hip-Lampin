@@ -141,7 +141,8 @@ color: grey;
  }
  .name-show{
    display:flex;
-   flex-direction: column
+   flex-direction: column;
+   width:70%;
  }
  .recommended-show{
    display:flex;
