@@ -1435,6 +1435,10 @@ footer{
     }
 }
 @media (max-width:750px) {
+  .listing-title {
+    max-width:90%;
+    overflow-wrap:break-word;
+  }
   .photo-container {
     flex-direction: column;
     justify-content: center;
@@ -1503,7 +1507,7 @@ footer{
   }
 
   .description {
-    width: auto;
+    width: 80%;
   }
 
   .box-show-page {
