@@ -1579,6 +1579,11 @@ footer{
   .review-body-input {
     width:90%;
   }
+  .review-index-item-array-show{
+    margin-left: 2em;
+    margin-right: 2em;
+    width:auto;
+  }
 }
 @media (max-width:376px) {
   .photo-and-name{
