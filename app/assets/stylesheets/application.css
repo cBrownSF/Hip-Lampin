@@ -1277,6 +1277,12 @@ footer{
   .nav-li {
     margin: .5em 0;
   }
+  .listing-title {
+    font-size:50px;
+  }
+  #activities-show,.show-images{
+    width:90%;
+  }
   .small-search-wrapper-home-boxes {
     width: 10em;
   }
@@ -1415,15 +1421,17 @@ footer{
       display: flex;
       justify-content: space-between;
     }
-    .name-box #name-title{
-      /* margin-bottom:0; */
+    #activities-show{
+      width: 90%;
     }
 }
 @media (max-width:376px) {
   .photo-and-name{
     flex-direction: column;
   }
-
+.listing-title {
+  font-size: 40px;
+}
     .name-box #description-text-area {
       height: 80px;
       width: 80%
@@ -1583,9 +1591,7 @@ footer{
   /* padding-right:1em; */
 }
 
-@media (max-width: 650px) {
-  /* This is for the page wit da listing */
-}
+
 #listing-nav,#listing-nav-2{
   margin-left:0;
 }
@@ -1595,7 +1601,7 @@ footer{
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1617,9 +1623,7 @@ footer{
     margin-left: 0;
     margin-right:0;
   }
-  .cost-show{
-    width:45%
-  }
+ 
   #nearby-show {
     margin-bottom: 0;
   }
@@ -1637,22 +1641,21 @@ footer{
   }
     .descript-show {
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-evenly;
       margin: 0;
-      width:100%
+      width:100%;
+      margin-top:1em;
+      flex-wrap:wrap;
     }
     .show-prof-img {
-      margin-right: 2em;
       width: 200px;
       height: 200px;
     }
     .host-div {
-      margin-right: 2em;
       margin-left: 0
     }
     .description {
       width: auto;
-      margin-right: 2em;
     }
 
     .box-show-page{
@@ -1708,5 +1711,8 @@ footer{
     .review-form-listing-show-div-not-sign-in {
         width: auto;
         margin-top: 1em;
+    }
+    .review-index-item-show{
+      width:auto;
     }
 }
