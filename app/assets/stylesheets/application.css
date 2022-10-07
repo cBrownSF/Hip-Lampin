@@ -1193,6 +1193,7 @@ color:white
   padding-left: 0;
   justify-content: space-around;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 .content {
   min-height: calc(100vh - 70px);
@@ -1277,7 +1278,7 @@ footer{
   }
   ::-webkit-input-placeholder {
     color:transparent;
-    opacity:0;
+    /* opacity:0; */
   }
     .map-container {
       justify-content: center
@@ -1571,10 +1572,16 @@ footer{
   .review-index-item-show {
     width: auto;
   }
+  .review-body-input {
+    width:90%;
+  }
 }
 @media (max-width:376px) {
   .photo-and-name{
     flex-direction: column;
+  }
+  .list-show-page {
+    padding-left:1em;
   }
     .flex-act-div {
       margin-left: 0;
@@ -1584,7 +1591,17 @@ footer{
   }
 .listing-title {
   font-size: 40px;
+  overflow-wrap: break-word;
+  max-width: 90%;
 }
+.div-check-in-out{
+  flex-direction: column;
+}
+.check-out {
+  border-top:1px solid lightgrey;
+  border-left:none;
+}
+
     .name-box #description-text-area {
       height: 80px;
       width: 80%
