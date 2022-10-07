@@ -1654,18 +1654,52 @@ footer{
       width: auto;
       margin-right: 2em;
     }
+
     .box-show-page{
       flex-direction:column;
       width:auto;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
     }
+
     #headers{
       font-size:2.2rem;
       margin-bottom:0;
+    }
+    #activities-show { 
+      width:80%;
     }
     .flex-act-div{
       padding: 2em;
       padding-top: 1em;
       font-size:1.3rem;
       }
-    
+
+    .detail-header {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0.2em;
+    }
+    .details-show{
+      display: flex;
+      flex-direction: column;
+      width:auto;
+    }
+    #solid {
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+    }
+    /* MAKE SURE THAT THE MAP DOESNT EXIST ANY */
+    .show-map-prop{
+      width: 80%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .location {
+      margin-left: 0;
+      font-size: 0;
+    }
 }
