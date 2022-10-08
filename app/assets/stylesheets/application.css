@@ -1471,8 +1471,8 @@ footer{
     position: static;
     margin-top: 1em;
     justify-content: center;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #nearby-show {
@@ -1782,3 +1782,15 @@ footer{
 #listing-nav,#listing-nav-2{
   margin-left:0;
 }
+
+/* 
+booking-box on usual size
+max-width: 250px; perhaps 230px
+align-self: flex-end
+^get rid of margin 70% eh probs not messes it all up
+booking-box on 750
+max-width: 250px;
+margin-left: auto;
+margin-right: auto;
+
+*/

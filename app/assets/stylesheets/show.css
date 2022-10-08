@@ -161,13 +161,15 @@ color: grey;
   
  }
  .booking-box{
-        position: sticky;
+    position: sticky;
     top: 0;
     background-color: transparent;
-    margin-top: -255px;
+    margin-top: -18em;
+    margin-bottom: 2em;
     display: flex;
     justify-content: flex-end;
     margin-left: 70%;
+    max-width:240px;
  }
  .check-in{
    display:flex;

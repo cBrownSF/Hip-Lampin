@@ -150,9 +150,7 @@ render() {
             <p className={this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id ? "review-number-logged-in":''}
               >{reviewIdArray.length ? `${this.percentRecommend()} % Recommended` : 'No reviews yet'}</p>
       </div>
-        <div className="line-break">
-          <hr id="solid" />
-        </div>
+        
         <div className="booking-box">
           <ReservationForm
             formType='create'
@@ -167,10 +165,13 @@ render() {
             minNight={listing.minimum_night}
           />
         </div>
-      
+        <div className="line-break">
+          <hr id="solid" />
+        </div>
 
-        <p id="link-location">{isHost(descript)}</p>
+        
       <div className= 'descript-show'>
+        <p id="link-location">{isHost(descript)}</p>
         <img className="show-prof-img" src={this.state.photoURL}/>   
         <div className='host-div'>
         <span className="host-by"> Hosted by</span>
