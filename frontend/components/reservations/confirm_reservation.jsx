@@ -3,7 +3,9 @@ import { hashHistory } from "react-router";
 import { withRouter } from "react-router";
 class ConfirmReservation extends React.Component {
   constructor(props) {
+    debugger;
     super(props);
+    console.log(props)
     let dets=props.info
     
     this.state={
@@ -28,13 +30,9 @@ handleSubmit(e){
     history.push(`/profile/${this.state.guest_id}`)
     this.props.closeModal()
   } else {
-    debugger;
     this.props.createReservation(this.state)
     .then(()=>{
-      debugger;
-      console.log(history);
-      console.log(History,' caps');
-      history.push(`/profile/${this.state.guest_id}`)})
+      this.props.history.push(`/profile/${this.state.guest_id}`)})
     .then(()=>{
       this.props.closeModal()
     })

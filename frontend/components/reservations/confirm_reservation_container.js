@@ -6,10 +6,12 @@ import ConfirmReservation from "./confirm_reservation";
 import { withRouter } from 'react-router';
 
 const mSTP = (state,ownProps) => {
+  
   return {
     errors: state.errors.reservation,
     info:state.entities.reservations.reservationInfo,
-    location:ownProps.location
+    location:ownProps.location,
+    history:ownProps.history
   }
 }
 
