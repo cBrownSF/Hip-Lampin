@@ -68,7 +68,6 @@ export const receiveListing = id => dispatch =>{
 export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdListing => {
-    
     dispatch(receiveOneListing(createdListing))
     hashHistory.push(`/listings/${Object.values(createdListing)[0].id}`)
    
@@ -91,7 +90,10 @@ export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
       dispatch(receiveOneListing(listing))
-      hashHistory.push(`/listings/${Object.values(listing)[0].id}`)
+      // history.push(`/listings/${Object.values(listing)[0].id}`)
+    })
+    .then(listing=> {
+      console.log(listing)
     })
 }
 

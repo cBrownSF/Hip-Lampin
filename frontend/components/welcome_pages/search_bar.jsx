@@ -1,6 +1,6 @@
 import React from "react";
 import { Link} from "react-router-dom";
-import { withRouter,hashHistory } from "react-router";
+import { withRouter} from "react-router";
 class SearchBar extends React.Component {
   constructor(props){
     super(props)
@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
     this.navigate = this.navigateToListings.bind(this)
 }
   
-componentDidUpdate(prevProps,prevState) {
+componentDidUpdate(prevProps) {
   if (this.props.bounds && !prevProps.bounds || prevProps.bounds !== this.props.bounds){
     return this.setState({
       lat: null,

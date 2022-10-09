@@ -1,6 +1,5 @@
 import React from "react";
 import ReservationForm from "./create_reservation";
-import { hashHistory } from "react-router";
 class ReservationShow extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ class ReservationShow extends React.Component {
     const {deleteReservation,currentUser}=this.props
     e.preventDefault()
     deleteReservation(this.state.id).then(()=>{
-      hashHistory.push(`/profile/${currentUser.id}`)
+      this.props.history.push(`/profile/${currentUser.id}`)
     })
   }
  componentDidMount(){

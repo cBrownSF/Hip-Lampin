@@ -2,12 +2,13 @@ import {connect} from 'react-redux';
 import {createListing,removeListingErrors} from "../../actions/listings_actions";
 import ListingForm from './listing_form';
 import { withRouter } from 'react-router';
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,ownProps) => {
   return {
     errors: state.errors.listing,
     currentUser: state.entities.users[state.sessions.currentUser],
     listing: '',
-    formType: 'create'
+    formType: 'create',
+    history: ownProps.history
   }
 }
 

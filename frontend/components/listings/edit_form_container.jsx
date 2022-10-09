@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
     errors: state.errors.listing,
     currentUser: state.entities.users[state.sessions.currentUser],
     formType: 'edit',
-    listing: state.entities.listings[ownProps.match.params.listingId]
+    listing: state.entities.listings[ownProps.match.params.listingId],
+    history: ownProps.history
   }
 }
 

@@ -9,7 +9,8 @@ const mapStateToProps = (state,ownProps) => {
   return {
     formatDate: ownProps.location.state,
     reservation: state.entities.users[state.sessions.currentUser].reservations[ownProps.match.params.reserveId],
-    currentUser: state.entities.users[state.sessions.currentUser]
+    currentUser: state.entities.users[state.sessions.currentUser],
+    history: ownProps.history
   }
 }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { hashHistory } from "react-router";
 import { withRouter } from "react-router";
 class ConfirmReservation extends React.Component {
   constructor(props) {

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { hashHistory } from "react-router"
 import NameForm from './naming_form'
 import DescriptionForm from './description_form'
 import CostForm from './cost'
@@ -15,8 +14,8 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props)
     if (!this.props.listing && this.props.formType === 'edit') {
-      hashHistory.push(`listings/${props.match.params.listingId}`)
-      return undefined;
+      props.history.goBack()
+      return;
     }
     const listing = this.props.listing
     this.state = {
@@ -122,6 +121,12 @@ class ListingForm extends React.Component {
       }
     }
     this.props.submitEvent(formData)
+    
+    this.props.history.push()
+    // .then(()=> {
+    //   this.props.history.push(this.props.location.pathname)
+    //   debugger;
+    // })
   }
 
   letterCount() {
