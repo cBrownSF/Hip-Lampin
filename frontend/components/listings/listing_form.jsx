@@ -120,13 +120,9 @@ class ListingForm extends React.Component {
         }
       }
     }
+    const {history, formType} = this.props
     this.props.submitEvent(formData)
-    
-    this.props.history.push()
-    // .then(()=> {
-    //   this.props.history.push(this.props.location.pathname)
-    //   debugger;
-    // })
+    formType === 'edit' ? history.goBack() : history.push('');
   }
 
   letterCount() {

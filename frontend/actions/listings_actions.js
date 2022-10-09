@@ -1,5 +1,4 @@
 import * as ListingAPIUtil from '../util/listing_api_util'
-import { hashHistory } from 'react-router';
 export const RECEIVE_ALL_LISTINGS = 'RECEIVE_ALL_LISTINGS'
 export const RECEIVE_LISTING = 'RECEIVE_LISTING'
 export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS'
@@ -41,15 +40,14 @@ export const removeReviewErrors = () => ({
   type: REMOVE_REVIEW_ERRORS
 })
 
- const receiveReviewErrors = errors => {
-return{
-  type: RECEIVE_REVIEW_ERRORS,
-  errors
-}
+export const receiveReviewErrors = errors => {
+  return {
+    type: RECEIVE_REVIEW_ERRORS,
+    errors
+  }
 }
 
 export const receiveOneReview = ({review,author})=> ({
-  
   type: RECEIVE_REVIEW,
   review,
   author
@@ -68,9 +66,7 @@ export const receiveListing = id => dispatch =>{
 export const createListing = listing => (dispatch) =>{
   return ListingAPIUtil.createListing(listing)
   .then(createdListing => {
-    dispatch(receiveOneListing(createdListing))
-    hashHistory.push(`/listings/${Object.values(createdListing)[0].id}`)
-   
+    dispatch(receiveOneListing(createdListing));   
   }),
   (errors) => dispatch(receiveListingErrors(errors.responseJSON))
 }
@@ -89,12 +85,8 @@ export const updateReview = review => (dispatch) => {
 export const updateListing = listing => (dispatch) =>{
   return ListingAPIUtil.updateListing(listing)
     .then(listing => {
-      dispatch(receiveOneListing(listing))
-      // history.push(`/listings/${Object.values(listing)[0].id}`)
-    })
-    .then(listing=> {
-      console.log(listing)
-    })
+      dispatch(receiveOneListing(listing));
+  })
 }
 
 export const deleteListing = listingId => dispatch =>{
@@ -103,9 +95,6 @@ export const deleteListing = listingId => dispatch =>{
     dispatch(removeListing(listingId))
   })
 }
-
-
-
 
 export const deleteReview = reviewId=> (dispatch)=>{
   return ListingAPIUtil.deleteReview(reviewId)

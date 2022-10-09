@@ -57,7 +57,7 @@ class ListingShow extends React.Component {
     if (this.props.currentUser.id === this.props.listing.host_id){
       this.props.deleteListing(this.props.listing.id)
       .then(()=>{
-       this.props.history.push('/')
+        this.props.history.push('/')
       })
     }else{
       return ''
