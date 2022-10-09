@@ -128,7 +128,6 @@ render() {
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   const listingId = this.props.match.params.listingId
-  console.log(window.innerWidth)
   return(
     <div className='main-div-show'>
      <div className="photo-container">
