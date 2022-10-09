@@ -24,11 +24,18 @@ handleSubmit(e){
 
   if (location && location.pathname.includes('reservations')) {
     let updateObject = Object.assign({}, this.state, { id: reserveId })
-    this.props.updateReservation(updateObject)
-    hashHistory.push(`/profile/${this.state.guest_id}`)
+    this.props.updateReservation(updateObject);
+    history.push(`/profile/${this.state.guest_id}`)
     this.props.closeModal()
   } else {
-    this.props.createReservation(this.state).then(hashHistory.push(`/profile/${this.state.guest_id}`)).then(()=>{
+    debugger;
+    this.props.createReservation(this.state)
+    .then(()=>{
+      debugger;
+      console.log(history);
+      console.log(History,' caps');
+      history.push(`/profile/${this.state.guest_id}`)})
+    .then(()=>{
       this.props.closeModal()
     })
   }

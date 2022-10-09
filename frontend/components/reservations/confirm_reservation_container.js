@@ -3,6 +3,8 @@ import { closeModal } from "../../actions/modal_actions";
 import {  createReservation, updateReservation,removeReservationErrors } from "../../actions/reservation_actions";
 import { clearListings } from "../../actions/filter_actions";
 import ConfirmReservation from "./confirm_reservation";
+import { withRouter } from 'react-router';
+
 const mSTP = (state,ownProps) => {
   return {
     errors: state.errors.reservation,
@@ -19,4 +21,4 @@ const mDTP = dispatch => ({
   clearListings: () => dispatch(clearListings())
 })
 
-export default connect(mSTP, mDTP)(ConfirmReservation)
+export default withRouter(connect(mSTP, mDTP)(ConfirmReservation))
