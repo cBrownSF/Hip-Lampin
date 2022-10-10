@@ -4,6 +4,7 @@ import CreateMap from './newmap';
 import CreateReviewContainer from '../reviews/review_container'
 import ReviewIndexItem from '../reviews/review_index_item_container'
 import ReservationForm from '../reservations/create_reservation';
+import Slider from '../search/slider';
 class ListingShow extends React.Component {
   constructor(props){
     super(props)
@@ -12,10 +13,12 @@ class ListingShow extends React.Component {
       hostFname:null,
       hostLname:null || '',
       photoURL:null,
+      windowWidth: window.innerWidth
     }
     this.addToCount=this.addToCount.bind(this)
     this.subtractCount=this.subtractCount.bind(this)
     this.onProfileClick=this.onProfileClick.bind(this)
+    this.handleResize = this.handleResize.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId).then((listing)=>{
@@ -27,15 +30,17 @@ class ListingShow extends React.Component {
         })
       })
     })
+    window.addEventListener('resize', this.handleResize);
     window.scrollTo(0, 0);
   }
   
-  componentDidUpdate(prevState,nextState) {
-    if (prevState !== nextState){
-    }
+  
+  handleResize(e) {
+    this.setState({windowWidth: window.innerWidth});
   }
   componentWillUnmount(){
     this.props.clearReviews()
+    window.removeEventListener('resize', this.handleResize);
   }
   addToCount(){
     return this.setState((prevState)=>({
@@ -117,24 +122,29 @@ render() {
     pathname: `/listings/${this.props.listing.id}/edit`,
     state: 9
   }
-  const isHost= (link)=>{
+  const isHost= (link)=> {
     if (this.props.currentUser && this.props.currentUser.id === this.props.listing.host_id) {
-    return <span id="link-location"><Link id='show-link' to={link}>Edit</Link></span>
-  } else {
-    return <span> </span>
-  }
+        return <span id="link-location"><Link id='show-link' to={link}>Edit</Link></span>
+    } else {
+      return <span> </span>
+    }
 }
 
   const reviews=this.props.reviews
   const reviewIdArray=this.props.listing.reviewIds
   const listingId = this.props.match.params.listingId
+  console.log(window.innerWidth)
   return(
     <div className='main-div-show'>
+     {this.state.windowWidth > 750 ?(
      <div className="photo-container">
         <img className="show-images"src={listing.photos[0]} width="400" height = '200' alt="coverphoto" />
         <img className="show-images"src={listing.photos[1]} width="400" height = '200' alt="coverphoto2" />
         <img className="show-images"src={listing.photos[2]} width="400" height = '200' alt="coverphoto3" />
       </div>
+     ) :(
+      <Slider photos = {listing.photos} page = "show"/>
+     )}
     <div className='show-container'>
       
     

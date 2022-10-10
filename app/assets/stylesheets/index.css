@@ -53,14 +53,14 @@
     margin:5%;
     display: flex;
     flex-direction: column;
-   box-shadow:0 2px 5px rgba(0, 0, 0, 10%);
-      border-radius:10px;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 10%);
+    border-radius:10px;
  }
- .index-photo{
+ .index-photo-index {
    width:100%;
    border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    object-fit:cover
+    object-fit:cover;
  }
  .listing-map-index-page{
    box-shadow:0 2px 5px rgba(0, 0, 0, 10%);
@@ -108,13 +108,13 @@
   .carousel-button:hover{
     transform: scale(1.8);
   }
- .buttons-class{
+ .buttons-class-index{
    display:flex;
     justify-content: space-between;
     margin-right: 5px;
     margin-left: 5px;
     margin-bottom: 0px;
-        transform: translateY(-650%);
+    transform: translateY(-650%);
 
  }
 .slide {

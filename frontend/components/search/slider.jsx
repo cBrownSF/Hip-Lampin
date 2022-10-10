@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-export default function Slider({photos}) {
+export default function Slider({ photos, page }) {
  
 
   const [slide,setSlide] = useState(1);
@@ -20,10 +20,10 @@ export default function Slider({photos}) {
   }
 
   return (
-    <div className="slider-container">
+    <div className={`slider-container-${page}`}>
       <div className='slider-div'>
-        <img className="index-photo" src={photos[slide - 1]} height="200px" width="200px" />
-        <div className="buttons-class">
+        <img className ={`index-photo-${page}`} src={photos[slide - 1]} height="200px" width="200px" />
+        <div className={`buttons-class-${page}`}>
           {slide !== 1 ? (
           <button className="carousel-button" onClick={() => prevImage()}>
             <i class="fas fa-chevron-left" style={{ color: 'white' }}></i>

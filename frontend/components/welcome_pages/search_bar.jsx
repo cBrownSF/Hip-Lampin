@@ -62,25 +62,6 @@ handleSubmit(e) {
     .then((res)=>{
       this.navigateToListings()
     })
-    
-    
-    // .then((res) => {
-    //   console.log(res)
-    //   return (this.props.history.replace({
-    //     pathname: '/listings',
-    //     state: {
-    //       lng: this.state.lng,
-    //       lat: this.state.lat,
-    //       type: this.state.type
-    //     }
-    // })
-    // )}).then(this.setState({
-    //       lat: null,
-    //       lng: null,
-    //       type: null,
-    //       address: '',
-    //       clean: false
-    // }))
 }
 navigateToListings() {
   const {history} = this.props
