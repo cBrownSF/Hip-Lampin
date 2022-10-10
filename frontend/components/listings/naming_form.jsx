@@ -4,6 +4,7 @@ const NameForm = (props) => {
  if (props.currentPage !== 1){
    return null
  }
+
   const letterCount = () => {
     let charLeft = (10 - props.name.length);
     return charLeft <= 0 ? <div className='hidden'>no more characters required </div> : <div>{charLeft} more characters needed</div> ;
@@ -22,7 +23,7 @@ const NameForm = (props) => {
           />
           <div>
             <div id='required'>{letterCount()}</div>
-         </div>
+          </div>
           <p id='tips'>TIPS FOR NAMING YOUR LISTING</p>
           <ul id='tips-list'>
             <li>Keep it short! 3-5 words are recommended</li>
@@ -36,6 +37,6 @@ const NameForm = (props) => {
       <button type="button" className='next-button-single' onClick={props.nextPage}>Next</button>
         </div>
       </div>
-      )
-    }
+  )
+}
    export default NameForm

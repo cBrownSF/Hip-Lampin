@@ -229,16 +229,15 @@ class ListingForm extends React.Component {
           step: step + 2
         })
       )
-  }else{
+  }else {
     return (
       this.setState({
         step: step + 1
-      })
-    )
-    }
+        })
+      )
+   }
   }
   nextStepPhoto(e) {
-  
     e.preventDefault()
     let step = this.state.step
     if (this.state.photoFile.length>=3){
