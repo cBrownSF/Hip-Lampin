@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
-import ListingIndexItem from "./listing_index_item";
+// import ListingIndexItem from "./listing_index_item";
+import ListingIndexItem from "./listing_index_item_func";
 const ListingIndex = (props) => {
   useEffect(()=>{
     window.scrollTo(0,0)
