@@ -105,8 +105,8 @@
   top: 50%;
   opacity: 0;
  }
-  .carousel-button:hover{
-    transform: scale(1.5);
+  .carousel-button:hover {
+  transform: scale(1.4);
   }
  .buttons-class-index{
    display:flex;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-export default function Slider({ photos, page }) {
+export default function Slider({ photos, page = 'index' }) {
  
 
   const [slide,setSlide] = useState(1);

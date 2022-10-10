@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import ReservationIndexItem from '../reservations/reservation_index_item';
-import ListingIndexItem from '../search/listing_index_item';
-
+import ListingIndexItem from '../search/listing_index_item_func';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
