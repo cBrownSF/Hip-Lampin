@@ -1591,9 +1591,9 @@ footer{
     margin-top: 1em;
     width:auto;
   }
-    .review-index-item-array-show-div{
-      width:auto;
-    }
+  .review-index-item-array-show-div{
+    width:auto;
+  }
 }
 @media (max-width:376px) {
   .photo-and-name{
@@ -1783,14 +1783,3 @@ footer{
   margin-left:0;
 }
 
-/* 
-booking-box on usual size
-max-width: 250px; perhaps 230px
-align-self: flex-end
-^get rid of margin 70% eh probs not messes it all up
-booking-box on 750
-max-width: 250px;
-margin-left: auto;
-margin-right: auto;
-
-*/
