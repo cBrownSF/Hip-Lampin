@@ -1245,13 +1245,16 @@ footer{
     padding-bottom:.5em;
   }
   .home-page-link-div{
-    flex-direction: column;
     margin-left:10%;
     margin-right:10%
   }
   .home-page-link-photos{
     margin-left:0;
     margin-top:2em;
+    width:50%
+  }
+  .home-page-link-photo-left{
+      width:50%
   }
   .main-photo-div {
     margin-left: 10%;
@@ -1275,6 +1278,19 @@ footer{
   .nav-li {
     margin: .5em 0;
   }
+    .home-page-link-div {
+      flex-direction:column;
+    }
+  
+    .home-page-link-photos {
+      margin-left: 0;
+      margin-top: 2em;
+      width: 100%
+    }
+  
+    .home-page-link-photo-left {
+      width: 100%
+    }
   ::-webkit-input-placeholder {
     color:transparent;
     /* opacity:0; */
