@@ -40,21 +40,27 @@ class HomePage extends React.Component {
           <img className ="img-main" src="https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/beufort-harbor.jpeg" alt="Beaufort Harbor" />
       </div>
       <div className='home-page-link-div' >
+        
           <div className="home-page-link-photo-left">
+            <Link className="link-yos-carolina" to={southCarolinaProps}>
+
             <div className ='div-image'>
               <img className= "img-home-page" src = "https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/rhett-house+copy.jpg" alt= 'Beaufort'></img>
             </div>
             <div className='card-cover'>
-              <Link className="link-yos-carolina" to={southCarolinaProps}><p className="font-main-page-photo">Carolina Hideaways</p></Link>
+              <p className="font-main-page-photo">Carolina Hideaways</p>
             </div>
+            </Link>
           </div>
           <div className="home-page-link-photos">
+            <Link className="link-yos-carolina"to={yosemiteProps}>
             <div className ='div-image'>
               <img className = 'img-home-page' src="https://hip-lamping-cover-photos.s3.us-west-1.amazonaws.com/IMG_2155.jpg" alt="Montara" />
             </div>
             <div className='card-cover-right'>
-              <Link className="link-yos-carolina"to={yosemiteProps}><p className="font-main-page-photo">Montara Getaways</p></Link>
+              <p className="font-main-page-photo">Montara Getaways</p>
             </div>
+            </Link>
           </div>
       </div>
         </section>

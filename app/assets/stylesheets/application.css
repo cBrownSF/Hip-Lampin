@@ -959,24 +959,22 @@ font-weight: 500;
 .div-image {
       height: 45vh;
 }
-.card-cover{
-  height:30%;
-  display:flex;
-  font-size:25px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color:rgb(112, 77, 98)
-}
-.card-cover-right{
-  height:30%;
+
+.card-cover-right,.card-cover{
   display:flex;
   color:white;
   font-family:inherit;
-    font-size:25px;
-
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-background-color:rgb(143, 136, 70);
+  padding-bottom:20px;
+  padding-top:20px;
+  font-size:1.8rem;
+}
+.card-cover-right{
+  background-color: rgb(143, 136, 70);
+}
+.card-cover{
+  background-color: rgb(112, 77, 98)
 }
 .photo-inside-div-home{
   height:70%;
@@ -1067,7 +1065,8 @@ font-family: inherit;
 }
 
 .font-main-page-photo{
-padding:10px;
+padding:0 0 0 10px;
+margin:0;
 color:white
 }
 .check-in-out-item{
