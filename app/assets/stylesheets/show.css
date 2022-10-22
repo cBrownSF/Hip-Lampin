@@ -170,6 +170,7 @@ color: grey;
     justify-content: flex-end;
     margin-left: 70%;
     max-width:240px;
+    z-index:4;
  }
  .check-in{
    display:flex;
